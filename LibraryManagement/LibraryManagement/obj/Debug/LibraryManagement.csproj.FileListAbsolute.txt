@@ -1,0 +1,11 @@
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe.config
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Form1.resources
+D:\HQTCSDL\BtChuong\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.formDashboard.resources
