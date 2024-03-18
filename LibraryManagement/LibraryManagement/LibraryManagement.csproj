@@ -48,40 +48,94 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="formDashboard.cs">
+    <Compile Include="GUI\fAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formDashboard.Designer.cs">
-      <DependentUpon>formDashboard.cs</DependentUpon>
+    <Compile Include="GUI\fAccount.Designer.cs">
+      <DependentUpon>fAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="GUI\fBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\fBook.Designer.cs">
+      <DependentUpon>fBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="mdiProperties.cs" />
+    <Compile Include="GUI\fCoupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fCoupon.Designer.cs">
+      <DependentUpon>fCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fHome.Designer.cs">
+      <DependentUpon>fHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fReader.Designer.cs">
+      <DependentUpon>fReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fSignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fSignup.Designer.cs">
+      <DependentUpon>fSignup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fStatistic.Designer.cs">
+      <DependentUpon>fStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="formDashboard.resx">
-      <DependentUpon>formDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\fAccount.resx">
+      <DependentUpon>fAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\fBook.resx">
+      <DependentUpon>fBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fCoupon.resx">
+      <DependentUpon>fCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fHome.resx">
+      <DependentUpon>fHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fReader.resx">
+      <DependentUpon>fReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fSignup.resx">
+      <DependentUpon>fSignup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fStatistic.resx">
+      <DependentUpon>fStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -90,6 +144,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\hcmute.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

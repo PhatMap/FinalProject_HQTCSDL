@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagement
+namespace LibraryManagement.GUI
 {
-    public partial class formDashboard : Form
+    public partial class fReader : Form
     {
-        public formDashboard()
+        public fReader()
         {
             InitializeComponent();
-        }
-
-        private void formDashboard_Load(object sender, EventArgs e)
-        {
-            this.ControlBox = false;
         }
     }
 }
