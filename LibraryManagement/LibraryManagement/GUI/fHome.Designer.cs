@@ -224,6 +224,7 @@
             this.Name = "fHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fHome";
+            this.Load += new System.EventHandler(this.fHome_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

@@ -62,5 +62,10 @@ namespace LibraryManagement.GUI
         {
 
         }
+
+        private void fHome_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
