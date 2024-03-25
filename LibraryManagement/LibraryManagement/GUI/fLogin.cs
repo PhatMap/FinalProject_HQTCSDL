@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibraryManagement.DAO;
+using LibraryManagement.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,10 +34,26 @@ namespace LibraryManagement.GUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fHome f = new fHome();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string userName = inpUserName.Text;
+            string passWord = inpPassWord.Text;
+
+            if (Login(userName = "admin", passWord = "aaaaaaaa"))
+            {
+                TaiKhoan loginAccount = TaiKhoanDAO.Instance.GetAccountProfile(userName);
+                Session.loginAccount = loginAccount;
+                fHome f = new fHome();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
+            }
+        }
+        bool Login(string userName, string passWord)
+        {
+            return TaiKhoanDAO.Instance.Login(userName, passWord);
         }
 
         private void lbSignup_Click(object sender, EventArgs e)
