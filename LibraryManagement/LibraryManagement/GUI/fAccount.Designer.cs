@@ -30,7 +30,7 @@
         {
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.lbEmail = new System.Windows.Forms.Label();
@@ -55,23 +55,33 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvAccount = new System.Windows.Forms.DataGridView();
+            this.MaTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.dtpAccNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.inpAccName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.inpAccPass = new System.Windows.Forms.TextBox();
+            this.btnDeleteAcc = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnFindAcc = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnFixAcc = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.btnAddAcc = new System.Windows.Forms.Button();
+            this.cbAccPosition = new System.Windows.Forms.ComboBox();
+            this.inpAccId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.inpAccEmail = new System.Windows.Forms.TextBox();
+            this.inpAccAddress = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage1.SuspendLayout();
@@ -102,7 +112,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.btnChangePassword);
             this.panel2.Controls.Add(this.btnUpdateProfile);
             this.panel2.Controls.Add(this.panel12);
             this.panel2.Controls.Add(this.label4);
@@ -111,17 +121,18 @@
             this.panel2.Size = new System.Drawing.Size(462, 514);
             this.panel2.TabIndex = 4;
             // 
-            // button6
+            // btnChangePassword
             // 
-            this.button6.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(258, 452);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(202, 60);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Đổi mật khẩu";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnChangePassword.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnChangePassword.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePassword.Location = new System.Drawing.Point(258, 452);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(202, 60);
+            this.btnChangePassword.TabIndex = 8;
+            this.btnChangePassword.Text = "Đổi mật khẩu";
+            this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // btnUpdateProfile
             // 
@@ -340,7 +351,7 @@
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 35);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -353,6 +364,7 @@
             this.panel5.Controls.Add(this.dgvAccount);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(953, 544);
@@ -360,173 +372,260 @@
             // 
             // dgvAccount
             // 
+            this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaTaiKhoan,
+            this.TenTaiKhoan,
+            this.MatKhau,
+            this.DiaChi,
+            this.Email,
+            this.NgaySinh,
+            this.TenChucVu,
+            this.GioiTinh});
             this.dgvAccount.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvAccount.Location = new System.Drawing.Point(0, 169);
+            this.dgvAccount.Location = new System.Drawing.Point(0, 137);
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.RowHeadersWidth = 51;
             this.dgvAccount.RowTemplate.Height = 24;
-            this.dgvAccount.Size = new System.Drawing.Size(953, 375);
+            this.dgvAccount.Size = new System.Drawing.Size(953, 407);
             this.dgvAccount.TabIndex = 3;
+            // 
+            // MaTaiKhoan
+            // 
+            this.MaTaiKhoan.DataPropertyName = "MaTaiKhoan";
+            this.MaTaiKhoan.HeaderText = "Mã tài khoản";
+            this.MaTaiKhoan.MinimumWidth = 6;
+            this.MaTaiKhoan.Name = "MaTaiKhoan";
+            // 
+            // TenTaiKhoan
+            // 
+            this.TenTaiKhoan.DataPropertyName = "TenTaiKhoan";
+            this.TenTaiKhoan.HeaderText = "Tên tài khoản";
+            this.TenTaiKhoan.MinimumWidth = 6;
+            this.TenTaiKhoan.Name = "TenTaiKhoan";
+            // 
+            // MatKhau
+            // 
+            this.MatKhau.DataPropertyName = "MatKhau";
+            this.MatKhau.HeaderText = "Mật Khẩu";
+            this.MatKhau.MinimumWidth = 6;
+            this.MatKhau.Name = "MatKhau";
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.DataPropertyName = "DiaChi";
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.MinimumWidth = 6;
+            this.NgaySinh.Name = "NgaySinh";
+            // 
+            // TenChucVu
+            // 
+            this.TenChucVu.DataPropertyName = "TenChucVu";
+            this.TenChucVu.HeaderText = "Chức vụ";
+            this.TenChucVu.MinimumWidth = 6;
+            this.TenChucVu.Name = "TenChucVu";
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.DataPropertyName = "GioiTinh";
+            this.GioiTinh.HeaderText = "Giới tính";
+            this.GioiTinh.MinimumWidth = 6;
+            this.GioiTinh.Name = "GioiTinh";
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.textBox2);
+            this.panel8.Controls.Add(this.dtpAccNgaySinh);
+            this.panel8.Controls.Add(this.label3);
+            this.panel8.Controls.Add(this.inpAccName);
             this.panel8.Controls.Add(this.label8);
-            this.panel8.Controls.Add(this.textBox1);
-            this.panel8.Controls.Add(this.button2);
+            this.panel8.Controls.Add(this.inpAccPass);
+            this.panel8.Controls.Add(this.btnDeleteAcc);
             this.panel8.Controls.Add(this.label7);
-            this.panel8.Controls.Add(this.button4);
+            this.panel8.Controls.Add(this.btnFindAcc);
             this.panel8.Controls.Add(this.label11);
-            this.panel8.Controls.Add(this.button3);
+            this.panel8.Controls.Add(this.btnFixAcc);
             this.panel8.Controls.Add(this.label12);
             this.panel8.Controls.Add(this.label10);
-            this.panel8.Controls.Add(this.button1);
-            this.panel8.Controls.Add(this.comboBox1);
-            this.panel8.Controls.Add(this.textBox5);
+            this.panel8.Controls.Add(this.btnAddAcc);
+            this.panel8.Controls.Add(this.cbAccPosition);
+            this.panel8.Controls.Add(this.inpAccId);
             this.panel8.Controls.Add(this.label9);
-            this.panel8.Controls.Add(this.textBox4);
-            this.panel8.Controls.Add(this.textBox3);
+            this.panel8.Controls.Add(this.inpAccEmail);
+            this.panel8.Controls.Add(this.inpAccAddress);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel8.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(953, 169);
+            this.panel8.Size = new System.Drawing.Size(953, 141);
             this.panel8.TabIndex = 2;
             // 
-            // textBox2
+            // dtpAccNgaySinh
             // 
-            this.textBox2.Location = new System.Drawing.Point(177, 9);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(330, 32);
-            this.textBox2.TabIndex = 1;
+            this.dtpAccNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dtpAccNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpAccNgaySinh.Location = new System.Drawing.Point(114, 98);
+            this.dtpAccNgaySinh.Name = "dtpAccNgaySinh";
+            this.dtpAccNgaySinh.Size = new System.Drawing.Size(200, 25);
+            this.dtpAccNgaySinh.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Ngày sinh";
+            // 
+            // inpAccName
+            // 
+            this.inpAccName.Location = new System.Drawing.Point(117, 0);
+            this.inpAccName.Name = "inpAccName";
+            this.inpAccName.Size = new System.Drawing.Size(263, 25);
+            this.inpAccName.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 47);
+            this.label8.Location = new System.Drawing.Point(571, 3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 26);
+            this.label8.Size = new System.Drawing.Size(74, 20);
             this.label8.TabIndex = 2;
             this.label8.Text = "Mật khẩu";
             // 
-            // textBox1
+            // inpAccPass
             // 
-            this.textBox1.Location = new System.Drawing.Point(177, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(330, 32);
-            this.textBox1.TabIndex = 1;
+            this.inpAccPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpAccPass.Location = new System.Drawing.Point(651, 0);
+            this.inpAccPass.Name = "inpAccPass";
+            this.inpAccPass.Size = new System.Drawing.Size(297, 23);
+            this.inpAccPass.TabIndex = 1;
             // 
-            // button2
+            // btnDeleteAcc
             // 
-            this.button2.Location = new System.Drawing.Point(5, 125);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 38);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Xóa";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeleteAcc.Location = new System.Drawing.Point(875, 93);
+            this.btnDeleteAcc.Name = "btnDeleteAcc";
+            this.btnDeleteAcc.Size = new System.Drawing.Size(75, 38);
+            this.btnDeleteAcc.TabIndex = 8;
+            this.btnDeleteAcc.Text = "Xóa";
+            this.btnDeleteAcc.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 9);
+            this.label7.Location = new System.Drawing.Point(5, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 26);
+            this.label7.Size = new System.Drawing.Size(102, 20);
             this.label7.TabIndex = 2;
             this.label7.Text = "Tên tài khoản";
             // 
-            // button4
+            // btnFindAcc
             // 
-            this.button4.Location = new System.Drawing.Point(188, 125);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 38);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Tìm";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnFindAcc.Location = new System.Drawing.Point(720, 93);
+            this.btnFindAcc.Name = "btnFindAcc";
+            this.btnFindAcc.Size = new System.Drawing.Size(75, 38);
+            this.btnFindAcc.TabIndex = 10;
+            this.btnFindAcc.Text = "Tìm";
+            this.btnFindAcc.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(513, 47);
+            this.label11.Location = new System.Drawing.Point(551, 32);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(92, 26);
+            this.label11.Size = new System.Drawing.Size(61, 20);
             this.label11.TabIndex = 2;
             this.label11.Text = "Chức vụ";
             // 
-            // button3
+            // btnFixAcc
             // 
-            this.button3.Location = new System.Drawing.Point(299, 125);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 38);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Sửa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnFixAcc.Location = new System.Drawing.Point(595, 91);
+            this.btnFixAcc.Name = "btnFixAcc";
+            this.btnFixAcc.Size = new System.Drawing.Size(75, 38);
+            this.btnFixAcc.TabIndex = 9;
+            this.btnFixAcc.Text = "Sửa";
+            this.btnFixAcc.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 87);
+            this.label12.Location = new System.Drawing.Point(5, 68);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(136, 26);
+            this.label12.Size = new System.Drawing.Size(99, 20);
             this.label12.TabIndex = 3;
             this.label12.Text = "Mã tài khoản";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(513, 9);
+            this.label10.Location = new System.Drawing.Point(8, 36);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 26);
+            this.label10.Size = new System.Drawing.Size(46, 20);
             this.label10.TabIndex = 2;
             this.label10.Text = "Email";
             // 
-            // button1
+            // btnAddAcc
             // 
-            this.button1.Location = new System.Drawing.Point(410, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 38);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddAcc.Location = new System.Drawing.Point(351, 93);
+            this.btnAddAcc.Name = "btnAddAcc";
+            this.btnAddAcc.Size = new System.Drawing.Size(189, 38);
+            this.btnAddAcc.TabIndex = 7;
+            this.btnAddAcc.Text = "Thêm";
+            this.btnAddAcc.UseVisualStyleBackColor = true;
+            this.btnAddAcc.Click += new System.EventHandler(this.btnAddAcc_Click);
             // 
-            // comboBox1
+            // cbAccPosition
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(618, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(330, 34);
-            this.comboBox1.TabIndex = 6;
+            this.cbAccPosition.FormattingEnabled = true;
+            this.cbAccPosition.Location = new System.Drawing.Point(618, 29);
+            this.cbAccPosition.Name = "cbAccPosition";
+            this.cbAccPosition.Size = new System.Drawing.Size(330, 27);
+            this.cbAccPosition.TabIndex = 6;
             // 
-            // textBox5
+            // inpAccId
             // 
-            this.textBox5.Location = new System.Drawing.Point(177, 87);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(197, 32);
-            this.textBox5.TabIndex = 1;
+            this.inpAccId.Location = new System.Drawing.Point(117, 63);
+            this.inpAccId.Name = "inpAccId";
+            this.inpAccId.Size = new System.Drawing.Size(197, 25);
+            this.inpAccId.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(513, 87);
+            this.label9.Location = new System.Drawing.Point(393, 65);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 26);
+            this.label9.Size = new System.Drawing.Size(54, 20);
             this.label9.TabIndex = 2;
             this.label9.Text = "Địa chỉ";
             // 
-            // textBox4
+            // inpAccEmail
             // 
-            this.textBox4.Location = new System.Drawing.Point(620, 9);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(330, 32);
-            this.textBox4.TabIndex = 1;
+            this.inpAccEmail.Location = new System.Drawing.Point(117, 32);
+            this.inpAccEmail.Name = "inpAccEmail";
+            this.inpAccEmail.Size = new System.Drawing.Size(330, 25);
+            this.inpAccEmail.TabIndex = 1;
             // 
-            // textBox3
+            // inpAccAddress
             // 
-            this.textBox3.Location = new System.Drawing.Point(618, 87);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(330, 66);
-            this.textBox3.TabIndex = 1;
+            this.inpAccAddress.Location = new System.Drawing.Point(453, 62);
+            this.inpAccAddress.Name = "inpAccAddress";
+            this.inpAccAddress.Size = new System.Drawing.Size(495, 25);
+            this.inpAccAddress.TabIndex = 1;
             // 
             // tabPage3
             // 
@@ -587,28 +686,28 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Button btnUpdateProfile;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnDeleteAcc;
+        private System.Windows.Forms.Button btnFindAcc;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnFixAcc;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button btnAddAcc;
+        private System.Windows.Forms.ComboBox cbAccPosition;
+        private System.Windows.Forms.TextBox inpAccId;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox inpAccEmail;
+        private System.Windows.Forms.TextBox inpAccAddress;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox inpAccName;
+        private System.Windows.Forms.TextBox inpAccPass;
         private System.Windows.Forms.DataGridView dgvAccount;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -624,5 +723,15 @@
         private System.Windows.Forms.Label lbTenChucVu;
         private System.Windows.Forms.Panel pnlChucNangs;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DateTimePicker dtpAccNgaySinh;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaTaiKhoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenTaiKhoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MatKhau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenChucVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
     }
 }

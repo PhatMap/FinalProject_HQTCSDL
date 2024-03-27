@@ -38,7 +38,7 @@
             this.inpPassWord = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.inpUserName = new System.Windows.Forms.TextBox();
+            this.inpEmail = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -123,7 +123,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.inpUserName);
+            this.panel2.Controls.Add(this.inpEmail);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -136,16 +136,16 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.Size = new System.Drawing.Size(62, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Tên tài khoản:";
+            this.label1.Text = "Email:";
             // 
-            // inpUserName
+            // inpEmail
             // 
-            this.inpUserName.Location = new System.Drawing.Point(151, 34);
-            this.inpUserName.Name = "inpUserName";
-            this.inpUserName.Size = new System.Drawing.Size(307, 22);
-            this.inpUserName.TabIndex = 0;
+            this.inpEmail.Location = new System.Drawing.Point(151, 34);
+            this.inpEmail.Name = "inpEmail";
+            this.inpEmail.Size = new System.Drawing.Size(307, 22);
+            this.inpEmail.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -183,7 +183,7 @@
         private System.Windows.Forms.TextBox inpPassWord;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox inpUserName;
+        private System.Windows.Forms.TextBox inpEmail;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnLogin;

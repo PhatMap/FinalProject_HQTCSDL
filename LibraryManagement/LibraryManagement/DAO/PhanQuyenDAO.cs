@@ -22,7 +22,7 @@ namespace LibraryManagement.DAO
 
         public (string, List<string>) GetAccountAuthorization(int maChucVu)
         {
-            string query = "SP_Get_Account_Position_Functions @position ";
+            string query = "SP_Get_Account_Position_Functions @MaChucVu ";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maChucVu });
 
@@ -32,10 +32,10 @@ namespace LibraryManagement.DAO
             {
                 if (chucVu == null)
                 {
-                    chucVu = row["Tên chức vụ"].ToString();
+                    chucVu = row["TenChucVu"].ToString();
                 }
 
-                string chucNang = row["Tên chức năng"].ToString();
+                string chucNang = row["TenChucNang"].ToString();
                 chucNangs.Add(chucNang);
             }
 
