@@ -32,15 +32,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTaiKhoan = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPhieu = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.btnBook = new System.Windows.Forms.Button();
+            this.btnSach = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnThongKe = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnPhanQuyen = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -49,6 +51,7 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -59,6 +62,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel7);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Controls.Add(this.panel6);
+            this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -91,100 +95,100 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnPhieu);
             this.panel2.Location = new System.Drawing.Point(3, 84);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(198, 75);
             this.panel2.TabIndex = 2;
             // 
-            // button2
+            // btnPhieu
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(190, 65);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Phiếu mượn/trả";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnPhieu.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnPhieu.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
+            this.btnPhieu.FlatAppearance.BorderSize = 2;
+            this.btnPhieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPhieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhieu.Location = new System.Drawing.Point(3, 3);
+            this.btnPhieu.Name = "btnPhieu";
+            this.btnPhieu.Size = new System.Drawing.Size(190, 65);
+            this.btnPhieu.TabIndex = 0;
+            this.btnPhieu.Text = "Phiếu mượn/trả";
+            this.btnPhieu.UseVisualStyleBackColor = false;
+            this.btnPhieu.Click += new System.EventHandler(this.btnPhieu_Click);
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.btnBook);
+            this.panel7.Controls.Add(this.btnSach);
             this.panel7.Location = new System.Drawing.Point(3, 165);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(198, 75);
             this.panel7.TabIndex = 3;
             // 
-            // btnBook
+            // btnSach
             // 
-            this.btnBook.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnBook.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
-            this.btnBook.FlatAppearance.BorderSize = 2;
-            this.btnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBook.Location = new System.Drawing.Point(3, 3);
-            this.btnBook.Name = "btnBook";
-            this.btnBook.Size = new System.Drawing.Size(190, 65);
-            this.btnBook.TabIndex = 0;
-            this.btnBook.Text = "Sách";
-            this.btnBook.UseVisualStyleBackColor = false;
-            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
+            this.btnSach.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnSach.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
+            this.btnSach.FlatAppearance.BorderSize = 2;
+            this.btnSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSach.Location = new System.Drawing.Point(3, 3);
+            this.btnSach.Name = "btnSach";
+            this.btnSach.Size = new System.Drawing.Size(190, 65);
+            this.btnSach.TabIndex = 0;
+            this.btnSach.Text = "Sách";
+            this.btnSach.UseVisualStyleBackColor = false;
+            this.btnSach.Click += new System.EventHandler(this.btnSach_Click);
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button5);
+            this.panel5.Controls.Add(this.btnThongKe);
             this.panel5.Location = new System.Drawing.Point(3, 246);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(198, 75);
             this.panel5.TabIndex = 2;
             // 
-            // button5
+            // btnThongKe
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
-            this.button5.FlatAppearance.BorderSize = 2;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(190, 65);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Báo cáo thống kê";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnThongKe.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnThongKe.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
+            this.btnThongKe.FlatAppearance.BorderSize = 2;
+            this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongKe.Location = new System.Drawing.Point(3, 3);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(190, 65);
+            this.btnThongKe.TabIndex = 0;
+            this.btnThongKe.Text = "Báo cáo thống kê";
+            this.btnThongKe.UseVisualStyleBackColor = false;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.button6);
+            this.panel6.Controls.Add(this.btnPhanQuyen);
             this.panel6.Location = new System.Drawing.Point(3, 327);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(198, 75);
             this.panel6.TabIndex = 3;
             // 
-            // button6
+            // btnPhanQuyen
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
-            this.button6.FlatAppearance.BorderSize = 2;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(3, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(190, 65);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Phân Quyền";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnPhanQuyen.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnPhanQuyen.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
+            this.btnPhanQuyen.FlatAppearance.BorderSize = 2;
+            this.btnPhanQuyen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPhanQuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhanQuyen.Location = new System.Drawing.Point(3, 3);
+            this.btnPhanQuyen.Name = "btnPhanQuyen";
+            this.btnPhanQuyen.Size = new System.Drawing.Size(190, 65);
+            this.btnPhanQuyen.TabIndex = 0;
+            this.btnPhanQuyen.Text = "Phân Quyền";
+            this.btnPhanQuyen.UseVisualStyleBackColor = false;
+            this.btnPhanQuyen.Click += new System.EventHandler(this.btnPhanQuyen_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnLogout);
-            this.panel3.Location = new System.Drawing.Point(3, 408);
+            this.panel3.Location = new System.Drawing.Point(3, 489);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(198, 75);
             this.panel3.TabIndex = 2;
@@ -203,6 +207,27 @@
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Location = new System.Drawing.Point(3, 408);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(198, 75);
+            this.panel4.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(190, 65);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // pnlMain
             // 
@@ -223,8 +248,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "fHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fHome";
-            this.Load += new System.EventHandler(this.fHome_Load);
+            this.Text = "Trang chủ";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -232,6 +256,7 @@
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -242,15 +267,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnTaiKhoan;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPhieu;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnPhanQuyen;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnBook;
+        private System.Windows.Forms.Button btnSach;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -17,7 +17,7 @@ namespace LibraryManagement.GUI
             InitializeComponent();
         }
 
-        private void loadForm(object Form)
+        private void LoadForm(object Form)
         {
             if (this.pnlMain.Controls.Count>0)
                 this.pnlMain.Controls.RemoveAt(0);
@@ -30,42 +30,33 @@ namespace LibraryManagement.GUI
 
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
-            loadForm(new fAccount());
+            LoadForm(new fAccount());
         }
 
-        private void btnBook_Click(object sender, EventArgs e)
-        {
-            loadForm(new fBook());
-        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSach_Click(object sender, EventArgs e)
         {
-
+            LoadForm(new fBook());
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnThongKe_Click(object sender, EventArgs e)
         {
-
+            LoadForm(new fStatistic());
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnPhanQuyen_Click(object sender, EventArgs e)
         {
-
+            LoadForm(new fAuthorize());
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnPhieu_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void fHome_Load(object sender, EventArgs e)
-        {
-
+            LoadForm(new fCoupon());
         }
     }
 }

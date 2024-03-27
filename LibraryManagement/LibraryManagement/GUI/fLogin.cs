@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LibraryManagement.GUI
 {
@@ -34,12 +35,12 @@ namespace LibraryManagement.GUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string userName = inpUserName.Text;
+            string email = inpEmail.Text;
             string passWord = inpPassWord.Text;
 
-            if (Login(userName = "admin", passWord = "aaaaaaaa"))
+            if (Login(email = "admin@gmail.com", passWord = "aaaaaaaa"))
             {
-                TaiKhoan loginAccount = TaiKhoanDAO.Instance.GetAccountProfile(userName);
+                TaiKhoan loginAccount = TaiKhoanDAO.Instance.GetAccountProfile(email);
                 Session.loginAccount = loginAccount;
                 fHome f = new fHome();
                 this.Hide();
@@ -51,9 +52,9 @@ namespace LibraryManagement.GUI
                 MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
             }
         }
-        bool Login(string userName, string passWord)
+        bool Login(string email, string passWord)
         {
-            return TaiKhoanDAO.Instance.Login(userName, passWord);
+            return TaiKhoanDAO.Instance.Login(email, passWord);
         }
 
         private void lbSignup_Click(object sender, EventArgs e)

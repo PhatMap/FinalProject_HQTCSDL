@@ -43,3 +43,6 @@ D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryMan
 D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
 D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
 D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fPassword.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fProfileUpdate.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAuthorize.resources

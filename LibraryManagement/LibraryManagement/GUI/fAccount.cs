@@ -57,13 +57,42 @@ namespace LibraryManagement.GUI
 
         private void LoadAccountList()
         {
-            DataTable list = TaiKhoanDAO.Instance.LoadAccountList();
-            dgvAccount.DataSource = list;
+            DataTable taiKhoanList = TaiKhoanDAO.Instance.LoadAccountList();
+            dgvAccount.DataSource = taiKhoanList;
+
+            List<ChucVu> chucVuList = ChucVuDAO.Instance.LoadChucVuList();
+            cbAccPosition.DataSource = chucVuList;
+            cbAccPosition.DisplayMember = "TenChucVu";
+            cbAccPosition.ValueMember = "MaChucVu";
         }
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
+            fProfileUpdate f = new fProfileUpdate(); 
+            f.FormClosed += (s, args) => LoadAccountProfile();
+            f.ShowDialog();
+        }
 
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            fPassword f = new fPassword();
+            f.ShowDialog();
+        }
+
+        private void btnAddAcc_Click(object sender, EventArgs e)
+        {
+            TaiKhoan tk = new TaiKhoan();
+
+            tk.TenTaiKhoan = inpAccName.Text;
+            tk.MatKhau = inpAccPass.Text;
+            tk.Email = inpAccEmail.Text;
+            tk.NgaySinh = dtpAccNgaySinh.Value;
+            tk.MaChucVu = (int)cbAccPosition.SelectedValue;
+            tk.DiaChi = inpAccAddress.Text;
+
+            TaiKhoanDAO.Instance.AddAccount(tk);
+
+            LoadAccountList();
         }
     }
 }

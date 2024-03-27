@@ -64,6 +64,12 @@
     <Compile Include="GUI\fAccount.Designer.cs">
       <DependentUpon>fAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fAuthorize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fAuthorize.Designer.cs">
+      <DependentUpon>fAuthorize.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,18 @@
     <Compile Include="GUI\fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fPassword.Designer.cs">
+      <DependentUpon>fPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fProfileUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fProfileUpdate.Designer.cs">
+      <DependentUpon>fProfileUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fReader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +129,9 @@
     <EmbeddedResource Include="GUI\fAccount.resx">
       <DependentUpon>fAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fAuthorize.resx">
+      <DependentUpon>fAuthorize.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fBook.resx">
       <DependentUpon>fBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +143,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fPassword.resx">
+      <DependentUpon>fPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fProfileUpdate.resx">
+      <DependentUpon>fProfileUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fReader.resx">
       <DependentUpon>fReader.cs</DependentUpon>

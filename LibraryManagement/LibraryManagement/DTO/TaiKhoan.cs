@@ -33,6 +33,9 @@ namespace LibraryManagement.DTO
             this.GioiTinh = (bool)row["GioiTinh"];
         }
 
+        public TaiKhoan()
+        {
+        }
 
         private int maTaiKhoan;
         public int MaTaiKhoan 
