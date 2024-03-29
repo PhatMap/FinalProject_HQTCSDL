@@ -94,5 +94,15 @@ namespace LibraryManagement.GUI
 
             LoadAccountList();
         }
+
+        private void btnDeleteAcc_Click(object sender, EventArgs e)
+        {
+            int accID = (int)numID.Value;
+
+            TaiKhoanDAO.Instance.DeleteAccount(accID);
+
+            LoadAccountList();
+        }
+
     }
 }

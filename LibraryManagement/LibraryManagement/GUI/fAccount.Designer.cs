@@ -78,12 +78,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnAddAcc = new System.Windows.Forms.Button();
             this.cbAccPosition = new System.Windows.Forms.ComboBox();
-            this.inpAccId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.inpAccEmail = new System.Windows.Forms.TextBox();
             this.inpAccAddress = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.numID = new System.Windows.Forms.NumericUpDown();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -94,6 +94,7 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numID)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -449,6 +450,7 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.numID);
             this.panel8.Controls.Add(this.dtpAccNgaySinh);
             this.panel8.Controls.Add(this.label3);
             this.panel8.Controls.Add(this.inpAccName);
@@ -463,7 +465,6 @@
             this.panel8.Controls.Add(this.label10);
             this.panel8.Controls.Add(this.btnAddAcc);
             this.panel8.Controls.Add(this.cbAccPosition);
-            this.panel8.Controls.Add(this.inpAccId);
             this.panel8.Controls.Add(this.label9);
             this.panel8.Controls.Add(this.inpAccEmail);
             this.panel8.Controls.Add(this.inpAccAddress);
@@ -524,6 +525,7 @@
             this.btnDeleteAcc.TabIndex = 8;
             this.btnDeleteAcc.Text = "Xóa";
             this.btnDeleteAcc.UseVisualStyleBackColor = true;
+            this.btnDeleteAcc.Click += new System.EventHandler(this.btnDeleteAcc_Click);
             // 
             // label7
             // 
@@ -597,13 +599,6 @@
             this.cbAccPosition.Size = new System.Drawing.Size(330, 27);
             this.cbAccPosition.TabIndex = 6;
             // 
-            // inpAccId
-            // 
-            this.inpAccId.Location = new System.Drawing.Point(117, 63);
-            this.inpAccId.Name = "inpAccId";
-            this.inpAccId.Size = new System.Drawing.Size(197, 25);
-            this.inpAccId.TabIndex = 1;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -647,6 +642,18 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Quy định";
             // 
+            // numID
+            // 
+            this.numID.Location = new System.Drawing.Point(117, 68);
+            this.numID.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numID.Name = "numID";
+            this.numID.Size = new System.Drawing.Size(120, 25);
+            this.numID.TabIndex = 13;
+            // 
             // fAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -672,6 +679,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numID)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -700,7 +708,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnAddAcc;
         private System.Windows.Forms.ComboBox cbAccPosition;
-        private System.Windows.Forms.TextBox inpAccId;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox inpAccEmail;
         private System.Windows.Forms.TextBox inpAccAddress;
@@ -733,5 +740,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenChucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
+        private System.Windows.Forms.NumericUpDown numID;
     }
 }

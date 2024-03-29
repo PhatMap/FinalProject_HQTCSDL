@@ -44,6 +44,12 @@ END
 CLOSE cur
 DEALLOCATE cur
 
+
+
+
+
+
+---------------------------------------------------------------------Tables
 CREATE TABLE TacGia (
     MaTacGia INT PRIMARY KEY IDENTITY(1,1),
     TenTacGia NVARCHAR(255) NOT NULL
@@ -168,6 +174,8 @@ CREATE TABLE PhanCong (
     FOREIGN KEY (MaCa) REFERENCES Ca(MaCa)
 );
 
+
+---------------------------------------------------------------------Insert Data
 -- Insert data into TacGia table
 INSERT INTO TacGia (TenTacGia) VALUES 
 ('Nguyen Hien Le'),
@@ -355,20 +363,28 @@ CREATE PROC SP_Change_Account_Password
 )
 AS 
 BEGIN
+    BEGIN TRANSACTION;
 
-    IF NOT EXISTS (SELECT * FROM TaiKhoan WHERE Email = @Email AND MatKhau = @MatKhauCu)
+	IF NOT EXISTS (SELECT * FROM TaiKhoan WHERE Email = @Email AND MatKhau = @MatKhauCu)
     BEGIN
-        RETURN; 
+        ROLLBACK; 
     END
 
 	IF @MatKhauMoi <> @XacNhan
     BEGIN
-        RETURN; 
+        ROLLBACK; 
     END
 
-    UPDATE TaiKhoan
-    SET MatKhau = @MatKhauMoi
-    WHERE Email = @Email;
+    BEGIN TRY
+            UPDATE TaiKhoan
+			SET MatKhau = @MatKhauMoi
+			WHERE Email = @Email;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
 END
 
 --Chạy thử
@@ -384,15 +400,24 @@ CREATE PROC SP_Update_Account_Profile
     @GioiTinh bit
 AS
 BEGIN
-    UPDATE TaiKhoan
-    SET TenTaiKhoan = @TenTaiKhoan,
-		DiaChi = @DiaChi,
-        NgaySinh = @NgaySinh,
-        GioiTinh = @GioiTinh
-    WHERE Email = @Email;
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            UPDATE TaiKhoan
+				SET TenTaiKhoan = @TenTaiKhoan,
+					DiaChi = @DiaChi,
+					NgaySinh = @NgaySinh,
+					GioiTinh = @GioiTinh
+			 WHERE Email = @Email;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
 END;
 
----------------------------------------------------Update account profile(Phat)
+---------------------------------------------------Add New Account(Phat)
 GO
 
 CREATE PROC SP_Add_New_Account
@@ -405,8 +430,17 @@ CREATE PROC SP_Add_New_Account
     @GioiTinh bit
 AS
 BEGIN
-    INSERT INTO TaiKhoan (TenTaiKhoan, MatKhau, DiaChi, Email, NgaySinh, MaChucVu, GioiTinh)
-    VALUES (@TenTaiKhoan, @MatKhau, @DiaChi, @Email, @NgaySinh, @MaChucVu, @GioiTinh);
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        INSERT INTO TaiKhoan (TenTaiKhoan, MatKhau, DiaChi, Email, NgaySinh, MaChucVu, GioiTinh)
+        VALUES (@TenTaiKhoan, @MatKhau, @DiaChi, @Email, @NgaySinh, @MaChucVu, @GioiTinh);
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
 END;
 
 --Chạy thử
@@ -420,6 +454,28 @@ EXEC SP_Add_New_Account
     @GioiTinh = 0;
 
 GO
+
+---------------------------------------------------Delete account(Phat)
+
+CREATE PROC SP_Delete_Account
+    @MaTaiKhoan int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            DELETE TaiKhoan WHERE MaTaiKhoan = @MaTaiKhoan;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+Select * from TaiKhoan
+
+EXEC SP_Delete_Account '3'
 
 -------------------------------------------------------------------Function(FN_)---------------------------------------------------------------------------------
 ---------------------------------------------------Get login account profile(Phat)
