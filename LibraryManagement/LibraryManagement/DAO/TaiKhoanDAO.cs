@@ -76,5 +76,11 @@ namespace LibraryManagement.DAO
             string query = "SP_Add_New_Account @TenTaiKhoan , @MatKhau , @DiaChi , @NgaySinh , @Email , @MaChucVu , @GioiTinh ";
             DataProvider.Instance.ExecuteQuery(query, new object[] { tk.TenTaiKhoan, tk.MatKhau, tk.DiaChi, tk.NgaySinh.ToString("yyyy-MM-dd"), tk.Email, tk.MaChucVu, tk.GioiTinh });
         }
+
+        public void DeleteAccount(int accID)
+        {
+            string query = "SP_Delete_Account @MaTaiKhoan ";
+            DataProvider.Instance.ExecuteQuery(query, new object[] { accID });
+        }
     }
 }
