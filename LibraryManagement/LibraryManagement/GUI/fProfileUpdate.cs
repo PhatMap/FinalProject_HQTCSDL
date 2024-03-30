@@ -42,18 +42,15 @@ namespace LibraryManagement.GUI
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            TaiKhoan newTK = new TaiKhoan();
+            TaiKhoan newTK = Session.loginAccount;
 
             newTK.TenTaiKhoan = inpTenTaiKhoan.Text;
             newTK.DiaChi = inpDiaChi.Text;
             newTK.NgaySinh = dtpNgaySinh.Value;
-            newTK.Email = inpEmail.Text;
             if (rbtnNam.Checked) { newTK.GioiTinh = false; }
             if (rbtnNu.Checked) { newTK.GioiTinh = true; }
-            newTK.MaChucVu = Session.loginAccount.MaChucVu;
-            newTK.MaTaiKhoan = Session.loginAccount.MaTaiKhoan;
 
-            bool result = TaiKhoanDAO.Instance.UpdateProfile(newTK);
+            bool result = TaiKhoanDAO.Instance.UpdateAccount(newTK);
 
             if (!result) 
             {

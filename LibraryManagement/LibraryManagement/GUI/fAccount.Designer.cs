@@ -64,6 +64,11 @@
             this.TenChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.rbtnNu = new System.Windows.Forms.RadioButton();
+            this.rbtnNam = new System.Windows.Forms.RadioButton();
+            this.label17 = new System.Windows.Forms.Label();
+            this.numAccID = new System.Windows.Forms.NumericUpDown();
             this.dtpAccNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.inpAccName = new System.Windows.Forms.TextBox();
@@ -73,7 +78,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnFindAcc = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnFixAcc = new System.Windows.Forms.Button();
+            this.btnUpdateAcc = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnAddAcc = new System.Windows.Forms.Button();
@@ -83,7 +88,6 @@
             this.inpAccAddress = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.numID = new System.Windows.Forms.NumericUpDown();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -94,7 +98,7 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAccID)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -450,7 +454,11 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.numID);
+            this.panel8.Controls.Add(this.btnReset);
+            this.panel8.Controls.Add(this.rbtnNu);
+            this.panel8.Controls.Add(this.rbtnNam);
+            this.panel8.Controls.Add(this.label17);
+            this.panel8.Controls.Add(this.numAccID);
             this.panel8.Controls.Add(this.dtpAccNgaySinh);
             this.panel8.Controls.Add(this.label3);
             this.panel8.Controls.Add(this.inpAccName);
@@ -460,7 +468,7 @@
             this.panel8.Controls.Add(this.label7);
             this.panel8.Controls.Add(this.btnFindAcc);
             this.panel8.Controls.Add(this.label11);
-            this.panel8.Controls.Add(this.btnFixAcc);
+            this.panel8.Controls.Add(this.btnUpdateAcc);
             this.panel8.Controls.Add(this.label12);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Controls.Add(this.btnAddAcc);
@@ -474,6 +482,59 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(953, 141);
             this.panel8.TabIndex = 2;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(764, 19);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(189, 38);
+            this.btnReset.TabIndex = 17;
+            this.btnReset.Text = "Làm trống";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // rbtnNu
+            // 
+            this.rbtnNu.AutoSize = true;
+            this.rbtnNu.Location = new System.Drawing.Point(869, -4);
+            this.rbtnNu.Name = "rbtnNu";
+            this.rbtnNu.Size = new System.Drawing.Size(49, 24);
+            this.rbtnNu.TabIndex = 16;
+            this.rbtnNu.TabStop = true;
+            this.rbtnNu.Text = "Nữ";
+            this.rbtnNu.UseVisualStyleBackColor = true;
+            // 
+            // rbtnNam
+            // 
+            this.rbtnNam.AutoSize = true;
+            this.rbtnNam.Location = new System.Drawing.Point(801, -4);
+            this.rbtnNam.Name = "rbtnNam";
+            this.rbtnNam.Size = new System.Drawing.Size(62, 24);
+            this.rbtnNam.TabIndex = 15;
+            this.rbtnNam.TabStop = true;
+            this.rbtnNam.Text = "Nam";
+            this.rbtnNam.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(716, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(66, 20);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "Giới tính";
+            // 
+            // numAccID
+            // 
+            this.numAccID.Location = new System.Drawing.Point(117, 68);
+            this.numAccID.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numAccID.Name = "numAccID";
+            this.numAccID.Size = new System.Drawing.Size(120, 25);
+            this.numAccID.TabIndex = 13;
             // 
             // dtpAccNgaySinh
             // 
@@ -503,7 +564,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(571, 3);
+            this.label8.Location = new System.Drawing.Point(393, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 20);
             this.label8.TabIndex = 2;
@@ -512,9 +573,9 @@
             // inpAccPass
             // 
             this.inpAccPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpAccPass.Location = new System.Drawing.Point(651, 0);
+            this.inpAccPass.Location = new System.Drawing.Point(473, 0);
             this.inpAccPass.Name = "inpAccPass";
-            this.inpAccPass.Size = new System.Drawing.Size(297, 23);
+            this.inpAccPass.Size = new System.Drawing.Size(233, 23);
             this.inpAccPass.TabIndex = 1;
             // 
             // btnDeleteAcc
@@ -544,24 +605,26 @@
             this.btnFindAcc.TabIndex = 10;
             this.btnFindAcc.Text = "Tìm";
             this.btnFindAcc.UseVisualStyleBackColor = true;
+            this.btnFindAcc.Click += new System.EventHandler(this.btnFindAcc_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(551, 32);
+            this.label11.Location = new System.Drawing.Point(393, 35);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 20);
             this.label11.TabIndex = 2;
             this.label11.Text = "Chức vụ";
             // 
-            // btnFixAcc
+            // btnUpdateAcc
             // 
-            this.btnFixAcc.Location = new System.Drawing.Point(595, 91);
-            this.btnFixAcc.Name = "btnFixAcc";
-            this.btnFixAcc.Size = new System.Drawing.Size(75, 38);
-            this.btnFixAcc.TabIndex = 9;
-            this.btnFixAcc.Text = "Sửa";
-            this.btnFixAcc.UseVisualStyleBackColor = true;
+            this.btnUpdateAcc.Location = new System.Drawing.Point(555, 93);
+            this.btnUpdateAcc.Name = "btnUpdateAcc";
+            this.btnUpdateAcc.Size = new System.Drawing.Size(138, 38);
+            this.btnUpdateAcc.TabIndex = 9;
+            this.btnUpdateAcc.Text = "Cập nhật";
+            this.btnUpdateAcc.UseVisualStyleBackColor = true;
+            this.btnUpdateAcc.Click += new System.EventHandler(this.btnUpdateAcc_Click);
             // 
             // label12
             // 
@@ -594,9 +657,9 @@
             // cbAccPosition
             // 
             this.cbAccPosition.FormattingEnabled = true;
-            this.cbAccPosition.Location = new System.Drawing.Point(618, 29);
+            this.cbAccPosition.Location = new System.Drawing.Point(473, 28);
             this.cbAccPosition.Name = "cbAccPosition";
-            this.cbAccPosition.Size = new System.Drawing.Size(330, 27);
+            this.cbAccPosition.Size = new System.Drawing.Size(174, 27);
             this.cbAccPosition.TabIndex = 6;
             // 
             // label9
@@ -612,14 +675,14 @@
             // 
             this.inpAccEmail.Location = new System.Drawing.Point(117, 32);
             this.inpAccEmail.Name = "inpAccEmail";
-            this.inpAccEmail.Size = new System.Drawing.Size(330, 25);
+            this.inpAccEmail.Size = new System.Drawing.Size(263, 25);
             this.inpAccEmail.TabIndex = 1;
             // 
             // inpAccAddress
             // 
-            this.inpAccAddress.Location = new System.Drawing.Point(453, 62);
+            this.inpAccAddress.Location = new System.Drawing.Point(473, 60);
             this.inpAccAddress.Name = "inpAccAddress";
-            this.inpAccAddress.Size = new System.Drawing.Size(495, 25);
+            this.inpAccAddress.Size = new System.Drawing.Size(330, 25);
             this.inpAccAddress.TabIndex = 1;
             // 
             // tabPage3
@@ -641,18 +704,6 @@
             this.tabPage4.Size = new System.Drawing.Size(959, 540);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Quy định";
-            // 
-            // numID
-            // 
-            this.numID.Location = new System.Drawing.Point(117, 68);
-            this.numID.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numID.Name = "numID";
-            this.numID.Size = new System.Drawing.Size(120, 25);
-            this.numID.TabIndex = 13;
             // 
             // fAccount
             // 
@@ -679,7 +730,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAccID)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -703,7 +754,7 @@
         private System.Windows.Forms.Button btnDeleteAcc;
         private System.Windows.Forms.Button btnFindAcc;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnFixAcc;
+        private System.Windows.Forms.Button btnUpdateAcc;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnAddAcc;
@@ -740,6 +791,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenChucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
-        private System.Windows.Forms.NumericUpDown numID;
+        private System.Windows.Forms.NumericUpDown numAccID;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.RadioButton rbtnNu;
+        private System.Windows.Forms.RadioButton rbtnNam;
+        private System.Windows.Forms.Button btnReset;
     }
 }

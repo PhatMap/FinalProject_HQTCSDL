@@ -14,11 +14,52 @@ namespace LibraryManagement.GUI
 {
     public partial class fAccount : Form
     {
+        BindingSource accountList = new BindingSource();
+        private bool canAddBinding = true;
+
         public fAccount()
         {
             InitializeComponent();
+
+            dgvAccount.DataSource = accountList;
             LoadAccountProfile();
             LoadAccountList();
+        }
+
+        private void AddAccountBinding()
+        {
+            inpAccName.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "TenTaiKhoan"));
+            inpAccEmail.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "Email"));
+            numAccID.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "MaTaiKhoan"));
+            dtpAccNgaySinh.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "NgaySinh"));
+            inpAccPass.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "MatKhau"));
+            
+            var maleBinding = new Binding("Checked", dgvAccount.DataSource, "GioiTinh");
+            maleBinding.Format += (s, args) =>
+            {
+                if (args.Value != DBNull.Value && (string)args.Value == "Nam")
+                    args.Value = true;
+                else
+                    args.Value = false;
+            };
+
+            rbtnNam.DataBindings.Add(maleBinding);
+
+            var femaleBinding = new Binding("Checked", dgvAccount.DataSource, "GioiTinh");
+            femaleBinding.Format += (s, args) =>
+            {
+            //Tại sao không để == "Nữ" mà để != "Nam", là để tránh xài tiếng việt sợ lỗi :)
+                if (args.Value != DBNull.Value && (string)args.Value != "Nam") 
+                    args.Value = true;
+                else
+                    args.Value = false;
+            };
+
+            rbtnNu.DataBindings.Add(femaleBinding);
+
+
+            cbAccPosition.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "TenChucVu"));
+            inpAccAddress.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "DiaChi"));
         }
 
         private void LoadAccountProfile()
@@ -57,8 +98,7 @@ namespace LibraryManagement.GUI
 
         private void LoadAccountList()
         {
-            DataTable taiKhoanList = TaiKhoanDAO.Instance.LoadAccountList();
-            dgvAccount.DataSource = taiKhoanList;
+            accountList.DataSource = TaiKhoanDAO.Instance.LoadAccountList();
 
             List<ChucVu> chucVuList = ChucVuDAO.Instance.LoadChucVuList();
             cbAccPosition.DataSource = chucVuList;
@@ -89,6 +129,8 @@ namespace LibraryManagement.GUI
             tk.NgaySinh = dtpAccNgaySinh.Value;
             tk.MaChucVu = (int)cbAccPosition.SelectedValue;
             tk.DiaChi = inpAccAddress.Text;
+            if (rbtnNam.Checked) { tk.GioiTinh = false; }
+            if (rbtnNu.Checked) { tk.GioiTinh = true; }
 
             TaiKhoanDAO.Instance.AddAccount(tk);
 
@@ -97,12 +139,82 @@ namespace LibraryManagement.GUI
 
         private void btnDeleteAcc_Click(object sender, EventArgs e)
         {
-            int accID = (int)numID.Value;
+            int accID = (int)numAccID.Value;
 
             TaiKhoanDAO.Instance.DeleteAccount(accID);
 
             LoadAccountList();
         }
 
+        private void btnUpdateAcc_Click(object sender, EventArgs e)
+        {
+            DetachBindings();
+            AddAccountBinding();
+
+            TaiKhoan tk = new TaiKhoan();
+
+            tk.MaTaiKhoan = (int)numAccID.Value;
+            tk.TenTaiKhoan = inpAccName.Text;
+            tk.MatKhau = inpAccPass.Text;
+            tk.Email = inpAccEmail.Text;
+            tk.NgaySinh = dtpAccNgaySinh.Value;
+            tk.MaChucVu = (int)cbAccPosition.SelectedValue;
+            tk.DiaChi = inpAccAddress.Text;
+            if (rbtnNam.Checked) { tk.GioiTinh = false; }
+            if (rbtnNu.Checked) { tk.GioiTinh = true; }
+
+            TaiKhoanDAO.Instance.UpdateAccount(tk);
+
+            LoadAccountList();
+        }
+
+        private void btnFindAcc_Click(object sender, EventArgs e)
+        {
+            DetachBindings();
+            AddAccountBinding();
+            string email = inpAccEmail.Text;
+            string name = inpAccName.Text;
+
+            if(!string.IsNullOrEmpty(email))
+            {
+                accountList.DataSource = TaiKhoanDAO.Instance.FindAccountByEmail(email);
+            }
+            else
+            {
+                accountList.DataSource = TaiKhoanDAO.Instance.FindAccountByName(name);
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            DetachBindings();
+
+            LoadAccountList();
+
+            numAccID.Value = 0;
+            inpAccName.Clear();
+            inpAccPass.Clear();
+            inpAccEmail.Clear();
+            dtpAccNgaySinh.Value = DateTime.Now;
+            cbAccPosition.SelectedIndex = 0;
+            inpAccAddress.Clear();
+            rbtnNam.Checked = false; 
+            rbtnNu.Checked = false;
+
+
+        }
+
+        private void DetachBindings()
+        {
+            inpAccName.DataBindings.Clear();
+            inpAccEmail.DataBindings.Clear();
+            numAccID.DataBindings.Clear();
+            dtpAccNgaySinh.DataBindings.Clear();
+            inpAccPass.DataBindings.Clear();
+            rbtnNam.DataBindings.Clear();
+            rbtnNu.DataBindings.Clear();
+            cbAccPosition.DataBindings.Clear();
+            inpAccAddress.DataBindings.Clear();
+        }
     }
 }

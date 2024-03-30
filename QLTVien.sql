@@ -326,6 +326,30 @@ FROM ChucVu
 SELECT * FROM VW_Position_List
 GO
 
+GO
+-------------------------------------Get account list (Phat)
+CREATE VIEW VW_Account_List_Full_Information AS
+SELECT 	
+	MaTaiKhoan, 
+	TenTaiKhoan, 
+	MatKhau, 
+	DiaChi, 
+	Email, 
+	NgaySinh,
+	CV.MaChucVu,
+	CV.TenChucVu,     
+	CASE GioiTinh
+		WHEN 0 THEN N'Nam'
+		WHEN 1 THEN N'Nữ'
+	END AS GioiTinh
+FROM TaiKhoan TK
+JOIN ChucVu CV ON TK.MaChucVu = CV.MaChucVu;
+GO
+
+--Chạy thử
+SELECT * FROM VW_Account_List_Full_Information
+
+GO
 -------------------------------------------------------------------Store Procedure (SP_)---------------------------------------------------------------------------------
 ------------------------------------------------------------Login Account (Phat)
 GO
@@ -353,6 +377,7 @@ GO
 --Chạy thử
 EXEC SP_Get_Account_Position_Functions @position = 1
 
+GO
 ---------------------------------------------------Change password(Phat)
 CREATE PROC SP_Change_Account_Password
 (
@@ -390,13 +415,17 @@ END
 --Chạy thử
 SELECT * FROM SP_Change_Account_Password()
 
----------------------------------------------------Update account profile(Phat)
+GO
+---------------------------------------------------Update account(Phat)
 
-CREATE PROC SP_Update_Account_Profile
+CREATE PROC SP_Update_Account
+	@MaTaiKhoan int,
     @TenTaiKhoan nvarchar(255),
+	@MatKhau nvarchar(255),
     @DiaChi nvarchar(255),
     @NgaySinh datetime,
-    @Email nvarchar(255),
+	@Email NVARCHAR(255),
+	@MaChucVu int,
     @GioiTinh bit
 AS
 BEGIN
@@ -405,10 +434,13 @@ BEGIN
     BEGIN TRY
             UPDATE TaiKhoan
 				SET TenTaiKhoan = @TenTaiKhoan,
+					MatKhau = @MatKhau,
 					DiaChi = @DiaChi,
 					NgaySinh = @NgaySinh,
-					GioiTinh = @GioiTinh
-			 WHERE Email = @Email;
+					GioiTinh = @GioiTinh,
+					Email = @Email,
+					MaChucVu = @MaChucVu
+			 WHERE MaTaiKhoan = @MaTaiKhoan;
         
         COMMIT;
     END TRY
@@ -477,7 +509,52 @@ Select * from TaiKhoan
 
 EXEC SP_Delete_Account '3'
 
+GO
+---------------------------------------------------Find account by email(Phat)
+CREATE PROC SP_Find_Account_By_Email
+(
+	@Email nvarchar(255)
+)
+AS
+BEGIN
+	SELECT 
+		MaTaiKhoan, 
+		TenTaiKhoan, 
+		MatKhau, 
+		DiaChi, 
+		Email, 
+		NgaySinh,
+		TenChucVu,
+		GioiTinh
+	FROM VW_Account_List_Full_Information 
+	WHERE 
+		(Email = @Email) 
+END;
+
+-- Chạy thử
+
+---------------------------------------------------Find account by name (Phat)
+CREATE PROC SP_Find_Account_By_Name
+(
+	@TenTaiKhoan nvarchar(255)
+)
+AS
+BEGIN
+	SELECT 
+		MaTaiKhoan, 
+		TenTaiKhoan, 
+		MatKhau, 
+		DiaChi, 
+		Email, 
+		NgaySinh,
+		TenChucVu,
+		GioiTinh
+	FROM VW_Account_List_Full_Information 
+	WHERE 
+		(TenTaiKhoan = @TenTaiKhoan) 
+END;
 -------------------------------------------------------------------Function(FN_)---------------------------------------------------------------------------------
+GO
 ---------------------------------------------------Get login account profile(Phat)
 CREATE FUNCTION FN_Get_Account_Profile(@Email nvarchar(255))
 RETURNS TABLE
@@ -492,5 +569,5 @@ SELECT * FROM FN_Get_Account_Profile('admin@gmail.com')
 
 
 
-
+select * from TaiKhoan
 -------------------------------------------------------------------Trigger(TR_)---------------------------------------------------------------------------------
