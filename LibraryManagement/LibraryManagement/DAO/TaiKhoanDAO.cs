@@ -62,11 +62,11 @@ namespace LibraryManagement.DAO
             return result > 0;
         }
 
-        public bool UpdateProfile(TaiKhoan newTK)
+        public bool UpdateAccount(TaiKhoan newTK)
         {
-            string query = "SP_Update_Account_Profile @TenTaiKhoan , @DiaChi , @NgaySinh , @Email , @GioiTinh ";
+            string query = "SP_Update_Account @MaTaiKhoan , @TenTaiKhoan , @MatKhau , @DiaChi , @NgaySinh , @Email , @MaChucVu , @GioiTinh ";
 
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { newTK.TenTaiKhoan, newTK.DiaChi, newTK.NgaySinh, newTK.Email, newTK.GioiTinh });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { newTK.MaTaiKhoan, newTK.TenTaiKhoan, newTK.MatKhau, newTK.DiaChi, newTK.NgaySinh, newTK.Email, newTK.MaChucVu, newTK.GioiTinh });
 
             return result > 0;
         }
@@ -81,6 +81,20 @@ namespace LibraryManagement.DAO
         {
             string query = "SP_Delete_Account @MaTaiKhoan ";
             DataProvider.Instance.ExecuteQuery(query, new object[] { accID });
+        }
+
+        public DataTable FindAccountByEmail(string email)
+        {
+            string query = "SP_Find_Account_By_Email @Email ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { email });
+            return data;
+        }
+
+        public DataTable FindAccountByName(string name)
+        {
+            string query = "SP_Find_Account_By_Name @TenTaiKhoan ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { name });
+            return data;
         }
     }
 }
