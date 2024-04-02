@@ -9,30 +9,58 @@ namespace LibraryManagement.DTO
 {
     public class PhanCong
     {
-        public PhanCong(int maChucVu, int maChucNang)
+        public PhanCong(DateTime ngayDauTuan, DateTime ngayCuoiTuan, string tenTaiKhoan, string thu, string buoi)
         {
-            this.MaChucVu = maChucVu;
-            this.MaChucNang = maChucNang;
+            this.NgayDauTuan = ngayDauTuan;
+            this.NgayCuoiTuan = ngayCuoiTuan;
+            this.TenTaiKhoan = tenTaiKhoan;
+            this.Thu = thu;
+            this.Buoi = buoi;   
         }
 
         public PhanCong(DataRow row)
         {
-            this.MaChucVu = (int)row["MaChucVu"];
-            this.MaChucNang = (int)row["MaChucNang"];
+            this.NgayDauTuan = (DateTime)row["NgayDauTuan"];
+            this.NgayCuoiTuan = (DateTime)row["NgayCuoiTuan"]; 
+            this.TenTaiKhoan = row["TenTaiKhoan"].ToString();
+            this.Thu = row["Thu"].ToString();
+            this.Buoi = row["Buoi"].ToString();
         }
 
-        private int maChucVu;
-        public int MaChucVu
+
+        private DateTime ngayDauTuan;
+        public DateTime NgayDauTuan
         {
-            get { return maChucVu; }
-            set { maChucVu = value; }
+            get { return ngayDauTuan; }
+            set { ngayDauTuan = value; }
         }
 
-        private int maChucNang;
-        public int MaChucNang
+        private DateTime ngayCuoiTuan;
+        public DateTime NgayCuoiTuan
         {
-            get { return maChucNang; }
-            set { maChucNang = value; }
+            get { return ngayCuoiTuan; }
+            set { ngayCuoiTuan = value; }
+        }
+
+        private string tenTaiKhoan;
+        public string TenTaiKhoan
+        {
+            get { return tenTaiKhoan; }
+            set { tenTaiKhoan = value; }
+        }
+
+        private string thu;
+        public string Thu
+        {
+            get { return thu; }
+            set { thu = value; }
+        }
+
+        private string buoi;
+        public string Buoi
+        {
+            get { return buoi; }
+            set { buoi = value; }
         }
     }
 }
