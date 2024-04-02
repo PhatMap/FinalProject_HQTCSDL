@@ -129,6 +129,7 @@ CREATE TABLE PhieuMuonSach (
     NgayTraDuKien DATE NOT NULL CHECK (DATEDIFF(DAY, GETDATE(), NgayTraDuKien) >= 0),
     NgayTraThucTe DATE CHECK (DATEDIFF(DAY, GETDATE(), NgayTraThucTe) >= 0)
 );
+
 CREATE TABLE PhieuPhat (
     MaPhieuPhat INT PRIMARY KEY IDENTITY(1,1),
     MaPhieuMuon INT,
@@ -226,7 +227,8 @@ INSERT INTO Sach (MaTacGia, MaLoaiTaiLieu, MaNhaXuatBan, TenSach, TheLoai, NamXu
 
 -- Insert data into TaiKhoan table
 INSERT INTO TaiKhoan (TenTaiKhoan, MatKhau, DiaChi, Email, NgaySinh, MaChucVu, GioiTinh) VALUES 
-('user1', 'password1', '123 Street, City', 'user1@example.com', '1990-05-15', 1, 1),
+('thuthu1', 'password1', '123 Street, City', 'thuthu1@example.com', '1990-05-15', 2, 1),
+('docgia1', 'password1', '123 Street, City', 'user1@example.com', '1990-05-15', 1, 1),
 ('admin', 'aaaaaaaa', '456 Avenue, Town', 'admin@gmail.com', '1985-10-20', 3, 0);
 
 -- Insert data into PhanQuyen table
@@ -241,9 +243,10 @@ INSERT INTO PhanQuyen (MaChucVu, MaChucNang) VALUES
 
 
 -- Insert data into PhieuMuonSach table
-INSERT INTO PhieuMuonSach (MaSach, MaTinhTrang, MaTaiKhoan, NgayMuon, NgayTraDuKien, NgayTraThucTe) VALUES 
-(1, 1, 1, '2024-03-25', '2024-04-25', NULL),
-(2, 1, 1, '2024-03-25', '2024-04-25', NULL);
+INSERT INTO PhieuMuonSach (MaSach, MaTinhTrang, MaTaiKhoan, NgayMuon, NgayTraDuKien, NgayTraThucTe) 
+VALUES 
+  (1, 1, 2, '2024-04-02', '2024-04-25', NULL),  
+  (2, 1, 2, '2024-04-02', '2024-04-25', NULL);
 
 -- Insert data into PhieuPhat table
 INSERT INTO PhieuPhat (MaPhieuMuon, MaLoaiTinhTrang, MaTaiKhoan, TienPhat) VALUES 
@@ -252,15 +255,15 @@ INSERT INTO PhieuPhat (MaPhieuMuon, MaLoaiTinhTrang, MaTaiKhoan, TienPhat) VALUE
 
 -- Insert data into DocGia table
 INSERT INTO DocGia (MaTaiKhoan) VALUES 
-(1);
+(2);
 
 -- Insert data into ThuThu table
 INSERT INTO ThuThu (MaTaiKhoan) VALUES 
-(2);
+(1);
 
 -- Insert data into QuanTriVien table
 INSERT INTO QuanTriVien (MaTaiKhoan) VALUES 
-(2);
+(3);
 
 -- Insert data into ThamSo table
 INSERT INTO ThamSo (TenThamSo, GiaTri) VALUES 
@@ -350,6 +353,35 @@ GO
 SELECT * FROM VW_Account_List_Full_Information
 
 GO
+
+GO
+-------------------------------------Get shift list (Phat)
+CREATE VIEW VW_Shift_List AS
+SELECT * FROM Ca
+
+GO
+
+--Chạy thử
+SELECT * FROM VW_Shift_List
+GO
+
+GO
+-------------------------------------Get Librarian list (Phat)
+CREATE VIEW VW_Librarian_List AS
+SELECT MaThuThu, TenTaiKhoan FROM ThuThu TT
+JOIN TaiKhoan TK ON TK.MaTaiKhoan = TT.MaTaiKhoan;
+GO
+
+GO
+-------------------------------------Get Assignment list (Phat)
+CREATE VIEW VW_Assignment_List AS
+SELECT NgayDauTuan, NgayCuoiTuan, TK.TenTaiKhoan, Thu, Buoi FROM PhanCong PC
+JOIN ThuThu TT ON TT.MaThuThu = PC.MaThuThu
+JOIN Ca C ON C.MaCa = PC.MaCa
+JOIN TaiKhoan TK ON TK.MaTaiKhoan = TT.MaTaiKhoan;
+
+GO
+
 -------------------------------------------------------------------Store Procedure (SP_)---------------------------------------------------------------------------------
 ------------------------------------------------------------Login Account (Phat)
 GO

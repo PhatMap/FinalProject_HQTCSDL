@@ -15,15 +15,52 @@ namespace LibraryManagement.GUI
     public partial class fAccount : Form
     {
         BindingSource accountList = new BindingSource();
-        private bool canAddBinding = true;
+        BindingSource shiftList = new BindingSource();
+        BindingSource librariantList = new BindingSource();
+        BindingSource assignmentList = new BindingSource();
+
 
         public fAccount()
         {
             InitializeComponent();
 
             dgvAccount.DataSource = accountList;
+            dgvShift.DataSource = shiftList;
+            dgvLibrarian.DataSource = librariantList;
+            dgvAssignment.DataSource = assignmentList;
+
+            DetachAccountBinding();
+            DetachAssignmentBinding();
+            DetachShiftBinding();
+            DetachLibrarianBinding();
+
             LoadAccountProfile();
             LoadAccountList();
+            LoadLichLamViec();
+        }
+
+        private void SetDauVaCuoiTuan()
+        {
+            //Set ngày đầu tuần và cuối tuần
+            int thu = (int)DateTime.Now.DayOfWeek;
+
+            int soNgayCong = 7 - thu;
+
+            int soNgayTru = 1 - thu;
+
+            dtpDauTuan.Value = DateTime.Now.AddDays(soNgayTru);
+
+            dtpCuoiTuan.Value = DateTime.Now.AddDays(soNgayCong);
+        }
+
+        private void LoadLichLamViec()
+        {
+            SetDauVaCuoiTuan();
+
+            //Load các bảng 
+            LoadLibrarianList();
+            LoadShiftList();
+            LoadAssignmentList();
         }
 
         private void AddAccountBinding()
@@ -60,6 +97,59 @@ namespace LibraryManagement.GUI
 
             cbAccPosition.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "TenChucVu"));
             inpAccAddress.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "DiaChi"));
+        }
+
+        private void DetachAccountBinding()
+        {
+            inpAccName.DataBindings.Clear();
+            inpAccEmail.DataBindings.Clear();
+            numAccID.DataBindings.Clear();
+            dtpAccNgaySinh.DataBindings.Clear();
+            inpAccPass.DataBindings.Clear();
+            rbtnNam.DataBindings.Clear();
+            rbtnNu.DataBindings.Clear();
+            cbAccPosition.DataBindings.Clear();
+            inpAccAddress.DataBindings.Clear();
+        }
+
+        private void AddShiftBinding()
+        {
+            cbBuoi.DataBindings.Add(new Binding("Text", dgvShift.DataSource, "Buoi"));
+            cbThu.DataBindings.Add(new Binding("Text", dgvShift.DataSource, "Thu"));
+        }
+
+        private void DetachShiftBinding()
+        {
+            cbBuoi.DataBindings.Clear();
+            cbThu.DataBindings.Clear();
+        }
+
+        private void AddLibrarianBinding()
+        {
+            cbTenTaiKhoan.DataBindings.Add(new Binding("Text", dgvLibrarian.DataSource, "TenTaiKhoan"));
+        }
+
+        private void DetachLibrarianBinding()
+        {
+            cbTenTaiKhoan.DataBindings.Clear();
+        }
+
+        private void AddAssignmentBinding()
+        {
+            dtpDauTuan.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "NgayDauTuan"));
+            dtpCuoiTuan.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "NgayCuoiTuan"));
+            cbTenTaiKhoan.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "TenTaiKhoan"));
+            cbBuoi.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "Buoi"));
+            cbThu.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "Thu"));
+        }
+
+        private void DetachAssignmentBinding()
+        {
+            dtpDauTuan.DataBindings.Clear();
+            dtpCuoiTuan.DataBindings.Clear();
+            cbTenTaiKhoan.DataBindings.Clear();
+            cbBuoi.DataBindings.Clear();
+            cbThu.DataBindings.Clear();
         }
 
         private void LoadAccountProfile()
@@ -148,7 +238,7 @@ namespace LibraryManagement.GUI
 
         private void btnUpdateAcc_Click(object sender, EventArgs e)
         {
-            DetachBindings();
+            DetachAccountBinding();
             AddAccountBinding();
 
             TaiKhoan tk = new TaiKhoan();
@@ -170,8 +260,9 @@ namespace LibraryManagement.GUI
 
         private void btnFindAcc_Click(object sender, EventArgs e)
         {
-            DetachBindings();
+            DetachAccountBinding();
             AddAccountBinding();
+
             string email = inpAccEmail.Text;
             string name = inpAccName.Text;
 
@@ -187,7 +278,7 @@ namespace LibraryManagement.GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            DetachBindings();
+            DetachAccountBinding();
 
             LoadAccountList();
 
@@ -204,17 +295,45 @@ namespace LibraryManagement.GUI
 
         }
 
-        private void DetachBindings()
+        //tab3 lich lam viec
+        private void LoadShiftList()
         {
-            inpAccName.DataBindings.Clear();
-            inpAccEmail.DataBindings.Clear();
-            numAccID.DataBindings.Clear();
-            dtpAccNgaySinh.DataBindings.Clear();
-            inpAccPass.DataBindings.Clear();
-            rbtnNam.DataBindings.Clear();
-            rbtnNu.DataBindings.Clear();
-            cbAccPosition.DataBindings.Clear();
-            inpAccAddress.DataBindings.Clear();
+            shiftList.DataSource = CaDAO.Instance.LoadCaList();
+        }
+
+        private void LoadLibrarianList()
+        {
+            librariantList.DataSource = ThuThuDAO.Instance.LoadThuThuList();
+
+            cbTenTaiKhoan.DataSource = ThuThuDAO.Instance.LoadThuThuList();
+            cbTenTaiKhoan.DisplayMember = "TenTaiKhoan";
+            cbTenTaiKhoan.ValueMember = "MaThuThu";
+        }
+
+        private void LoadAssignmentList()
+        {
+            assignmentList.DataSource = PhanCongDAO.Instance.LoadPhanCongList();
+        }
+
+        private void btnAssiCreate_Click(object sender, EventArgs e)
+        {
+            SetDauVaCuoiTuan();
+            DetachShiftBinding();
+            DetachLibrarianBinding();
+            AddShiftBinding();
+            AddLibrarianBinding();
+        }
+
+        private void btnAssiUpdate_Click(object sender, EventArgs e)
+        {
+            DetachAssignmentBinding();
+            AddAssignmentBinding();
+        }
+
+        private void btnAssiDelete_Click(object sender, EventArgs e)
+        {
+            DetachAssignmentBinding();
+            AddAssignmentBinding();
         }
     }
 }
