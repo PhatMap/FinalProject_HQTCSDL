@@ -61,6 +61,7 @@
     <Compile Include="DTO\ChucVu.cs" />
     <Compile Include="DTO\PhanCong.cs" />
     <Compile Include="DTO\PhanQuyen.cs" />
+    <Compile Include="DTO\PhieuPhat.cs" />
     <Compile Include="DTO\Session.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
     <Compile Include="DTO\ThuThu.cs" />
