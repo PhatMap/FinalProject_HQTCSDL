@@ -19,7 +19,7 @@ namespace LibraryManagement.DAO
 
         private DataProvider() { }
 
-        private string connectionStr = @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
+        private string connectionStr = @"Data Source=LAPTOP-L7BVASSV\MAY1;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
         SqlConnection connection;
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
