@@ -23,7 +23,7 @@
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|d:\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -83,7 +83,7 @@
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\dao\\chucnangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|d:\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\dto\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\dto\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\dto\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -95,7 +95,7 @@
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\dao\\phanquyendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|d:\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\gui\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -126,7 +126,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -135,6 +135,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
             },
             {
               "$type": "Document",
@@ -146,8 +150,7 @@
               "RelativeToolTip": "LibraryManagement\\GUI\\fCoupon.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T13:45:17.775Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T13:45:17.775Z"
             },
             {
               "$type": "Document",
@@ -157,7 +160,7 @@
               "RelativeDocumentMoniker": "LibraryManagement\\DTO\\PhieuPhat.cs",
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DTO\\PhieuPhat.cs",
               "RelativeToolTip": "LibraryManagement\\DTO\\PhieuPhat.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAIwC4AAAAJAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAIwEIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-03T13:23:09.339Z",
               "EditorCaption": ""
@@ -172,8 +175,7 @@
               "RelativeToolTip": "LibraryManagement\\GUI\\fLogin.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T13:15:52.827Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T13:15:52.827Z"
             },
             {
               "$type": "Document",
@@ -185,8 +187,7 @@
               "RelativeToolTip": "LibraryManagement\\DTO\\PhanCong.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:45:15.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T12:45:15.197Z"
             },
             {
               "$type": "Document",
@@ -198,8 +199,7 @@
               "RelativeToolTip": "LibraryManagement\\DTO\\ChucVu.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:45:12.826Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T12:45:12.826Z"
             },
             {
               "$type": "Document",
@@ -211,8 +211,7 @@
               "RelativeToolTip": "LibraryManagement\\DTO\\ChucNang.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:45:08.063Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T12:45:08.063Z"
             },
             {
               "$type": "Document",
@@ -224,8 +223,7 @@
               "RelativeToolTip": "LibraryManagement\\DAO\\PhanQuyenDAO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:44:59.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T12:44:59.709Z"
             },
             {
               "$type": "Document",
@@ -237,8 +235,7 @@
               "RelativeToolTip": "LibraryManagement\\DAO\\ChucVuDAO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:44:47.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T12:44:47.574Z"
             },
             {
               "$type": "Document",
@@ -250,8 +247,7 @@
               "RelativeToolTip": "LibraryManagement\\DAO\\ChucNangDAO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:44:38.232Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T12:44:38.232Z"
             },
             {
               "$type": "Document",
@@ -263,8 +259,7 @@
               "RelativeToolTip": "LibraryManagement\\DTO\\Session.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:42:38.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T12:42:38.302Z"
             },
             {
               "$type": "Document",
@@ -276,8 +271,7 @@
               "RelativeToolTip": "LibraryManagement\\DTO\\TaiKhoan.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:42:37.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T12:42:37.012Z"
             },
             {
               "$type": "Document",
@@ -289,8 +283,7 @@
               "RelativeToolTip": "LibraryManagement\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:42:25.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-31T12:42:25.727Z"
             },
             {
               "$type": "Document",
@@ -301,8 +294,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\Resources\\hcmute.jpg - Bitmap [967x645, 24 bit, JPG]",
               "RelativeToolTip": "LibraryManagement\\Resources\\hcmute.jpg - Bitmap [967x645, 24 bit, JPG]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-03-31T12:42:21.968Z",
-              "EditorCaption": " - Bitmap [967x645, 24 bit, JPG]"
+              "WhenOpened": "2024-03-31T12:42:21.968Z"
             },
             {
               "$type": "Document",
@@ -314,8 +306,7 @@
               "RelativeToolTip": "LibraryManagement\\DAO\\DataProvider.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T01:06:43.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-28T01:06:43.326Z"
             },
             {
               "$type": "Document",
@@ -327,8 +318,7 @@
               "RelativeToolTip": "LibraryManagement\\GUI\\fHome.cs",
               "ViewState": "AQIAACUAAAAAAAAAAAAmwDUAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:42:17.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-27T17:42:17.304Z"
             },
             {
               "$type": "Document",
@@ -339,8 +329,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fCoupon.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:46:06.678Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:46:06.678Z"
             },
             {
               "$type": "Document",
@@ -351,8 +340,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fStatistic.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fStatistic.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:47:17.309Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:47:17.309Z"
             },
             {
               "$type": "Document",
@@ -363,8 +351,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fHome.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fHome.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:41:09.06Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:41:09.06Z"
             },
             {
               "$type": "Document",
@@ -375,8 +362,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fLogin.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:46:08.517Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:46:08.517Z"
             },
             {
               "$type": "Document",
@@ -387,8 +373,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fAuthorize.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fAuthorize.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:47:10.994Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:47:10.994Z"
             },
             {
               "$type": "Document",
@@ -400,8 +385,7 @@
               "RelativeToolTip": "LibraryManagement\\GUI\\fAuthorize.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:49:25.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-27T17:49:25.022Z"
             },
             {
               "$type": "Document",
@@ -412,8 +396,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fPassword.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fPassword.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:46:09.465Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:46:09.465Z"
             },
             {
               "$type": "Document",
@@ -424,8 +407,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fAccount.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fAccount.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:05:23.507Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:05:23.507Z"
             },
             {
               "$type": "Document",
@@ -436,8 +418,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fReader.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fReader.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:46:12.798Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:46:12.798Z"
             },
             {
               "$type": "Document",
@@ -448,8 +429,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fProfileUpdate.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fProfileUpdate.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:46:10.306Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:46:10.306Z"
             },
             {
               "$type": "Document",
@@ -460,8 +440,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fSignup.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fSignup.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:46:15.062Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:46:15.062Z"
             },
             {
               "$type": "Document",
@@ -472,8 +451,7 @@
               "ToolTip": "D:\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fBook.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:46:04.689Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-03-27T17:46:04.689Z"
             },
             {
               "$type": "Document",
@@ -485,8 +463,7 @@
               "RelativeToolTip": "LibraryManagement\\GUI\\fAccount.cs",
               "ViewState": "AQIAAEsAAAAAAAAAAAASwFsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:00:52.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-27T17:00:52.367Z"
             },
             {
               "$type": "Document",
@@ -498,8 +475,7 @@
               "RelativeToolTip": "LibraryManagement\\DAO\\TaiKhoanDAO.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAAAEgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T16:31:09.037Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-27T16:31:09.037Z"
             }
           ]
         }
