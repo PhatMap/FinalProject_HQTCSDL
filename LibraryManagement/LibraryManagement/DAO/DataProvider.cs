@@ -21,11 +21,11 @@ namespace LibraryManagement.DAO
         private DataProvider() { }
 
         //(Phat)    LAPTOP-M3L0LSMS
-        //(Trung)
+        //(Trung)   
         //(Hoan)
         //(Van)
 
-        private string connectionStr = @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
+        private string connectionStr = @"Data Source=Jack-2nd-wife;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
         SqlConnection connection;
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)

@@ -51,6 +51,7 @@
     <Compile Include="DAO\CaDAO.cs" />
     <Compile Include="DAO\ChucNangDAO.cs" />
     <Compile Include="DAO\ChucVuDAO.cs" />
+    <Compile Include="DAO\CouponDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\PhanCongDAO.cs" />
     <Compile Include="DAO\PhanQuyenDAO.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="DTO\ChucVu.cs" />
     <Compile Include="DTO\PhanCong.cs" />
     <Compile Include="DTO\PhanQuyen.cs" />
+    <Compile Include="DTO\PhieuMuon.cs" />
     <Compile Include="DTO\Session.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
     <Compile Include="DTO\ThuThu.cs" />

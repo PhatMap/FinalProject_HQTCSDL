@@ -46,3 +46,23 @@ D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryMan
 D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fPassword.resources
 D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fProfileUpdate.resources
 D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAuthorize.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe.config
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAccount.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAuthorize.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fBook.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fCoupon.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fHome.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fLogin.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fPassword.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fProfileUpdate.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fReader.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fSignup.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fStatistic.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
+C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
