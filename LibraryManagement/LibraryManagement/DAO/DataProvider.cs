@@ -22,7 +22,7 @@ namespace LibraryManagement.DAO
 
         //(Phat)    LAPTOP-M3L0LSMS
         //(Trung)
-        //(Hoan)
+        //(Hoan)    LAPTOP-L7BVASSV\MAY1
         //(Van)
 
         private string connectionStr = @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
