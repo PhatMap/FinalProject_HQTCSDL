@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,12 @@ namespace LibraryManagement.DAO
 
         private DataProvider() { }
 
-        private string connectionStr = @"Data Source=LAPTOP-L7BVASSV\MAY1;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
+        //(Phat)    LAPTOP-M3L0LSMS
+        //(Trung)
+        //(Hoan)
+        //(Van)
+
+        private string connectionStr = @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
         SqlConnection connection;
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)

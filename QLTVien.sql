@@ -44,6 +44,12 @@ END
 CLOSE cur
 DEALLOCATE cur
 
+
+
+
+
+
+---------------------------------------------------------------------Tables
 CREATE TABLE TacGia (
     MaTacGia INT PRIMARY KEY IDENTITY(1,1),
     TenTacGia NVARCHAR(255) NOT NULL
@@ -123,6 +129,7 @@ CREATE TABLE PhieuMuonSach (
     NgayTraDuKien DATE NOT NULL CHECK (DATEDIFF(DAY, GETDATE(), NgayTraDuKien) >= 0),
     NgayTraThucTe DATE CHECK (DATEDIFF(DAY, GETDATE(), NgayTraThucTe) >= 0)
 );
+
 CREATE TABLE PhieuPhat (
     MaPhieuPhat INT PRIMARY KEY IDENTITY(1,1),
     MaPhieuMuon INT,
@@ -168,6 +175,8 @@ CREATE TABLE PhanCong (
     FOREIGN KEY (MaCa) REFERENCES Ca(MaCa)
 );
 
+
+---------------------------------------------------------------------Insert Data
 -- Insert data into TacGia table
 INSERT INTO TacGia (TenTacGia) VALUES 
 ('Nguyen Hien Le'),
@@ -218,7 +227,8 @@ INSERT INTO Sach (MaTacGia, MaLoaiTaiLieu, MaNhaXuatBan, TenSach, TheLoai, NamXu
 
 -- Insert data into TaiKhoan table
 INSERT INTO TaiKhoan (TenTaiKhoan, MatKhau, DiaChi, Email, NgaySinh, MaChucVu, GioiTinh) VALUES 
-('user1', 'password1', '123 Street, City', 'user1@example.com', '1990-05-15', 1, 1),
+('thuthu1', 'password1', '123 Street, City', 'thuthu1@example.com', '1990-05-15', 2, 1),
+('docgia1', 'password1', '123 Street, City', 'user1@example.com', '1990-05-15', 1, 1),
 ('admin', 'aaaaaaaa', '456 Avenue, Town', 'admin@gmail.com', '1985-10-20', 3, 0);
 
 -- Insert data into PhanQuyen table
@@ -233,9 +243,10 @@ INSERT INTO PhanQuyen (MaChucVu, MaChucNang) VALUES
 
 
 -- Insert data into PhieuMuonSach table
-INSERT INTO PhieuMuonSach (MaSach, MaTinhTrang, MaTaiKhoan, NgayMuon, NgayTraDuKien, NgayTraThucTe) VALUES 
-(1, 1, 1, '2024-03-25', '2024-04-25', NULL),
-(2, 1, 1, '2024-03-25', '2024-04-25', NULL);
+INSERT INTO PhieuMuonSach (MaSach, MaTinhTrang, MaTaiKhoan, NgayMuon, NgayTraDuKien, NgayTraThucTe) 
+VALUES 
+  (1, 1, 2, '2024-04-02', '2024-04-25', NULL),  
+  (2, 1, 2, '2024-04-02', '2024-04-25', NULL);
 
 -- Insert data into PhieuPhat table
 INSERT INTO PhieuPhat (MaPhieuMuon, MaLoaiTinhTrang, MaTaiKhoan, TienPhat) VALUES 
@@ -244,15 +255,15 @@ INSERT INTO PhieuPhat (MaPhieuMuon, MaLoaiTinhTrang, MaTaiKhoan, TienPhat) VALUE
 
 -- Insert data into DocGia table
 INSERT INTO DocGia (MaTaiKhoan) VALUES 
-(1);
+(2);
 
 -- Insert data into ThuThu table
 INSERT INTO ThuThu (MaTaiKhoan) VALUES 
-(2);
+(1);
 
 -- Insert data into QuanTriVien table
 INSERT INTO QuanTriVien (MaTaiKhoan) VALUES 
-(2);
+(3);
 
 -- Insert data into ThamSo table
 INSERT INTO ThamSo (TenThamSo, GiaTri) VALUES 
@@ -318,6 +329,59 @@ FROM ChucVu
 SELECT * FROM VW_Position_List
 GO
 
+GO
+-------------------------------------Get account list (Phat)
+CREATE VIEW VW_Account_List_Full_Information AS
+SELECT 	
+	MaTaiKhoan, 
+	TenTaiKhoan, 
+	MatKhau, 
+	DiaChi, 
+	Email, 
+	NgaySinh,
+	CV.MaChucVu,
+	CV.TenChucVu,     
+	CASE GioiTinh
+		WHEN 0 THEN N'Nam'
+		WHEN 1 THEN N'Nữ'
+	END AS GioiTinh
+FROM TaiKhoan TK
+JOIN ChucVu CV ON TK.MaChucVu = CV.MaChucVu;
+GO
+
+--Chạy thử
+SELECT * FROM VW_Account_List_Full_Information
+
+GO
+
+GO
+-------------------------------------Get shift list (Phat)
+CREATE VIEW VW_Shift_List AS
+SELECT * FROM Ca
+
+GO
+
+--Chạy thử
+SELECT * FROM VW_Shift_List
+GO
+
+GO
+-------------------------------------Get Librarian list (Phat)
+CREATE VIEW VW_Librarian_List AS
+SELECT MaThuThu, TenTaiKhoan FROM ThuThu TT
+JOIN TaiKhoan TK ON TK.MaTaiKhoan = TT.MaTaiKhoan;
+GO
+
+GO
+-------------------------------------Get Assignment list (Phat)
+CREATE VIEW VW_Assignment_List AS
+SELECT NgayDauTuan, NgayCuoiTuan, TK.TenTaiKhoan, Thu, Buoi FROM PhanCong PC
+JOIN ThuThu TT ON TT.MaThuThu = PC.MaThuThu
+JOIN Ca C ON C.MaCa = PC.MaCa
+JOIN TaiKhoan TK ON TK.MaTaiKhoan = TT.MaTaiKhoan;
+
+GO
+
 -------------------------------------------------------------------Store Procedure (SP_)---------------------------------------------------------------------------------
 ------------------------------------------------------------Login Account (Phat)
 GO
@@ -345,6 +409,7 @@ GO
 --Chạy thử
 EXEC SP_Get_Account_Position_Functions @position = 1
 
+GO
 ---------------------------------------------------Change password(Phat)
 CREATE PROC SP_Change_Account_Password
 (
@@ -355,44 +420,68 @@ CREATE PROC SP_Change_Account_Password
 )
 AS 
 BEGIN
+    BEGIN TRANSACTION;
 
-    IF NOT EXISTS (SELECT * FROM TaiKhoan WHERE Email = @Email AND MatKhau = @MatKhauCu)
+	IF NOT EXISTS (SELECT * FROM TaiKhoan WHERE Email = @Email AND MatKhau = @MatKhauCu)
     BEGIN
-        RETURN; 
+        ROLLBACK; 
     END
 
 	IF @MatKhauMoi <> @XacNhan
     BEGIN
-        RETURN; 
+        ROLLBACK; 
     END
 
-    UPDATE TaiKhoan
-    SET MatKhau = @MatKhauMoi
-    WHERE Email = @Email;
+    BEGIN TRY
+            UPDATE TaiKhoan
+			SET MatKhau = @MatKhauMoi
+			WHERE Email = @Email;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
 END
 
 --Chạy thử
 SELECT * FROM SP_Change_Account_Password()
 
----------------------------------------------------Update account profile(Phat)
+GO
+---------------------------------------------------Update account(Phat)
 
-CREATE PROC SP_Update_Account_Profile
+CREATE PROC SP_Update_Account
+	@MaTaiKhoan int,
     @TenTaiKhoan nvarchar(255),
+	@MatKhau nvarchar(255),
     @DiaChi nvarchar(255),
     @NgaySinh datetime,
-    @Email nvarchar(255),
+	@Email NVARCHAR(255),
+	@MaChucVu int,
     @GioiTinh bit
 AS
 BEGIN
-    UPDATE TaiKhoan
-    SET TenTaiKhoan = @TenTaiKhoan,
-		DiaChi = @DiaChi,
-        NgaySinh = @NgaySinh,
-        GioiTinh = @GioiTinh
-    WHERE Email = @Email;
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            UPDATE TaiKhoan
+				SET TenTaiKhoan = @TenTaiKhoan,
+					MatKhau = @MatKhau,
+					DiaChi = @DiaChi,
+					NgaySinh = @NgaySinh,
+					GioiTinh = @GioiTinh,
+					Email = @Email,
+					MaChucVu = @MaChucVu
+			 WHERE MaTaiKhoan = @MaTaiKhoan;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
 END;
 
----------------------------------------------------Update account profile(Phat)
+---------------------------------------------------Add New Account(Phat)
 GO
 
 CREATE PROC SP_Add_New_Account
@@ -405,8 +494,17 @@ CREATE PROC SP_Add_New_Account
     @GioiTinh bit
 AS
 BEGIN
-    INSERT INTO TaiKhoan (TenTaiKhoan, MatKhau, DiaChi, Email, NgaySinh, MaChucVu, GioiTinh)
-    VALUES (@TenTaiKhoan, @MatKhau, @DiaChi, @Email, @NgaySinh, @MaChucVu, @GioiTinh);
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        INSERT INTO TaiKhoan (TenTaiKhoan, MatKhau, DiaChi, Email, NgaySinh, MaChucVu, GioiTinh)
+        VALUES (@TenTaiKhoan, @MatKhau, @DiaChi, @Email, @NgaySinh, @MaChucVu, @GioiTinh);
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
 END;
 
 --Chạy thử
@@ -421,7 +519,74 @@ EXEC SP_Add_New_Account
 
 GO
 
+---------------------------------------------------Delete account(Phat)
+
+CREATE PROC SP_Delete_Account
+    @MaTaiKhoan int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            DELETE TaiKhoan WHERE MaTaiKhoan = @MaTaiKhoan;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+Select * from TaiKhoan
+
+EXEC SP_Delete_Account '3'
+
+GO
+---------------------------------------------------Find account by email(Phat)
+CREATE PROC SP_Find_Account_By_Email
+(
+	@Email nvarchar(255)
+)
+AS
+BEGIN
+	SELECT 
+		MaTaiKhoan, 
+		TenTaiKhoan, 
+		MatKhau, 
+		DiaChi, 
+		Email, 
+		NgaySinh,
+		TenChucVu,
+		GioiTinh
+	FROM VW_Account_List_Full_Information 
+	WHERE 
+		(Email = @Email) 
+END;
+
+-- Chạy thử
+
+---------------------------------------------------Find account by name (Phat)
+CREATE PROC SP_Find_Account_By_Name
+(
+	@TenTaiKhoan nvarchar(255)
+)
+AS
+BEGIN
+	SELECT 
+		MaTaiKhoan, 
+		TenTaiKhoan, 
+		MatKhau, 
+		DiaChi, 
+		Email, 
+		NgaySinh,
+		TenChucVu,
+		GioiTinh
+	FROM VW_Account_List_Full_Information 
+	WHERE 
+		(TenTaiKhoan = @TenTaiKhoan) 
+END;
 -------------------------------------------------------------------Function(FN_)---------------------------------------------------------------------------------
+GO
 ---------------------------------------------------Get login account profile(Phat)
 CREATE FUNCTION FN_Get_Account_Profile(@Email nvarchar(255))
 RETURNS TABLE
@@ -436,5 +601,5 @@ SELECT * FROM FN_Get_Account_Profile('admin@gmail.com')
 
 
 
-
+select * from TaiKhoan
 -------------------------------------------------------------------Trigger(TR_)---------------------------------------------------------------------------------

@@ -22,7 +22,7 @@ namespace LibraryManagement.DTO
         }
 
         private int maChucVu;
-        public int MaChucVu 
+        public int MaChucVu
         {  
             get { return maChucVu; } 
             set { maChucVu = value; } 
