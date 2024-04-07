@@ -9,5 +9,6 @@ namespace LibraryManagement.DTO
     public static class Session
     {
         public static TaiKhoan loginAccount { get; set; }
+
     }
 }

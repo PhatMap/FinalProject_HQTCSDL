@@ -9,28 +9,30 @@ namespace LibraryManagement.DTO
 {
     public class TaiKhoan
     {
-        public TaiKhoan(int maTaiKhoan, string tenTaiKhoan, string matKhau, string diaChi, string email, DateTime ngaySinh, int maChucVu, bool gioiTinh)
+        public TaiKhoan(int maTaiKhoan, string email, string matKhau, string vaiTro, string hoTen, string soDienThoai, DateTime ngaySinh, string diaChi, string gioiTinh)
         {
             this.MaTaiKhoan = maTaiKhoan;
-            this.TenTaiKhoan = tenTaiKhoan;
-            this.MatKhau = matKhau;
-            this.DiaChi = diaChi;
             this.Email = email;
+            this.MatKhau = matKhau;
+            this.VaiTro = vaiTro;
+            this.HoTen = hoTen;
+            this.SoDienThoai = soDienThoai;
             this.NgaySinh = ngaySinh;
-            this.MaChucVu = maChucVu;
+            this.DiaChi = diaChi;
             this.GioiTinh = gioiTinh;
         }
 
         public TaiKhoan(DataRow row)
         {
             this.MaTaiKhoan = (int)row["MaTaiKhoan"];
-            this.TenTaiKhoan = row["TenTaiKhoan"].ToString();
-            this.MatKhau = row["MatKhau"].ToString();
-            this.DiaChi = row["DiaChi"].ToString();
             this.Email = row["Email"].ToString();
+            this.MatKhau = row["MatKhau"].ToString();
+            this.VaiTro = row["VaiTro"].ToString();
+            this.HoTen = row["HoTen"].ToString();
+            this.SoDienThoai = row["SoDienThoai"].ToString();
             this.NgaySinh = (DateTime)row["NgaySinh"];
-            this.MaChucVu = (int)row["MaChucVu"];
-            this.GioiTinh = (bool)row["GioiTinh"];
+            this.DiaChi = row["DiaChi"].ToString();
+            this.GioiTinh = row["GioiTinh"].ToString();
         }
 
         public TaiKhoan()
@@ -38,60 +40,130 @@ namespace LibraryManagement.DTO
         }
 
         private int maTaiKhoan;
-        public int MaTaiKhoan 
-        {  
-            get { return maTaiKhoan; } 
-            set { maTaiKhoan = value; } 
-        }
-
-        private string tenTaiKhoan;
-        public string TenTaiKhoan
-        {
-            get { return tenTaiKhoan; }
-            set { tenTaiKhoan = value; }
-        }
-
-        private string matKhau;
-        public string MatKhau
-        {
-            get { return matKhau; }
-            set { matKhau = value; }
-        }
-
-        private string diaChi;
-        public string DiaChi
-        {
-            get { return diaChi; }
-            set { diaChi = value; }
-        }
-
         private string email;
+        private string matKhau;
+        private string vaiTro;
+        private string hoTen;
+        private string soDienThoai;
+        private DateTime ngaySinh;
+        private string diaChi;
+        private string gioiTinh;
+
+        public int MaTaiKhoan
+        {
+            get
+            {
+                return maTaiKhoan;
+            }
+
+            set
+            {
+                maTaiKhoan = value;
+            }
+        }
+
         public string Email
         {
-            get { return email; }
-            set { email = value; }
+            get
+            {
+                return email;
+            }
+
+            set
+            {
+                email = value;
+            }
         }
 
-        private DateTime ngaySinh;
+        public string MatKhau
+        {
+            get
+            {
+                return matKhau;
+            }
+
+            set
+            {
+                matKhau = value;
+            }
+        }
+
+        public string VaiTro
+        {
+            get
+            {
+                return vaiTro;
+            }
+
+            set
+            {
+                vaiTro = value;
+            }
+        }
+
+        public string HoTen
+        {
+            get
+            {
+                return hoTen;
+            }
+
+            set
+            {
+                hoTen = value;
+            }
+        }
+
+        public string SoDienThoai
+        {
+            get
+            {
+                return soDienThoai;
+            }
+
+            set
+            {
+                soDienThoai = value;
+            }
+        }
+
         public DateTime NgaySinh
         {
-            get { return ngaySinh; }
-            set { ngaySinh = value; }
+            get
+            {
+                return ngaySinh;
+            }
+
+            set
+            {
+                ngaySinh = value;
+            }
         }
 
-        private int maChucVu;
-        public int MaChucVu
+        public string DiaChi
         {
-            get { return maChucVu; }
-            set { maChucVu = value; }
+            get
+            {
+                return diaChi;
+            }
+
+            set
+            {
+                diaChi = value;
+            }
         }
 
-        private bool gioiTinh;
-        public bool GioiTinh
+        public string GioiTinh
         {
-            get { return gioiTinh; }
-            set { gioiTinh = value; }
-        }
+            get
+            {
+                return gioiTinh;
+            }
 
+            set
+            {
+                gioiTinh = value;
+            }
+        }
     }
 }

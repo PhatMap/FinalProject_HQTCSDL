@@ -1,4 +1,62 @@
-﻿-- Show all triggers
+﻿-- Gỡ bỏ tất cả các view
+DECLARE @viewName NVARCHAR(MAX)
+DECLARE curViews CURSOR FOR
+SELECT name FROM sys.views
+OPEN curViews
+FETCH NEXT FROM curViews INTO @viewName
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    EXEC('DROP VIEW ' + @viewName)
+    FETCH NEXT FROM curViews INTO @viewName
+END
+CLOSE curViews
+DEALLOCATE curViews
+
+-- Gỡ bỏ tất cả các trigger
+DECLARE @triggerName NVARCHAR(MAX)
+DECLARE curTriggers CURSOR FOR
+SELECT name FROM sys.triggers
+OPEN curTriggers
+FETCH NEXT FROM curTriggers INTO @triggerName
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    EXEC('DROP TRIGGER ' + @triggerName)
+    FETCH NEXT FROM curTriggers INTO @triggerName
+END
+CLOSE curTriggers
+DEALLOCATE curTriggers
+
+-- Gỡ bỏ tất cả các function
+DECLARE @functionName NVARCHAR(MAX)
+DECLARE curFunctions CURSOR FOR
+SELECT name FROM sys.objects WHERE type IN ('FN', 'IF', 'TF')
+OPEN curFunctions
+FETCH NEXT FROM curFunctions INTO @functionName
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    EXEC('DROP FUNCTION ' + @functionName)
+    FETCH NEXT FROM curFunctions INTO @functionName
+END
+CLOSE curFunctions
+DEALLOCATE curFunctions
+
+-- Gỡ bỏ tất cả các stored procedure
+DECLARE @procedureName NVARCHAR(MAX)
+DECLARE curProcedures CURSOR FOR
+SELECT name FROM sys.objects WHERE type = 'P'
+OPEN curProcedures
+FETCH NEXT FROM curProcedures INTO @procedureName
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    EXEC('DROP PROCEDURE ' + @procedureName)
+    FETCH NEXT FROM curProcedures INTO @procedureName
+END
+CLOSE curProcedures
+DEALLOCATE curProcedures
+
+
+
+-- Show all triggers
 SELECT 
     name AS TriggerName,
     type_desc AS ObjectType,
