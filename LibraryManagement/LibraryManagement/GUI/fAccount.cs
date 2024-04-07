@@ -15,62 +15,35 @@ namespace LibraryManagement.GUI
     public partial class fAccount : Form
     {
         BindingSource accountList = new BindingSource();
-        BindingSource shiftList = new BindingSource();
-        BindingSource librariantList = new BindingSource();
-        BindingSource assignmentList = new BindingSource();
-
+        BindingSource ScheduleList = new BindingSource();
 
         public fAccount()
         {
             InitializeComponent();
 
             dgvAccount.DataSource = accountList;
-            dgvShift.DataSource = shiftList;
-            dgvLibrarian.DataSource = librariantList;
-            dgvAssignment.DataSource = assignmentList;
+            dgvSchedule.DataSource = ScheduleList;
+
+            cbLibName.DataSource = TaiKhoanDAO.Instance.LoadLibrarian();
+            cbLibName.DisplayMember = "HoTen";
+            cbLibName.ValueMember = "MaTaiKhoan";
 
             DetachAccountBinding();
-            DetachAssignmentBinding();
-            DetachShiftBinding();
-            DetachLibrarianBinding();
+            DetachScheduleBinding();
 
             LoadAccountProfile();
             LoadAccountList();
-            LoadLichLamViec();
+            LoadScheduleList();
         }
 
-        private void SetDauVaCuoiTuan()
-        {
-            //Set ngày đầu tuần và cuối tuần
-            int thu = (int)DateTime.Now.DayOfWeek;
-
-            int soNgayCong = 7 - thu;
-
-            int soNgayTru = 1 - thu;
-
-            dtpDauTuan.Value = DateTime.Now.AddDays(soNgayTru);
-
-            dtpCuoiTuan.Value = DateTime.Now.AddDays(soNgayCong);
-        }
-
-        private void LoadLichLamViec()
-        {
-            SetDauVaCuoiTuan();
-
-            //Load các bảng 
-            LoadLibrarianList();
-            LoadShiftList();
-            LoadAssignmentList();
-        }
 
         private void AddAccountBinding()
         {
-            inpAccName.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "TenTaiKhoan"));
+            inpAccName.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "HoTen"));
             inpAccEmail.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "Email"));
             numAccID.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "MaTaiKhoan"));
             dtpAccNgaySinh.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "NgaySinh"));
             inpAccPass.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "MatKhau"));
-            
             var maleBinding = new Binding("Checked", dgvAccount.DataSource, "GioiTinh");
             maleBinding.Format += (s, args) =>
             {
@@ -85,17 +58,16 @@ namespace LibraryManagement.GUI
             var femaleBinding = new Binding("Checked", dgvAccount.DataSource, "GioiTinh");
             femaleBinding.Format += (s, args) =>
             {
-            //Tại sao không để == "Nữ" mà để != "Nam", là để tránh xài tiếng việt sợ lỗi :)
-                if (args.Value != DBNull.Value && (string)args.Value != "Nam") 
+                //Tại sao không để == "Nữ" mà để != "Nam", là để tránh xài tiếng việt sợ lỗi :)
+                if (args.Value != DBNull.Value && (string)args.Value != "Nam")
                     args.Value = true;
                 else
                     args.Value = false;
             };
 
             rbtnNu.DataBindings.Add(femaleBinding);
-
-
-            cbAccPosition.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "TenChucVu"));
+            inpAccPhone.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "SoDienThoai"));
+            cbAccRole.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "VaiTro"));
             inpAccAddress.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "DiaChi"));
         }
 
@@ -108,48 +80,25 @@ namespace LibraryManagement.GUI
             inpAccPass.DataBindings.Clear();
             rbtnNam.DataBindings.Clear();
             rbtnNu.DataBindings.Clear();
-            cbAccPosition.DataBindings.Clear();
+            inpAccPhone.DataBindings.Clear();
+            cbAccRole.DataBindings.Clear();
             inpAccAddress.DataBindings.Clear();
         }
 
-        private void AddShiftBinding()
+        private void AddScheduleBinding()
         {
-            cbBuoi.DataBindings.Add(new Binding("Text", dgvShift.DataSource, "Buoi"));
-            cbThu.DataBindings.Add(new Binding("Text", dgvShift.DataSource, "Thu"));
+            dtpLibDay.DataBindings.Add(new Binding("Text", dgvSchedule.DataSource, "NgayLam"));
+            cbLibName.DataBindings.Add(new Binding("Text", dgvSchedule.DataSource, "HoTen"));
+            cbLibCa.DataBindings.Add(new Binding("Text", dgvSchedule.DataSource, "Ca"));
+            numLibID.DataBindings.Add(new Binding("Text", dgvSchedule.DataSource, "MaLichLamViec"));
         }
 
-        private void DetachShiftBinding()
+        private void DetachScheduleBinding()
         {
-            cbBuoi.DataBindings.Clear();
-            cbThu.DataBindings.Clear();
-        }
-
-        private void AddLibrarianBinding()
-        {
-            cbTenTaiKhoan.DataBindings.Add(new Binding("Text", dgvLibrarian.DataSource, "TenTaiKhoan"));
-        }
-
-        private void DetachLibrarianBinding()
-        {
-            cbTenTaiKhoan.DataBindings.Clear();
-        }
-
-        private void AddAssignmentBinding()
-        {
-            dtpDauTuan.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "NgayDauTuan"));
-            dtpCuoiTuan.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "NgayCuoiTuan"));
-            cbTenTaiKhoan.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "TenTaiKhoan"));
-            cbBuoi.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "Buoi"));
-            cbThu.DataBindings.Add(new Binding("Text", dgvAssignment.DataSource, "Thu"));
-        }
-
-        private void DetachAssignmentBinding()
-        {
-            dtpDauTuan.DataBindings.Clear();
-            dtpCuoiTuan.DataBindings.Clear();
-            cbTenTaiKhoan.DataBindings.Clear();
-            cbBuoi.DataBindings.Clear();
-            cbThu.DataBindings.Clear();
+            dtpLibDay.DataBindings.Clear();
+            cbLibName.DataBindings.Clear();
+            cbLibCa.DataBindings.Clear();
+            numLibID.DataBindings.Clear();
         }
 
         private void LoadAccountProfile()
@@ -157,43 +106,18 @@ namespace LibraryManagement.GUI
             TaiKhoan tk = Session.loginAccount;
 
             lbMaTaiKhoan.Text = tk.MaTaiKhoan.ToString();
-            lbTenTaiKhoan.Text = tk.TenTaiKhoan;
+            lbHoTen.Text = tk.HoTen;
             lbNgaySinh.Text = tk.NgaySinh.ToShortDateString();
-            switch (tk.GioiTinh)
-            {
-                case false: lbGioiTinh.Text = "Nam";
-                    break;
-                case true: lbGioiTinh.Text = "Nữ";
-                    break;
-            }
+            lbGioiTinh.Text = tk.GioiTinh.ToString();
             lbEmail.Text = tk.Email;
             lbDiaChi.Text = tk.DiaChi;
-
-            string chucVu = null;
-            List<string> chucNangs = new List<string>();
-            (chucVu, chucNangs) = PhanQuyenDAO.Instance.GetAccountAuthorization(tk.MaChucVu);
-            lbTenChucVu.Text = chucVu;
-
-            int labelY = 0; 
-            foreach (string chucNang in chucNangs)
-            {
-                Label label = new Label();
-                labelY += label.Height + 20;
-                label.Text = chucNang;
-                label.AutoSize = true;
-                label.Location = new Point(30, labelY);
-                pnlChucNangs.Controls.Add(label);
-            }
+            lbVaiTro.Text = tk.VaiTro;
+            lbSoDienThoai.Text = tk.SoDienThoai;    
         }
 
         private void LoadAccountList()
         {
             accountList.DataSource = TaiKhoanDAO.Instance.LoadAccountList();
-
-            List<ChucVu> chucVuList = ChucVuDAO.Instance.LoadChucVuList();
-            cbAccPosition.DataSource = chucVuList;
-            cbAccPosition.DisplayMember = "TenChucVu";
-            cbAccPosition.ValueMember = "MaChucVu";
         }
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
@@ -213,14 +137,23 @@ namespace LibraryManagement.GUI
         {
             TaiKhoan tk = new TaiKhoan();
 
-            tk.TenTaiKhoan = inpAccName.Text;
+            tk.MaTaiKhoan = (int)numAccID.Value;
+            tk.HoTen = inpAccName.Text;
             tk.MatKhau = inpAccPass.Text;
             tk.Email = inpAccEmail.Text;
             tk.NgaySinh = dtpAccNgaySinh.Value;
-            tk.MaChucVu = (int)cbAccPosition.SelectedValue;
+            tk.VaiTro = cbAccRole.SelectedItem.ToString();
             tk.DiaChi = inpAccAddress.Text;
-            if (rbtnNam.Checked) { tk.GioiTinh = false; }
-            if (rbtnNu.Checked) { tk.GioiTinh = true; }
+            if (rbtnNam.Checked)
+            {
+                tk.GioiTinh = "Nam";
+            }
+            else
+            {
+                tk.GioiTinh = "Nữ";
+            }
+
+            tk.SoDienThoai = inpAccPhone.Text;
 
             TaiKhoanDAO.Instance.AddAccount(tk);
 
@@ -229,6 +162,9 @@ namespace LibraryManagement.GUI
 
         private void btnDeleteAcc_Click(object sender, EventArgs e)
         {
+            DetachAccountBinding();
+            AddAccountBinding();
+
             int accID = (int)numAccID.Value;
 
             TaiKhoanDAO.Instance.DeleteAccount(accID);
@@ -244,14 +180,21 @@ namespace LibraryManagement.GUI
             TaiKhoan tk = new TaiKhoan();
 
             tk.MaTaiKhoan = (int)numAccID.Value;
-            tk.TenTaiKhoan = inpAccName.Text;
+            tk.HoTen = inpAccName.Text;
             tk.MatKhau = inpAccPass.Text;
             tk.Email = inpAccEmail.Text;
             tk.NgaySinh = dtpAccNgaySinh.Value;
-            tk.MaChucVu = (int)cbAccPosition.SelectedValue;
+            tk.VaiTro = cbAccRole.SelectedItem.ToString();
             tk.DiaChi = inpAccAddress.Text;
-            if (rbtnNam.Checked) { tk.GioiTinh = false; }
-            if (rbtnNu.Checked) { tk.GioiTinh = true; }
+            tk.SoDienThoai = inpAccPhone.Text;
+            if (rbtnNam.Checked)
+            {
+                tk.GioiTinh = "Nam";
+            }
+            else
+            {
+                tk.GioiTinh = "Nữ";
+            }
 
             TaiKhoanDAO.Instance.UpdateAccount(tk);
 
@@ -287,53 +230,57 @@ namespace LibraryManagement.GUI
             inpAccPass.Clear();
             inpAccEmail.Clear();
             dtpAccNgaySinh.Value = DateTime.Now;
-            cbAccPosition.SelectedIndex = 0;
+            cbAccRole.SelectedItem = null;
             inpAccAddress.Clear();
-            rbtnNam.Checked = false; 
+            inpAccPhone.Clear();
+            rbtnNam.Checked = false;
             rbtnNu.Checked = false;
-
-
         }
 
         //tab3 lich lam viec
-        private void LoadShiftList()
+
+        private void LoadScheduleList()
         {
-            shiftList.DataSource = CaDAO.Instance.LoadCaList();
+            ScheduleList.DataSource = LichLamViecDAO.Instance.LoadLichLamViecList();
         }
 
-        private void LoadLibrarianList()
+        private void btnLibCreate_Click(object sender, EventArgs e)
         {
-            librariantList.DataSource = ThuThuDAO.Instance.LoadThuThuList();
+            LichLamViec newLLV = new LichLamViec();
 
-            cbTenTaiKhoan.DataSource = ThuThuDAO.Instance.LoadThuThuList();
-            cbTenTaiKhoan.DisplayMember = "TenTaiKhoan";
-            cbTenTaiKhoan.ValueMember = "MaThuThu";
+            newLLV.NgayLam = dtpLibDay.Value;
+            newLLV.Ca = cbLibCa.SelectedItem.ToString();
+            newLLV.MaTaiKhoan = (int)cbLibName.SelectedValue;
+
+            LichLamViecDAO.Instance.AddNewSchedule(newLLV);
+            LoadScheduleList();
         }
 
-        private void LoadAssignmentList()
+        private void btnLibUpdate_Click(object sender, EventArgs e)
         {
-            assignmentList.DataSource = PhanCongDAO.Instance.LoadPhanCongList();
+            DetachScheduleBinding();
+            AddScheduleBinding();
+
+            LichLamViec newLLV = new LichLamViec();
+            newLLV.MaLichLamViec = (int)numLibID.Value;
+            newLLV.NgayLam = dtpLibDay.Value;
+            newLLV.Ca = cbLibCa.SelectedItem.ToString();
+            newLLV.MaTaiKhoan = (int)cbLibName.SelectedValue;
+
+            LichLamViecDAO.Instance.UpdateSchedule(newLLV);
+
+            LoadScheduleList();
         }
 
-        private void btnAssiCreate_Click(object sender, EventArgs e)
+        private void btnLibDelete_Click(object sender, EventArgs e)
         {
-            SetDauVaCuoiTuan();
-            DetachShiftBinding();
-            DetachLibrarianBinding();
-            AddShiftBinding();
-            AddLibrarianBinding();
-        }
+            DetachScheduleBinding();
+            AddScheduleBinding();
 
-        private void btnAssiUpdate_Click(object sender, EventArgs e)
-        {
-            DetachAssignmentBinding();
-            AddAssignmentBinding();
-        }
+            int id = (int)numLibID.Value;
+            LichLamViecDAO.Instance.DeleteSchedule(id);
 
-        private void btnAssiDelete_Click(object sender, EventArgs e)
-        {
-            DetachAssignmentBinding();
-            AddAssignmentBinding();
+            LoadScheduleList();
         }
     }
 }

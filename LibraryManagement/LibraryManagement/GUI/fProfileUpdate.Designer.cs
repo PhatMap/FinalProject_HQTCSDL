@@ -32,9 +32,10 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.inpEmail = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.inpSoDienThoai = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.rbtnNu = new System.Windows.Forms.RadioButton();
-            this.rbtnNam = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
@@ -46,9 +47,12 @@
             this.inpDiaChi = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.inpTenTaiKhoan = new System.Windows.Forms.TextBox();
+            this.inpHoTen = new System.Windows.Forms.TextBox();
+            this.rbtnNu = new System.Windows.Forms.RadioButton();
+            this.rbtnNam = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -58,6 +62,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btnUpdate);
@@ -66,7 +71,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 336);
+            this.panel1.Size = new System.Drawing.Size(776, 419);
             this.panel1.TabIndex = 2;
             // 
             // panel6
@@ -74,10 +79,10 @@
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.inpEmail);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 226);
+            this.panel6.Location = new System.Drawing.Point(0, 284);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(776, 53);
-            this.panel6.TabIndex = 6;
+            this.panel6.TabIndex = 8;
             // 
             // label5
             // 
@@ -97,6 +102,33 @@
             this.inpEmail.Size = new System.Drawing.Size(278, 22);
             this.inpEmail.TabIndex = 4;
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Controls.Add(this.inpSoDienThoai);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 226);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(776, 58);
+            this.panel7.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 20);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Số điện thoại";
+            // 
+            // inpSoDienThoai
+            // 
+            this.inpSoDienThoai.Location = new System.Drawing.Point(246, 19);
+            this.inpSoDienThoai.Name = "inpSoDienThoai";
+            this.inpSoDienThoai.Size = new System.Drawing.Size(278, 22);
+            this.inpSoDienThoai.TabIndex = 2;
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.rbtnNu);
@@ -107,28 +139,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(776, 53);
             this.panel5.TabIndex = 5;
-            // 
-            // rbtnNu
-            // 
-            this.rbtnNu.AutoSize = true;
-            this.rbtnNu.Location = new System.Drawing.Point(421, 16);
-            this.rbtnNu.Name = "rbtnNu";
-            this.rbtnNu.Size = new System.Drawing.Size(45, 20);
-            this.rbtnNu.TabIndex = 3;
-            this.rbtnNu.TabStop = true;
-            this.rbtnNu.Text = "Nữ";
-            this.rbtnNu.UseVisualStyleBackColor = true;
-            // 
-            // rbtnNam
-            // 
-            this.rbtnNam.AutoSize = true;
-            this.rbtnNam.Location = new System.Drawing.Point(246, 16);
-            this.rbtnNam.Name = "rbtnNam";
-            this.rbtnNam.Size = new System.Drawing.Size(57, 20);
-            this.rbtnNam.TabIndex = 2;
-            this.rbtnNam.TabStop = true;
-            this.rbtnNam.Text = "Nam";
-            this.rbtnNam.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -172,7 +182,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(0, 285);
+            this.btnUpdate.Location = new System.Drawing.Point(31, 360);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(169, 43);
             this.btnUpdate.TabIndex = 5;
@@ -184,7 +194,7 @@
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(667, 285);
+            this.btnClose.Location = new System.Drawing.Point(635, 360);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(109, 43);
             this.btnClose.TabIndex = 6;
@@ -222,7 +232,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.inpTenTaiKhoan);
+            this.panel2.Controls.Add(this.inpHoTen);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -235,22 +245,44 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 20);
+            this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Tên tài khoản";
+            this.label1.Text = "Họ tên";
             // 
-            // inpTenTaiKhoan
+            // inpHoTen
             // 
-            this.inpTenTaiKhoan.Location = new System.Drawing.Point(246, 18);
-            this.inpTenTaiKhoan.Name = "inpTenTaiKhoan";
-            this.inpTenTaiKhoan.Size = new System.Drawing.Size(278, 22);
-            this.inpTenTaiKhoan.TabIndex = 1;
+            this.inpHoTen.Location = new System.Drawing.Point(246, 18);
+            this.inpHoTen.Name = "inpHoTen";
+            this.inpHoTen.Size = new System.Drawing.Size(278, 22);
+            this.inpHoTen.TabIndex = 1;
+            // 
+            // rbtnNu
+            // 
+            this.rbtnNu.AutoSize = true;
+            this.rbtnNu.Location = new System.Drawing.Point(359, 18);
+            this.rbtnNu.Name = "rbtnNu";
+            this.rbtnNu.Size = new System.Drawing.Size(45, 20);
+            this.rbtnNu.TabIndex = 24;
+            this.rbtnNu.TabStop = true;
+            this.rbtnNu.Text = "Nữ";
+            this.rbtnNu.UseVisualStyleBackColor = true;
+            // 
+            // rbtnNam
+            // 
+            this.rbtnNam.AutoSize = true;
+            this.rbtnNam.Location = new System.Drawing.Point(246, 18);
+            this.rbtnNam.Name = "rbtnNam";
+            this.rbtnNam.Size = new System.Drawing.Size(57, 20);
+            this.rbtnNam.TabIndex = 23;
+            this.rbtnNam.TabStop = true;
+            this.rbtnNam.Text = "Nam";
+            this.rbtnNam.UseVisualStyleBackColor = true;
             // 
             // fProfileUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 355);
+            this.ClientSize = new System.Drawing.Size(800, 441);
             this.Controls.Add(this.panel1);
             this.Name = "fProfileUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -258,6 +290,8 @@
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -282,14 +316,17 @@
         private System.Windows.Forms.TextBox inpDiaChi;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox inpTenTaiKhoan;
+        private System.Windows.Forms.TextBox inpHoTen;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.RadioButton rbtnNu;
-        private System.Windows.Forms.RadioButton rbtnNam;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox inpEmail;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox inpSoDienThoai;
+        private System.Windows.Forms.RadioButton rbtnNu;
+        private System.Windows.Forms.RadioButton rbtnNam;
     }
 }

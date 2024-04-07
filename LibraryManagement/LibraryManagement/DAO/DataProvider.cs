@@ -20,7 +20,7 @@ namespace LibraryManagement.DAO
 
         private DataProvider() { }
         //Đường dẫn
-        //(Phat)    LAPTOP-M3L0LSMS
+        //(Phat)    Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True
         //(Trung)
         //(Hoan)    LAPTOP-L7BVASSV\MAY1
         //(Van)
