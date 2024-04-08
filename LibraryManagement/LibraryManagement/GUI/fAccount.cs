@@ -34,6 +34,7 @@ namespace LibraryManagement.GUI
             LoadAccountProfile();
             LoadAccountList();
             LoadScheduleList();
+            LoadRule();
         }
 
 
@@ -58,7 +59,6 @@ namespace LibraryManagement.GUI
             var femaleBinding = new Binding("Checked", dgvAccount.DataSource, "GioiTinh");
             femaleBinding.Format += (s, args) =>
             {
-                //Tại sao không để == "Nữ" mà để != "Nam", là để tránh xài tiếng việt sợ lỗi :)
                 if (args.Value != DBNull.Value && (string)args.Value != "Nam")
                     args.Value = true;
                 else
@@ -281,6 +281,61 @@ namespace LibraryManagement.GUI
             LichLamViecDAO.Instance.DeleteSchedule(id);
 
             LoadScheduleList();
+        }
+
+        private void LoadRule()
+        {
+            numCLCMuonGT.Value = Properties.Settings.Default.CLCMuonGT;
+            numCLCMuonTK.Value = Properties.Settings.Default.CLCMuonTK;
+            numCLCHanGT.Value = Properties.Settings.Default.CLCHanGT;
+            numCLCHanTK.Value = Properties.Settings.Default.CLCHanTK;
+
+            numDTMuonGT.Value = Properties.Settings.Default.DTMuonGT;
+            numDTMuonTK.Value = Properties.Settings.Default.DTMuonTK;
+            numDaiTraHanGT.Value = Properties.Settings.Default.DTHanGT;
+            numDaiTraHanTK.Value = Properties.Settings.Default.DTHanTK;
+
+            numCHMuonGT.Value = Properties.Settings.Default.CHMuonGT;
+            numCHMuonTK.Value = Properties.Settings.Default.CHMuonTK;
+            numCHHanGT.Value = Properties.Settings.Default.CHHanGT;
+            numCHHanTK.Value = Properties.Settings.Default.CHHanTK;
+
+            numCBMuonGT.Value = Properties.Settings.Default.CBMuonGT;
+            numCBMuonTK.Value = Properties.Settings.Default.CBMuonTK;
+            numCBHanGT.Value = Properties.Settings.Default.CBHanGT;
+            numCBHanTK.Value = Properties.Settings.Default.CBHanTK;
+
+            numHuMat.Value = Properties.Settings.Default.HuMat;
+            numTre.Value = Properties.Settings.Default.Tre;
+        }
+
+        private void btnUpdateRule_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
+            Properties.Settings.Default["CLCMuonGT"] = (int)numCLCMuonGT.Value ;
+            /*numCLCMuonTK.Value = Properties.Settings.Default.CLCMuonTK;
+            numCLCHanGT.Value = Properties.Settings.Default.CLCHanGT;
+            numCLCHanTK.Value = Properties.Settings.Default.CLCHanTK;
+
+            numDTMuonGT.Value = Properties.Settings.Default.DTMuonGT;
+            numDTMuonTK.Value = Properties.Settings.Default.DTMuonTK;
+            numDaiTraHanGT.Value = Properties.Settings.Default.DTHanGT;
+            numDaiTraHanTK.Value = Properties.Settings.Default.DTHanTK;
+
+            numCHMuonGT.Value = Properties.Settings.Default.CHMuonGT;
+            numCHMuonTK.Value = Properties.Settings.Default.CHMuonTK;
+            numCHHanGT.Value = Properties.Settings.Default.CHHanGT;
+            numCHHanTK.Value = Properties.Settings.Default.CHHanTK;
+
+            numCBMuonGT.Value = Properties.Settings.Default.CBMuonGT;
+            numCBMuonTK.Value = Properties.Settings.Default.CBMuonTK;
+            numCBHanGT.Value = Properties.Settings.Default.CBHanGT;
+            numCBHanTK.Value = Properties.Settings.Default.CBHanTK;
+
+            numHuMat.Value = Properties.Settings.Default.HuMat;
+            numTre.Value = Properties.Settings.Default.Tre;*/
+
+            Properties.Settings.Default.Save();
         }
     }
 }
