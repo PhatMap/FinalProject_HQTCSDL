@@ -34,7 +34,6 @@ namespace LibraryManagement.GUI
             LoadAccountProfile();
             LoadAccountList();
             LoadScheduleList();
-            LoadRule();
         }
 
 
@@ -112,7 +111,7 @@ namespace LibraryManagement.GUI
             lbEmail.Text = tk.Email;
             lbDiaChi.Text = tk.DiaChi;
             lbVaiTro.Text = tk.VaiTro;
-            lbSoDienThoai.Text = tk.SoDienThoai;    
+            lbSoDienThoai.Text = tk.SoDienThoai;
         }
 
         private void LoadAccountList()
@@ -122,7 +121,7 @@ namespace LibraryManagement.GUI
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
-            fProfileUpdate f = new fProfileUpdate(); 
+            fProfileUpdate f = new fProfileUpdate();
             f.FormClosed += (s, args) => LoadAccountProfile();
             f.ShowDialog();
         }
@@ -203,20 +202,30 @@ namespace LibraryManagement.GUI
 
         private void btnFindAcc_Click(object sender, EventArgs e)
         {
-            DetachAccountBinding();
-            AddAccountBinding();
+            TaiKhoan tk = new TaiKhoan();
 
-            string email = inpAccEmail.Text;
-            string name = inpAccName.Text;
+            tk.MaTaiKhoan = (int)numAccID.Value;
+            tk.HoTen = inpAccName.Text;
+            tk.Email = inpAccEmail.Text;
+            if (cbAccRole.SelectedItem != null)
+            {
+                tk.VaiTro = cbAccRole.SelectedItem.ToString();
+            }
+            tk.DiaChi = inpAccAddress.Text;
+            if (rbtnNam.Checked)
+            {
+                tk.GioiTinh = "Nam";
+            }
+            if (rbtnNu.Checked)
+            {
+                tk.GioiTinh = "Nữ";
+            }
 
-            if(!string.IsNullOrEmpty(email))
-            {
-                accountList.DataSource = TaiKhoanDAO.Instance.FindAccountByEmail(email);
-            }
-            else
-            {
-                accountList.DataSource = TaiKhoanDAO.Instance.FindAccountByName(name);
-            }
+            tk.SoDienThoai = inpAccPhone.Text;
+
+
+            accountList.DataSource = TaiKhoanDAO.Instance.FindAccountByAdvanced(tk);
+
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -281,61 +290,6 @@ namespace LibraryManagement.GUI
             LichLamViecDAO.Instance.DeleteSchedule(id);
 
             LoadScheduleList();
-        }
-
-        private void LoadRule()
-        {
-            numCLCMuonGT.Value = Properties.Settings.Default.CLCMuonGT;
-            numCLCMuonTK.Value = Properties.Settings.Default.CLCMuonTK;
-            numCLCHanGT.Value = Properties.Settings.Default.CLCHanGT;
-            numCLCHanTK.Value = Properties.Settings.Default.CLCHanTK;
-
-            numDTMuonGT.Value = Properties.Settings.Default.DTMuonGT;
-            numDTMuonTK.Value = Properties.Settings.Default.DTMuonTK;
-            numDaiTraHanGT.Value = Properties.Settings.Default.DTHanGT;
-            numDaiTraHanTK.Value = Properties.Settings.Default.DTHanTK;
-
-            numCHMuonGT.Value = Properties.Settings.Default.CHMuonGT;
-            numCHMuonTK.Value = Properties.Settings.Default.CHMuonTK;
-            numCHHanGT.Value = Properties.Settings.Default.CHHanGT;
-            numCHHanTK.Value = Properties.Settings.Default.CHHanTK;
-
-            numCBMuonGT.Value = Properties.Settings.Default.CBMuonGT;
-            numCBMuonTK.Value = Properties.Settings.Default.CBMuonTK;
-            numCBHanGT.Value = Properties.Settings.Default.CBHanGT;
-            numCBHanTK.Value = Properties.Settings.Default.CBHanTK;
-
-            numHuMat.Value = Properties.Settings.Default.HuMat;
-            numTre.Value = Properties.Settings.Default.Tre;
-        }
-
-        private void btnUpdateRule_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.Reset();
-            Properties.Settings.Default["CLCMuonGT"] = (int)numCLCMuonGT.Value ;
-            /*numCLCMuonTK.Value = Properties.Settings.Default.CLCMuonTK;
-            numCLCHanGT.Value = Properties.Settings.Default.CLCHanGT;
-            numCLCHanTK.Value = Properties.Settings.Default.CLCHanTK;
-
-            numDTMuonGT.Value = Properties.Settings.Default.DTMuonGT;
-            numDTMuonTK.Value = Properties.Settings.Default.DTMuonTK;
-            numDaiTraHanGT.Value = Properties.Settings.Default.DTHanGT;
-            numDaiTraHanTK.Value = Properties.Settings.Default.DTHanTK;
-
-            numCHMuonGT.Value = Properties.Settings.Default.CHMuonGT;
-            numCHMuonTK.Value = Properties.Settings.Default.CHMuonTK;
-            numCHHanGT.Value = Properties.Settings.Default.CHHanGT;
-            numCHHanTK.Value = Properties.Settings.Default.CHHanTK;
-
-            numCBMuonGT.Value = Properties.Settings.Default.CBMuonGT;
-            numCBMuonTK.Value = Properties.Settings.Default.CBMuonTK;
-            numCBHanGT.Value = Properties.Settings.Default.CBHanGT;
-            numCBHanTK.Value = Properties.Settings.Default.CBHanTK;
-
-            numHuMat.Value = Properties.Settings.Default.HuMat;
-            numTre.Value = Properties.Settings.Default.Tre;*/
-
-            Properties.Settings.Default.Save();
         }
     }
 }

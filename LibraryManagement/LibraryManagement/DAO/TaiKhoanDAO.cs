@@ -1,4 +1,5 @@
 ﻿using LibraryManagement.DTO;
+using System;
 using System.Data;
 
 namespace LibraryManagement.DAO
@@ -76,17 +77,46 @@ namespace LibraryManagement.DAO
             DataProvider.Instance.ExecuteQuery(query, new object[] { maTaiKhoan });
         }
 
-        public DataTable FindAccountByEmail(string email)
+        public DataTable FindAccountByAdvanced(TaiKhoan tk)
         {
-            string query = "SP_Find_Account_By_Email @Email ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { email });
-            return data;
-        }
+            object maTaiKhoan = tk.MaTaiKhoan;
+            object hoTen = tk.HoTen;
+            object email = tk.Email;
+            object vaiTro = tk.VaiTro;
+            object gioiTinh = tk.GioiTinh;
+            object diaChi = tk.DiaChi;
+            object soDienThoai = tk.SoDienThoai;
+            if (tk.MaTaiKhoan == 0)
+            {
+                maTaiKhoan = DBNull.Value;
+            }
+            if (tk.HoTen == "")
+            {
+                hoTen = DBNull.Value;
+            }
+            if (tk.Email == "")
+            {
+                email = DBNull.Value;
+            }
+            if (tk.VaiTro == null)
+            {
+                vaiTro = DBNull.Value;
+            }
+            if (tk.GioiTinh == null)
+            {
+                gioiTinh = DBNull.Value;
+            }
+            if (tk.DiaChi == "")
+            {
+                diaChi = DBNull.Value;
+            }
+            if (tk.SoDienThoai == "")
+            {
+                soDienThoai = DBNull.Value;
+            }
 
-        public DataTable FindAccountByName(string tenTaiKhoan)
-        {
-            string query = "SP_Find_Account_By_Name @TenTaiKhoan ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tenTaiKhoan });
+            string query = "SP_Find_Account_By_Advanced @MaTaiKhoan , @HoTen , @DiaChi , @Email , @SoDienThoai , @VaiTro , @GioiTinh ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maTaiKhoan, hoTen, diaChi, email, soDienThoai, vaiTro, gioiTinh });
             return data;
         }
 
