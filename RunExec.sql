@@ -59,4 +59,11 @@ EXEC SP_Add_New_Account
 DROP
 select * from VW_Librarian_List
 EXEC SP_Delete_Account @MaTaiKhoan = 20110535
-EXEC SP_Login @Email = 'admin@gmail.com', @MatKhau = 'aaaaaaaa'
+EXEC SP_Find_Account_By_Advanced 
+    @MaTaiKhoan = NULL,
+    @HoTen = NULL,
+    @DiaChi = NULL,
+    @Email = NULL,
+    @SoDienThoai = NULL,
+    @VaiTro = N'Thủ thư',
+    @GioiTinh = NULL;

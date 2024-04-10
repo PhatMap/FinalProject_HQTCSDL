@@ -121,37 +121,6 @@ BEGIN
 END;
 
 GO
-/***	Find account by email(Phat)		***/
-CREATE PROC SP_Find_Account_By_Email
-(
-	@Email nvarchar(255)
-)
-AS
-BEGIN
-	SELECT 
-		*
-	FROM VW_Account_List 
-	WHERE 
-		(Email = @Email) 
-END;
-
-
-GO
-/***	Find account by name (Phat)		***/
-CREATE PROC SP_Find_Account_By_Name
-(
-	@HoTen nvarchar(255)
-)
-AS
-BEGIN
-	SELECT 
-		*
-	FROM VW_Account_List 
-	WHERE 
-		(HoTen = @HoTen) 
-END;
-
-GO
 /***	Add new schedule (Phat)		***/
 CREATE PROC SP_Add_New_Schedule
 (
@@ -220,4 +189,31 @@ BEGIN
     BEGIN CATCH
         ROLLBACK;
     END CATCH;
+END;
+
+GO
+/***	Find account by advanced (Phat)		***/
+CREATE PROC SP_Find_Account_By_Advanced
+(
+	@MaTaiKhoan int = NULL,
+    @HoTen nvarchar(255) = NULL,
+    @DiaChi nvarchar(255) = NULL,
+	@Email NVARCHAR(255) = NULL,
+	@SoDienThoai NVARCHAR(10) = NULL,
+	@VaiTro nvarchar(50) = NULL,
+    @GioiTinh nvarchar(10) = NULL
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_Account_List 
+	WHERE 
+		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan) AND
+		(@HoTen IS NULL OR HoTen = @HoTen) AND
+		(@DiaChi IS NULL OR DiaChi = @DiaChi) AND
+		(@Email IS NULL OR Email = @Email) AND
+		(@SoDienThoai IS NULL OR SoDienThoai = @SoDienThoai) AND
+		(@VaiTro IS NULL OR VaiTro = @VaiTro) AND
+		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
 END;
