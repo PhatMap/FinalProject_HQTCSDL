@@ -1,12 +1,6 @@
 ﻿using LibraryManagement.DTO;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace LibraryManagement.DAO
 {
@@ -21,11 +15,11 @@ namespace LibraryManagement.DAO
 
         private TaiKhoanDAO() { }
 
-        public bool Login(string email, string passWord) 
+        public bool Login(string email, string matKhau)
         {
             string query = "SP_Login @Email , @MatKhau ";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[]{ email, passWord});
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { email, matKhau });
 
             return result.Rows.Count > 0;
         }
@@ -43,7 +37,7 @@ namespace LibraryManagement.DAO
         {
             string query = "SELECT * FROM FN_Get_Account_Profile( @Email )";
 
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[]{ email });
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { email });
 
             foreach (DataRow item in data.Rows)
             {
@@ -62,38 +56,74 @@ namespace LibraryManagement.DAO
             return result > 0;
         }
 
-        public bool UpdateAccount(TaiKhoan newTK)
+        public bool UpdateAccount(TaiKhoan tk)
         {
-            string query = "SP_Update_Account @MaTaiKhoan , @TenTaiKhoan , @MatKhau , @DiaChi , @NgaySinh , @Email , @MaChucVu , @GioiTinh ";
+            string query = "SP_Update_Account @MaTaiKhoan , @HoTen , @MatKhau , @DiaChi , @NgaySinh , @Email , @SoDienThoai , @VaiTro , @GioiTinh ";
 
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { newTK.MaTaiKhoan, newTK.TenTaiKhoan, newTK.MatKhau, newTK.DiaChi, newTK.NgaySinh, newTK.Email, newTK.MaChucVu, newTK.GioiTinh });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tk.MaTaiKhoan, tk.HoTen, tk.MatKhau, tk.DiaChi, tk.NgaySinh, tk.Email, tk.SoDienThoai, tk.VaiTro, tk.GioiTinh });
 
             return result > 0;
         }
 
         public void AddAccount(TaiKhoan tk)
         {
-            string query = "SP_Add_New_Account @TenTaiKhoan , @MatKhau , @DiaChi , @NgaySinh , @Email , @MaChucVu , @GioiTinh ";
-            DataProvider.Instance.ExecuteQuery(query, new object[] { tk.TenTaiKhoan, tk.MatKhau, tk.DiaChi, tk.NgaySinh.ToString("yyyy-MM-dd"), tk.Email, tk.MaChucVu, tk.GioiTinh });
+            string query = "SP_Add_New_Account @MaTaiKhoan , @HoTen , @MatKhau , @DiaChi , @NgaySinh , @Email , @SoDienThoai , @VaiTro , @GioiTinh ";
+            DataProvider.Instance.ExecuteQuery(query, new object[] { tk.MaTaiKhoan, tk.HoTen, tk.MatKhau, tk.DiaChi, tk.NgaySinh, tk.Email, tk.SoDienThoai, tk.VaiTro, tk.GioiTinh });
         }
 
-        public void DeleteAccount(int accID)
+        public void DeleteAccount(int maTaiKhoan)
         {
             string query = "SP_Delete_Account @MaTaiKhoan ";
-            DataProvider.Instance.ExecuteQuery(query, new object[] { accID });
+            DataProvider.Instance.ExecuteQuery(query, new object[] { maTaiKhoan });
         }
 
-        public DataTable FindAccountByEmail(string email)
+        public DataTable FindAccountByAdvanced(TaiKhoan tk)
         {
-            string query = "SP_Find_Account_By_Email @Email ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { email });
+            object maTaiKhoan = tk.MaTaiKhoan;
+            object hoTen = tk.HoTen;
+            object email = tk.Email;
+            object vaiTro = tk.VaiTro;
+            object gioiTinh = tk.GioiTinh;
+            object diaChi = tk.DiaChi;
+            object soDienThoai = tk.SoDienThoai;
+            if (tk.MaTaiKhoan == 0)
+            {
+                maTaiKhoan = DBNull.Value;
+            }
+            if (tk.HoTen == "")
+            {
+                hoTen = DBNull.Value;
+            }
+            if (tk.Email == "")
+            {
+                email = DBNull.Value;
+            }
+            if (tk.VaiTro == null)
+            {
+                vaiTro = DBNull.Value;
+            }
+            if (tk.GioiTinh == null)
+            {
+                gioiTinh = DBNull.Value;
+            }
+            if (tk.DiaChi == "")
+            {
+                diaChi = DBNull.Value;
+            }
+            if (tk.SoDienThoai == "")
+            {
+                soDienThoai = DBNull.Value;
+            }
+
+            string query = "SP_Find_Account_By_Advanced @MaTaiKhoan , @HoTen , @DiaChi , @Email , @SoDienThoai , @VaiTro , @GioiTinh ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maTaiKhoan, hoTen, diaChi, email, soDienThoai, vaiTro, gioiTinh });
             return data;
         }
 
-        public DataTable FindAccountByName(string name)
+        public DataTable LoadLibrarian()
         {
-            string query = "SP_Find_Account_By_Name @TenTaiKhoan ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { name });
+            string query = "Select * from VW_Librarian_List";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
             return data;
         }
     }

@@ -19,13 +19,13 @@ namespace LibraryManagement.DAO
         }
 
         private DataProvider() { }
-
-        //(Phat)    LAPTOP-M3L0LSMS
-        //(Trung)   
-        //(Hoan)
+        //Đường dẫn
+        //(Phat)    Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True
+        //(Trung)
+        //(Hoan)    LAPTOP-L7BVASSV\MAY1
         //(Van)
 
-        private string connectionStr = @"Data Source=Jack-2nd-wife;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
+        private string connectionStr = @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
         SqlConnection connection;
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)

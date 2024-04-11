@@ -17,24 +17,23 @@ namespace LibraryManagement.GUI
         public fProfileUpdate()
         {
             InitializeComponent();
+
             LoadUpdate();
         }
         private void LoadUpdate()
         {
             TaiKhoan tk = Session.loginAccount;
 
-            inpTenTaiKhoan.Text = tk.TenTaiKhoan;
+            inpHoTen.Text = tk.HoTen;
             inpDiaChi.Text = tk.DiaChi;
             dtpNgaySinh.Value = tk.NgaySinh;
             inpEmail.Text = tk.Email;
-            if (tk.GioiTinh)
-            {
-                rbtnNu.Checked = true;
-            }
-            else
+            inpSoDienThoai.Text = tk.SoDienThoai;
+            if(tk.GioiTinh == "Nam")
             {
                 rbtnNam.Checked = true;
             }
+            rbtnNu.Checked = !rbtnNam.Checked;
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -44,11 +43,18 @@ namespace LibraryManagement.GUI
         {
             TaiKhoan newTK = Session.loginAccount;
 
-            newTK.TenTaiKhoan = inpTenTaiKhoan.Text;
+            newTK.HoTen = inpHoTen.Text;
             newTK.DiaChi = inpDiaChi.Text;
             newTK.NgaySinh = dtpNgaySinh.Value;
-            if (rbtnNam.Checked) { newTK.GioiTinh = false; }
-            if (rbtnNu.Checked) { newTK.GioiTinh = true; }
+            newTK.SoDienThoai = inpSoDienThoai.Text;
+            if(rbtnNam.Checked == true)
+            {
+                newTK.GioiTinh = "Nam";
+            }
+            else
+            {
+                newTK.GioiTinh = "Nữ";
+            }
 
             bool result = TaiKhoanDAO.Instance.UpdateAccount(newTK);
 
