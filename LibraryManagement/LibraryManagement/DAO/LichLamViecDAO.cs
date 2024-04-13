@@ -19,11 +19,11 @@ namespace LibraryManagement.DAO
 
         private LichLamViecDAO() { }
 
-        public DataTable LoadLichLamViecList(DateTime weekstart, DateTime weekend, string hoTen = null)
+        public DataTable LoadLichLamViecList(DateTime weekstart, DateTime weekend, string maTaiKhoan = null)
         {
-            if (hoTen == null)
+            if (maTaiKhoan == null)
             {
-                string query = "SP_Get_Schedule @NgayDauTuan , @NgayCuoiTuan , @HoTen ";
+                string query = "SP_Get_Schedule @NgayDauTuan , @NgayCuoiTuan , @MaTaiKhoan ";
 
                 DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { weekstart, weekend, DBNull.Value });
 
@@ -31,9 +31,10 @@ namespace LibraryManagement.DAO
             }
             else
             {
-                string query = "SP_Get_Schedule @NgayDauTuan , @NgayCuoiTuan , @HoTen ";
+                int id = Convert.ToInt32(maTaiKhoan);
+                string query = "SP_Get_Schedule @NgayDauTuan , @NgayCuoiTuan , @MaTaiKhoan ";
 
-                DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { weekstart, weekend, hoTen });
+                DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { weekstart, weekend, id });
 
                 return data;
             }
