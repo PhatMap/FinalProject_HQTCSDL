@@ -7,6 +7,17 @@ BEGIN
 END
 
 GO
+/***	Get login account profile(Phat)		***/
+CREATE PROC SP_Get_Account_Profile
+(@Email nvarchar(255))
+AS
+BEGIN
+    SELECT *
+    FROM TaiKhoan
+    WHERE Email = @Email
+END;
+
+GO
 /***	Change password(Phat)		***/
 CREATE PROC SP_Change_Account_Password
 (
@@ -216,4 +227,21 @@ BEGIN
 		(@SoDienThoai IS NULL OR SoDienThoai = @SoDienThoai) AND
 		(@VaiTro IS NULL OR VaiTro = @VaiTro) AND
 		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
+END;
+
+GO
+/***	Get schedule (Phat)		***/
+CREATE PROC SP_Get_Schedule
+(
+	@NgayDauTuan date = NULL,
+	@NgayCuoiTuan date = NULL,
+	@HoTen nvarchar(255) = NULL
+)
+AS
+BEGIN
+	SELECT * FROM VW_Schedule_List
+	WHERE
+		(@NgayDauTuan IS NULL OR NgayLam >= @NgayDauTuan) AND
+		(@NgayCuoiTuan IS NULL OR NgayLam <= @NgayCuoiTuan)	AND
+		(@HoTen IS NULL OR HoTen = @HoTen)
 END;

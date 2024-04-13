@@ -6,7 +6,7 @@ FROM dbo.TaiKhoan
 
 GO
 /***	Get shift list (Phat)		***/
-CREATE VIEW VW_Shift_List AS
+CREATE VIEW VW_Schedule_List AS
 SELECT 
 	MaLichLamViec, NgayLam, Ca, TK.HoTen, TK.SoDienThoai, TK.GioiTinh
 FROM dbo.LichLamViec LLV
