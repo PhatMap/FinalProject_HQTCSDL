@@ -67,3 +67,13 @@ EXEC SP_Find_Account_By_Advanced
     @SoDienThoai = NULL,
     @VaiTro = N'Thủ thư',
     @GioiTinh = NULL;
+
+
+EXEC SP_Get_Schedule 
+@NgayDauTuan = '2024-04-10',
+@NgayCuoiTuan = '2024-04-12'
+
+EXEC SP_Get_Schedule 
+@NgayDauTuan = NULL,
+@NgayCuoiTuan = NULL,
+@HoTen = N'Phạm Văn E'
