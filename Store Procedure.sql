@@ -221,10 +221,10 @@ BEGIN
 	FROM VW_Account_List 
 	WHERE 
 		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan) AND
-		(@HoTen IS NULL OR HoTen = @HoTen) AND
-		(@DiaChi IS NULL OR DiaChi = @DiaChi) AND
-		(@Email IS NULL OR Email = @Email) AND
-		(@SoDienThoai IS NULL OR SoDienThoai = @SoDienThoai) AND
+		(@HoTen IS NULL OR HoTen LIKE '%' + @HoTen + '%') AND
+		(@DiaChi IS NULL OR DiaChi LIKE '%' + @DiaChi + '%') AND
+		(@Email IS NULL OR Email LIKE '%' + @Email + '%') AND
+		(@SoDienThoai IS NULL OR CAST(SoDienThoai AS VARCHAR) LIKE '%' + CAST(@SoDienThoai AS VARCHAR) + '%') AND
 		(@VaiTro IS NULL OR VaiTro = @VaiTro) AND
 		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
 END;
@@ -235,7 +235,7 @@ CREATE PROC SP_Get_Schedule
 (
 	@NgayDauTuan date = NULL,
 	@NgayCuoiTuan date = NULL,
-	@HoTen nvarchar(255) = NULL
+	@MaTaiKhoan int = NULL
 )
 AS
 BEGIN
@@ -243,5 +243,5 @@ BEGIN
 	WHERE
 		(@NgayDauTuan IS NULL OR NgayLam >= @NgayDauTuan) AND
 		(@NgayCuoiTuan IS NULL OR NgayLam <= @NgayCuoiTuan)	AND
-		(@HoTen IS NULL OR HoTen = @HoTen)
+		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan)
 END;

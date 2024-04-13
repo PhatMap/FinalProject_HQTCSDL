@@ -8,7 +8,7 @@ GO
 /***	Get shift list (Phat)		***/
 CREATE VIEW VW_Schedule_List AS
 SELECT 
-	MaLichLamViec, NgayLam, Ca, TK.HoTen, TK.SoDienThoai, TK.GioiTinh
+	MaLichLamViec, NgayLam, Ca, Tk.MaTaiKhoan, TK.HoTen, TK.SoDienThoai, TK.GioiTinh
 FROM dbo.LichLamViec LLV
 JOIN dbo.TaiKhoan TK ON TK.MaTaiKhoan = LLV.MaTaiKhoan
 
@@ -21,4 +21,3 @@ SELECT
 FROM dbo.TaiKhoan
 WHERE VaiTro = N'Thủ thư'
 
-GO

@@ -249,7 +249,6 @@ namespace LibraryManagement.GUI
             {
                 MessageBox.Show("Không có kết quả", "Find account", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -271,12 +270,20 @@ namespace LibraryManagement.GUI
         }
 
         //tab3 lich lam viec
-        private string hoTen = null;
+        private string maTaiKhoan = null;
 
         private DateTime setWeekstart;
         private DateTime setWeekend;
         private bool changeWeek = false;
         private DateTime today = DateTime.Now;
+
+        private void PersonalSchedule()
+        {
+            if (Session.loginAccount.VaiTro == "Thủ thư")
+            {
+                maTaiKhoan = Session.loginAccount.MaTaiKhoan.ToString();
+            }
+        }
         private void LoadThisWeek()
         {
             if (!changeWeek)
@@ -295,7 +302,7 @@ namespace LibraryManagement.GUI
                 setWeekstart = dtpMonday.Value;
                 setWeekend = dtpSunday.Value;
             }
-            ScheduleList.DataSource = LichLamViecDAO.Instance.LoadLichLamViecList(setWeekstart, setWeekend, hoTen);
+            ScheduleList.DataSource = LichLamViecDAO.Instance.LoadLichLamViecList(setWeekstart, setWeekend, maTaiKhoan);
         }
 
         private void LoadScheduleList()
@@ -306,7 +313,7 @@ namespace LibraryManagement.GUI
             cbLibName.SelectedIndex = -1;
 
             changeWeek = false;
-
+            PersonalSchedule();
             LoadThisWeek();
         }
 
@@ -425,15 +432,14 @@ namespace LibraryManagement.GUI
 
         private void btnFindSchedule_Click(object sender, EventArgs e)
         {
-            var theChosenOne = cbLibName.SelectedItem as DataRowView;
-
-            hoTen = theChosenOne["HoTen"].ToString();
+            maTaiKhoan = cbLibName.SelectedValue.ToString();
             LoadThisWeek();
         }
 
         private void btnResetSchedule_Click(object sender, EventArgs e)
         {
-            hoTen = null;
+            maTaiKhoan = null;
+            PersonalSchedule();
             cbLibName.SelectedIndex = -1;
             cbLibCa.SelectedIndex = -1;
             numLibID.Value = 0;
@@ -469,6 +475,12 @@ namespace LibraryManagement.GUI
                 return;
             }
             previousCell = dgvAccount.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        }
+
+        private void btnAllSchedule_Click(object sender, EventArgs e)
+        {
+            maTaiKhoan = null;
+            LoadThisWeek();
         }
     }
 }
