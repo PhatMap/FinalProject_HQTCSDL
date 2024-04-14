@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.DTO;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace LibraryManagement.DAO
@@ -35,7 +36,7 @@ namespace LibraryManagement.DAO
 
         public TaiKhoan GetAccountProfile(string email)
         {
-            string query = "SELECT * FROM FN_Get_Account_Profile( @Email )";
+            string query = "SP_Get_Account_Profile @Email ";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { email });
 
@@ -124,6 +125,7 @@ namespace LibraryManagement.DAO
         {
             string query = "Select * from VW_Librarian_List";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
             return data;
         }
     }
