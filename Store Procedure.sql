@@ -217,3 +217,36 @@ BEGIN
 		(@VaiTro IS NULL OR VaiTro = @VaiTro) AND
 		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
 END;
+go
+/***	Find Book Loan Coupon by status (Trung)		***/
+CREATE PROC SP_Find_BookLoanCoupon_By_Status
+(
+	@Status nvarchar(255) = NULL
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_BookLoanCoupon_List
+	WHERE 
+		(@Status IS NULL OR TinhTrang = @Status)
+END;
+go
+/***	Add New Book Loan Coupon(Trung)		***/
+CREATE or Alter PROC SP_Add_New_BookLoanCoupon
+	@MaTaiKhoan int = NULL,
+	@NgayMuon date = NULL,
+	@NgayTra date = NULL
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+                INSERT INTO PhieuMuonSach (MaTaiKhoan, NgayMuon, NgayTra)
+				VALUES (@MaTaiKhoan, @NgayMuon, @NgayTra);
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;

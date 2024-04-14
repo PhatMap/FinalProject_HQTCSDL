@@ -1,23 +1,20 @@
-﻿using LibraryManagement.DAO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LibraryManagement.DTO
 {
-    internal class PhieuMuon
+    public class PhieuMuonSach
     {
         private int maPhieuMuon;
         private int maSach;
-        private int maTinhTrang;
         private int maTaiKhoan;
+        private string tinhTrang;
         private DateTime ngayMuon;
-        private DateTime ngayTraDuKien;
-        private DateTime ngayTraThucTe;
+        private DateTime ngayTra;
 
         public int MaPhieuMuon
         {
@@ -29,51 +26,48 @@ namespace LibraryManagement.DTO
             get { return maSach; }
             set { maSach = value; }
         }
-        public int MaTinhTrang
-        {
-            get { return maTinhTrang; }
-            set { maTinhTrang = value; }
-        }
         public int MaTaiKhoan
         {
             get { return maTaiKhoan; }
             set { maTaiKhoan = value; }
+        }
+        public string TinhTrang
+        {
+            get { return tinhTrang; }
+            set { tinhTrang = value; }
         }
         public DateTime NgayMuon
         {
             get { return ngayMuon; }
             set { ngayMuon = value; }
         }
-        public DateTime NgayTraDuKien
+        public DateTime NgayTra
+
         {
-            get { return ngayTraDuKien; }
-            set { ngayTraDuKien = value; }
+            get { return ngayTra; }
+            set { ngayTra = value; }
         }
-        public DateTime NgayTraThucTe
-        {
-            get { return ngayTraThucTe; }
-            set { ngayTraThucTe = value; }
-        }
-        public PhieuMuon(int maphieumuon, int masach, int matinhtrang, int mataikhoan, DateTime ngaymuon, DateTime ngaytradukien, DateTime ngaytrathucte)
+        public PhieuMuonSach(int maphieumuon, int masach, int mataikhoan, string tinhtrang, DateTime ngaymuon, DateTime ngaytra)
         {
             this.MaPhieuMuon = maphieumuon;
             this.MaSach = masach;
-            this.MaTinhTrang = matinhtrang;
             this.MaTaiKhoan = mataikhoan;
+            this.TinhTrang = tinhtrang;
             this.NgayMuon = ngaymuon;
-            this.NgayTraDuKien = ngaytradukien;
-            this.NgayTraThucTe = ngaytrathucte;
+            this.NgayTra = ngaytra;
         }
-
-        public PhieuMuon(DataRow row)
+        public PhieuMuonSach(DataRow row)
         {
             this.MaPhieuMuon = (int)row["MaPhieuMuon"];
             this.MaSach = (int)row["MaSach"];
-            this.MaTinhTrang = (int)row["MaTinhTrang"];
             this.MaTaiKhoan = (int)row["MaTaiKhoan"];
+            this.TinhTrang = row["TinhTrang"].ToString();
             this.NgayMuon = (DateTime)row["NgayMuon"];
-            this.NgayTraDuKien = (DateTime)row["NgayTraDuKien"];
-            this.NgayTraThucTe = (DateTime)row["NgayTraThucTe"];
+            this.NgayTra = (DateTime)row["NgayTra"];
+        }
+
+        public PhieuMuonSach()
+        {
         }
     }
 }

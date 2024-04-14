@@ -67,3 +67,12 @@ EXEC SP_Find_Account_By_Advanced
     @SoDienThoai = NULL,
     @VaiTro = N'Thủ thư',
     @GioiTinh = NULL;
+
+Select * from FN_Get_Account_Profile ('admin@gmail.com')
+SELECT * FROM VW_BookLoanCoupon_List
+EXEC SP_Find_BookLoanCoupon_By_Status @Status = "Đang mượn"
+EXEC SP_Add_New_BookLoanCoupon
+	@MaPhieuMuon = 4,
+	@MaTaiKhoan = 20110535,
+	@NgayMuon = '2024-03-03',
+	@NgayTra = NULL;

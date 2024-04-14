@@ -22,3 +22,16 @@ FROM dbo.TaiKhoan
 WHERE VaiTro = N'Thủ thư'
 
 GO
+/***	Get Book Loan Coupon list (Trung)		***/
+Create VIEW VW_BookLoanCoupon_List AS
+SELECT 
+	PM.MaPhieuMuon,
+	S.MaSach,
+	MaTaiKhoan,
+	S.TinhTrang,
+	NgayMuon,
+	NgayTra
+FROM dbo.PhieuMuonSach PM
+Join dbo.CuonSach S ON PM.MaPhieuMuon = S.MaPhieuMuon
+
+GO
