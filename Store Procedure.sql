@@ -229,20 +229,115 @@ BEGIN
 		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
 END;
 
+
 GO
-<<<<<<< HEAD
-/* Thêm phiếu phạt (Hoàn) */
-CREATE PROC SP_Add_New_PhieuPhat
-    @MaPhieuMuon int,
-	@TienPhat decimal,
-    @NgayTra date
+/***	Load danh sách Sách (Văn)		***/
+CREATE PROC SP_Load_List_Sach
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_Book_List 
+	WHERE 
+END;
+
+GO
+/***	Add New Book(Van)		***/
+CREATE PROC SP_Add_New_Book
+    @MaTacGia INT,
+	@MaTheLoai INT,
+    @MaNhaXuatBan INT,
+    @TenSach NVARCHAR(255),
+	@LoaiTaiLieu NVARCHAR(255),
+	@NamXuatBan INT,
+	@GiaSach DECIMAL,
+    @SoLuong INT
 AS
 BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-        INSERT INTO dbo.PhieuPhat (MaPhieuMuon, TienPhat, NgayTra)
-        VALUES (@MaPhieuMuon, @TienPhat, @NgayTra);
+        INSERT INTO dbo.Sach (MaTacGia, MaTheLoai, MaNhaXuatBan, TenSach, LoaiTaiLieu, NamXuatBan, GiaSach, SoLuong)
+        VALUES (@MaTacGia, @MaTheLoai, @MaNhaXuatBan, @TenSach, @LoaiTaiLieu, @NamXuatBan, @GiaSach, @SoLuong);
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+		PRINT ERROR_MESSAGE();
+        ROLLBACK;
+    END CATCH;
+END;
+
+DROP PROCEDURE IF EXISTS SP_Add_New_Book;
+
+GO
+/***	Update Book(Van)		***/
+CREATE PROC SP_Update_Book
+	@MaTacGia INT,
+	@MaTheLoai INT,
+    @MaNhaXuatBan INT,
+    @TenSach NVARCHAR(255),
+	@LoaiTaiLieu NVARCHAR(255),
+	@NamXuatBan INT,
+	@GiaSach DECIMAL,
+    @SoLuong INT
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            UPDATE dbo.Sach
+				SET MaTacGia = @MaTacGia,
+					MaTheLoai = @MaTheLoai,
+					MaNhaXuatBan = @MaNhaXuatBan,
+					TenSach = @TenSach,
+					LoaiTaiLieu = @LoaiTaiLieu,
+					NamXuatBan = @NamXuatBan,
+					GiaSach = @GiaSach,
+					SoLuong = @SoLuong
+			 WHERE TenSach = @TenSach;
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/***	Find account by advanced (Van)		***/
+CREATE PROC SP_Find_Book_By_Advanced
+(
+	@TenTacGia NVARCHAR(255) = NULL,
+	@TenTheLoai NVARCHAR(255) = NULL,
+    @TenNhaXuatBan NVARCHAR(255) = NULL,
+    @TenSach NVARCHAR(255) = NULL,
+	@LoaiTaiLieu NVARCHAR(255) = NULL,
+	@NamXuatBan INT = NULL
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_Book_List 
+	WHERE 
+		(@TenTacGia IS NULL OR @TenTacGia = TenTacGia) AND
+		(@TenTheLoai IS NULL OR @TenTheLoai = TenTheLoai) AND
+		(@TenNhaXuatBan IS NULL OR @TenNhaXuatBan = TenNhaXuatBan) AND
+		(@TenSach IS NULL OR @TenSach = TenSach) AND
+		(@LoaiTaiLieu IS NULL OR @LoaiTaiLieu = LoaiTaiLieu) AND
+		(@NamXuatBan IS NULL OR @NamXuatBan = NamXuatBan)
+END;
+
+GO
+/***	Delete account(Van)		***/
+CREATE PROC SP_Delete_Book
+    @MaSach int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            DELETE dbo.Sach WHERE MaSach = @MaSach;
         
         COMMIT;
     END TRY
@@ -252,77 +347,16 @@ BEGIN
 END;
 
 GO
-/* Xoá phiếu phạt (Hoàn) */
-CREATE PROC SP_Delete_PhieuPhat
-    @MaPhieuPhat int
+/***	Add Tác Giả(Van)		***/
+CREATE PROC SP_Add_Tac_Gia
+    @TenTacGia NVARCHAR(255)
 AS
 BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-            DELETE dbo.PhieuPhat WHERE MaPhieuPhat = @MaPhieuPhat;
-
-        COMMIT;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK;
-    END CATCH;
-END;
-
-GO
-/* Sửa phiếu phạt (Hoàn)*/
-CREATE PROC SP_Update_PhieuPhat
-	@MaPhieuPhat int,
-    @MaPhieuMuon int,
-	@TienPhat decimal,
-    @NgayTra date
-AS
-BEGIN
-    BEGIN TRANSACTION;
-
-    BEGIN TRY
-            UPDATE dbo.PhieuPhat
-				SET MaPhieuMuon = @MaPhieuMuon,
-					TienPhat = @TienPhat,
-					NgayTra = @NgayTra
-			 WHERE MaPhieuPhat = @MaPhieuPhat;
-        COMMIT;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK;
-    END CATCH;
-END;
-
-GO
-/* Tìm kiếm phiếu phạt (Hoàn)*/
-CREATE PROC SP_Find_PhieuPhat_By_Advanced
-(
-    @MaPhieuMuon int = NULL,
-    @TienPhat decimal = NULL,
-    @NgayTra date = NULL
-)
-AS
-BEGIN
-	SELECT 
-		*
-	FROM VW_PhieuPhat_List 
-	WHERE 
-		(@MaPhieuMuon IS NULL OR MaPhieuMuon = @MaPhieuMuon) AND
-		(@TienPhat IS NULL OR TienPhat = @TienPhat) AND
-		(@NgayTra IS NULL OR CONVERT(DATE, NgayTra) = CONVERT(DATE, @NgayTra)) 
-END;
-
-GO
-/* Thêm thể loại (Hoàn) */
-CREATE PROC SP_Add_New_TheLoai
-    @TenTheLoai nvarchar(50)
-AS
-BEGIN
-    BEGIN TRANSACTION;
-
-    BEGIN TRY
-        INSERT INTO dbo.TheLoai (TenTheLoai)
-        VALUES (@TenTheLoai);
+        INSERT INTO dbo.TacGia (TenTacGia)
+        VALUES (@TenTacGia);
         
         COMMIT;
     END TRY
@@ -332,16 +366,18 @@ BEGIN
 END;
 
 GO
-/* Xoá thể loại (Hoàn) */
-CREATE PROC SP_Delete_TheLoai
-    @MaTheLoai int
+/***	Update Tác Giả(Van)		***/
+CREATE PROC SP_Update_Tac_Gia
+    @MaTacGia INT,
+    @TenTacGia NVARCHAR(255)
 AS
 BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-            DELETE dbo.TheLoai WHERE MaTheLoai = @MaTheLoai;
-
+            UPDATE dbo.TacGia
+				SET TenTacGia = @TenTacGia
+			 WHERE MaTacGia = @MaTacGia;
         COMMIT;
     END TRY
     BEGIN CATCH
@@ -350,40 +386,40 @@ BEGIN
 END;
 
 GO
-/* Sửa thể loại (Hoàn)*/
-CREATE PROC SP_Update_TheLoai
-	@MaTheLoai int,
-    @TenTheLoai nvarchar(50)
-AS
-BEGIN
-    BEGIN TRANSACTION;
-
-    BEGIN TRY
-            UPDATE dbo.TheLoai
-				SET TenTheLoai = @TenTheLoai
-			 WHERE MaTheLoai = @MaTheLoai;
-        COMMIT;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK;
-    END CATCH;
-END;
-
-GO
-/* Tìm kiếm thể loại (Hoàn)*/
-CREATE PROC SP_Find_TheLoai_By_Advanced
+/***	Find TacGia by advanced (Van)		***/
+CREATE PROC SP_Find_TacGia_By_Advanced
 (
-    @TenTheLoai nvarchar(50) = NULL
+	@TenTacGia NVARCHAR(255) = NULL
 )
 AS
 BEGIN
 	SELECT 
 		*
-	FROM VW_TheLoai_List 
+	FROM VW_TacGia_List 
 	WHERE 
-		(@TenTheLoai IS NULL OR TenTheLoai = @TenTheLoai) 
+		(@TenTacGia IS NULL OR @TenTacGia = TenTacGia)
+		
 END;
-=======
+
+GO
+/***	Delete account(Van)		***/
+CREATE PROC SP_Delete_TacGia
+    @MaTacGia int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            DELETE dbo.TacGia WHERE MaTacGia = @MaTacGia;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
 /***	Get schedule (Phat)		***/
 CREATE PROC SP_Get_Schedule
 (
@@ -399,4 +435,4 @@ BEGIN
 		(@NgayCuoiTuan IS NULL OR NgayLam <= @NgayCuoiTuan)	AND
 		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan)
 END;
->>>>>>> main
+

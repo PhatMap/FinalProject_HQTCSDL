@@ -64,20 +64,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
-<<<<<<< Updated upstream
     <Compile Include="DAO\LichLamViecDAO.cs" />
-=======
-    <Compile Include="DAO\PhanCongDAO.cs" />
-    <Compile Include="DAO\PhanQuyenDAO.cs" />
->>>>>>> Stashed changes
-    <Compile Include="DAO\PhieuPhatDAO.cs" />
+    <Compile Include="DAO\SachDAO.cs" />
+    <Compile Include="DAO\TacGiaDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
-    <Compile Include="DAO\TheLoaiDAO.cs" />
     <Compile Include="DTO\LichLamViec.cs" />
     <Compile Include="DTO\PhieuPhat.cs" />
+    <Compile Include="DTO\Sach.cs" />
     <Compile Include="DTO\Session.cs" />
+    <Compile Include="DTO\TacGia.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
-    <Compile Include="DTO\TheLoai.cs" />
     <Compile Include="GUI\fAccount.cs">
       <SubType>Form</SubType>
     </Compile>

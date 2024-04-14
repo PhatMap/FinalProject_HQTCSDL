@@ -14,125 +14,229 @@ namespace LibraryManagement.GUI
 {
     public partial class fBook : Form
     {
-        BindingSource TheLoaiList = new BindingSource();
-
+        BindingSource sachList = new BindingSource();
+        BindingSource tacGiaList = new BindingSource();
         public fBook()
         {
             InitializeComponent();
 
-            dgvTheLoai.DataSource = TheLoaiList;
+            dgvSach.DataSource = sachList;
+            dgvTacGia.DataSource = tacGiaList;
 
-            LoadTheLoaiList();
+            cbTacGia.DataSource = SachDAO.Instance.LoadTacGia();
+            cbTacGia.DisplayMember = "TenTacGia";
+            cbTacGia.ValueMember = "MaTacGia";
 
-            dgvTheLoai.SelectionChanged += dgvTheLoai_SelectionChanged;
+            cbNhaXuatBan.DataSource = SachDAO.Instance.LoadNhaXuatBan();
+            cbNhaXuatBan.DisplayMember = "TenNhaXuatBan";
+            cbNhaXuatBan.ValueMember = "MaNhaXuatBan";
+
+            cbTheLoai.DataSource = SachDAO.Instance.LoadTheLoai();
+            cbTheLoai.DisplayMember = "TenTheLoai";
+            cbTheLoai.ValueMember = "MaTheLoai";
+
+            LoadTacGiaList();
+            LoadSachList();
+
+            DetachBookBinding();
+            DetachTacGiaBinding();
+
+            AddBookBinding();
+            AddTacGiaBinding();
+        }
+        public void LoadTacGiaList()
+        {
+            tacGiaList.DataSource = TacGiaDAO.Instance.LoadTacGiaList();
+        }
+        public void LoadSachList()
+        {
+            sachList.DataSource = SachDAO.Instance.LoadBookList();
         }
 
-        private void LoadTheLoaiList()
+        private void btnAddBook_Click(object sender, EventArgs e)
         {
-            TheLoaiList.DataSource = TheLoaiDAO.Instance.LoadTheLoaiList();
+            Sach s = new Sach();
+
+            s.TenSach = txbTenSach.Text;
+            s.MaTacGia = (int)cbTacGia.SelectedValue;
+            s.MaNhaXuatBan = (int)cbNhaXuatBan.SelectedValue;
+            s.MaTheLoai = (int)cbTheLoai.SelectedValue;
+            s.SoLuong = (int)nudSoLuong.Value;
+            s.NamXuatBan = (int)nudNamXuatBan.Value;
+            s.LoaiTaiLieu = cbLoaiTaiLieu.SelectedItem.ToString();
+            s.GiaSach = (decimal)nudGiaSach.Value;
+
+            SachDAO.Instance.AddBook(s);
+
+            LoadSachList();
+
+        }
+        private void DetachBookBinding()
+        {
+            txbTenSach.DataBindings.Clear();
+            cbTacGia.DataBindings.Clear();
+            cbNhaXuatBan.DataBindings.Clear();
+            cbTheLoai.DataBindings.Clear();
+            nudSoLuong.DataBindings.Clear();
+            nudNamXuatBan.DataBindings.Clear();
+            cbLoaiTaiLieu.DataBindings.Clear();
+            nudGiaSach.DataBindings.Clear();
         }
 
-        private void ShowDataFromSelectedRow()
+        private void AddBookBinding()
         {
-            if (dgvTheLoai.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dgvTheLoai.SelectedRows[0];
+            txbTenSach.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "TenSach"));
+            cbTacGia.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "TenTacGia"));
+            cbNhaXuatBan.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "TenNhaXuatBan"));
+            cbTheLoai.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "TenTheLoai"));
+            nudSoLuong.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "SoLuong"));
+            nudNamXuatBan.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "NamXuatBan"));
+            cbLoaiTaiLieu.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "LoaiTaiLieu"));
+            nudGiaSach.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "GiaSach"));
+        }
+        private void btnUpdateBook_Click(object sender, EventArgs e)
+        {
+            DetachBookBinding();
+            AddBookBinding();
 
-                txtTenTheLoai.Text = Convert.ToString(selectedRow.Cells["TenTheLoai"].Value);
-            }
+            Sach s = new Sach();
+
+            s.TenSach = txbTenSach.Text;
+            s.MaTacGia = (int)cbTacGia.SelectedValue;
+            s.MaNhaXuatBan = (int)cbNhaXuatBan.SelectedValue;
+            s.MaTheLoai = (int)cbTheLoai.SelectedValue;
+            s.SoLuong = (int)nudSoLuong.Value;
+            s.NamXuatBan = (int)nudNamXuatBan.Value;
+            s.LoaiTaiLieu = cbLoaiTaiLieu.SelectedItem.ToString();
+            s.GiaSach = (decimal)nudGiaSach.Value;
+
+            SachDAO.Instance.UpdateBook(s);
+
+            LoadSachList();
         }
 
-        private void dgvTheLoai_SelectionChanged(object sender, EventArgs e)
+        private void btnFindBook_Click(object sender, EventArgs e)
         {
-            if (dgvTheLoai.SelectedRows.Count > 0 && !dgvTheLoai.SelectedRows[0].IsNewRow)
-            {
-                ShowDataFromSelectedRow();
-            }
+          
+
+            Sach s = new Sach();
+
+            s.TenSach = txbTenSach.Text;
+            s.TenTacGia = ((DataRowView)cbTacGia.SelectedItem)["TenTacGia"].ToString();
+            s.TenNhaXuatBan = ((DataRowView)cbNhaXuatBan.SelectedItem)["TenNhaXuatBan"].ToString();
+            s.TenTheLoai = ((DataRowView)cbTheLoai.SelectedItem)["TenTheLoai"].ToString();
+            s.NamXuatBan = (int)nudNamXuatBan.Value;
+            s.LoaiTaiLieu = cbLoaiTaiLieu.SelectedItem.ToString();
+            sachList.DataSource = SachDAO.Instance.FindBookByAdvanced(s);
+
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            TheLoai tl = new TheLoai();
+            DetachBookBinding();
+            AddBookBinding();
 
-            tl.TenTheLoai = txtTenTheLoai.Text;
+            int maSach = (int)nudMaSach.Value;
 
-            TheLoaiDAO.Instance.AddTheLoai(tl);
+            SachDAO.Instance.DeleteBook(maSach);
 
-            LoadTheLoaiList();
+            LoadSachList();
+
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnResert_Click(object sender, EventArgs e)
         {
-            if (dgvTheLoai.SelectedRows.Count > 0)
-            {
-                int maTheLoai = Convert.ToInt32(dgvTheLoai.SelectedRows[0].Cells["MaTheLoai"].Value);
+            DetachBookBinding();
 
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa thể này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            LoadSachList();
 
-                if (result == DialogResult.Yes)
-                {
-                    TheLoaiDAO.Instance.DeleteTheLoai(maTheLoai);
+            nudMaSach.Value = 0;
+            txbTenSach.Clear();
+            cbTacGia.SelectedItem = null;
+            cbNhaXuatBan.SelectedItem = null;
+            cbTheLoai.SelectedItem = null;
+            nudSoLuong.Value = 0;
+            nudNamXuatBan.Value = 0;
+            cbLoaiTaiLieu.SelectedItem = null;
+            nudGiaSach.Value = 0;
+        }
+        //-------------------------Tác Giả--------------------------
+        private void btnAddTacGia_Click(object sender, EventArgs e)
+        {
+            TacGia tg = new TacGia();
 
-                    LoadTheLoaiList();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn thể loại cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            tg.TenTacGia = txbTenTacGia.Text;
+
+            TacGiaDAO.Instance.AddTacGia(tg);
+
+            LoadTacGiaList();
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void DetachTacGiaBinding()
         {
-            if (dgvTheLoai.SelectedRows.Count > 0)
-            {
-                int maTheLoai = Convert.ToInt32(dgvTheLoai.SelectedRows[0].Cells["MaTheLoai"].Value);
-                string tenTheLoai = txtTenTheLoai.Text;
+            txbTenTacGia.DataBindings.Clear();
+        }
+        private void AddTacGiaBinding()
+        {
+            txbTenTacGia.DataBindings.Add(new Binding("Text", dgvTacGia.DataSource, "TenTacGia"));
+        }
+        //private void btnUpdateTacGia_Click(object sender, EventArgs e)
+        //{
+        //    DetachTacGiaBinding();
+        //    AddTacGiaBinding();
 
-                TheLoai tl = new TheLoai();
-                tl.MaTheLoai = maTheLoai;
-                tl.TenTheLoai = tenTheLoai;
+        //    TacGia tg = new TacGia();
 
-                bool result = TheLoaiDAO.Instance.UpdateTheLoai(tl);
+        //    tg.TenTacGia = txbTenTacGia.Text;
 
-                if (result)
-                {
-                    MessageBox.Show("Cập nhật thông tin thể loại thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadTheLoaiList();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật thông tin thể loại thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn thể loại cần sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+
+        //    TacGiaDAO.Instance.UpdateTacGia(tg);
+
+        //    LoadTacGiaList();
+        //}
+        private void btnUpdateTacGia_Click(object sender, EventArgs e)
+        {
+            // Lấy thông tin về tác giả từ DataGridView
+            TacGia tg = new TacGia();
+            tg.MaTacGia = int.Parse(dgvTacGia.CurrentRow.Cells["MaTacGia"].Value.ToString());
+            tg.TenTacGia = txbTenTacGia.Text;
+
+            // Gọi phương thức cập nhật tác giả từ lớp DAO
+            TacGiaDAO.Instance.UpdateTacGia(tg);
+
+            // Load lại danh sách tác giả sau khi cập nhật
+            LoadTacGiaList();
         }
 
-        private void btnTim_Click(object sender, EventArgs e)
+        private void btnFindTacGia_Click(object sender, EventArgs e)
         {
-            string tenTheLoai = txtTenTheLoai.Text;
+            TacGia tg = new TacGia();
 
-            DataTable searchResult = TheLoaiDAO.Instance.FindTheLoaiByAdvanced(new TheLoai()
-            {
-                TenTheLoai = tenTheLoai
-            });
+            tg.TenTacGia = txbTenTacGia.Text;
 
-            if (searchResult != null && searchResult.Rows.Count > 0)
-            {
-                TheLoaiList.DataSource = searchResult;
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            tacGiaList.DataSource = TacGiaDAO.Instance.FindTacGiaByAdvanced(tg);
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void btnResertTacGia_Click(object sender, EventArgs e)
         {
-            LoadTheLoaiList();
+            DetachTacGiaBinding();
+
+            LoadTacGiaList();
+
+            nudMaTacGia.Value = 0;
+            txbTenTacGia.Clear();
+        }
+
+        private void btnDeleteTacGia_Click(object sender, EventArgs e)
+        {
+            DetachTacGiaBinding();
+            AddTacGiaBinding();
+
+            int maTacGia = (int)nudMaTacGia.Value;
+
+            TacGiaDAO.Instance.DeleteTacGia(maTacGia);
+
+            LoadTacGiaList();
         }
     }
 }
