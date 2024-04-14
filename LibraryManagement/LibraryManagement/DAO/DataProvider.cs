@@ -22,11 +22,11 @@ namespace LibraryManagement.DAO
         //Đường dẫn
         //(Phat)    Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True
         //(Trung)
-        //(Hoan)    LAPTOP-L7BVASSV\MAY1
+        //(Hoan)    Data Source=LAPTOP-L7BVASSV\MAY1;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True
         //(Van)     Data Source=MSI\MSSQLSERVER02;Initial Catalog=Library;Integrated Security=True
 
 
-        private string connectionStr = @"Data Source=MSI\MSSQLSERVER02;Initial Catalog=Library;Integrated Security=True";
+        private string connectionStr = @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
         SqlConnection connection;
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)

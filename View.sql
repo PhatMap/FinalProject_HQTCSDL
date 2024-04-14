@@ -57,13 +57,26 @@ CREATE VIEW VW_NhaXuatBan_List AS
 SELECT *
 FROM dbo.NhaXuatBan
 
+GO
 /***	Get Thể Loại list (Văn)		***/
 CREATE VIEW VW_TheLoai_List AS
 SELECT *
 FROM dbo.TheLoai
 
+GO
 /***	Get Tác Giả list (Văn)		***/
 CREATE VIEW VW_TacGia_List AS
 SELECT *
 FROM dbo.TacGia
 
+GO
+/***	Get PhieuPhat list (Hoan)		***/
+CREATE VIEW VW_PhieuPhat_List AS
+SELECT *
+FROM dbo.PhieuPhat
+
+GO
+/***	Get TheLoai list (Hoan)		***/
+CREATE VIEW VW_TheLoai_List AS
+SELECT *
+FROM dbo.TheLoai
