@@ -27,6 +27,7 @@ namespace LibraryManagement.DAO
 
 
         private string connectionStr = @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
+
         SqlConnection connection;
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
