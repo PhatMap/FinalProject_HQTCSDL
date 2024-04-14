@@ -54,7 +54,7 @@ namespace LibraryManagement.DAO
         {
             object maPhieuMuon = pp.MaPhieuMuon;
             object tienPhat = pp.TienPhat;
-            object ngayTra = pp.NgayTra;
+            object ngayTra =  pp.NgayTra;
 
             if (pp.MaPhieuMuon == 0)
             {

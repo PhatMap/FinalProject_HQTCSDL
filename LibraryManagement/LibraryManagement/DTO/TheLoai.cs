@@ -12,7 +12,7 @@ namespace LibraryManagement.DTO
         public TheLoai(int maTheLoai, string tenTheLoai)
         {
             this.MaTheLoai = maTheLoai;
-            this.TenTheLoai = tenTheLoai;
+            this.TenTheLoai =  tenTheLoai;
         }
 
         public TheLoai(DataRow row)

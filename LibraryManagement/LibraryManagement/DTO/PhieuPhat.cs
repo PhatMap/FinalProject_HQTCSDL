@@ -14,7 +14,7 @@ namespace LibraryManagement.DTO
         {
             this.MaPhieuPhat = maPhieuPhat;
             this.MaPhieuMuon = maPhieuMuon;
-            this.TienPhat = tienPhat;
+            this.TienPhat =  tienPhat;
             this.NgayTra = ngayTra;
         }
 

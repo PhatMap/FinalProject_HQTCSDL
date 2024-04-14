@@ -21,7 +21,7 @@ namespace LibraryManagement.DAO
 
         public DataTable LoadTheLoaiList()
         {
-            string query = "SELECT * FROM VW_TheLoai_List";
+            string query = "SELECT *  FROM VW_TheLoai_List";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 

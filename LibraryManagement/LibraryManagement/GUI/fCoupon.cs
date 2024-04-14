@@ -99,12 +99,12 @@ namespace LibraryManagement.GUI
 
                 if (result)
                 {
-                    MessageBox.Show("Cập nhật thông tin phiếu phạt thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cập nhật  thông tin phiếu phạt thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadPhieuPhatList();
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thông tin phiếu phạt thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Cập    nhật thông tin phiếu phạt thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -132,7 +132,7 @@ namespace LibraryManagement.GUI
             }
             else
             {
-                MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No tìm thấy kết quả phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

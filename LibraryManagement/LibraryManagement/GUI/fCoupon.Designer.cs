@@ -334,7 +334,7 @@
             // 
             // numTienPhatID
             // 
-            this.numTienPhatID.Location = new System.Drawing.Point(157, 56);
+            this.numTienPhatID.Location = new System.Drawing.Point(157, 66);
             this.numTienPhatID.Maximum = new decimal(new int[] {
             1000000000,
             0,

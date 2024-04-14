@@ -218,6 +218,13 @@ BEGIN
 		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
 END;
 
+
+
+
+
+
+
+
 GO
 /* Thêm phiếu phạt (Hoàn) */
 CREATE PROC SP_Add_New_PhieuPhat

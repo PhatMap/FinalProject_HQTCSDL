@@ -21,6 +21,8 @@ SELECT
 FROM dbo.TaiKhoan
 WHERE VaiTro = N'Thủ thư'
 
+
+
 GO
 /***	Get PhieuPhat list (Hoan)		***/
 CREATE VIEW VW_PhieuPhat_List AS

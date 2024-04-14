@@ -52,7 +52,7 @@ namespace LibraryManagement.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            TheLoai tl = new TheLoai();
+            TheLoai tl  = new TheLoai();
 
             tl.TenTheLoai = txtTenTheLoai.Text;
 
