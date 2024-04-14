@@ -33,17 +33,12 @@ EXEC SP_Drop_All_VW
 
 
 
-select * from VW_Shift_List
-SELECT * FROM FN_Get_Account_Profile('user1n@gmail.com')
+SELECT * FROM TaiKhoan
 
-EXEC SP_Find_Account_By_Email @Email = 'admin@gmail.com'
-
-EXEC SP_Find_Account_By_Name @HoTen = N'Phạm Văn C'
-EXEC SP_Change_Account_Password     
-	@Email = 'admin@gmail.com',
-    @MatKhauMoi = 'zzzzzzzz',
-	@XacNhan = 'zzzzzzzz',
-	@MatKhauCu = 'aaaaaaaa';
+EXEC SP_Get_Schedule 
+	@NgayDauTuan  = NULL,
+	@NgayCuoiTuan  = NULL,
+	@MaTaiKhoan = 5
 
 EXEC SP_Add_New_Account
 	@MaTaiKhoan = 20110535,
@@ -57,4 +52,23 @@ EXEC SP_Add_New_Account
     @GioiTinh = 'Nam';
 
 DROP
+<<<<<<< HEAD
 select * from VW_PhieuPhat_List
+=======
+select * from TaiKhoan
+EXEC SP_Delete_Account @MaTaiKhoan = 20110535
+
+
+
+
+
+
+EXEC SP_Get_Schedule 
+@NgayDauTuan = '2024-04-10',
+@NgayCuoiTuan = '2024-04-12'
+
+EXEC SP_Get_Schedule 
+@NgayDauTuan = NULL,
+@NgayCuoiTuan = NULL,
+@HoTen = N'Phạm Văn E'
+>>>>>>> main

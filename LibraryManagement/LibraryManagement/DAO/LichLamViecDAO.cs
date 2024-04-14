@@ -19,13 +19,25 @@ namespace LibraryManagement.DAO
 
         private LichLamViecDAO() { }
 
-        public DataTable LoadLichLamViecList()
+        public DataTable LoadLichLamViecList(DateTime weekstart, DateTime weekend, string maTaiKhoan = null)
         {
-            string query = "SELECT * FROM VW_Shift_List";
+            if (maTaiKhoan == null)
+            {
+                string query = "SP_Get_Schedule @NgayDauTuan , @NgayCuoiTuan , @MaTaiKhoan ";
 
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+                DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { weekstart, weekend, DBNull.Value });
 
-            return data;
+                return data;
+            }
+            else
+            {
+                int id = Convert.ToInt32(maTaiKhoan);
+                string query = "SP_Get_Schedule @NgayDauTuan , @NgayCuoiTuan , @MaTaiKhoan ";
+
+                DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { weekstart, weekend, id });
+
+                return data;
+            }
         }
 
         public void AddNewSchedule(LichLamViec lich)

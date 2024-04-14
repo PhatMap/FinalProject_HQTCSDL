@@ -6,9 +6,9 @@ FROM dbo.TaiKhoan
 
 GO
 /***	Get shift list (Phat)		***/
-CREATE VIEW VW_Shift_List AS
+CREATE VIEW VW_Schedule_List AS
 SELECT 
-	MaLichLamViec, NgayLam, Ca, TK.HoTen, TK.SoDienThoai, TK.GioiTinh
+	MaLichLamViec, NgayLam, Ca, Tk.MaTaiKhoan, TK.HoTen, TK.SoDienThoai, TK.GioiTinh
 FROM dbo.LichLamViec LLV
 JOIN dbo.TaiKhoan TK ON TK.MaTaiKhoan = LLV.MaTaiKhoan
 
@@ -21,6 +21,7 @@ SELECT
 FROM dbo.TaiKhoan
 WHERE VaiTro = N'Thủ thư'
 
+<<<<<<< HEAD
 GO
 /***	Get PhieuPhat list (Hoan)		***/
 CREATE VIEW VW_PhieuPhat_List AS
@@ -32,3 +33,5 @@ GO
 CREATE VIEW VW_TheLoai_List AS
 SELECT *
 FROM dbo.TheLoai
+=======
+>>>>>>> main
