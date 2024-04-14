@@ -233,20 +233,212 @@ BEGIN
 END;
 go
 /***	Add New Book Loan Coupon(Trung)		***/
-CREATE or Alter PROC SP_Add_New_BookLoanCoupon
+CREATE OR ALTER PROC SP_Add_New_BookLoanCoupon
 	@MaTaiKhoan int = NULL,
+	@MaSach int = null,
 	@NgayMuon date = NULL,
 	@NgayTra date = NULL
 AS
 BEGIN
+    -- Declare a table variable to hold the new ID
+    DECLARE @NewIDTable TABLE (NewID INT);
+
     BEGIN TRANSACTION;
 
     BEGIN TRY
-                INSERT INTO PhieuMuonSach (MaTaiKhoan, NgayMuon, NgayTra)
-				VALUES (@MaTaiKhoan, @NgayMuon, @NgayTra);
+        -- Insert into the PhieuMuonSach table
+        INSERT INTO PhieuMuonSach (MaTaiKhoan, NgayMuon, NgayTra)
+        OUTPUT Inserted.MaPhieuMuon INTO @NewIDTable
+        VALUES (@MaTaiKhoan, @NgayMuon, @NgayTra);
+
+        -- Get the new ID
+        DECLARE @NewID INT = (SELECT NewID FROM @NewIDTable);
+
+        -- Check if MaSach exists in CuonSach
+        IF NOT EXISTS (SELECT 1 FROM CuonSach WHERE MaSach = @MaSach)
+        BEGIN
+            -- Insert new record into CuonSach
+            INSERT INTO CuonSach (MaSach, MaPhieuMuon, TinhTrang)
+            VALUES (@MaSach, @NewID, N'Đang mượn');
+        END
+        ELSE
+        BEGIN
+            -- Update the CuonSach table
+            UPDATE CuonSach
+            SET MaPhieuMuon = @NewID
+            WHERE MaSach = @MaSach;
+        END
+
         COMMIT;
     END TRY
     BEGIN CATCH
         ROLLBACK;
     END CATCH;
 END;
+
+GO
+/***	Delete coupon(Trung)		***/
+CREATE or Alter PROC SP_Delete_Coupon
+    @MaTaiKhoan int,
+	@MaSach int
+AS
+BEGIN
+	DECLARE @DeletedIDTable TABLE (DeletedID INT);
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Delete from CuonSach and output the deleted ID
+        DELETE FROM dbo.CuonSach
+        OUTPUT DELETED.MaPhieuMuon INTO @DeletedIDTable
+        WHERE MaSach = @MaSach;
+
+        -- Get the deleted ID
+        DECLARE @DeletedID INT = (SELECT DeletedID FROM @DeletedIDTable);
+
+        -- Delete from PhieuMuonSach using the deleted ID
+        DELETE FROM dbo.PhieuMuonSach
+        WHERE MaPhieuMuon = @DeletedID AND MaTaiKhoan = @MaTaiKhoan;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+GO
+/***	Update coupon(Trung)		***/
+CREATE PROC SP_Update_Coupon
+	@MaPhieuMuon int,
+	@MaTaiKhoan int,
+    @MaSach int,
+	@NgayMuon date,
+	@NgayTra date
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+			UPDATE dbo.CuonSach
+				Set	MaSach = @MaSach
+				Where MaPhieuMuon = @MaPhieuMuon;
+            UPDATE dbo.PhieuMuonSach
+				SET MaTaiKhoan = @MaTaiKhoan,
+					NgayMuon = @NgayMuon,
+					NgayTra = @NgayTra
+				WHERE MaPhieuMuon = @MaPhieuMuon;
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+GO
+/***	Update coupon _ Returned(Trung)		***/
+CREATE PROC SP_Update_Coupon_Returned
+	@MaPhieuMuon int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+			UPDATE dbo.CuonSach
+				Set	TinhTrang = N'Đã Trả'
+				Where MaPhieuMuon = @MaPhieuMuon;
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+GO
+/***	Find Book Loan Coupon by advanced (Trung)		***/
+CREATE PROC SP_Find_BookLoan_Coupon_By_Advanced
+(
+	@MaSach int,
+	@MaTaiKhoan int,
+	@MaPhieuMuon int
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_BookLoanCoupon_List 
+	WHERE 
+		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan) AND
+		(@MaSach IS NULL OR MaSach = @MaSach) AND
+		(@MaPhieuMuon IS NULL OR MaPhieuMuon = @MaPhieuMuon) 
+END;
+GO
+/***	Add Genre (Trung)		***/
+
+CREATE PROC SP_Add_New_Genre
+	@TenTheLoai NVARCHAR(255)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        INSERT INTO dbo.TheLoai (TenTheLoai)
+        VALUES (@TenTheLoai);
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+go
+/***	Update Genre (Trung)		***/
+CREATE or Alter PROC SP_Update_Genre
+	@MaTheLoai INT,
+	@TenTheLoai NVARCHAR(255)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+			UPDATE dbo.TheLoai
+				Set	TenTheLoai = @TenTheLoai
+				Where MaTheLoai = @MaTheLoai;
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+GO
+/***	Find Genre (Trung)		***/
+CREATE PROC SP_Find_Genre
+(
+	@MaTheLoai int,
+	@TenTheLoai NVARCHAR(255)
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_Genre_List 
+	WHERE 
+		(@MaTheLoai IS NULL OR MatheLoai = @MaTheLoai) AND
+		(@TenTheLoai IS NULL OR TenTheLoai = @TenTheLoai)
+END;
+GO
+/***	Delete Genre (Trung)		***/
+CREATE or Alter PROC SP_Delete_Genre
+	@MaTheLoai INT,
+	@TenTheLoai NVARCHAR(255)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+			Delete From dbo.TheLoai
+			Where MaTheLoai = @MaTheLoai And TenTheLoai = @TenTheLoai;
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+GO

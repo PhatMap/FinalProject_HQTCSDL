@@ -35,3 +35,11 @@ FROM dbo.PhieuMuonSach PM
 Join dbo.CuonSach S ON PM.MaPhieuMuon = S.MaPhieuMuon
 
 GO
+/***	Get Genre list (Trung)		***/
+Create VIEW VW_Genre_List AS
+SELECT 
+	MaTheLoai,
+	TenTheLoai
+FROM dbo.TheLoai
+
+GO

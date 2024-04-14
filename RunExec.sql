@@ -72,7 +72,21 @@ Select * from FN_Get_Account_Profile ('admin@gmail.com')
 SELECT * FROM VW_BookLoanCoupon_List
 EXEC SP_Find_BookLoanCoupon_By_Status @Status = "Đang mượn"
 EXEC SP_Add_New_BookLoanCoupon
-	@MaPhieuMuon = 4,
-	@MaTaiKhoan = 20110535,
-	@NgayMuon = '2024-03-03',
+	@MaTaiKhoan = 1,
+	@MaSach = 1,
+	@NgayMuon = '2024-04-14',
 	@NgayTra = NULL;
+INSERT INTO PhieuMuonSach (MaTaiKhoan,MaSach, NgayMuon, NgayTra)
+				VALUES (1,1, '2024-04-14', NULL);
+Update CuonSach
+Set CuonSach.MaPhieuMuon = 4
+From PhieuMuonSach
+Where CuonSach.MaSach = 1;
+DELETE from dbo.CuonSach WHERE MaPhieuMuon = 7;
+DELETE from dbo.PhieuMuonSach WHERE MaTaiKhoan = 1 AND MaSach = @MaSach;
+EXEC SP_Update_Coupon_Returned @MaPhieuMuon = 2
+SELECT * FROM VW_Genre_List
+EXEC SP_Add_New_Genre
+	@TenTheLoai = N'Kinh dị';
+UPDATE dbo.TheLoai
+Set	TenTheLoai = @TenTheLoai
