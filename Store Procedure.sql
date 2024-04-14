@@ -230,6 +230,160 @@ BEGIN
 END;
 
 GO
+<<<<<<< HEAD
+/* Thêm phiếu phạt (Hoàn) */
+CREATE PROC SP_Add_New_PhieuPhat
+    @MaPhieuMuon int,
+	@TienPhat decimal,
+    @NgayTra date
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        INSERT INTO dbo.PhieuPhat (MaPhieuMuon, TienPhat, NgayTra)
+        VALUES (@MaPhieuMuon, @TienPhat, @NgayTra);
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/* Xoá phiếu phạt (Hoàn) */
+CREATE PROC SP_Delete_PhieuPhat
+    @MaPhieuPhat int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            DELETE dbo.PhieuPhat WHERE MaPhieuPhat = @MaPhieuPhat;
+
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/* Sửa phiếu phạt (Hoàn)*/
+CREATE PROC SP_Update_PhieuPhat
+	@MaPhieuPhat int,
+    @MaPhieuMuon int,
+	@TienPhat decimal,
+    @NgayTra date
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            UPDATE dbo.PhieuPhat
+				SET MaPhieuMuon = @MaPhieuMuon,
+					TienPhat = @TienPhat,
+					NgayTra = @NgayTra
+			 WHERE MaPhieuPhat = @MaPhieuPhat;
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/* Tìm kiếm phiếu phạt (Hoàn)*/
+CREATE PROC SP_Find_PhieuPhat_By_Advanced
+(
+    @MaPhieuMuon int = NULL,
+    @TienPhat decimal = NULL,
+    @NgayTra date = NULL
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_PhieuPhat_List 
+	WHERE 
+		(@MaPhieuMuon IS NULL OR MaPhieuMuon = @MaPhieuMuon) AND
+		(@TienPhat IS NULL OR TienPhat = @TienPhat) AND
+		(@NgayTra IS NULL OR CONVERT(DATE, NgayTra) = CONVERT(DATE, @NgayTra)) 
+END;
+
+GO
+/* Thêm thể loại (Hoàn) */
+CREATE PROC SP_Add_New_TheLoai
+    @TenTheLoai nvarchar(50)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        INSERT INTO dbo.TheLoai (TenTheLoai)
+        VALUES (@TenTheLoai);
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/* Xoá thể loại (Hoàn) */
+CREATE PROC SP_Delete_TheLoai
+    @MaTheLoai int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            DELETE dbo.TheLoai WHERE MaTheLoai = @MaTheLoai;
+
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/* Sửa thể loại (Hoàn)*/
+CREATE PROC SP_Update_TheLoai
+	@MaTheLoai int,
+    @TenTheLoai nvarchar(50)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            UPDATE dbo.TheLoai
+				SET TenTheLoai = @TenTheLoai
+			 WHERE MaTheLoai = @MaTheLoai;
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/* Tìm kiếm thể loại (Hoàn)*/
+CREATE PROC SP_Find_TheLoai_By_Advanced
+(
+    @TenTheLoai nvarchar(50) = NULL
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_TheLoai_List 
+	WHERE 
+		(@TenTheLoai IS NULL OR TenTheLoai = @TenTheLoai) 
+END;
+=======
 /***	Get schedule (Phat)		***/
 CREATE PROC SP_Get_Schedule
 (
@@ -245,3 +399,4 @@ BEGIN
 		(@NgayCuoiTuan IS NULL OR NgayLam <= @NgayCuoiTuan)	AND
 		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan)
 END;
+>>>>>>> main

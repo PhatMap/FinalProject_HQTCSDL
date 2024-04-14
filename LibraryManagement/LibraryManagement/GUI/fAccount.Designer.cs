@@ -106,6 +106,9 @@
             this.label24 = new System.Windows.Forms.Label();
             this.cbLibName = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
             this.label33 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -126,6 +129,7 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
+>>>>>>> main
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
@@ -137,6 +141,28 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+=======
+            this.button1 = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+>>>>>>> Stashed changes
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -144,6 +170,31 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+=======
+>>>>>>> Stashed changes
+=======
             this.MaLichLamViec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThuThu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,6 +211,7 @@
             this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+>>>>>>> main
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -175,6 +227,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.numLibID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
             this.tabPage4.SuspendLayout();
+<<<<<<< Updated upstream
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+>>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // tabPage1
@@ -1047,6 +1110,9 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Quy định";
             // 
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
             // label33
             // 
             this.label33.AutoSize = true;
@@ -1231,6 +1297,7 @@
             this.label49.TabIndex = 48;
             this.label49.Text = "10";
             // 
+>>>>>>> main
             // label46
             // 
             this.label46.AutoSize = true;
@@ -1311,10 +1378,147 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(872, 47);
+=======
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(779, 492);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 44);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Cập nhật";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(684, 496);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(59, 26);
+            this.label40.TabIndex = 25;
+            this.label40.Text = "VNĐ";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(684, 412);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(59, 26);
+            this.label39.TabIndex = 24;
+            this.label39.Text = "VNĐ";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(684, 340);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(63, 26);
+            this.label38.TabIndex = 23;
+            this.label38.Text = "Ngày";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(684, 297);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(63, 26);
+            this.label37.TabIndex = 22;
+            this.label37.Text = "Ngày";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(684, 254);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(63, 26);
+            this.label36.TabIndex = 21;
+            this.label36.Text = "Ngày";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(684, 161);
+>>>>>>> Stashed changes
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(76, 26);
             this.label35.TabIndex = 20;
             this.label35.Text = "Quyển";
+<<<<<<< Updated upstream
+=======
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(684, 112);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(76, 26);
+            this.label34.TabIndex = 19;
+            this.label34.Text = "Quyển";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(684, 66);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(76, 26);
+            this.label33.TabIndex = 18;
+            this.label33.Text = "Quyển";
+            // 
+            // numericUpDown8
+            // 
+            this.numericUpDown8.Location = new System.Drawing.Point(493, 490);
+            this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.Size = new System.Drawing.Size(185, 32);
+            this.numericUpDown8.TabIndex = 17;
+            // 
+            // numericUpDown7
+            // 
+            this.numericUpDown7.Location = new System.Drawing.Point(493, 406);
+            this.numericUpDown7.Name = "numericUpDown7";
+            this.numericUpDown7.Size = new System.Drawing.Size(185, 32);
+            this.numericUpDown7.TabIndex = 16;
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Location = new System.Drawing.Point(493, 334);
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(185, 32);
+            this.numericUpDown6.TabIndex = 15;
+            // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Location = new System.Drawing.Point(493, 291);
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.Size = new System.Drawing.Size(185, 32);
+            this.numericUpDown5.TabIndex = 14;
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(493, 248);
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(185, 32);
+            this.numericUpDown4.TabIndex = 13;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(493, 155);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(185, 32);
+            this.numericUpDown3.TabIndex = 12;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(493, 106);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(185, 32);
+            this.numericUpDown2.TabIndex = 11;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(493, 60);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(185, 32);
+            this.numericUpDown1.TabIndex = 10;
+>>>>>>> Stashed changes
             // 
             // label30
             // 
@@ -1343,6 +1547,7 @@
             this.label29.TabIndex = 6;
             this.label29.Text = "Giảng viên";
             // 
+<<<<<<< Updated upstream
             // label28
             // 
             this.label28.AutoSize = true;
@@ -1547,6 +1752,120 @@
             // 
             // GioiTinh
             // 
+<<<<<<< HEAD
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(479, 270);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(36, 26);
+            this.label63.TabIndex = 60;
+            this.label63.Text = "15";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(779, 270);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(87, 26);
+            this.label36.TabIndex = 64;
+            this.label36.Text = "Đơn vị:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(779, 47);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(87, 26);
+            this.label37.TabIndex = 66;
+            this.label37.Text = "Đơn vị:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(245, 12);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(114, 26);
+            this.label23.TabIndex = 67;
+            this.label23.Text = "Đối tượng";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(249, 237);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(114, 26);
+            this.label33.TabIndex = 68;
+            this.label33.Text = "Đối tượng";
+=======
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(290, 155);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(116, 26);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "Giảng viên";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(286, 106);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(179, 26);
+            this.label28.TabIndex = 5;
+            this.label28.Text = "Học viên cao học";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(286, 62);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(102, 26);
+            this.label27.TabIndex = 4;
+            this.label27.Text = "Sinh viên";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(63, 218);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(247, 26);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "Thời gian có thể mượn";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(72, 21);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(236, 26);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "Số sách có thể mượn";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(197, 492);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(268, 26);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "Tiền phạt làm hư/mất sách";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(183, 412);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(282, 26);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Tiền phạt trả sách trễ(/ngày)";
+>>>>>>> Stashed changes
+=======
             this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.GioiTinh.DataPropertyName = "GioiTinh";
             this.GioiTinh.HeaderText = "Giới tính";
@@ -1554,6 +1873,7 @@
             this.GioiTinh.Name = "GioiTinh";
             this.GioiTinh.ReadOnly = true;
             this.GioiTinh.Width = 89;
+>>>>>>> main
             // 
             // fAccount
             // 
@@ -1584,6 +1904,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+<<<<<<< Updated upstream
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+>>>>>>> Stashed changes
             this.ResumeLayout(false);
 
         }

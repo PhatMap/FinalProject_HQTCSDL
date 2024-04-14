@@ -31,7 +31,7 @@ VALUES (20110536,'admin@gmail.com', 'aaaaaaaa', N'Quản trị viên', N'Trần 
 SET IDENTITY_INSERT PhieuMuonSach ON;
 
 INSERT INTO PhieuMuonSach (MaPhieuMuon, MaTaiKhoan, NgayMuon, NgayTra)
-VALUES (1, 20110536, @today, NULL),
+VALUES (1, 20110536, @today, DATEADD(DAY, 7, @today)),
        (2, 20110536, @today, DATEADD(DAY, 7, @today)),
        (3, 20110536, @today, NULL);
 
