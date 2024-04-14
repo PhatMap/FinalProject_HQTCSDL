@@ -106,6 +106,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.cbLibName = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+<<<<<<< HEAD
             this.label33 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -126,6 +127,8 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
+=======
+>>>>>>> parent of 4f82fa2 (asdas)
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
@@ -144,6 +147,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.MaLichLamViec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThuThu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,6 +164,28 @@
             this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+=======
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+>>>>>>> parent of 4f82fa2 (asdas)
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -1047,6 +1073,7 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Quy định";
             // 
+<<<<<<< HEAD
             // label33
             // 
             this.label33.AutoSize = true;
@@ -1231,6 +1258,8 @@
             this.label49.TabIndex = 48;
             this.label49.Text = "10";
             // 
+=======
+>>>>>>> parent of 4f82fa2 (asdas)
             // label46
             // 
             this.label46.AutoSize = true;
@@ -1547,6 +1576,7 @@
             // 
             // GioiTinh
             // 
+<<<<<<< HEAD
             this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.GioiTinh.DataPropertyName = "GioiTinh";
             this.GioiTinh.HeaderText = "Giới tính";
@@ -1554,6 +1584,54 @@
             this.GioiTinh.Name = "GioiTinh";
             this.GioiTinh.ReadOnly = true;
             this.GioiTinh.Width = 89;
+=======
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(479, 270);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(36, 26);
+            this.label63.TabIndex = 60;
+            this.label63.Text = "15";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(779, 270);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(87, 26);
+            this.label36.TabIndex = 64;
+            this.label36.Text = "Đơn vị:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(779, 47);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(87, 26);
+            this.label37.TabIndex = 66;
+            this.label37.Text = "Đơn vị:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(245, 12);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(114, 26);
+            this.label23.TabIndex = 67;
+            this.label23.Text = "Đối tượng";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(249, 237);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(114, 26);
+            this.label33.TabIndex = 68;
+            this.label33.Text = "Đối tượng";
+>>>>>>> parent of 4f82fa2 (asdas)
             // 
             // fAccount
             // 

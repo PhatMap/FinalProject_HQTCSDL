@@ -17,6 +17,10 @@ namespace LibraryManagement.DTO
             this.MaTaiKhoan = maTaiKhoan;
             this.MaLoaiTinhTrang = maLoaiTinhTrang;
             this.TienPhat = tienPhat;
+<<<<<<< HEAD
+=======
+            this.NgayTra = ngayTra;
+>>>>>>> parent of 4f82fa2 (asdas)
         }
 
         public PhieuPhat(DataRow row)
