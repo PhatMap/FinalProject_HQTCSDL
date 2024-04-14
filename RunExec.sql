@@ -52,9 +52,6 @@ EXEC SP_Add_New_Account
     @GioiTinh = 'Nam';
 
 DROP
-<<<<<<< HEAD
-select * from VW_PhieuPhat_List
-=======
 select * from TaiKhoan
 EXEC SP_Delete_Account @MaTaiKhoan = 20110535
 
@@ -71,4 +68,3 @@ EXEC SP_Get_Schedule
 @NgayDauTuan = NULL,
 @NgayCuoiTuan = NULL,
 @HoTen = N'Phạm Văn E'
->>>>>>> main
