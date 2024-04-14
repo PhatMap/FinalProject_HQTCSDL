@@ -217,3 +217,193 @@ BEGIN
 		(@VaiTro IS NULL OR VaiTro = @VaiTro) AND
 		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
 END;
+
+
+GO
+/***	Load danh sách Sách (Văn)		***/
+CREATE PROC SP_Load_List_Sach
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_Book_List 
+	WHERE 
+END;
+
+GO
+/***	Add New Book(Van)		***/
+CREATE PROC SP_Add_New_Book
+    @MaTacGia INT,
+	@MaTheLoai INT,
+    @MaNhaXuatBan INT,
+    @TenSach NVARCHAR(255),
+	@LoaiTaiLieu NVARCHAR(255),
+	@NamXuatBan INT,
+	@GiaSach DECIMAL,
+    @SoLuong INT
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        INSERT INTO dbo.Sach (MaTacGia, MaTheLoai, MaNhaXuatBan, TenSach, LoaiTaiLieu, NamXuatBan, GiaSach, SoLuong)
+        VALUES (@MaTacGia, @MaTheLoai, @MaNhaXuatBan, @TenSach, @LoaiTaiLieu, @NamXuatBan, @GiaSach, @SoLuong);
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+		PRINT ERROR_MESSAGE();
+        ROLLBACK;
+    END CATCH;
+END;
+
+DROP PROCEDURE IF EXISTS SP_Add_New_Book;
+
+GO
+/***	Update Book(Van)		***/
+CREATE PROC SP_Update_Book
+	@MaTacGia INT,
+	@MaTheLoai INT,
+    @MaNhaXuatBan INT,
+    @TenSach NVARCHAR(255),
+	@LoaiTaiLieu NVARCHAR(255),
+	@NamXuatBan INT,
+	@GiaSach DECIMAL,
+    @SoLuong INT
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            UPDATE dbo.Sach
+				SET MaTacGia = @MaTacGia,
+					MaTheLoai = @MaTheLoai,
+					MaNhaXuatBan = @MaNhaXuatBan,
+					TenSach = @TenSach,
+					LoaiTaiLieu = @LoaiTaiLieu,
+					NamXuatBan = @NamXuatBan,
+					GiaSach = @GiaSach,
+					SoLuong = @SoLuong
+			 WHERE TenSach = @TenSach;
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/***	Find account by advanced (Van)		***/
+CREATE PROC SP_Find_Book_By_Advanced
+(
+	@TenTacGia NVARCHAR(255) = NULL,
+	@TenTheLoai NVARCHAR(255) = NULL,
+    @TenNhaXuatBan NVARCHAR(255) = NULL,
+    @TenSach NVARCHAR(255) = NULL,
+	@LoaiTaiLieu NVARCHAR(255) = NULL,
+	@NamXuatBan INT = NULL
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_Book_List 
+	WHERE 
+		(@TenTacGia IS NULL OR @TenTacGia = TenTacGia) AND
+		(@TenTheLoai IS NULL OR @TenTheLoai = TenTheLoai) AND
+		(@TenNhaXuatBan IS NULL OR @TenNhaXuatBan = TenNhaXuatBan) AND
+		(@TenSach IS NULL OR @TenSach = TenSach) AND
+		(@LoaiTaiLieu IS NULL OR @LoaiTaiLieu = LoaiTaiLieu) AND
+		(@NamXuatBan IS NULL OR @NamXuatBan = NamXuatBan)
+END;
+
+GO
+/***	Delete account(Van)		***/
+CREATE PROC SP_Delete_Book
+    @MaSach int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            DELETE dbo.Sach WHERE MaSach = @MaSach;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/***	Add Tác Giả(Van)		***/
+CREATE PROC SP_Add_Tac_Gia
+    @TenTacGia NVARCHAR(255)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        INSERT INTO dbo.TacGia (TenTacGia)
+        VALUES (@TenTacGia);
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/***	Update Tác Giả(Van)		***/
+CREATE PROC SP_Update_Tac_Gia
+    @MaTacGia INT,
+    @TenTacGia NVARCHAR(255)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            UPDATE dbo.TacGia
+				SET TenTacGia = @TenTacGia
+			 WHERE MaTacGia = @MaTacGia;
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/***	Find TacGia by advanced (Van)		***/
+CREATE PROC SP_Find_TacGia_By_Advanced
+(
+	@TenTacGia NVARCHAR(255) = NULL
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_TacGia_List 
+	WHERE 
+		(@TenTacGia IS NULL OR @TenTacGia = TenTacGia)
+		
+END;
+
+GO
+/***	Delete account(Van)		***/
+CREATE PROC SP_Delete_TacGia
+    @MaTacGia int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+            DELETE dbo.TacGia WHERE MaTacGia = @MaTacGia;
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
