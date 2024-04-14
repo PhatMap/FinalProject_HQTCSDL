@@ -23,9 +23,10 @@ namespace LibraryManagement.DAO
         //(Phat)    Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True
         //(Trung)
         //(Hoan)    LAPTOP-L7BVASSV\MAY1
-        //(Van)
+        //(Van)     Data Source=MSI\MSSQLSERVER02;Initial Catalog=Library;Integrated Security=True
 
-        private string connectionStr = @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
+
+        private string connectionStr = @"Data Source=MSI\MSSQLSERVER02;Initial Catalog=Library;Integrated Security=True";
         SqlConnection connection;
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)

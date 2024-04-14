@@ -55,6 +55,91 @@ DROP
 select * from TaiKhoan
 EXEC SP_Delete_Account @MaTaiKhoan = 20110535
 
+EXEC SP_Find_Account_By_Advanced 
+    @MaTaiKhoan = NULL,
+    @HoTen = NULL,
+    @DiaChi = NULL,
+    @Email = NULL,
+    @SoDienThoai = NULL,
+    @VaiTro = N'Thủ thư',
+    @GioiTinh = NULL;
+
+select * from VW_Book_List
+
+select * from VW_TheLoai_List
+
+select * from dbo.Sach
+
+
+EXEC SP_Add_New_Book 
+    @MaSach = 4, 
+    @MaTacGia = 4, 
+    @MaTheLoai = 4, 
+    @MaNhaXuatBan = 4, 
+    @TenSach = N'Tây Du Ký', 
+    @LoaiTaiLieu = N'Sách tham khảo', 
+    @NamXuatBan = 1999, 
+    @GiaSach = 50000, 
+    @SoLuong = 50;
+
+/***	Find account by advanced (Phat)		***/
+CREATE PROC SP_Find_Account_By_Advanced
+(
+	@MaTaiKhoan int = NULL,
+    @HoTen nvarchar(255) = NULL,
+    @DiaChi nvarchar(255) = NULL,
+	@Email NVARCHAR(255) = NULL,
+	@SoDienThoai NVARCHAR(10) = NULL,
+	@VaiTro nvarchar(50) = NULL,
+    @GioiTinh nvarchar(10) = NULL
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_Account_List 
+	WHERE 
+		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan) AND
+		(@HoTen IS NULL OR HoTen = @HoTen) AND
+		(@DiaChi IS NULL OR DiaChi = @DiaChi) AND
+		(@Email IS NULL OR Email = @Email) AND
+		(@SoDienThoai IS NULL OR SoDienThoai = @SoDienThoai) AND
+		(@VaiTro IS NULL OR VaiTro = @VaiTro) AND
+		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
+END;
+
+select * from VW_Book_List
+
+exec SP_Find_Book_By_Advanced
+@TenTacGia  = N'Nguyễn Du',
+	@TenTheLoai  = NULL,
+    @TenNhaXuatBan  = NULL,
+    @TenSach  = NULL,
+	@LoaiTaiLieu = NULL,
+	@NamXuatBan = NULL
+
+Select * from VW_TacGia_List
+
+EXEC SP_Add_New_Book 
+    @MaTacGia = 3, 
+    @MaTheLoai = 4, 
+    @MaNhaXuatBan = 4, 
+    @TenSach = N'Tây Du Ký', 
+    @LoaiTaiLieu = N'Sách tham khảo', 
+    @NamXuatBan = 1999, 
+    @GiaSach = 50000, 
+    @SoLuong = 50;
+
+EXEC SP_Update_Book 
+    @MaTacGia = 2, 
+    @MaTheLoai = 2, 
+    @MaNhaXuatBan = 2, 
+    @TenSach = N'Tây Du Ký', 
+    @LoaiTaiLieu = N'Sách tham khảo', 
+    @NamXuatBan = 1888, 
+    @GiaSach = 500000, 
+    @SoLuong = 50;
+
 
 
 
