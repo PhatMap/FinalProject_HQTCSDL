@@ -38,20 +38,18 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnPhanQuyen = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -164,26 +162,31 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.btnPhanQuyen);
             this.panel6.Location = new System.Drawing.Point(3, 327);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(198, 75);
             this.panel6.TabIndex = 3;
             // 
-            // btnPhanQuyen
+            // panel4
             // 
-            this.btnPhanQuyen.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnPhanQuyen.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
-            this.btnPhanQuyen.FlatAppearance.BorderSize = 2;
-            this.btnPhanQuyen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPhanQuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhanQuyen.Location = new System.Drawing.Point(3, 3);
-            this.btnPhanQuyen.Name = "btnPhanQuyen";
-            this.btnPhanQuyen.Size = new System.Drawing.Size(190, 65);
-            this.btnPhanQuyen.TabIndex = 0;
-            this.btnPhanQuyen.Text = "Phân Quyền";
-            this.btnPhanQuyen.UseVisualStyleBackColor = false;
-            this.btnPhanQuyen.Click += new System.EventHandler(this.btnPhanQuyen_Click);
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Location = new System.Drawing.Point(3, 408);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(198, 75);
+            this.panel4.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(190, 65);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -207,27 +210,6 @@
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Location = new System.Drawing.Point(3, 408);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(198, 75);
-            this.panel4.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 65);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // pnlMain
             // 
@@ -254,9 +236,8 @@
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -272,7 +253,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnPhanQuyen;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnSach;
         private System.Windows.Forms.Panel pnlMain;
