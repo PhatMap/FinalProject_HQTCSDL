@@ -1,6 +1,11 @@
 ﻿using LibraryManagement.DAO;
 using LibraryManagement.DTO;
 using System;
+<<<<<<< Updated upstream
+=======
+using System.Collections.Generic;
+using System.ComponentModel;
+>>>>>>> Stashed changes
 using System.Data;
 using System.Windows.Forms;
 
@@ -8,21 +13,30 @@ namespace LibraryManagement.GUI
 {
     public partial class fCoupon : Form
     {
+<<<<<<< Updated upstream
         BindingSource PhieuPhatList = new BindingSource();
+=======
+        BindingSource phieuPhatList = new BindingSource();
+>>>>>>> Stashed changes
 
         public fCoupon()
         {
             InitializeComponent();
 
+<<<<<<< Updated upstream
             dgvPhieuPhat.DataSource = PhieuPhatList;
 
             LoadPhieuPhatList();
 
             dgvPhieuPhat.SelectionChanged += dgvPhieuPhat_SelectionChanged;
+=======
+            LoadPhieuPhatList();
+>>>>>>> Stashed changes
         }
 
         private void LoadPhieuPhatList()
         {
+<<<<<<< Updated upstream
             PhieuPhatList.DataSource = PhieuPhatDAO.Instance.LoadPhieuPhatList();
         }
 
@@ -44,19 +58,33 @@ namespace LibraryManagement.GUI
             {
                 ShowDataFromSelectedRow();
             }
+=======
+            phieuPhatList.DataSource = PhieuPhatDAO.Instance.LoadPhieuPhatList();
+
+            
+>>>>>>> Stashed changes
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             PhieuPhat pp = new PhieuPhat();
 
+<<<<<<< Updated upstream
             pp.MaPhieuMuon = (int)numPhieuMuonID.Value;
             pp.TienPhat = (decimal)numTienPhatID.Value;
             pp.NgayTra = dtpNgayTra.Value;
+=======
+            pp.MaPhieuPhat = (int)numPhieuPhatID.Value;
+            pp.MaPhieuMuon = (int)numPhieuMuonID.Value;
+            pp.MaTaiKhoan = (int)numAccID.Value;
+            pp.MaLoaiTinhTrang = (int)numLoaiTinhTrangID.Value;
+            pp.TienPhat = (int)numTienPhat.Value;
+>>>>>>> Stashed changes
 
             PhieuPhatDAO.Instance.AddPhieuPhat(pp);
 
             LoadPhieuPhatList();
+<<<<<<< Updated upstream
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -139,6 +167,8 @@ namespace LibraryManagement.GUI
         private void btnReset_Click(object sender, EventArgs e)
         {
             LoadPhieuPhatList();
+=======
+>>>>>>> Stashed changes
         }
     }
 }

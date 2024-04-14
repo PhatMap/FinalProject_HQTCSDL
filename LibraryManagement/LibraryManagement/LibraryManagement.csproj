@@ -64,7 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
+<<<<<<< Updated upstream
     <Compile Include="DAO\LichLamViecDAO.cs" />
+=======
+    <Compile Include="DAO\PhanCongDAO.cs" />
+    <Compile Include="DAO\PhanQuyenDAO.cs" />
+>>>>>>> Stashed changes
     <Compile Include="DAO\PhieuPhatDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\TheLoaiDAO.cs" />

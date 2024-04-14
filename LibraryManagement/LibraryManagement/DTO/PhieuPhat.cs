@@ -18,6 +18,11 @@ namespace LibraryManagement.DTO
             this.NgayTra = ngayTra;
         }
 
+        public PhieuPhat()
+        {
+            
+        }
+
         public PhieuPhat(DataRow row)
         {
             this.MaPhieuPhat = (int)row["MaPhieuPhat"];

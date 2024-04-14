@@ -53,6 +53,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+<<<<<<< Updated upstream
             this.numTienPhatID = new System.Windows.Forms.NumericUpDown();
             this.numPhieuMuonID = new System.Windows.Forms.NumericUpDown();
             this.dtpNgayTra = new System.Windows.Forms.DateTimePicker();
@@ -60,16 +61,33 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
+=======
+            this.numPhieuPhatID = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnTao = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+>>>>>>> Stashed changes
             this.btnXoa = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnTim = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
+<<<<<<< Updated upstream
             this.dgvPhieuPhat = new System.Windows.Forms.DataGridView();
             this.MaPhieuPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPhieuMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TienPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+=======
+            this.btnThem = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.numPhieuMuonID = new System.Windows.Forms.NumericUpDown();
+            this.numAccID = new System.Windows.Forms.NumericUpDown();
+            this.numLoaiTinhTrangID = new System.Windows.Forms.NumericUpDown();
+            this.numTienPhat = new System.Windows.Forms.NumericUpDown();
+>>>>>>> Stashed changes
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -78,9 +96,18 @@
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+<<<<<<< Updated upstream
             ((System.ComponentModel.ISupportInitialize)(this.numTienPhatID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPhieuMuonID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuPhat)).BeginInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.numPhieuPhatID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPhieuMuonID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAccID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numLoaiTinhTrangID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTienPhat)).BeginInit();
+>>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // tabControl1
@@ -315,6 +342,7 @@
             // 
             // panel2
             // 
+<<<<<<< Updated upstream
             this.panel2.Controls.Add(this.numTienPhatID);
             this.panel2.Controls.Add(this.numPhieuMuonID);
             this.panel2.Controls.Add(this.dtpNgayTra);
@@ -322,10 +350,22 @@
             this.panel2.Controls.Add(this.btnReset);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btnThem);
+=======
+            this.panel2.Controls.Add(this.numTienPhat);
+            this.panel2.Controls.Add(this.numLoaiTinhTrangID);
+            this.panel2.Controls.Add(this.numAccID);
+            this.panel2.Controls.Add(this.numPhieuMuonID);
+            this.panel2.Controls.Add(this.numPhieuPhatID);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.btnTao);
+            this.panel2.Controls.Add(this.label1);
+>>>>>>> Stashed changes
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnTim);
             this.panel2.Controls.Add(this.btnSua);
+<<<<<<< Updated upstream
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -381,16 +421,51 @@
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+=======
+            this.panel2.Controls.Add(this.btnThem);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(959, 112);
+            this.panel2.TabIndex = 4;
+            // 
+            // numPhieuPhatID
+            // 
+            this.numPhieuPhatID.Location = new System.Drawing.Point(130, 5);
+            this.numPhieuPhatID.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numPhieuPhatID.Name = "numPhieuPhatID";
+            this.numPhieuPhatID.Size = new System.Drawing.Size(120, 22);
+            this.numPhieuPhatID.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 16);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Mã phiếu phạt";
+>>>>>>> Stashed changes
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+<<<<<<< Updated upstream
             this.label3.Location = new System.Drawing.Point(8, 58);
+=======
+            this.label3.Location = new System.Drawing.Point(332, 43);
+>>>>>>> Stashed changes
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 16);
             this.label3.TabIndex = 18;
             this.label3.Text = "Tiền phạt";
             // 
+<<<<<<< Updated upstream
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(724, 3);
@@ -404,17 +479,49 @@
             // btnXoa
             // 
             this.btnXoa.Location = new System.Drawing.Point(724, 34);
+=======
+            // btnTao
+            // 
+            this.btnTao.Location = new System.Drawing.Point(724, 76);
+            this.btnTao.Name = "btnTao";
+            this.btnTao.Size = new System.Drawing.Size(196, 23);
+            this.btnTao.TabIndex = 15;
+            this.btnTao.Text = "Tạo phiếu phạt";
+            this.btnTao.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Mã tài khoản";
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.BackColor = System.Drawing.Color.Red;
+            this.btnXoa.Location = new System.Drawing.Point(845, 7);
+>>>>>>> Stashed changes
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 8;
             this.btnXoa.Text = "Xóa";
+<<<<<<< Updated upstream
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+=======
+            this.btnXoa.UseVisualStyleBackColor = false;
+>>>>>>> Stashed changes
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+<<<<<<< Updated upstream
             this.label2.Location = new System.Drawing.Point(8, 15);
+=======
+            this.label2.Location = new System.Drawing.Point(3, 43);
+>>>>>>> Stashed changes
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 16);
             this.label2.TabIndex = 2;
@@ -422,22 +529,34 @@
             // 
             // btnTim
             // 
+<<<<<<< Updated upstream
             this.btnTim.Location = new System.Drawing.Point(847, 3);
+=======
+            this.btnTim.Location = new System.Drawing.Point(845, 40);
+>>>>>>> Stashed changes
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 10;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // btnSua
             // 
             this.btnSua.Location = new System.Drawing.Point(724, 65);
+=======
+            // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(724, 40);
+>>>>>>> Stashed changes
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // dgvPhieuPhat
@@ -484,6 +603,87 @@
             this.NgayTra.HeaderText = "Ngày trả";
             this.NgayTra.MinimumWidth = 6;
             this.NgayTra.Name = "NgayTra";
+=======
+            // 
+            // btnThem
+            // 
+            this.btnThem.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnThem.Location = new System.Drawing.Point(724, 7);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.TabIndex = 7;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(332, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 16);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Mã loại tình trạng";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(959, 550);
+            this.dataGridView2.TabIndex = 3;
+            // 
+            // numPhieuMuonID
+            // 
+            this.numPhieuMuonID.Location = new System.Drawing.Point(130, 41);
+            this.numPhieuMuonID.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numPhieuMuonID.Name = "numPhieuMuonID";
+            this.numPhieuMuonID.Size = new System.Drawing.Size(120, 22);
+            this.numPhieuMuonID.TabIndex = 22;
+            // 
+            // numAccID
+            // 
+            this.numAccID.Location = new System.Drawing.Point(130, 81);
+            this.numAccID.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numAccID.Name = "numAccID";
+            this.numAccID.Size = new System.Drawing.Size(120, 22);
+            this.numAccID.TabIndex = 23;
+            // 
+            // numLoaiTinhTrangID
+            // 
+            this.numLoaiTinhTrangID.Location = new System.Drawing.Point(486, 5);
+            this.numLoaiTinhTrangID.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numLoaiTinhTrangID.Name = "numLoaiTinhTrangID";
+            this.numLoaiTinhTrangID.Size = new System.Drawing.Size(120, 22);
+            this.numLoaiTinhTrangID.TabIndex = 24;
+            // 
+            // numTienPhat
+            // 
+            this.numTienPhat.Location = new System.Drawing.Point(486, 43);
+            this.numTienPhat.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numTienPhat.Name = "numTienPhat";
+            this.numTienPhat.Size = new System.Drawing.Size(120, 22);
+            this.numTienPhat.TabIndex = 25;
+>>>>>>> Stashed changes
             // 
             // fCoupon
             // 
@@ -504,9 +704,18 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+<<<<<<< Updated upstream
             ((System.ComponentModel.ISupportInitialize)(this.numTienPhatID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPhieuMuonID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuPhat)).EndInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.numPhieuPhatID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPhieuMuonID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAccID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numLoaiTinhTrangID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTienPhat)).EndInit();
+>>>>>>> Stashed changes
             this.ResumeLayout(false);
 
         }
@@ -538,11 +747,17 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel2;
+<<<<<<< Updated upstream
         private System.Windows.Forms.Button btnThem;
+=======
+        private System.Windows.Forms.Button btnTao;
+        private System.Windows.Forms.Label label1;
+>>>>>>> Stashed changes
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Button btnSua;
+<<<<<<< Updated upstream
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.DateTimePicker dtpNgayTra;
@@ -555,5 +770,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTra;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.NumericUpDown numTienPhatID;
+=======
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numPhieuPhatID;
+        private System.Windows.Forms.NumericUpDown numAccID;
+        private System.Windows.Forms.NumericUpDown numPhieuMuonID;
+        private System.Windows.Forms.NumericUpDown numLoaiTinhTrangID;
+        private System.Windows.Forms.NumericUpDown numTienPhat;
+>>>>>>> Stashed changes
     }
 }

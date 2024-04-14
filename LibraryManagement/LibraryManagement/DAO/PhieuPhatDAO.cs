@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 ﻿using LibraryManagement.DTO;
 using System;
+=======
+﻿using System;
+>>>>>>> Stashed changes
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -22,6 +26,7 @@ namespace LibraryManagement.DAO
         public DataTable LoadPhieuPhatList()
         {
             string query = "SELECT * FROM VW_PhieuPhat_List";
+<<<<<<< Updated upstream
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -71,6 +76,11 @@ namespace LibraryManagement.DAO
 
             string query = "SP_Find_PhieuPhat_By_Advanced @MaPhieuMuon , @TienPhat , @NgayTra ";
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maPhieuMuon, tienPhat, ngayTra });
+=======
+            
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            
+>>>>>>> Stashed changes
             return data;
         }
     }
