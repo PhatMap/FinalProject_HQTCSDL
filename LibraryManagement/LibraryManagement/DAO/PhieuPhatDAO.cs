@@ -32,7 +32,7 @@ namespace LibraryManagement.DAO
         {
             string query = "SP_Add_New_PhieuPhat @MaPhieuMuon , @TienPhat , @NgayTra ";
 
-            DataProvider.Instance.ExecuteQuery(query, new object[] { pp.MaPhieuMuon, pp.TienPhat, pp.NgayTra });
+            DataProvider.Instance.ExecuteQuery(query, new object[] {pp.MaPhieuMuon, pp.TienPhat, pp.NgayTra});
         }
 
         public void DeletePhieuPhat(int maPhieuPhat)
@@ -45,7 +45,7 @@ namespace LibraryManagement.DAO
         {
             string query = "SP_Update_PhieuPhat @MaPhieuPhat , @MaPhieuMuon , @TienPhat , @NgayTra ";
 
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { pp.MaPhieuPhat, pp.MaPhieuMuon, pp.TienPhat, pp.NgayTra });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { pp.MaPhieuPhat, pp.MaPhieuMuon, pp.TienPhat, pp.NgayTra});
 
             return result > 0;
         }
