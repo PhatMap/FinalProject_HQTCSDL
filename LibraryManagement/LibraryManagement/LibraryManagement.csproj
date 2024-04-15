@@ -66,12 +66,8 @@
     <Compile Include="DAO\PhieuPhatDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\LichLamViecDAO.cs" />
-<<<<<<< HEAD
     <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="DAO\TacGiaDAO.cs" />
-=======
-    <Compile Include="DAO\PhieuPhatDAO.cs" />
->>>>>>> parent of 4f82fa2 (asdas)
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\TheLoaiDao.cs" />
     <Compile Include="DTO\LichLamViec.cs" />

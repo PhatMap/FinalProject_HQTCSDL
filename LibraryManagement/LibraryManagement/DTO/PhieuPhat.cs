@@ -10,61 +10,81 @@ namespace LibraryManagement.DTO
 {
     public class PhieuPhat
     {
-        public PhieuPhat(int maPhieuPhat, int maPhieuMuon, int maTaiKhoan, int maLoaiTinhTrang, int tienPhat)
+        public PhieuPhat(int maPhieuPhat, int maPhieuMuon, decimal tienPhat, DateTime ngayTra)
         {
             this.MaPhieuPhat = maPhieuPhat;
             this.MaPhieuMuon = maPhieuMuon;
-            this.MaTaiKhoan = maTaiKhoan;
-            this.MaLoaiTinhTrang = maLoaiTinhTrang;
             this.TienPhat = tienPhat;
-<<<<<<< HEAD
-=======
             this.NgayTra = ngayTra;
->>>>>>> parent of 4f82fa2 (asdas)
         }
 
         public PhieuPhat(DataRow row)
         {
             this.MaPhieuPhat = (int)row["MaPhieuPhat"];
             this.MaPhieuMuon = (int)row["MaPhieuMuon"];
-            this.MaTaiKhoan = (int)row["MaTaiKhoan"];
-            this.MaLoaiTinhTrang = (int)row["MaLoaiTinhTrang"];
-            this.TienPhat = (int)row["TienPhat"];
+            this.TienPhat = (decimal)row["TienPhat"];
+            this.NgayTra = (DateTime)row["NgayTra"];
+        }
+
+        public PhieuPhat()
+        {
         }
 
         private int maPhieuPhat;
+        private int maPhieuMuon;
+        private decimal tienPhat;
+        private DateTime ngayTra;
+
         public int MaPhieuPhat
         {
-            get { return maPhieuPhat; }
-            set { maPhieuPhat = value; }
+            get
+            {
+                return maPhieuPhat;
+            }
+
+            set
+            {
+                maPhieuPhat = value;
+            }
         }
 
-        private int maPhieuMuon;
         public int MaPhieuMuon
         {
-            get { return maPhieuMuon; }
-            set { maPhieuMuon = value; }
+            get
+            {
+                return maPhieuMuon;
+            }
+
+            set
+            {
+                maPhieuMuon = value;
+            }
         }
 
-        private int maTaiKhoan;
-        public int MaTaiKhoan
+        public decimal TienPhat
         {
-            get { return maTaiKhoan; }
-            set { maTaiKhoan = value; }
+            get
+            {
+                return tienPhat;
+            }
+
+            set
+            {
+                tienPhat = value;
+            }
         }
 
-        private int maLoaiTinhTrang;
-        public int MaLoaiTinhTrang
+        public DateTime NgayTra
         {
-            get { return maLoaiTinhTrang; }
-            set { maLoaiTinhTrang = value; }
-        }
+            get
+            {
+                return ngayTra;
+            }
 
-        private int tienPhat;
-        public int TienPhat
-        {
-            get { return TienPhat; }
-            set { TienPhat = value; }
+            set
+            {
+                ngayTra = value;
+            }
         }
     }
 }
