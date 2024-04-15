@@ -229,6 +229,22 @@ BEGIN
 		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
 END;
 
+GO
+/***	Get schedule (Phat)		***/
+CREATE PROC SP_Get_Schedule
+(
+	@NgayDauTuan date = NULL,
+	@NgayCuoiTuan date = NULL,
+	@MaTaiKhoan int = NULL
+)
+AS
+BEGIN
+	SELECT * FROM VW_Schedule_List
+	WHERE
+		(@NgayDauTuan IS NULL OR NgayLam >= @NgayDauTuan) AND
+		(@NgayCuoiTuan IS NULL OR NgayLam <= @NgayCuoiTuan)	AND
+		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan)
+END;
 
 GO
 /***	Load danh sách Sách (Văn)		***/
@@ -420,20 +436,24 @@ BEGIN
 END;
 
 GO
-/***	Get schedule (Phat)		***/
-CREATE PROC SP_Get_Schedule
-(
-	@NgayDauTuan date = NULL,
-	@NgayCuoiTuan date = NULL,
-	@MaTaiKhoan int = NULL
-)
+/* Thêm phiếu phạt (Hoàn) */
+CREATE PROC SP_Add_New_PhieuPhat
+    @MaPhieuMuon int,
+	@TienPhat decimal,
+    @NgayTra date
 AS
 BEGIN
-	SELECT * FROM VW_Schedule_List
-	WHERE
-		(@NgayDauTuan IS NULL OR NgayLam >= @NgayDauTuan) AND
-		(@NgayCuoiTuan IS NULL OR NgayLam <= @NgayCuoiTuan)	AND
-		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan)
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        INSERT INTO dbo.PhieuPhat (MaPhieuMuon, TienPhat, NgayTra)
+        VALUES (@MaPhieuMuon, @TienPhat, @NgayTra);
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
 END;
 
 
