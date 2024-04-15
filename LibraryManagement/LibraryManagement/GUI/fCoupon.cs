@@ -16,9 +16,10 @@ namespace LibraryManagement.GUI
 
             dgvPhieuPhat.DataSource = PhieuPhatList;
 
+            AddPhieuPhatBinding();
+
             LoadPhieuPhatList();
 
-            dgvPhieuPhat.SelectionChanged += dgvPhieuPhat_SelectionChanged;
         }
 
         private void LoadPhieuPhatList()
@@ -26,31 +27,27 @@ namespace LibraryManagement.GUI
             PhieuPhatList.DataSource = PhieuPhatDAO.Instance.LoadPhieuPhatList();
         }
 
-        private void ShowDataFromSelectedRow()
+        private void AddPhieuPhatBinding()
         {
-            if (dgvPhieuPhat.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dgvPhieuPhat.SelectedRows[0];
-
-                numPhieuMuonID.Value = Convert.ToInt32(selectedRow.Cells["MaPhieuMuon"].Value);
-                numTienPhatID.Value = Convert.ToDecimal(selectedRow.Cells["TienPhat"].Value);
-                dtpNgayTra.Value = Convert.ToDateTime(selectedRow.Cells["NgayTra"].Value);
-            }
+            numPhieuPhatID.DataBindings.Add(new Binding("Text", dgvPhieuPhat.DataSource, "MaPhieuPhat"));
+            numPhieuPhatID.DataBindings.Add(new Binding("Text", dgvPhieuPhat.DataSource, "MaPhieuMuon"));
+            numTienPhatID.DataBindings.Add(new Binding("Text", dgvPhieuPhat.DataSource, "TienPhat"));
+            dtpNgayTra.DataBindings.Add(new Binding("Text", dgvPhieuPhat.DataSource, "NgayTra"));
         }
 
-        private void dgvPhieuPhat_SelectionChanged(object sender, EventArgs e)
+        private void DetachPhieuPhatBinding()
         {
-            if (dgvPhieuPhat.SelectedRows.Count > 0 && !dgvPhieuPhat.SelectedRows[0].IsNewRow)
-            {
-                ShowDataFromSelectedRow();
-            }
+            numPhieuPhatID.DataBindings.Clear();
+            numPhieuPhatID.DataBindings.Clear();
+            numTienPhatID.DataBindings.Clear();
+            dtpNgayTra.DataBindings.Clear();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             PhieuPhat pp = new PhieuPhat();
 
-            pp.MaPhieuMuon = (int)numPhieuMuonID.Value;
+            pp.MaPhieuMuon = (int)numPhieuPhatID.Value;
             pp.TienPhat = (decimal)numTienPhatID.Value;
             pp.NgayTra = dtpNgayTra.Value;
 
@@ -61,79 +58,35 @@ namespace LibraryManagement.GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dgvPhieuPhat.SelectedRows.Count > 0)
-            {
-                int maPhieuPhat = Convert.ToInt32(dgvPhieuPhat.SelectedRows[0].Cells["MaPhieuPhat"].Value);
-
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa phiếu phạt này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    PhieuPhatDAO.Instance.DeletePhieuPhat(maPhieuPhat);
-
-                    LoadPhieuPhatList();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn phiếu phạt cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            PhieuPhatDAO.Instance.DeletePhieuPhat((int)numPhieuPhatID.Value);
+            LoadPhieuPhatList();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (dgvPhieuPhat.SelectedRows.Count > 0)
-            {
-                int maPhieuPhat = Convert.ToInt32(dgvPhieuPhat.SelectedRows[0].Cells["MaPhieuPhat"].Value);
-                int maPhieuMuon = (int)numPhieuMuonID.Value;
-                decimal tienPhat = (decimal)numTienPhatID.Value;
-                DateTime ngayTra = dtpNgayTra.Value;
+            int maPhieuPhat = (int)numPhieuPhatID.Value;
+            int maPhieuMuon = (int)numPhieuPhatID.Value;
+            decimal tienPhat = (decimal)numTienPhatID.Value;
+            DateTime ngayTra = dtpNgayTra.Value;
 
-                PhieuPhat pp = new PhieuPhat();
-                pp.MaPhieuPhat = maPhieuPhat;
-                pp.MaPhieuMuon = maPhieuMuon;
-                pp.TienPhat = tienPhat;
-                pp.NgayTra = ngayTra;
+            PhieuPhat pp = new PhieuPhat();
+            pp.MaPhieuPhat = maPhieuPhat;
+            pp.MaPhieuMuon = maPhieuMuon;
+            pp.TienPhat = tienPhat;
+            pp.NgayTra = ngayTra;
 
-                bool result = PhieuPhatDAO.Instance.UpdatePhieuPhat(pp);
-
-                if (result)
-                {
-                    MessageBox.Show("Cập nhật thông tin phiếu phạt thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadPhieuPhatList();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật thông tin phiếu phạt thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn phiếu phạt cần sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            bool result = PhieuPhatDAO.Instance.UpdatePhieuPhat(pp);
+            LoadPhieuPhatList();
         }
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            int maPhieuMuon = (int)numPhieuMuonID.Value;
-            decimal tienPhat = (decimal)numTienPhatID.Value;
-            DateTime ngayTra = dtpNgayTra.Value;
+            PhieuPhat pp = new PhieuPhat();
+            pp.MaPhieuMuon = (int)numPhieuPhatID.Value;
+            pp.TienPhat = (decimal)numTienPhatID.Value;
+            pp.NgayTra = dtpNgayTra.Value;
 
-            DataTable searchResult = PhieuPhatDAO.Instance.FindPhieuPhatByAdvanced(new PhieuPhat()
-            {
-                MaPhieuMuon = maPhieuMuon,
-                TienPhat = tienPhat,
-                NgayTra = ngayTra
-            });
-
-            if (searchResult != null && searchResult.Rows.Count > 0)
-            {
-                PhieuPhatList.DataSource = searchResult;
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            PhieuPhatList.DataSource = PhieuPhatDAO.Instance.FindPhieuPhatByAdvanced(pp);
         }
 
         private void btnReset_Click(object sender, EventArgs e)

@@ -99,6 +99,8 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.dgvTheLoai = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numTheLoaiID = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -121,6 +123,7 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTheLoai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTheLoaiID)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -744,6 +747,8 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.numTheLoaiID);
+            this.panel7.Controls.Add(this.label6);
             this.panel7.Controls.Add(this.btnReset);
             this.panel7.Controls.Add(this.txtTenTheLoai);
             this.panel7.Controls.Add(this.btnXoa);
@@ -768,9 +773,9 @@
             // 
             // txtTenTheLoai
             // 
-            this.txtTenTheLoai.Location = new System.Drawing.Point(106, 17);
+            this.txtTenTheLoai.Location = new System.Drawing.Point(361, 17);
             this.txtTenTheLoai.Name = "txtTenTheLoai";
-            this.txtTenTheLoai.Size = new System.Drawing.Size(330, 22);
+            this.txtTenTheLoai.Size = new System.Drawing.Size(88, 22);
             this.txtTenTheLoai.TabIndex = 1;
             // 
             // btnXoa
@@ -786,7 +791,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 20);
+            this.label3.Location = new System.Drawing.Point(259, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 16);
             this.label3.TabIndex = 2;
@@ -831,6 +836,22 @@
             this.dgvTheLoai.Size = new System.Drawing.Size(959, 491);
             this.dgvTheLoai.TabIndex = 3;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Mã thể loại";
+            // 
+            // numTheLoaiID
+            // 
+            this.numTheLoaiID.Location = new System.Drawing.Point(126, 15);
+            this.numTheLoaiID.Name = "numTheLoaiID";
+            this.numTheLoaiID.Size = new System.Drawing.Size(120, 22);
+            this.numTheLoaiID.TabIndex = 15;
+            // 
             // fBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -866,6 +887,7 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTheLoai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTheLoaiID)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -943,5 +965,7 @@
         private System.Windows.Forms.NumericUpDown nudMaTacGia;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.NumericUpDown numTheLoaiID;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -50,17 +50,17 @@ namespace LibraryManagement.DAO
             return result > 0;
         }
 
-        public DataTable FindTheLoaiByAdvanced(TheLoai tl)
+        public DataTable FindTheLoaiByAdvanced(string tenTheLoai)
         {
-            object tenTheLoai = tl.TenTheLoai;
+            object TenTheLoai = tenTheLoai;
 
-            if (tl.TenTheLoai == "")
+            if (tenTheLoai == "")
             {
-                tenTheLoai = DBNull.Value;
+                TenTheLoai = DBNull.Value;
             }
 
             string query = "SP_Find_TheLoai_By_Advanced @TenTheLoai ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tenTheLoai });
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { TenTheLoai });
             return data;
         }
     }

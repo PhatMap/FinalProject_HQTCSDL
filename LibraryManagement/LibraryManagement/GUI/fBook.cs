@@ -25,6 +25,8 @@ namespace LibraryManagement.GUI
             dgvSach.DataSource = sachList;
             dgvTacGia.DataSource = tacGiaList;
 
+            dgvTheLoai.DataSource = TheLoaiList;
+
             cbTacGia.DataSource = SachDAO.Instance.LoadTacGia();
             cbTacGia.DisplayMember = "TenTacGia";
             cbTacGia.ValueMember = "MaTacGia";
@@ -46,11 +48,10 @@ namespace LibraryManagement.GUI
             AddBookBinding();
             AddTacGiaBinding();
 
-            dgvTheLoai.DataSource = TheLoaiList;
+            AddTheLoaiBinding();
 
             LoadTheLoaiList();
 
-            dgvTheLoai.SelectionChanged += dgvTheLoai_SelectionChanged;
         }
         public void LoadTacGiaList()
         {
@@ -102,6 +103,19 @@ namespace LibraryManagement.GUI
             cbLoaiTaiLieu.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "LoaiTaiLieu"));
             nudGiaSach.DataBindings.Add(new Binding("Text", dgvSach.DataSource, "GiaSach"));
         }
+
+        private void AddTheLoaiBinding()
+        {
+            txtTenTheLoai.DataBindings.Add(new Binding("Text", dgvTheLoai.DataSource, "TenTheLoai"));
+            numTheLoaiID.DataBindings.Add(new Binding("Text", dgvTheLoai.DataSource, "MaTheLoai"));
+        }
+
+        private void DetachTheLoaiBinding()
+        {
+            txtTenTheLoai.DataBindings.Clear();
+            numTheLoaiID.DataBindings.Clear();
+        }
+
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
             DetachBookBinding();
@@ -125,7 +139,7 @@ namespace LibraryManagement.GUI
 
         private void btnFindBook_Click(object sender, EventArgs e)
         {
-          
+
 
             Sach s = new Sach();
 
@@ -239,96 +253,6 @@ namespace LibraryManagement.GUI
             TheLoaiList.DataSource = TheLoaiDAO.Instance.LoadTheLoaiList();
         }
 
-        private void ShowDataFromSelectedRow()
-        {
-            if (dgvTheLoai.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dgvTheLoai.SelectedRows[0];
-
-                txtTenTheLoai.Text = Convert.ToString(selectedRow.Cells["TenTheLoai"].Value);
-            }
-        }
-
-        private void dgvTheLoai_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvTheLoai.SelectedRows.Count > 0 && !dgvTheLoai.SelectedRows[0].IsNewRow)
-            {
-                ShowDataFromSelectedRow();
-            }
-        }
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            if (dgvTheLoai.SelectedRows.Count > 0)
-            {
-                int maTheLoai = Convert.ToInt32(dgvTheLoai.SelectedRows[0].Cells["MaTheLoai"].Value);
-                string tenTheLoai = txtTenTheLoai.Text;
-
-                TheLoai tl = new TheLoai();
-                tl.MaTheLoai = maTheLoai;
-                tl.TenTheLoai = tenTheLoai;
-
-                bool result = TheLoaiDAO.Instance.UpdateTheLoai(tl);
-
-                if (result)
-                {
-                    MessageBox.Show("Cập nhật thông tin thể loại thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadTheLoaiList();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật thông tin thể loại thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn thể loại cần sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            string tenTheLoai = txtTenTheLoai.Text;
-
-            DataTable searchResult = TheLoaiDAO.Instance.FindTheLoaiByAdvanced(new TheLoai()
-            {
-                TenTheLoai = tenTheLoai
-            });
-
-            if (searchResult != null && searchResult.Rows.Count > 0)
-            {
-                TheLoaiList.DataSource = searchResult;
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            LoadTheLoaiList();
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (dgvTheLoai.SelectedRows.Count > 0)
-            {
-                int maTheLoai = Convert.ToInt32(dgvTheLoai.SelectedRows[0].Cells["MaTheLoai"].Value);
-
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa thể này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    TheLoaiDAO.Instance.DeleteTheLoai(maTheLoai);
-
-                    LoadTheLoaiList();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn thể loại cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -338,6 +262,39 @@ namespace LibraryManagement.GUI
 
             TheLoaiDAO.Instance.AddTheLoai(tl);
 
+            LoadTheLoaiList();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            TheLoaiDAO.Instance.DeleteTheLoai((int)numTheLoaiID.Value);
+            LoadTheLoaiList();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+            int maTheLoai = (int)numTheLoaiID.Value;
+            string tenTheLoai = txtTenTheLoai.Text;
+
+            TheLoai tl = new TheLoai();
+            tl.MaTheLoai = maTheLoai;
+            tl.TenTheLoai = tenTheLoai;
+
+            bool result = TheLoaiDAO.Instance.UpdateTheLoai(tl);
+            LoadTheLoaiList();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string tenTheLoai = txtTenTheLoai.Text;
+
+            TheLoaiList.DataSource = TheLoaiDAO.Instance.FindTheLoaiByAdvanced(tenTheLoai);
+
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
             LoadTheLoaiList();
         }
     }
