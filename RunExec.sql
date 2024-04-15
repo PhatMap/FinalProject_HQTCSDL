@@ -33,17 +33,12 @@ EXEC SP_Drop_All_VW
 
 
 
-select * from VW_Shift_List
-SELECT * FROM FN_Get_Account_Profile('user1n@gmail.com')
+SELECT * FROM TaiKhoan
 
-EXEC SP_Find_Account_By_Email @Email = 'admin@gmail.com'
-
-EXEC SP_Find_Account_By_Name @HoTen = N'Phạm Văn C'
-EXEC SP_Change_Account_Password     
-	@Email = 'admin@gmail.com',
-    @MatKhauMoi = 'zzzzzzzz',
-	@XacNhan = 'zzzzzzzz',
-	@MatKhauCu = 'aaaaaaaa';
+EXEC SP_Get_Schedule 
+	@NgayDauTuan  = NULL,
+	@NgayCuoiTuan  = NULL,
+	@MaTaiKhoan = 5
 
 EXEC SP_Add_New_Account
 	@MaTaiKhoan = 20110535,
@@ -57,8 +52,9 @@ EXEC SP_Add_New_Account
     @GioiTinh = 'Nam';
 
 DROP
-select * from VW_Librarian_List
+select * from TaiKhoan
 EXEC SP_Delete_Account @MaTaiKhoan = 20110535
+
 EXEC SP_Find_Account_By_Advanced 
     @MaTaiKhoan = NULL,
     @HoTen = NULL,
@@ -68,25 +64,92 @@ EXEC SP_Find_Account_By_Advanced
     @VaiTro = N'Thủ thư',
     @GioiTinh = NULL;
 
-Select * from FN_Get_Account_Profile ('admin@gmail.com')
-SELECT * FROM VW_BookLoanCoupon_List
-EXEC SP_Find_BookLoanCoupon_By_Status @Status = "Đang mượn"
-EXEC SP_Add_New_BookLoanCoupon
-	@MaTaiKhoan = 1,
-	@MaSach = 1,
-	@NgayMuon = '2024-04-14',
-	@NgayTra = NULL;
-INSERT INTO PhieuMuonSach (MaTaiKhoan,MaSach, NgayMuon, NgayTra)
-				VALUES (1,1, '2024-04-14', NULL);
-Update CuonSach
-Set CuonSach.MaPhieuMuon = 4
-From PhieuMuonSach
-Where CuonSach.MaSach = 1;
-DELETE from dbo.CuonSach WHERE MaPhieuMuon = 7;
-DELETE from dbo.PhieuMuonSach WHERE MaTaiKhoan = 1 AND MaSach = @MaSach;
-EXEC SP_Update_Coupon_Returned @MaPhieuMuon = 2
-SELECT * FROM VW_NXB_List
-EXEC SP_Add_New_Genre
-	@TenTheLoai = N'Kinh dị';
-UPDATE dbo.TheLoai
-Set	TenTheLoai = @TenTheLoai
+select * from VW_Book_List
+
+select * from VW_TheLoai_List
+
+select * from dbo.Sach
+
+
+EXEC SP_Add_New_Book 
+    @MaSach = 4, 
+    @MaTacGia = 4, 
+    @MaTheLoai = 4, 
+    @MaNhaXuatBan = 4, 
+    @TenSach = N'Tây Du Ký', 
+    @LoaiTaiLieu = N'Sách tham khảo', 
+    @NamXuatBan = 1999, 
+    @GiaSach = 50000, 
+    @SoLuong = 50;
+
+/***	Find account by advanced (Phat)		***/
+CREATE PROC SP_Find_Account_By_Advanced
+(
+	@MaTaiKhoan int = NULL,
+    @HoTen nvarchar(255) = NULL,
+    @DiaChi nvarchar(255) = NULL,
+	@Email NVARCHAR(255) = NULL,
+	@SoDienThoai NVARCHAR(10) = NULL,
+	@VaiTro nvarchar(50) = NULL,
+    @GioiTinh nvarchar(10) = NULL
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM VW_Account_List 
+	WHERE 
+		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan) AND
+		(@HoTen IS NULL OR HoTen = @HoTen) AND
+		(@DiaChi IS NULL OR DiaChi = @DiaChi) AND
+		(@Email IS NULL OR Email = @Email) AND
+		(@SoDienThoai IS NULL OR SoDienThoai = @SoDienThoai) AND
+		(@VaiTro IS NULL OR VaiTro = @VaiTro) AND
+		(@GioiTinh IS NULL OR GioiTinh = @GioiTinh) 
+END;
+
+select * from VW_Book_List
+
+exec SP_Find_Book_By_Advanced
+@TenTacGia  = N'Nguyễn Du',
+	@TenTheLoai  = NULL,
+    @TenNhaXuatBan  = NULL,
+    @TenSach  = NULL,
+	@LoaiTaiLieu = NULL,
+	@NamXuatBan = NULL
+
+Select * from VW_TacGia_List
+
+EXEC SP_Add_New_Book 
+    @MaTacGia = 3, 
+    @MaTheLoai = 4, 
+    @MaNhaXuatBan = 4, 
+    @TenSach = N'Tây Du Ký', 
+    @LoaiTaiLieu = N'Sách tham khảo', 
+    @NamXuatBan = 1999, 
+    @GiaSach = 50000, 
+    @SoLuong = 50;
+
+EXEC SP_Update_Book 
+    @MaTacGia = 2, 
+    @MaTheLoai = 2, 
+    @MaNhaXuatBan = 2, 
+    @TenSach = N'Tây Du Ký', 
+    @LoaiTaiLieu = N'Sách tham khảo', 
+    @NamXuatBan = 1888, 
+    @GiaSach = 500000, 
+    @SoLuong = 50;
+
+
+
+
+
+
+EXEC SP_Get_Schedule 
+@NgayDauTuan = '2024-04-10',
+@NgayCuoiTuan = '2024-04-12'
+
+EXEC SP_Get_Schedule 
+@NgayDauTuan = NULL,
+@NgayCuoiTuan = NULL,
+@HoTen = N'Phạm Văn E'
