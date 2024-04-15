@@ -81,16 +81,18 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxTenNhaXuatBan = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dgvNhaXuatBan = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.numTheLoaiID = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.txtTenTheLoai = new System.Windows.Forms.TextBox();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -99,8 +101,8 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.dgvTheLoai = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numTheLoaiID = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtBoxMaNhaXuatBan = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -118,12 +120,12 @@
             this.tabPage3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhaXuatBan)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTheLoai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTheLoaiID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTheLoai)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -641,7 +643,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.dataGridView3);
+            this.panel3.Controls.Add(this.dgvNhaXuatBan);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -650,7 +652,9 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.txtBoxMaNhaXuatBan);
+            this.panel4.Controls.Add(this.label13);
+            this.panel4.Controls.Add(this.txtBoxTenNhaXuatBan);
             this.panel4.Controls.Add(this.button9);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.button10);
@@ -662,12 +666,12 @@
             this.panel4.Size = new System.Drawing.Size(959, 47);
             this.panel4.TabIndex = 4;
             // 
-            // textBox1
+            // txtBoxTenNhaXuatBan
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(330, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtBoxTenNhaXuatBan.Location = new System.Drawing.Point(310, 16);
+            this.txtBoxTenNhaXuatBan.Name = "txtBoxTenNhaXuatBan";
+            this.txtBoxTenNhaXuatBan.Size = new System.Drawing.Size(165, 22);
+            this.txtBoxTenNhaXuatBan.TabIndex = 1;
             // 
             // button9
             // 
@@ -681,7 +685,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 20);
+            this.label1.Location = new System.Drawing.Point(195, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 16);
             this.label1.TabIndex = 2;
@@ -714,16 +718,16 @@
             this.button12.Text = "Thêm";
             this.button12.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // dgvNhaXuatBan
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(959, 544);
-            this.dataGridView3.TabIndex = 3;
+            this.dgvNhaXuatBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhaXuatBan.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvNhaXuatBan.Location = new System.Drawing.Point(0, 53);
+            this.dgvNhaXuatBan.Name = "dgvNhaXuatBan";
+            this.dgvNhaXuatBan.RowHeadersWidth = 51;
+            this.dgvNhaXuatBan.RowTemplate.Height = 24;
+            this.dgvNhaXuatBan.Size = new System.Drawing.Size(959, 491);
+            this.dgvNhaXuatBan.TabIndex = 3;
             // 
             // tabPage4
             // 
@@ -761,6 +765,22 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(959, 47);
             this.panel7.TabIndex = 4;
+            // 
+            // numTheLoaiID
+            // 
+            this.numTheLoaiID.Location = new System.Drawing.Point(126, 15);
+            this.numTheLoaiID.Name = "numTheLoaiID";
+            this.numTheLoaiID.Size = new System.Drawing.Size(120, 22);
+            this.numTheLoaiID.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Mã thể loại";
             // 
             // btnReset
             // 
@@ -836,21 +856,21 @@
             this.dgvTheLoai.Size = new System.Drawing.Size(959, 491);
             this.dgvTheLoai.TabIndex = 3;
             // 
-            // label6
+            // label13
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 16);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Mã thể loại";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 17);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 16);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Mã NXB";
             // 
-            // numTheLoaiID
+            // txtBoxMaNhaXuatBan
             // 
-            this.numTheLoaiID.Location = new System.Drawing.Point(126, 15);
-            this.numTheLoaiID.Name = "numTheLoaiID";
-            this.numTheLoaiID.Size = new System.Drawing.Size(120, 22);
-            this.numTheLoaiID.TabIndex = 15;
+            this.txtBoxMaNhaXuatBan.Location = new System.Drawing.Point(70, 11);
+            this.txtBoxMaNhaXuatBan.Name = "txtBoxMaNhaXuatBan";
+            this.txtBoxMaNhaXuatBan.Size = new System.Drawing.Size(77, 22);
+            this.txtBoxMaNhaXuatBan.TabIndex = 17;
             // 
             // fBook
             // 
@@ -881,13 +901,13 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhaXuatBan)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTheLoai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTheLoaiID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTheLoai)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -911,7 +931,7 @@
         private System.Windows.Forms.Button btnUpdateTacGia;
         private System.Windows.Forms.Button btnAddTacGia;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvNhaXuatBan;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView dgvTheLoai;
         private System.Windows.Forms.Panel panel8;
@@ -934,7 +954,7 @@
         private System.Windows.Forms.Button btnAddBook;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxTenNhaXuatBan;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button10;
@@ -967,5 +987,7 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.NumericUpDown numTheLoaiID;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtBoxMaNhaXuatBan;
     }
 }
