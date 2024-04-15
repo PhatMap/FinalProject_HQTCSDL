@@ -1,23 +1,26 @@
 ﻿using LibraryManagement.DAO;
 using LibraryManagement.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagement.GUI
 {
     public partial class fCoupon : Form
     {
+        BindingSource PhieuPhatList = new BindingSource();
         BindingSource phieumuonList = new BindingSource();
+
         public fCoupon()
         {
             InitializeComponent();
+
+            dgvPhieuPhat.DataSource = PhieuPhatList;
+
+            AddPhieuPhatBinding();
+
+            LoadPhieuPhatList();
+
             dgvPhieuMuon.DataSource = phieumuonList;
 
 
@@ -25,6 +28,79 @@ namespace LibraryManagement.GUI
 
             LoadCouponList();
         }
+
+        private void LoadPhieuPhatList()
+        {
+            PhieuPhatList.DataSource = PhieuPhatDAO.Instance.LoadPhieuPhatList();
+        }
+
+        private void AddPhieuPhatBinding()
+        {
+            numPhieuPhatID.DataBindings.Add(new Binding("Text", dgvPhieuPhat.DataSource, "MaPhieuPhat"));
+            numPhieuMuonID.DataBindings.Add(new Binding("Text", dgvPhieuPhat.DataSource, "MaPhieuMuon"));
+            numTienPhatID.DataBindings.Add(new Binding("Text", dgvPhieuPhat.DataSource, "TienPhat"));
+            dtpNgayTra.DataBindings.Add(new Binding("Text", dgvPhieuPhat.DataSource, "NgayTra"));
+        }
+
+        private void DetachPhieuPhatBinding()
+        {
+            numPhieuPhatID.DataBindings.Clear();
+            numPhieuPhatID.DataBindings.Clear();
+            numTienPhatID.DataBindings.Clear();
+            dtpNgayTra.DataBindings.Clear();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            PhieuPhat pp = new PhieuPhat();
+
+            pp.MaPhieuMuon = (int)numPhieuPhatID.Value;
+            pp.TienPhat = (decimal)numTienPhatID.Value;
+            pp.NgayTra = dtpNgayTra.Value;
+
+            PhieuPhatDAO.Instance.AddPhieuPhat(pp);
+
+            LoadPhieuPhatList();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            PhieuPhatDAO.Instance.DeletePhieuPhat((int)numPhieuPhatID.Value);
+            LoadPhieuPhatList();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            int maPhieuPhat = (int)numPhieuPhatID.Value;
+            int maPhieuMuon = (int)numPhieuPhatID.Value;
+            decimal tienPhat = (decimal)numTienPhatID.Value;
+            DateTime ngayTra = dtpNgayTra.Value;
+
+            PhieuPhat pp = new PhieuPhat();
+            pp.MaPhieuPhat = maPhieuPhat;
+            pp.MaPhieuMuon = maPhieuMuon;
+            pp.TienPhat = tienPhat;
+            pp.NgayTra = ngayTra;
+
+            bool result = PhieuPhatDAO.Instance.UpdatePhieuPhat(pp);
+            LoadPhieuPhatList();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            PhieuPhat pp = new PhieuPhat();
+            pp.MaPhieuMuon = (int)numPhieuPhatID.Value;
+            pp.TienPhat = (decimal)numTienPhatID.Value;
+            pp.NgayTra = dtpNgayTra.Value;
+
+            PhieuPhatList.DataSource = PhieuPhatDAO.Instance.FindPhieuPhatByAdvanced(pp);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            LoadPhieuPhatList();
+        }
+
         private void LoadCouponList()
         {
             phieumuonList.DataSource = PhieuMuonSachDAO.Instance.LoadBookLoanCouponList();
@@ -58,7 +134,28 @@ namespace LibraryManagement.GUI
             LoadCouponList();
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void CouponBinding()
+        {
+            txtBoxMaPhieuMuon.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "MaPhieuMuon"));
+            txtBoxMaSach.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "MaSach"));
+            txtBoxMaTaiKhoan.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "MaTaiKhoan"));
+            dateNgayMuon.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "NgayMuon"));
+            dateNgayTra.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "NgayTra"));
+        }
+
+        private void btnTimPM_Click(object sender, EventArgs e)
+        {
+            PhieuMuonSach pm = new PhieuMuonSach
+            {
+                MaTaiKhoan = string.IsNullOrEmpty(txtBoxMaTaiKhoan.Text) ? 0 : int.Parse(txtBoxMaTaiKhoan.Text),
+                MaPhieuMuon = string.IsNullOrEmpty(txtBoxMaPhieuMuon.Text) ? 0 : int.Parse(txtBoxMaPhieuMuon.Text),
+                MaSach = string.IsNullOrEmpty(txtBoxMaSach.Text) ? 0 : int.Parse(txtBoxMaSach.Text)
+            };
+
+            phieumuonList.DataSource = PhieuMuonSachDAO.Instance.FindBookLoanCoupon(pm);
+        }
+
+        private void btnThemPM_Click(object sender, EventArgs e)
         {
             PhieuMuonSach pm = new PhieuMuonSach();
             if (string.IsNullOrEmpty(txtBoxMaTaiKhoan.Text))
@@ -80,7 +177,19 @@ namespace LibraryManagement.GUI
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnSuaPM_Click(object sender, EventArgs e)
+        {
+            PhieuMuonSach pm = new PhieuMuonSach();
+            pm.MaPhieuMuon = int.Parse(txtBoxMaPhieuMuon.Text);
+            pm.MaTaiKhoan = int.Parse(txtBoxMaTaiKhoan.Text);
+            pm.MaSach = int.Parse(txtBoxMaSach.Text);
+            pm.NgayMuon = dateNgayMuon.Value;
+            pm.NgayTra = dateNgayTra.Value;
+            PhieuMuonSachDAO.Instance.UpdateCoupon(pm);
+            LoadCouponList();
+        }
+
+        private void btnXoaPM_Click(object sender, EventArgs e)
         {
             DetachCouponBinding();
             CouponBinding();
@@ -92,26 +201,6 @@ namespace LibraryManagement.GUI
             PhieuMuonSachDAO.Instance.DeleteCoupon(pm);
             LoadCouponList();
             DetachCouponBinding();
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            PhieuMuonSach pm = new PhieuMuonSach();
-            pm.MaPhieuMuon = int.Parse(txtBoxMaPhieuMuon.Text);
-            pm.MaTaiKhoan = int.Parse(txtBoxMaTaiKhoan.Text);
-            pm.MaSach = int.Parse(txtBoxMaSach.Text);
-            pm.NgayMuon = dateNgayMuon.Value;
-            pm.NgayTra = dateNgayTra.Value;
-            PhieuMuonSachDAO.Instance.UpdateCoupon(pm);
-            LoadCouponList();
-        }
-        private void CouponBinding()
-        {
-            txtBoxMaPhieuMuon.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "MaPhieuMuon"));
-            txtBoxMaSach.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "MaSach"));
-            txtBoxMaTaiKhoan.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "MaTaiKhoan"));
-            dateNgayMuon.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "NgayMuon"));
-            dateNgayTra.DataBindings.Add(new Binding("Text", dgvPhieuMuon.DataSource, "NgayTra"));
         }
 
         private void dgvPhieuMuon_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -126,35 +215,6 @@ namespace LibraryManagement.GUI
             pm.MaPhieuMuon = int.Parse(txtBoxMaPhieuMuon.Text);
             PhieuMuonSachDAO.Instance.UpdateCoupon_Returned(pm);
             LoadCouponList();
-        }
-
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            PhieuMuonSach pm = new PhieuMuonSach
-            {
-                MaTaiKhoan = string.IsNullOrEmpty(txtBoxMaTaiKhoan.Text) ? 0 : int.Parse(txtBoxMaTaiKhoan.Text),
-                MaPhieuMuon = string.IsNullOrEmpty(txtBoxMaPhieuMuon.Text) ? 0 : int.Parse(txtBoxMaPhieuMuon.Text),
-                MaSach = string.IsNullOrEmpty(txtBoxMaSach.Text) ? 0 : int.Parse(txtBoxMaSach.Text)
-            };
-
-            phieumuonList.DataSource = PhieuMuonSachDAO.Instance.FindBookLoanCoupon(pm);
-        }
-
-        private void btnAccSearch_Click(object sender, EventArgs e)
-        {
-            fAccount fAccount = new fAccount();
-            fAccount.WindowState = FormWindowState.Normal;
-            fAccount.FormClosed += new FormClosedEventHandler(fAccount_FormClosed);
-            fAccount.Show();
-            fAccount.SelectTab(1);
-        }
-        private void fAccount_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            fAccount fAccount = sender as fAccount;
-            if(fAccount != null)
-            {
-                txtBoxMaTaiKhoan.Text = fAccount.SelectedValue;
-            }
         }
     }
 }

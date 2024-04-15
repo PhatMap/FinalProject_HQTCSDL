@@ -17,7 +17,7 @@ namespace LibraryManagement.GUI
         BindingSource sachList = new BindingSource();
         BindingSource tacGiaList = new BindingSource();
         BindingSource TheLoaiList = new BindingSource();
- BindingSource nhaxuatbanlist = new BindingSource();
+        BindingSource nhaxuatbanlist = new BindingSource();
 
         public fBook()
         {
