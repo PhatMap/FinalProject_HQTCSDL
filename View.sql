@@ -44,13 +44,6 @@ INNER JOIN
 INNER JOIN 
     NhaXuatBan NXB ON S.MaNhaXuatBan = NXB.MaNhaXuatBan;
 
-
-GO
-/***	Get Tác Giả list (Văn)		***/
-CREATE VIEW VW_TacGia_List AS
-SELECT *
-FROM dbo.TacGia
-
 GO
 /***	Get Nhà Xuất Bản list (Văn)		***/
 CREATE VIEW VW_NhaXuatBan_List AS
@@ -76,7 +69,22 @@ SELECT *
 FROM dbo.PhieuPhat
 
 GO
-/***	Get TheLoai list (Hoan)		***/
-CREATE VIEW VW_TheLoai_List AS
-SELECT *
-FROM dbo.TheLoai
+/***	Get Book Loan Coupon list (Trung)		***/
+Create VIEW VW_BookLoanCoupon_List AS
+SELECT 
+	PM.MaPhieuMuon,
+	S.MaSach,
+	MaTaiKhoan,
+	S.TinhTrang,
+	NgayMuon,
+	NgayTra
+FROM dbo.PhieuMuonSach PM
+Join dbo.CuonSach S ON PM.MaPhieuMuon = S.MaPhieuMuon
+
+GO
+/***	Get Genre list (Trung)		***/
+Create VIEW VW_NXB_List AS
+SELECT 
+	MaNhaXuatBan,
+	TenNhaXuatBan
+FROM dbo.NhaXuatBan

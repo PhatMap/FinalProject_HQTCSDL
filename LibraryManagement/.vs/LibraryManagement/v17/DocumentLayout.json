@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\",
+  "WorkspaceRootPath": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|d:\\github\\main\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\dao\\theloaidao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|d:\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\dao\\theloaidao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\dao\\theloaidao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\dao\\phieuphatdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\dao\\phieuphatdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\dao\\phieuphatdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +34,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -45,16 +49,12 @@
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PhieuPhatDAO.cs",
-              "DocumentMoniker": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\PhieuPhatDAO.cs",
+              "DocumentMoniker": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\PhieuPhatDAO.cs",
               "RelativeDocumentMoniker": "LibraryManagement\\DAO\\PhieuPhatDAO.cs",
-              "ToolTip": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\PhieuPhatDAO.cs",
+              "ToolTip": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\PhieuPhatDAO.cs",
               "RelativeToolTip": "LibraryManagement\\DAO\\PhieuPhatDAO.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -62,34 +62,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "fCoupon.cs",
-              "DocumentMoniker": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs",
+              "DocumentMoniker": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs",
               "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fCoupon.cs",
-              "ToolTip": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs",
+              "ToolTip": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs",
               "RelativeToolTip": "LibraryManagement\\GUI\\fCoupon.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABUAAAAAAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAawCcAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T19:07:11.792Z"
+              "WhenOpened": "2024-04-14T19:07:11.792Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "fCoupon.cs [Design]",
-              "DocumentMoniker": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs",
+              "DocumentMoniker": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs",
               "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fCoupon.cs",
-              "ToolTip": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs [Design]",
+              "ToolTip": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs [Design]",
               "RelativeToolTip": "LibraryManagement\\GUI\\fCoupon.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T19:07:08.618Z"
+              "WhenOpened": "2024-04-14T19:07:08.618Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TheLoaiDao.cs",
-              "DocumentMoniker": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\TheLoaiDao.cs",
+              "DocumentMoniker": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\TheLoaiDao.cs",
               "RelativeDocumentMoniker": "LibraryManagement\\DAO\\TheLoaiDao.cs",
-              "ToolTip": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\TheLoaiDao.cs",
+              "ToolTip": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\TheLoaiDao.cs",
               "RelativeToolTip": "LibraryManagement\\DAO\\TheLoaiDao.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAQwEIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -97,25 +99,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "fBook.cs",
-              "DocumentMoniker": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs",
+              "DocumentMoniker": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs",
               "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fBook.cs",
-              "ToolTip": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs",
+              "ToolTip": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs",
               "RelativeToolTip": "LibraryManagement\\GUI\\fBook.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAANEAAABdAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-14T19:22:54.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "fBook.cs [Design]",
-              "DocumentMoniker": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs",
+              "DocumentMoniker": "D:\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs",
               "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fBook.cs",
               "ToolTip": "D:\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs [Design]",
-              "RelativeToolTip": "LibraryManagement\\GUI\\fBook.cs [Design]",
+              "RelativeToolTip": "..\\..\\GitHub\\main\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-14T19:20:45.658Z"
             }

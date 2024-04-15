@@ -63,6 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\NhaXuatBanDAO.cs" />
+    <Compile Include="DAO\PhieuMuonSachDAO.cs" />
     <Compile Include="DAO\PhieuPhatDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\LichLamViecDAO.cs" />
@@ -71,6 +73,8 @@
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\TheLoaiDao.cs" />
     <Compile Include="DTO\LichLamViec.cs" />
+    <Compile Include="DTO\NhaXuatBan.cs" />
+    <Compile Include="DTO\PhieuMuonSach.cs" />
     <Compile Include="DTO\PhieuPhat.cs" />
     <Compile Include="DTO\Sach.cs" />
     <Compile Include="DTO\Session.cs" />
