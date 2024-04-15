@@ -1,13 +1,28 @@
+<<<<<<< HEAD
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+=======
 ﻿using LibraryManagement.DAO;
 using LibraryManagement.DTO;
 using System;
+>>>>>>> parent of 4f82fa2 (asdas)
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagement.GUI
 {
     public partial class fCoupon : Form
     {
+<<<<<<< HEAD
+        public fCoupon()
+        {
+            InitializeComponent();
+=======
         BindingSource PhieuPhatList = new BindingSource();
 
         public fCoupon()
@@ -139,6 +154,7 @@ namespace LibraryManagement.GUI
         private void btnReset_Click(object sender, EventArgs e)
         {
             LoadPhieuPhatList();
+>>>>>>> parent of 4f82fa2 (asdas)
         }
     }
 }
