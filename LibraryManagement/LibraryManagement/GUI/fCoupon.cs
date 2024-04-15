@@ -139,5 +139,22 @@ namespace LibraryManagement.GUI
 
             phieumuonList.DataSource = PhieuMuonSachDAO.Instance.FindBookLoanCoupon(pm);
         }
+
+        private void btnAccSearch_Click(object sender, EventArgs e)
+        {
+            fAccount fAccount = new fAccount();
+            fAccount.WindowState = FormWindowState.Normal;
+            fAccount.FormClosed += new FormClosedEventHandler(fAccount_FormClosed);
+            fAccount.Show();
+            fAccount.SelectTab(1);
+        }
+        private void fAccount_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            fAccount fAccount = sender as fAccount;
+            if(fAccount != null)
+            {
+                txtBoxMaTaiKhoan.Text = fAccount.SelectedValue;
+            }
+        }
     }
 }

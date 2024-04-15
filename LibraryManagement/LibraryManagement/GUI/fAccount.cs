@@ -20,6 +20,7 @@ namespace LibraryManagement.GUI
         public fAccount()
         {
             InitializeComponent();
+            this.dgvAccount.CellDoubleClick += dgvAccount_CellDoubleClick;
 
             dgvAccount.DataSource = accountList;
             dgvSchedule.DataSource = ScheduleList;
@@ -290,6 +291,28 @@ namespace LibraryManagement.GUI
             LichLamViecDAO.Instance.DeleteSchedule(id);
 
             LoadScheduleList();
+        }
+        public void SelectTab(int tabIndex)
+        {
+            tabControl1.SelectedIndex = tabIndex;
+        }
+        public string SelectedValue
+        {
+            get
+            {
+                if (dgvAccount.SelectedCells.Count > 0)
+                {
+                    int selectedRowIndex = dgvAccount.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dgvAccount.Rows[selectedRowIndex];
+                    return Convert.ToString(selectedRow.Cells["MaTaiKhoan"].Value);
+                }
+                return null;
+            }
+        }
+
+        private void dgvAccount_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Close();
         }
     }
 }

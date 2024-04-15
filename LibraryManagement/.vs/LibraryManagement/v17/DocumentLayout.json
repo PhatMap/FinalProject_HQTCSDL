@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|c:\\users\\pc asus\\onedrive\\documents\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\dao\\theloaidao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\dao\\theloaidao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|c:\\users\\pc asus\\onedrive\\documents\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|c:\\users\\pc asus\\onedrive\\documents\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\dao\\phieumuonsachdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\dao\\phieumuonsachdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|c:\\users\\pc asus\\onedrive\\documents\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\faccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\faccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|c:\\users\\pc asus\\onedrive\\documents\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|c:\\users\\pc asus\\onedrive\\documents\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\faccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\faccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|c:\\users\\pc asus\\onedrive\\documents\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|c:\\users\\pc asus\\onedrive\\documents\\github\\finalproject_hqtcsdl\\librarymanagement\\librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5749525B-6215-4EBB-93C4-E77ED581BC05}|LibraryManagement\\LibraryManagement.csproj|solutionrelative:librarymanagement\\gui\\fbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,41 +38,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "fBook.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs",
-              "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fBook.cs",
-              "ToolTip": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs [Design]",
-              "RelativeToolTip": "LibraryManagement\\GUI\\fBook.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "fAccount.cs",
+              "DocumentMoniker": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fAccount.cs",
+              "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fAccount.cs",
+              "ToolTip": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fAccount.cs",
+              "RelativeToolTip": "LibraryManagement\\GUI\\fAccount.cs",
+              "ViewState": "AQIAACEBAAAAAAAAAAAQwC4BAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T19:06:23.579Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-04-15T09:34:44.014Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PhieuMuonSachDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\PhieuMuonSachDAO.cs",
-              "RelativeDocumentMoniker": "LibraryManagement\\DAO\\PhieuMuonSachDAO.cs",
-              "ToolTip": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\PhieuMuonSachDAO.cs",
-              "RelativeToolTip": "LibraryManagement\\DAO\\PhieuMuonSachDAO.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAowDUAAAAAAAAA",
+              "Title": "fAccount.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fAccount.cs",
+              "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fAccount.cs",
+              "ToolTip": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fAccount.cs [Design]",
+              "RelativeToolTip": "LibraryManagement\\GUI\\fAccount.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T18:37:47.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T09:33:03.969Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TheLoaiDAO.cs",
-              "DocumentMoniker": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\TheLoaiDAO.cs",
-              "RelativeDocumentMoniker": "LibraryManagement\\DAO\\TheLoaiDAO.cs",
-              "ToolTip": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\DAO\\TheLoaiDAO.cs",
-              "RelativeToolTip": "LibraryManagement\\DAO\\TheLoaiDAO.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAuwD0AAABhAAAA",
+              "Title": "fCoupon.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs",
+              "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fCoupon.cs",
+              "ToolTip": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs [Design]",
+              "RelativeToolTip": "LibraryManagement\\GUI\\fCoupon.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T18:37:36.338Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T09:30:50.781Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -86,22 +81,9 @@
               "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fCoupon.cs",
               "ToolTip": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fCoupon.cs",
               "RelativeToolTip": "LibraryManagement\\GUI\\fCoupon.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAADwv1QAAAAAAAAA",
+              "ViewState": "AQIAAIsAAAAAAAAAAAAkwJUAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-14T18:30:04.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "fBook.cs",
-              "DocumentMoniker": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs",
-              "RelativeDocumentMoniker": "LibraryManagement\\GUI\\fBook.cs",
-              "ToolTip": "C:\\Users\\PC ASUS\\OneDrive\\Documents\\GitHub\\FinalProject_HQTCSDL\\LibraryManagement\\LibraryManagement\\GUI\\fBook.cs",
-              "RelativeToolTip": "LibraryManagement\\GUI\\fBook.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAqwFEAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T18:29:53.756Z",
               "EditorCaption": ""
             }
           ]

@@ -67,16 +67,22 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtBoxMaNhaXuatBan = new System.Windows.Forms.TextBox();
+            this.txtBoxTenNhaXuatBan = new System.Windows.Forms.TextBox();
+            this.btnDeleteNXB = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.btnFindNXB = new System.Windows.Forms.Button();
+            this.btnEditNXB = new System.Windows.Forms.Button();
+            this.btnAddNXB = new System.Windows.Forms.Button();
+            this.dgvNhaXuatBan = new System.Windows.Forms.DataGridView();
+            this.MaNhaXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNhaXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtBoxMaTheLoai = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtBoxTenTheLoai = new System.Windows.Forms.TextBox();
             this.btnDeleteGenre = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -86,8 +92,6 @@
             this.dgvTheLoai = new System.Windows.Forms.DataGridView();
             this.MaTheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtBoxMaTheLoai = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -102,7 +106,7 @@
             this.tabPage3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhaXuatBan)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -514,7 +518,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.dataGridView3);
+            this.panel3.Controls.Add(this.dgvNhaXuatBan);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -524,36 +528,57 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox1);
-            this.panel4.Controls.Add(this.button9);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.txtBoxMaNhaXuatBan);
+            this.panel4.Controls.Add(this.txtBoxTenNhaXuatBan);
+            this.panel4.Controls.Add(this.btnDeleteNXB);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.button10);
-            this.panel4.Controls.Add(this.button11);
-            this.panel4.Controls.Add(this.button12);
+            this.panel4.Controls.Add(this.btnFindNXB);
+            this.panel4.Controls.Add(this.btnEditNXB);
+            this.panel4.Controls.Add(this.btnAddNXB);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1434, 73);
+            this.panel4.Size = new System.Drawing.Size(1434, 128);
             this.panel4.TabIndex = 4;
             // 
-            // textBox1
+            // label5
             // 
-            this.textBox1.Location = new System.Drawing.Point(177, 27);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(493, 31);
-            this.textBox1.TabIndex = 1;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 77);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(173, 25);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Mã nhà xuất bản";
             // 
-            // button9
+            // txtBoxMaNhaXuatBan
             // 
-            this.button9.Location = new System.Drawing.Point(1312, 25);
-            this.button9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(112, 36);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "Xóa";
-            this.button9.UseVisualStyleBackColor = true;
+            this.txtBoxMaNhaXuatBan.Location = new System.Drawing.Point(192, 77);
+            this.txtBoxMaNhaXuatBan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBoxMaNhaXuatBan.Name = "txtBoxMaNhaXuatBan";
+            this.txtBoxMaNhaXuatBan.Size = new System.Drawing.Size(493, 31);
+            this.txtBoxMaNhaXuatBan.TabIndex = 11;
+            // 
+            // txtBoxTenNhaXuatBan
+            // 
+            this.txtBoxTenNhaXuatBan.Location = new System.Drawing.Point(192, 27);
+            this.txtBoxTenNhaXuatBan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBoxTenNhaXuatBan.Name = "txtBoxTenNhaXuatBan";
+            this.txtBoxTenNhaXuatBan.Size = new System.Drawing.Size(493, 31);
+            this.txtBoxTenNhaXuatBan.TabIndex = 1;
+            // 
+            // btnDeleteNXB
+            // 
+            this.btnDeleteNXB.Location = new System.Drawing.Point(1312, 25);
+            this.btnDeleteNXB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDeleteNXB.Name = "btnDeleteNXB";
+            this.btnDeleteNXB.Size = new System.Drawing.Size(112, 36);
+            this.btnDeleteNXB.TabIndex = 8;
+            this.btnDeleteNXB.Text = "Xóa";
+            this.btnDeleteNXB.UseVisualStyleBackColor = true;
+            this.btnDeleteNXB.Click += new System.EventHandler(this.btnDeleteNXB_Click_1);
             // 
             // label1
             // 
@@ -565,47 +590,70 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Tên nhà xuất bản";
             // 
-            // button10
+            // btnFindNXB
             // 
-            this.button10.Location = new System.Drawing.Point(1118, 27);
-            this.button10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(112, 36);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Tìm";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnFindNXB.Location = new System.Drawing.Point(1118, 27);
+            this.btnFindNXB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFindNXB.Name = "btnFindNXB";
+            this.btnFindNXB.Size = new System.Drawing.Size(112, 36);
+            this.btnFindNXB.TabIndex = 10;
+            this.btnFindNXB.Text = "Tìm";
+            this.btnFindNXB.UseVisualStyleBackColor = true;
+            this.btnFindNXB.Click += new System.EventHandler(this.btnFindNXB_Click_1);
             // 
-            // button11
+            // btnEditNXB
             // 
-            this.button11.Location = new System.Drawing.Point(914, 25);
-            this.button11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(112, 36);
-            this.button11.TabIndex = 9;
-            this.button11.Text = "Sửa";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnEditNXB.Location = new System.Drawing.Point(914, 25);
+            this.btnEditNXB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEditNXB.Name = "btnEditNXB";
+            this.btnEditNXB.Size = new System.Drawing.Size(112, 36);
+            this.btnEditNXB.TabIndex = 9;
+            this.btnEditNXB.Text = "Sửa";
+            this.btnEditNXB.UseVisualStyleBackColor = true;
+            this.btnEditNXB.Click += new System.EventHandler(this.btnEditNXB_Click_1);
             // 
-            // button12
+            // btnAddNXB
             // 
-            this.button12.Location = new System.Drawing.Point(722, 25);
-            this.button12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(112, 36);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "Thêm";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnAddNXB.Location = new System.Drawing.Point(722, 25);
+            this.btnAddNXB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddNXB.Name = "btnAddNXB";
+            this.btnAddNXB.Size = new System.Drawing.Size(112, 36);
+            this.btnAddNXB.TabIndex = 7;
+            this.btnAddNXB.Text = "Thêm";
+            this.btnAddNXB.UseVisualStyleBackColor = true;
+            this.btnAddNXB.Click += new System.EventHandler(this.btnAddNXB_Click);
             // 
-            // dataGridView3
+            // dgvNhaXuatBan
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(1434, 850);
-            this.dataGridView3.TabIndex = 3;
+            this.dgvNhaXuatBan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvNhaXuatBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNhaXuatBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhaXuatBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaNhaXuatBan,
+            this.TenNhaXuatBan});
+            this.dgvNhaXuatBan.Location = new System.Drawing.Point(0, 127);
+            this.dgvNhaXuatBan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvNhaXuatBan.Name = "dgvNhaXuatBan";
+            this.dgvNhaXuatBan.RowHeadersWidth = 51;
+            this.dgvNhaXuatBan.RowTemplate.Height = 24;
+            this.dgvNhaXuatBan.Size = new System.Drawing.Size(1434, 723);
+            this.dgvNhaXuatBan.TabIndex = 3;
+            this.dgvNhaXuatBan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhaXuatBan_CellContentClick_1);
+            // 
+            // MaNhaXuatBan
+            // 
+            this.MaNhaXuatBan.DataPropertyName = "MaNhaXuatBan";
+            this.MaNhaXuatBan.HeaderText = "Mã Nhà Xuất Bản";
+            this.MaNhaXuatBan.MinimumWidth = 10;
+            this.MaNhaXuatBan.Name = "MaNhaXuatBan";
+            // 
+            // TenNhaXuatBan
+            // 
+            this.TenNhaXuatBan.DataPropertyName = "TenNhaXuatBan";
+            this.TenNhaXuatBan.HeaderText = "Tên Nhà Xuất Bản";
+            this.TenNhaXuatBan.MinimumWidth = 10;
+            this.TenNhaXuatBan.Name = "TenNhaXuatBan";
             // 
             // tabPage4
             // 
@@ -646,6 +694,24 @@
             this.panel7.Size = new System.Drawing.Size(1434, 141);
             this.panel7.TabIndex = 4;
             // 
+            // txtBoxMaTheLoai
+            // 
+            this.txtBoxMaTheLoai.Location = new System.Drawing.Point(159, 81);
+            this.txtBoxMaTheLoai.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBoxMaTheLoai.Name = "txtBoxMaTheLoai";
+            this.txtBoxMaTheLoai.Size = new System.Drawing.Size(493, 31);
+            this.txtBoxMaTheLoai.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 84);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 25);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Mã thể loại";
+            // 
             // txtBoxTenTheLoai
             // 
             this.txtBoxTenTheLoai.Location = new System.Drawing.Point(159, 27);
@@ -663,7 +729,6 @@
             this.btnDeleteGenre.TabIndex = 8;
             this.btnDeleteGenre.Text = "Xóa";
             this.btnDeleteGenre.UseVisualStyleBackColor = true;
-            this.btnDeleteGenre.Click += new System.EventHandler(this.btnDeleteGenre_Click);
             // 
             // label3
             // 
@@ -684,7 +749,6 @@
             this.btnFindGenre.TabIndex = 10;
             this.btnFindGenre.Text = "Tìm";
             this.btnFindGenre.UseVisualStyleBackColor = true;
-            this.btnFindGenre.Click += new System.EventHandler(this.btnFindGenre_Click);
             // 
             // btnEditGenre
             // 
@@ -695,7 +759,6 @@
             this.btnEditGenre.TabIndex = 9;
             this.btnEditGenre.Text = "Sửa";
             this.btnEditGenre.UseVisualStyleBackColor = true;
-            this.btnEditGenre.Click += new System.EventHandler(this.btnEditGenre_Click);
             // 
             // btnAddGenre
             // 
@@ -706,7 +769,6 @@
             this.btnAddGenre.TabIndex = 7;
             this.btnAddGenre.Text = "Thêm";
             this.btnAddGenre.UseVisualStyleBackColor = true;
-            this.btnAddGenre.Click += new System.EventHandler(this.btnAddGenre_Click);
             // 
             // dgvTheLoai
             // 
@@ -724,7 +786,6 @@
             this.dgvTheLoai.RowTemplate.Height = 24;
             this.dgvTheLoai.Size = new System.Drawing.Size(1438, 713);
             this.dgvTheLoai.TabIndex = 3;
-            this.dgvTheLoai.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTheLoai_CellContentClick);
             // 
             // MaTheLoai
             // 
@@ -739,24 +800,6 @@
             this.TenTheLoai.HeaderText = "Tên Thể Loại";
             this.TenTheLoai.MinimumWidth = 10;
             this.TenTheLoai.Name = "TenTheLoai";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 84);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 25);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Mã thể loại";
-            // 
-            // txtBoxMaTheLoai
-            // 
-            this.txtBoxMaTheLoai.Location = new System.Drawing.Point(159, 81);
-            this.txtBoxMaTheLoai.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBoxMaTheLoai.Name = "txtBoxMaTheLoai";
-            this.txtBoxMaTheLoai.Size = new System.Drawing.Size(493, 31);
-            this.txtBoxMaTheLoai.TabIndex = 12;
             // 
             // fBook
             // 
@@ -785,7 +828,7 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhaXuatBan)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -814,7 +857,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvNhaXuatBan;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView dgvTheLoai;
         private System.Windows.Forms.Panel panel8;
@@ -840,12 +883,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox txtBoxTenNhaXuatBan;
+        private System.Windows.Forms.Button btnDeleteNXB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnFindNXB;
+        private System.Windows.Forms.Button btnEditNXB;
+        private System.Windows.Forms.Button btnAddNXB;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtBoxTenTheLoai;
         private System.Windows.Forms.Button btnDeleteGenre;
@@ -857,5 +900,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTheLoai;
         private System.Windows.Forms.TextBox txtBoxMaTheLoai;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtBoxMaNhaXuatBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNhaXuatBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNhaXuatBan;
     }
 }

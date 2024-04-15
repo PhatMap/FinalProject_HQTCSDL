@@ -65,15 +65,15 @@
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\LichLamViecDAO.cs" />
+    <Compile Include="DAO\NhaXuatBanDAO.cs" />
     <Compile Include="DAO\PhieuMuonSachDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
-    <Compile Include="DAO\TheLoaiDAO.cs" />
     <Compile Include="DTO\LichLamViec.cs" />
+    <Compile Include="DTO\NhaXuatBan.cs" />
     <Compile Include="DTO\PhieuMuonSach.cs" />
     <Compile Include="DTO\PhieuPhat.cs" />
     <Compile Include="DTO\Session.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
-    <Compile Include="DTO\TheLoai.cs" />
     <Compile Include="GUI\fAccount.cs">
       <SubType>Form</SubType>
     </Compile>

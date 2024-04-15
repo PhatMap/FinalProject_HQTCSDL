@@ -14,75 +14,74 @@ namespace LibraryManagement.GUI
 {
     public partial class fBook : Form
     {
-        BindingSource theloaiList = new BindingSource();
+        BindingSource nhaxuatbanlist = new BindingSource();
 
         public fBook()
         {
             InitializeComponent();
-            dgvTheLoai.DataSource = theloaiList;
+            dgvNhaXuatBan.DataSource = nhaxuatbanlist;
 
-            DetachGenreBinding();
+            DetachNXBBinding();
 
-            LoadGenreList();
+            LoadNXBList();
         }
-        private void DetachGenreBinding()
+        private void DetachNXBBinding()
         {
-            txtBoxTenTheLoai.DataBindings.Clear();
-            txtBoxMaTheLoai.DataBindings.Clear();
+            txtBoxMaNhaXuatBan.DataBindings.Clear();
+            txtBoxTenNhaXuatBan.DataBindings.Clear();
         }
-        private void LoadGenreList()
+        private void LoadNXBList()
         {
-            theloaiList.DataSource = TheLoaiDAO.Instance.LoadGenreList();
+            nhaxuatbanlist.DataSource = NhaXuatBanDAO.Instance.LoadNXBList();
         }
-        private void btnAddGenre_Click(object sender, EventArgs e)
+        private void btnAddNXB_Click(object sender, EventArgs e)
         {
-            TheLoai tl = new TheLoai();
-            tl.TenTheLoai = txtBoxTenTheLoai.Text;
-            TheLoaiDAO.Instance.AddGenre(tl);
-            LoadGenreList();
+            NhaXuatBan nxb = new NhaXuatBan();
+            nxb.TenNhaXuatBan = txtBoxTenNhaXuatBan.Text;
+            NhaXuatBanDAO.Instance.AddNXB(nxb);
+            LoadNXBList();
         }
-
-        private void btnEditGenre_Click(object sender, EventArgs e)
+        private void NXBBinding()
         {
-            TheLoai tl = new TheLoai();
-            tl.TenTheLoai = txtBoxTenTheLoai.Text;
-            tl.MaTheLoai = int.Parse(txtBoxMaTheLoai.Text);
-            TheLoaiDAO.Instance.UpdateGenre(tl);
-            LoadGenreList();
+            txtBoxTenNhaXuatBan.DataBindings.Add(new Binding("Text", dgvNhaXuatBan.DataSource, "TenNhaXuatBan"));
+            txtBoxMaNhaXuatBan.DataBindings.Add(new Binding("Text", dgvNhaXuatBan.DataSource, "MaNhaXuatBan"));
         }
-
-        private void dgvTheLoai_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnEditNXB_Click_1(object sender, EventArgs e)
         {
-            DetachGenreBinding();
-            GenreBinding();
-        }
-        private void GenreBinding()
-        {
-            txtBoxTenTheLoai.DataBindings.Add(new Binding("Text", dgvTheLoai.DataSource, "TenTheLoai"));
-            txtBoxMaTheLoai.DataBindings.Add(new Binding("Text", dgvTheLoai.DataSource, "MaTheLoai"));
+            NhaXuatBan tl = new NhaXuatBan();
+            tl.TenNhaXuatBan = txtBoxTenNhaXuatBan.Text;
+            tl.MaNhaXuatBan = int.Parse(txtBoxMaNhaXuatBan.Text);
+            NhaXuatBanDAO.Instance.UpdateNXB(tl);
+            LoadNXBList();
         }
 
-        private void btnFindGenre_Click(object sender, EventArgs e)
+        private void btnFindNXB_Click_1(object sender, EventArgs e)
         {
-            TheLoai tl = new TheLoai
+            NhaXuatBan tl = new NhaXuatBan
             {
-                MaTheLoai = string.IsNullOrEmpty(txtBoxMaTheLoai.Text) ? 0 : int.Parse(txtBoxMaTheLoai.Text),
-                TenTheLoai = string.IsNullOrEmpty(txtBoxTenTheLoai.Text) ? "" : txtBoxTenTheLoai.Text,
+                MaNhaXuatBan = string.IsNullOrEmpty(txtBoxMaNhaXuatBan.Text) ? 0 : int.Parse(txtBoxMaNhaXuatBan.Text),
+                TenNhaXuatBan = string.IsNullOrEmpty(txtBoxTenNhaXuatBan.Text) ? "" : txtBoxTenNhaXuatBan.Text,
             };
 
-            theloaiList.DataSource = TheLoaiDAO.Instance.FindGenre(tl);
+            nhaxuatbanlist.DataSource = NhaXuatBanDAO.Instance.FindNhaXuatBan(tl);
         }
 
-        private void btnDeleteGenre_Click(object sender, EventArgs e)
+        private void btnDeleteNXB_Click_1(object sender, EventArgs e)
         {
-            DetachGenreBinding();
-            GenreBinding();
-            TheLoai tl = new TheLoai();
-            tl.MaTheLoai = int.Parse(txtBoxMaTheLoai.Text);
-            tl.TenTheLoai = txtBoxTenTheLoai.Text;
-            TheLoaiDAO.Instance.DeleteGenre(tl);
-            LoadGenreList();
-            DetachGenreBinding();
+            DetachNXBBinding();
+            NXBBinding();
+            NhaXuatBan tl = new NhaXuatBan();
+            tl.MaNhaXuatBan = int.Parse(txtBoxMaNhaXuatBan.Text);
+            tl.TenNhaXuatBan = txtBoxTenNhaXuatBan.Text;
+            NhaXuatBanDAO.Instance.DeleteNXB(tl);
+            LoadNXBList();
+            DetachNXBBinding();
+        }
+
+        private void dgvNhaXuatBan_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            DetachNXBBinding();
+            NXBBinding();
         }
     }
 }

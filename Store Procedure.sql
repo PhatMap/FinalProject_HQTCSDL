@@ -370,17 +370,17 @@ BEGIN
 		(@MaPhieuMuon IS NULL OR MaPhieuMuon = @MaPhieuMuon) 
 END;
 GO
-/***	Add Genre (Trung)		***/
+/***	Add NXB (Trung)		***/
 
-CREATE PROC SP_Add_New_Genre
-	@TenTheLoai NVARCHAR(255)
+CREATE PROC SP_Add_New_NXB
+	@TenNhaXuatBan NVARCHAR(255)
 AS
 BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-        INSERT INTO dbo.TheLoai (TenTheLoai)
-        VALUES (@TenTheLoai);
+        INSERT INTO dbo.NhaXuatBan(TenNhaXuatBan)
+        VALUES (@TenNhaXuatBan);
         
         COMMIT;
     END TRY
@@ -389,18 +389,18 @@ BEGIN
     END CATCH;
 END;
 go
-/***	Update Genre (Trung)		***/
-CREATE or Alter PROC SP_Update_Genre
-	@MaTheLoai INT,
-	@TenTheLoai NVARCHAR(255)
+/***	Update NXB (Trung)		***/
+CREATE or Alter PROC SP_Update_NXB
+	@MaNhaXuatBan INT,
+	@TenNhaXuatBan NVARCHAR(255)
 AS
 BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-			UPDATE dbo.TheLoai
-				Set	TenTheLoai = @TenTheLoai
-				Where MaTheLoai = @MaTheLoai;
+			UPDATE dbo.NhaXuatBan
+				Set	TenNhaXuatBan = @TenNhaXuatBan
+				Where MaNhaXuatBan = @MaNhaXuatBan;
         COMMIT;
     END TRY
     BEGIN CATCH
@@ -408,33 +408,33 @@ BEGIN
     END CATCH;
 END;
 GO
-/***	Find Genre (Trung)		***/
-CREATE PROC SP_Find_Genre
+/***	Find NXB (Trung)		***/
+CREATE PROC SP_Find_NXB
 (
-	@MaTheLoai int,
-	@TenTheLoai NVARCHAR(255)
+	@MaNhaXuatBan int,
+	@TenNhaXuatBan NVARCHAR(255)
 )
 AS
 BEGIN
 	SELECT 
 		*
-	FROM VW_Genre_List 
+	FROM VW_NXB_List
 	WHERE 
-		(@MaTheLoai IS NULL OR MatheLoai = @MaTheLoai) AND
-		(@TenTheLoai IS NULL OR TenTheLoai = @TenTheLoai)
+		(@MaNhaXuatBan IS NULL OR MaNhaXuatBan = @MaNhaXuatBan) AND
+		(@TenNhaXuatBan IS NULL OR TenNhaXuatBan = @TenNhaXuatBan)
 END;
 GO
-/***	Delete Genre (Trung)		***/
-CREATE or Alter PROC SP_Delete_Genre
-	@MaTheLoai INT,
-	@TenTheLoai NVARCHAR(255)
+/***	Delete NXB (Trung)		***/
+CREATE or Alter PROC SP_Delete_NXB
+	@MaNhaXuatBan INT,
+	@TenNhaXuatBan NVARCHAR(255)
 AS
 BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-			Delete From dbo.TheLoai
-			Where MaTheLoai = @MaTheLoai And TenTheLoai = @TenTheLoai;
+			Delete From dbo.NhaXuatBan
+			Where MaNhaXuatBan = @MaNhaXuatBan And TenNhaXuatBan = @TenNhaXuatBan;
         COMMIT;
     END TRY
     BEGIN CATCH

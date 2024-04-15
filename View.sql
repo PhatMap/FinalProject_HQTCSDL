@@ -36,10 +36,10 @@ Join dbo.CuonSach S ON PM.MaPhieuMuon = S.MaPhieuMuon
 
 GO
 /***	Get Genre list (Trung)		***/
-Create VIEW VW_Genre_List AS
+Create VIEW VW_NXB_List AS
 SELECT 
-	MaTheLoai,
-	TenTheLoai
-FROM dbo.TheLoai
+	MaNhaXuatBan,
+	TenNhaXuatBan
+FROM dbo.NhaXuatBan
 
 GO

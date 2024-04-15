@@ -77,6 +77,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnAccSearch = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -188,6 +189,7 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.btnAccSearch);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.txtBoxMaPhieuMuon);
             this.panel8.Controls.Add(this.btnTraSach);
@@ -607,6 +609,17 @@
             this.dataGridView2.Size = new System.Drawing.Size(1434, 858);
             this.dataGridView2.TabIndex = 3;
             // 
+            // btnAccSearch
+            // 
+            this.btnAccSearch.Location = new System.Drawing.Point(542, 162);
+            this.btnAccSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAccSearch.Name = "btnAccSearch";
+            this.btnAccSearch.Size = new System.Drawing.Size(192, 36);
+            this.btnAccSearch.TabIndex = 22;
+            this.btnAccSearch.Text = "Tìm Tài Khoản";
+            this.btnAccSearch.UseVisualStyleBackColor = true;
+            this.btnAccSearch.Click += new System.EventHandler(this.btnAccSearch_Click);
+            // 
             // fCoupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -683,5 +696,6 @@
         private System.Windows.Forms.Button btnTraSach;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBoxMaPhieuMuon;
+        private System.Windows.Forms.Button btnAccSearch;
     }
 }

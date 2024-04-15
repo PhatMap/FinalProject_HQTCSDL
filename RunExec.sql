@@ -85,7 +85,7 @@ Where CuonSach.MaSach = 1;
 DELETE from dbo.CuonSach WHERE MaPhieuMuon = 7;
 DELETE from dbo.PhieuMuonSach WHERE MaTaiKhoan = 1 AND MaSach = @MaSach;
 EXEC SP_Update_Coupon_Returned @MaPhieuMuon = 2
-SELECT * FROM VW_Genre_List
+SELECT * FROM VW_NXB_List
 EXEC SP_Add_New_Genre
 	@TenTheLoai = N'Kinh dị';
 UPDATE dbo.TheLoai
