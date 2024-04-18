@@ -49,11 +49,6 @@ namespace LibraryManagement.GUI
             LoadForm(new fStatistic());
         }
 
-        private void btnPhanQuyen_Click(object sender, EventArgs e)
-        {
-            LoadForm(new fAuthorize());
-        }
-
         private void btnPhieu_Click(object sender, EventArgs e)
         {
             LoadForm(new fCoupon());

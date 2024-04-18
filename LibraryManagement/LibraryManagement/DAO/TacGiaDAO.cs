@@ -56,5 +56,12 @@ namespace LibraryManagement.DAO
             string query = "SP_Delete_TacGia @MaTacGia ";
             DataProvider.Instance.ExecuteQuery(query, new object[] { maTacGia });
         }
+
+        public DataTable TotalAuthors()
+        {
+            string query = "SELECT * FROM FN_Total_Authors()";
+            DataTable total = DataProvider.Instance.ExecuteQuery(query);
+            return total;
+        }
     }
 }

@@ -62,5 +62,11 @@ namespace LibraryManagement.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { manhaxuatban, tennhaxuatban });
             return data;
         }
+        public DataTable TotalPublishers()
+        {
+            string query = "SELECT * FROM FN_Total_Publishers()";
+            DataTable total = DataProvider.Instance.ExecuteQuery(query);
+            return total;
+        }
     }
 }

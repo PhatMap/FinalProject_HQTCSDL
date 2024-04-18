@@ -63,5 +63,12 @@ namespace LibraryManagement.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { TenTheLoai });
             return data;
         }
+
+        public DataTable TotalCategories()
+        {
+            string query = "SELECT * FROM FN_Total_Categories()";
+            DataTable total = DataProvider.Instance.ExecuteQuery(query);
+            return total;
+        }
     }
 }
