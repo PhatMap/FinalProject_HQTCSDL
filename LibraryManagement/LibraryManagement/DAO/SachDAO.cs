@@ -28,6 +28,21 @@ namespace LibraryManagement.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             return data;
         }
+        public DataTable LoadBookListByBorrowedOrPenaltyID(int muon, int phat)
+        {
+            if (muon != 0)
+            {
+                string query = "SELECT * FROM dbo.FN_Reader_Borrowed_Detail( @MaPhieuMuon , @MaPhieuPhat )";
+                DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { muon, DBNull.Value });
+                return data;
+            }
+            else
+            {
+                string query = "SELECT * FROM dbo.FN_Reader_Borrowed_Detail( @MaPhieuMuon , @MaPhieuPhat )";
+                DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { DBNull.Value, phat });
+                return data;
+            }
+        }
         public DataTable LoadTacGia()
         {
             string query = "Select * from VW_TacGia_List";
@@ -61,22 +76,23 @@ namespace LibraryManagement.DAO
         public DataTable FindBookByAdvanced(Sach s)
         {
             object tacGia = s.TenTacGia;
-            object maTheLoai = s.TenTheLoai;
-            object maNhaXuatBan = s.TenNhaXuatBan;
+            object theLoai = s.TenTheLoai;
+            object nhaXuatBan = s.TenNhaXuatBan;
             object tenSach = s.TenSach;
             object loaiTaiLieu = s.LoaiTaiLieu;
             object namXuatBan = s.NamXuatBan;
-            if (s.TenTacGia == null)
+
+            if (s.TenTacGia == "")
             {
                 tacGia = DBNull.Value;
             }
-            if (s.TenTheLoai == null)
+            if (s.TenTheLoai == "")
             {
-                maTheLoai = DBNull.Value;
+                theLoai = DBNull.Value;
             }
-            if (s.TenNhaXuatBan == null)
+            if (s.TenNhaXuatBan == "")
             {
-                maNhaXuatBan = DBNull.Value;
+                nhaXuatBan = DBNull.Value;
             }
             if (s.TenSach == "")
             {
@@ -91,7 +107,7 @@ namespace LibraryManagement.DAO
                 namXuatBan = DBNull.Value;
             }
             string query = "SP_Find_Book_By_Advanced @TenTacGia , @TenTheLoai , @TenNhaXuatBan , @TenSach , @LoaiTaiLieu , @NamXuatBan ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tacGia, maTheLoai, maNhaXuatBan, tenSach, loaiTaiLieu, namXuatBan });
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tacGia, theLoai, nhaXuatBan, tenSach, loaiTaiLieu, namXuatBan });
             return data;
         }
         public void DeleteBook(int maSach)

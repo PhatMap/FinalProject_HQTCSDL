@@ -18,6 +18,8 @@ namespace LibraryManagement.GUI
         public fLogin()
         {
             InitializeComponent();
+
+            rbtnDocGia.Checked = true;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -27,7 +29,7 @@ namespace LibraryManagement.GUI
 
         private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("Bạn muốn thoát chương trình?","Thông báo",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Bạn muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             {
                 e.Cancel = true;
             }
@@ -41,11 +43,27 @@ namespace LibraryManagement.GUI
             if (Login(email = "admin@gmail.com", passWord = "aaaaaaaa"))
             {
                 TaiKhoan loginAccount = TaiKhoanDAO.Instance.GetAccountProfile(email);
+
                 Session.loginAccount = loginAccount;
-                fHome f = new fHome();
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
+
+                if (rbtnDocGia.Checked)
+                {
+                    fReader f = new fReader();
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else if (rbtnQuanLy.Checked && (Session.loginAccount.VaiTro == "Thủ Thư" || Session.loginAccount.VaiTro == "Quản trị viên"))
+                {
+                    fHome f = new fHome();
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Không có quyền hạn");
+                }
             }
             else
             {

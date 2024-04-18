@@ -82,9 +82,13 @@ FROM dbo.PhieuMuonSach PM
 Join dbo.CuonSach S ON PM.MaPhieuMuon = S.MaPhieuMuon
 
 GO
-/***	Get Genre list (Trung)		***/
+/***	Get publisher list (Trung)		***/
 Create VIEW VW_NXB_List AS
 SELECT 
 	MaNhaXuatBan,
 	TenNhaXuatBan
 FROM dbo.NhaXuatBan
+
+
+
+

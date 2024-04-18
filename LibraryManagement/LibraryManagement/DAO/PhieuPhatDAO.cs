@@ -28,6 +28,15 @@ namespace LibraryManagement.DAO
             return data;
         }
 
+        public DataTable LoadReaderPenalty(int maTaiKhoan, int type)
+        {
+            string query = "SELECT * FROM FN_Reader_Penalty_List( @MaTaiKhoan , @type )";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maTaiKhoan, type });
+
+            return data;
+        }
+
         public void AddPhieuPhat(PhieuPhat pp)
         {
             string query = "SP_Add_New_PhieuPhat @MaPhieuMuon , @TienPhat , @NgayTra ";

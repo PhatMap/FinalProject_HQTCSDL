@@ -339,7 +339,7 @@ BEGIN
 		(@TenTacGia IS NULL OR @TenTacGia = TenTacGia) AND
 		(@TenTheLoai IS NULL OR @TenTheLoai = TenTheLoai) AND
 		(@TenNhaXuatBan IS NULL OR @TenNhaXuatBan = TenNhaXuatBan) AND
-		(@TenSach IS NULL OR @TenSach = TenSach) AND
+		(@TenSach IS NULL OR TenSach LIKE '%' + @TenSach + '%') AND
 		(@LoaiTaiLieu IS NULL OR @LoaiTaiLieu = LoaiTaiLieu) AND
 		(@NamXuatBan IS NULL OR @NamXuatBan = NamXuatBan)
 END;

@@ -31,12 +31,15 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -48,29 +51,29 @@
             this.chartSach = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgvNXB = new System.Windows.Forms.DataGridView();
-            this.dgvTacGia = new System.Windows.Forms.DataGridView();
             this.dgvtheLoai = new System.Windows.Forms.DataGridView();
             this.Total_Categories = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTacGia = new System.Windows.Forms.DataGridView();
+            this.Total_Authors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvNXB = new System.Windows.Forms.DataGridView();
+            this.Total_Publishers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.chartMuonPhat = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.chartTaiKhoan = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Total_Authors = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total_Publishers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSach)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvtheLoai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTacGia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNXB)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNXB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTacGia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvtheLoai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMuonPhat)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTaiKhoan)).BeginInit();
             this.SuspendLayout();
@@ -127,97 +130,6 @@
             this.tabPage1.Text = "Sách";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.panel6);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(959, 550);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Phiếu";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.chartMuonPhat);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(953, 544);
-            this.panel6.TabIndex = 9;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.panel3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(959, 550);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Tài khoản";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgvNXB
-            // 
-            this.dgvNXB.AllowUserToAddRows = false;
-            this.dgvNXB.AllowUserToDeleteRows = false;
-            this.dgvNXB.AllowUserToResizeColumns = false;
-            this.dgvNXB.AllowUserToResizeRows = false;
-            this.dgvNXB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvNXB.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNXB.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvNXB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNXB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Total_Publishers});
-            this.dgvNXB.Location = new System.Drawing.Point(711, 392);
-            this.dgvNXB.Name = "dgvNXB";
-            this.dgvNXB.ReadOnly = true;
-            this.dgvNXB.RowHeadersVisible = false;
-            this.dgvNXB.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvNXB.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvNXB.RowTemplate.Height = 24;
-            this.dgvNXB.Size = new System.Drawing.Size(240, 150);
-            this.dgvNXB.TabIndex = 2;
-            // 
-            // dgvTacGia
-            // 
-            this.dgvTacGia.AllowUserToAddRows = false;
-            this.dgvTacGia.AllowUserToDeleteRows = false;
-            this.dgvTacGia.AllowUserToResizeColumns = false;
-            this.dgvTacGia.AllowUserToResizeRows = false;
-            this.dgvTacGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTacGia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTacGia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvTacGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTacGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Total_Authors});
-            this.dgvTacGia.Location = new System.Drawing.Point(711, 6);
-            this.dgvTacGia.Name = "dgvTacGia";
-            this.dgvTacGia.ReadOnly = true;
-            this.dgvTacGia.RowHeadersVisible = false;
-            this.dgvTacGia.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvTacGia.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvTacGia.RowTemplate.Height = 24;
-            this.dgvTacGia.Size = new System.Drawing.Size(240, 150);
-            this.dgvTacGia.TabIndex = 3;
-            // 
             // dgvtheLoai
             // 
             this.dgvtheLoai.AllowUserToAddRows = false;
@@ -237,13 +149,21 @@
             this.dgvtheLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvtheLoai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Total_Categories});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvtheLoai.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvtheLoai.Location = new System.Drawing.Point(711, 202);
             this.dgvtheLoai.Name = "dgvtheLoai";
             this.dgvtheLoai.ReadOnly = true;
             this.dgvtheLoai.RowHeadersVisible = false;
             this.dgvtheLoai.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvtheLoai.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvtheLoai.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvtheLoai.RowTemplate.Height = 24;
             this.dgvtheLoai.Size = new System.Drawing.Size(240, 150);
             this.dgvtheLoai.TabIndex = 4;
@@ -255,6 +175,118 @@
             this.Total_Categories.MinimumWidth = 6;
             this.Total_Categories.Name = "Total_Categories";
             this.Total_Categories.ReadOnly = true;
+            // 
+            // dgvTacGia
+            // 
+            this.dgvTacGia.AllowUserToAddRows = false;
+            this.dgvTacGia.AllowUserToDeleteRows = false;
+            this.dgvTacGia.AllowUserToResizeColumns = false;
+            this.dgvTacGia.AllowUserToResizeRows = false;
+            this.dgvTacGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTacGia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTacGia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvTacGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTacGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Total_Authors});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTacGia.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvTacGia.Location = new System.Drawing.Point(711, 6);
+            this.dgvTacGia.Name = "dgvTacGia";
+            this.dgvTacGia.ReadOnly = true;
+            this.dgvTacGia.RowHeadersVisible = false;
+            this.dgvTacGia.RowHeadersWidth = 51;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvTacGia.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvTacGia.RowTemplate.Height = 24;
+            this.dgvTacGia.Size = new System.Drawing.Size(240, 150);
+            this.dgvTacGia.TabIndex = 3;
+            // 
+            // Total_Authors
+            // 
+            this.Total_Authors.DataPropertyName = "Total_Authors";
+            this.Total_Authors.HeaderText = "Tổng tác giả";
+            this.Total_Authors.MinimumWidth = 6;
+            this.Total_Authors.Name = "Total_Authors";
+            this.Total_Authors.ReadOnly = true;
+            // 
+            // dgvNXB
+            // 
+            this.dgvNXB.AllowUserToAddRows = false;
+            this.dgvNXB.AllowUserToDeleteRows = false;
+            this.dgvNXB.AllowUserToResizeColumns = false;
+            this.dgvNXB.AllowUserToResizeRows = false;
+            this.dgvNXB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNXB.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNXB.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvNXB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNXB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Total_Publishers});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNXB.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvNXB.Location = new System.Drawing.Point(711, 392);
+            this.dgvNXB.Name = "dgvNXB";
+            this.dgvNXB.ReadOnly = true;
+            this.dgvNXB.RowHeadersVisible = false;
+            this.dgvNXB.RowHeadersWidth = 51;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvNXB.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvNXB.RowTemplate.Height = 24;
+            this.dgvNXB.Size = new System.Drawing.Size(240, 150);
+            this.dgvNXB.TabIndex = 2;
+            // 
+            // Total_Publishers
+            // 
+            this.Total_Publishers.DataPropertyName = "Total_Publishers";
+            this.Total_Publishers.HeaderText = "Tổng nhà xuất bản";
+            this.Total_Publishers.MinimumWidth = 6;
+            this.Total_Publishers.Name = "Total_Publishers";
+            this.Total_Publishers.ReadOnly = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel6);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(959, 550);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Phiếu";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.chartMuonPhat);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(953, 544);
+            this.panel6.TabIndex = 9;
             // 
             // chartMuonPhat
             // 
@@ -276,6 +308,17 @@
             this.chartMuonPhat.Size = new System.Drawing.Size(953, 544);
             this.chartMuonPhat.TabIndex = 1;
             this.chartMuonPhat.Text = "chart2";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.panel3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(959, 550);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Tài khoản";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -304,22 +347,6 @@
             this.chartTaiKhoan.TabIndex = 0;
             this.chartTaiKhoan.Text = "chart1";
             // 
-            // Total_Authors
-            // 
-            this.Total_Authors.DataPropertyName = "Total_Authors";
-            this.Total_Authors.HeaderText = "Tổng tác giả";
-            this.Total_Authors.MinimumWidth = 6;
-            this.Total_Authors.Name = "Total_Authors";
-            this.Total_Authors.ReadOnly = true;
-            // 
-            // Total_Publishers
-            // 
-            this.Total_Publishers.DataPropertyName = "Total_Publishers";
-            this.Total_Publishers.HeaderText = "Tổng nhà xuất bản";
-            this.Total_Publishers.MinimumWidth = 6;
-            this.Total_Publishers.Name = "Total_Publishers";
-            this.Total_Publishers.ReadOnly = true;
-            // 
             // fStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -333,13 +360,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartSach)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvtheLoai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTacGia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNXB)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNXB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTacGia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvtheLoai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMuonPhat)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartTaiKhoan)).EndInit();
             this.ResumeLayout(false);
