@@ -99,5 +99,29 @@ namespace LibraryManagement.DAO
             string query = "SP_Delete_Book @MaSach ";
             DataProvider.Instance.ExecuteQuery(query, new object[] { maSach });
         }
+        public int TotalAvailableBooks()
+        {
+            string query = "SELECT * FROM FN_Total_Available_Books()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
+        public int TotalBorrowedBooks()
+        {
+            string query = "SELECT * FROM FN_Total_Borrowed_Books()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
+        public int TotalDamagedOrLostBooks()
+        {
+            string query = "SELECT * FROM FN_Total_Damaged_Or_Lost_Books()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
+        public int TotalBooks()
+        {
+            string query = "SELECT * FROM FN_Total_Books()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
     }
 }

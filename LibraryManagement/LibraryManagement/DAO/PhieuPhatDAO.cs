@@ -73,5 +73,11 @@ namespace LibraryManagement.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maPhieuMuon, tienPhat, ngayTra });
             return data;
         }
+        public int TotalPenaltyCouponsByMonth(int month, int year)
+        {
+            string query = "SELECT * FROM dbo.FN_Total_Penalty_Coupons_By_Month( @month , @year )";
+            object total = DataProvider.Instance.ExecuteScalar(query, new object[] { month, year });
+            return (int)total;
+        }
     }
 }
