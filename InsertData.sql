@@ -32,33 +32,33 @@ VALUES (N'NXB Phụ Nữ'),
 INSERT INTO Sach (MaTacGia, MaTheLoai, MaNhaXuatBan, TenSach, LoaiTaiLieu, NamXuatBan, GiaSach, SoLuong)
 VALUES 
 		-- 1
-		(4, 4, 4, N'Tiểu thuyết Thần Tượng', N'Tiểu thuyết', 2010, 75000, 4),
-		(5, 5, 5, N'Đường Mây Trên Đất Hoa', N'Kinh điển', 1930, 48000, 5),
-		(6, 6, 6, N'The Alchemist', N'Văn học nước ngoài', 1988, 92000, 3),
+		(4, 4, 4, N'Tiểu thuyết Thần Tượng', N'Sách tham khảo', 2010, 75000, 4),
+		(5, 5, 5, N'Đường Mây Trên Đất Hoa', N'Sách tham khảo', 1930, 48000, 5),
+		(6, 6, 6, N'The Alchemist', N'Sách tham khảo', 1988, 92000, 3),
 		-- 2
-		(1, 1, 2, N'Vượt Sóng', N'Tiểu thuyết', 2012, 68000, 3),
-		(2, 2, 3, N'Đoản Khúc Thu Hà Nội', N'Kinh điển', 1940, 51000, 3),
-		(3, 3, 1, N'Angels & Demons', N'Văn học nước ngoài', 2000, 86000, 3),
+		(1, 1, 2, N'Vượt Sóng', N'Sách tham khảo', 2012, 68000, 3),
+		(2, 2, 3, N'Đoản Khúc Thu Hà Nội', N'Sách tham khảo', 1940, 51000, 3),
+		(3, 3, 1, N'Angels & Demons', N'Sách tham khảo', 2000, 86000, 3),
 		-- 3
-		(4, 4, 4, N'Điều Kỳ Diệu Của Thần Chết', N'Trinh thám', 2015, 72000, 4),
-		(5, 5, 5, N'Nhà Giả Kim', N'Kỹ năng sống', 1988, 89000, 4),
-		(6, 6, 6, N'1Q84', N'Văn học nước ngoài', 2009, 95000, 5),
+		(4, 4, 4, N'Điều Kỳ Diệu Của Thần Chết', N'Sách tham khảo', 2015, 72000, 4),
+		(5, 5, 5, N'Nhà Giả Kim', N'Sách tham khảo', 1988, 89000, 4),
+		(6, 6, 6, N'1Q84', N'Sách tham khảo', 2009, 95000, 5),
 		-- 4
-		(1, 1, 2, N'Bên Rặng Tuyết Sơn', N'Tiểu thuyết', 2010, 69000, 5),
-		(2, 2, 3, N'Bài Thơ Cuối Cùng', N'Kinh điển', 1950, 53000, 70),
-		(3, 3, 1, N'The Lost Symbol', N'Văn học nước ngoài', 2009, 87000, 5),
+		(1, 1, 2, N'Bên Rặng Tuyết Sơn', N'Sách tham khảo', 2010, 69000, 5),
+		(2, 2, 3, N'Bài Thơ Cuối Cùng', N'Sách tham khảo', 1950, 53000, 5),
+		(3, 3, 1, N'The Lost Symbol', N'Sách tham khảo', 2009, 87000, 5),
 		-- 5
-		(4, 4, 4, N'Tiếng Chim Hót Trong Bão Tuyết', N'Trinh thám', 2018, 71000, 5),
-		(5, 5, 5, N'Wuthering Heights', N'Văn học nước ngoài', 1847, 48000, 5),
-		(6, 6, 6, N'Norwegian Wood', N'Văn học nước ngoài', 1987, 91000, 5),
+		(4, 4, 4, N'Tiếng Chim Hót Trong Bão Tuyết', N'Giáo trình', 2018, 71000, 5),
+		(5, 5, 5, N'Wuthering Heights', N'Giáo trình', 1847, 48000, 5),
+		(6, 6, 6, N'Norwegian Wood', N'Giáo trình', 1987, 91000, 5),
 		-- 6
-		(1, 1, 2, N'Lời Nói Đầu Xuân', N'Tiểu thuyết', 2013, 70000, 5),
-		(2, 2, 3, N'Nhớ Một Người', N'Kinh điển', 1965, 54000, 5),
-		(3, 3, 1, N'Inferno', N'Văn học nước ngoài', 2013, 88000, 5),
+		(1, 1, 2, N'Lời Nói Đầu Xuân', N'Giáo trình', 2013, 70000, 5),
+		(2, 2, 3, N'Nhớ Một Người', N'Giáo trình', 1965, 54000, 5),
+		(3, 3, 1, N'Inferno', N'Giáo trình', 2013, 88000, 5),
 		-- 7
-		(4, 4, 4, N'Sóng', N'Trinh thám', 2014, 74000, 5),
-		(5, 5, 5, N'Anna Karenina', N'Văn học nước ngoài', 1877, 49000, 5),
-		(6, 6, 6, N'Kafka on the Shore', N'Văn học nước ngoài', 2002, 94000, 5);
+		(4, 4, 4, N'Sóng', N'Giáo trình', 2014, 74000, 5),
+		(5, 5, 5, N'Anna Karenina', N'Giáo trình', 1877, 49000, 5),
+		(6, 6, 6, N'Kafka on the Shore', N'Giáo trình', 2002, 94000, 5);
 
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
@@ -87,12 +87,12 @@ VALUES  (1, 20110536, @today, NULL),
 SET IDENTITY_INSERT PhieuMuonSach OFF;
 
 INSERT INTO PhieuPhat (MaPhieuMuon, TienPhat, NgayTra)
-VALUES  (2, 5000, DATEADD(DAY, 7, @today)),
+VALUES  (2, 5000, DATEADD(DAY, 7, NULL)),
 		(1, 3000, DATEADD(DAY, 7, @today)),
 		(3, 7000, DATEADD(DAY, 10, @today)),
-		(4, 4500, DATEADD(DAY, 5, @today)),
+		(4, 4500, DATEADD(DAY, 5, NULL)),
 		(5, 6000, DATEADD(DAY, 8, @today)),
-		(6, 3500, DATEADD(DAY, 6, @today));
+		(6, 3500, DATEADD(DAY, 6, NULL));
 
 INSERT INTO LichLamViec (NgayLam, Ca, MaTaiKhoan)
 VALUES (DATEADD(DAY, 3, @today), N'Sáng', 20110536),

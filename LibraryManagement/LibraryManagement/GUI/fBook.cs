@@ -25,8 +25,8 @@ namespace LibraryManagement.GUI
 
             dgvSach.DataSource = sachList;
             dgvTacGia.DataSource = tacGiaList;
-
             dgvTheLoai.DataSource = TheLoaiList;
+            dgvNhaXuatBan.DataSource = nhaxuatbanlist;
 
             cbTacGia.DataSource = SachDAO.Instance.LoadTacGia();
             cbTacGia.DisplayMember = "TenTacGia";
@@ -50,13 +50,9 @@ namespace LibraryManagement.GUI
             AddTacGiaBinding();
 
             AddTheLoaiBinding();
-
             LoadTheLoaiList();
 
-            dgvNhaXuatBan.DataSource = nhaxuatbanlist;
-
             DetachNXBBinding();
-
             LoadNXBList();
         }
         public void LoadTacGiaList()

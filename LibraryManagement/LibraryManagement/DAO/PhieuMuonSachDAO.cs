@@ -29,6 +29,14 @@ namespace LibraryManagement.DAO
 
             return data;
         }
+        public DataTable LoadReaderBorrowed(int maTaiKhoan, int type)
+        {
+            string query = "SELECT * FROM FN_Reader_Borrowed_List( @MaTaiKhoan , @type )";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maTaiKhoan, type });
+
+            return data;
+        }
         public DataTable LoadBook_Status(string status)
         {
             string query = "SP_Find_BookLoanCoupon_By_Status @Status ";

@@ -185,3 +185,77 @@ RETURN (
 	FROM dbo.TaiKhoan
 	WHERE VaiTro = N'Quản trị viên'
 );
+
+GO
+/***	Get reader borrowed coupon list detail (Phat)		***/
+CREATE FUNCTION FN_Reader_Borrowed_Detail
+(
+    @MaPhieuMuon int = NULL,
+    @MaPhieuPhat int = NULL
+)
+RETURNS TABLE
+AS
+RETURN (
+    SELECT 
+		TenSach AS N'Tên sách',
+		TenTacGia AS N'Tác giả',
+		TenTheLoai AS N'Thể loại',
+		TenNhaXuatBan AS N'Nhà xuất bản',
+		LoaiTaiLieu AS N'Loại tài liệu',
+		NamXuatBan AS N'Năm xuất bản',
+		CS.TinhTrang AS N'Tình trạng'
+    FROM dbo.CuonSach CS
+    JOIN dbo.VW_Book_List S ON S.MaSach = CS.MaSach
+    WHERE 
+        (@MaPhieuMuon IS NOT NULL AND CS.MaPhieuMuon = @MaPhieuMuon) OR 
+        (@MaPhieuPhat IS NOT NULL AND CS.MaPhieuMuon = 
+		(SELECT MaPhieuMuon FROM dbo.PhieuPhat WHERE MaPhieuPhat = @MaPhieuPhat))
+);
+
+GO
+/*** Get reader penalty coupon list ***/
+CREATE FUNCTION FN_Reader_Penalty_List
+(
+    @MaTaiKhoan int,
+    @Type int -- 0: All, 1: Not Paid, 2: Paid
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT 
+        PP.MaPhieuPhat AS N'Mã phiếu phạt',
+        PP.TienPhat AS N'Tiền phạt',
+        PP.NgayTra AS N'Ngày đóng phạt'
+    FROM dbo.PhieuPhat PP
+    JOIN dbo.PhieuMuonSach PMS ON PP.MaPhieuMuon = PMS.MaPhieuMuon
+    WHERE 
+        PMS.MaTaiKhoan = @MaTaiKhoan AND
+        ((@Type = 0) OR
+         (@Type = 1 AND PP.NgayTra IS NULL) OR
+         (@Type = 2 AND PP.NgayTra IS NOT NULL))
+);
+
+GO
+/*** Get reader borrowed coupon list ***/
+CREATE FUNCTION FN_Reader_Borrowed_List
+(
+    @MaTaiKhoan int,
+    @Type int -- 0: All, 1: Not Returned, 2: Returned
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT 
+        MaPhieuMuon AS N'Mã phiếu mượn',
+        NgayMuon AS N'Ngày mượn',
+        NgayTra AS N'Ngày trả sách'
+    FROM dbo.PhieuMuonSach
+    WHERE 
+        MaTaiKhoan = @MaTaiKhoan AND
+        ((@Type = 0) OR
+         (@Type = 1 AND NgayTra IS NULL) OR
+         (@Type = 2 AND NgayTra IS NOT NULL))
+);
+GO

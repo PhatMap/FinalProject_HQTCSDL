@@ -32,5 +32,15 @@ EXEC SP_Drop_All_VW
 
 
 
-SELECT * FROM FN_Total_Loan_Coupons_By_Month(4, 2024)
+SELECT * FROM dbo.CuonSach
+SELECT * FROM dbo.VW_Reader_Not_Returned_Borrowed
 
+SELECT * FROM dbo.FN_Reader_All_Penalty(20110536)
+
+EXEC SP_Find_Book_By_Advanced
+	@TenTacGia  = NULL,
+	@TenTheLoai= NULL,
+    @TenNhaXuatBan  = NULL,
+    @TenSach  = NULL,
+	@LoaiTaiLieu  = NULL,
+	@NamXuatBan  = NULL
