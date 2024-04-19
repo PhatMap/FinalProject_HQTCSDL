@@ -6,9 +6,9 @@ FROM dbo.TaiKhoan
 
 GO
 /***	Get shift list (Phat)		***/
-CREATE VIEW VW_Schedule_List AS
+CREATE VIEW VW_Shift_List AS
 SELECT 
-	MaLichLamViec, NgayLam, Ca, Tk.MaTaiKhoan, TK.HoTen, TK.SoDienThoai, TK.GioiTinh
+	MaLichLamViec, NgayLam, Ca, TK.HoTen, TK.SoDienThoai, TK.GioiTinh
 FROM dbo.LichLamViec LLV
 JOIN dbo.TaiKhoan TK ON TK.MaTaiKhoan = LLV.MaTaiKhoan
 
@@ -20,7 +20,6 @@ SELECT
 	HoTen 
 FROM dbo.TaiKhoan
 WHERE VaiTro = N'Thủ thư'
-
 
 GO
 /***	Get Sách list (Văn)		***/
@@ -44,17 +43,6 @@ INNER JOIN
 INNER JOIN 
     NhaXuatBan NXB ON S.MaNhaXuatBan = NXB.MaNhaXuatBan;
 
-GO
-/***	Get Nhà Xuất Bản list (Văn)		***/
-CREATE VIEW VW_NhaXuatBan_List AS
-SELECT *
-FROM dbo.NhaXuatBan
-
-GO
-/***	Get Thể Loại list (Văn)		***/
-CREATE VIEW VW_TheLoai_List AS
-SELECT *
-FROM dbo.TheLoai
 
 GO
 /***	Get Tác Giả list (Văn)		***/
@@ -63,32 +51,17 @@ SELECT *
 FROM dbo.TacGia
 
 GO
-/***	Get PhieuPhat list (Hoan)		***/
-CREATE VIEW VW_PhieuPhat_List AS
+/***	Get Nhà Xuất Bản list (Văn)		***/
+CREATE VIEW VW_NhaXuatBan_List AS
 SELECT *
-FROM dbo.PhieuPhat
-
-GO
-/***	Get Book Loan Coupon list (Trung)		***/
-Create VIEW VW_BookLoanCoupon_List AS
-SELECT 
-	PM.MaPhieuMuon,
-	S.MaSach,
-	MaTaiKhoan,
-	S.TinhTrang,
-	NgayMuon,
-	NgayTra
-FROM dbo.PhieuMuonSach PM
-Join dbo.CuonSach S ON PM.MaPhieuMuon = S.MaPhieuMuon
-
-GO
-/***	Get publisher list (Trung)		***/
-Create VIEW VW_NXB_List AS
-SELECT 
-	MaNhaXuatBan,
-	TenNhaXuatBan
 FROM dbo.NhaXuatBan
 
+/***	Get Thể Loại list (Văn)		***/
+CREATE VIEW VW_TheLoai_List AS
+SELECT *
+FROM dbo.TheLoai
 
-
-
+/***	Get Tác Giả list (Văn)		***/
+CREATE VIEW VW_TacGia_List AS
+SELECT *
+FROM dbo.TacGia

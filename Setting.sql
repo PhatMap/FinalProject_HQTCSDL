@@ -84,7 +84,7 @@ CREATE PROCEDURE SP_Create_All_Tables
 AS
 BEGIN
 	---*** Do not drop ***
-		CREATE TABLE TaiKhoan (
+	CREATE TABLE TaiKhoan (
 		MaTaiKhoan INT PRIMARY KEY,
 		Email NVARCHAR(255) UNIQUE NOT NULL,
 		MatKhau NVARCHAR(255) CHECK (LEN(MatKhau) >= 8),
@@ -121,9 +121,9 @@ BEGIN
 		NamXuatBan INT CHECK (NamXuatBan >= 0 AND NamXuatBan <= YEAR(GETDATE())),
 		GiaSach DECIMAL(18,0) CHECK (GiaSach >= 0),
 		SoLuong INT CHECK (SoLuong >= 0),
-		FOREIGN KEY (MaTacGia) REFERENCES TacGia(MaTacGia) ON DELETE SET NULL,
-		FOREIGN KEY (MaTheLoai) REFERENCES TheLoai(MaTheLoai) ON DELETE SET NULL,
-		FOREIGN KEY (MaNhaXuatBan) REFERENCES NhaXuatBan(MaNhaXuatBan) ON DELETE SET NULL
+		FOREIGN KEY (MaTacGia) REFERENCES TacGia(MaTacGia),
+		FOREIGN KEY (MaTheLoai) REFERENCES TheLoai(MaTheLoai),
+		FOREIGN KEY (MaNhaXuatBan) REFERENCES NhaXuatBan(MaNhaXuatBan)
 	);
 
 	CREATE TABLE PhieuMuonSach (
@@ -132,7 +132,7 @@ BEGIN
 		NgayMuon DATE DEFAULT GETDATE(),
 		CHECK (CONVERT(DATE, NgayMuon) = CONVERT(DATE, GETDATE())),
 		NgayTra DATE NULL,
-		FOREIGN KEY (MaTaiKhoan) REFERENCES TaiKhoan(MaTaiKhoan) ON DELETE CASCADE
+		FOREIGN KEY (MaTaiKhoan) REFERENCES TaiKhoan(MaTaiKhoan)
 	);
 
 	CREATE TABLE PhieuPhat (
@@ -140,7 +140,7 @@ BEGIN
 		MaPhieuMuon INT,
 		TienPhat DECIMAL(18,0) CHECK (TienPhat >= 0),
 		NgayTra DATE NULL, 
-		FOREIGN KEY (MaPhieuMuon) REFERENCES PhieuMuonSach(MaPhieuMuon) ON DELETE CASCADE
+		FOREIGN KEY (MaPhieuMuon) REFERENCES PhieuMuonSach(MaPhieuMuon),
 	);
 
 	CREATE TABLE LichLamViec (
@@ -148,7 +148,7 @@ BEGIN
 		NgayLam DATE CHECK (NgayLam >= CAST(GETDATE() AS DATE)),
 		Ca NVARCHAR(255) NOT NULL,
 		MaTaiKhoan INT,
-		FOREIGN KEY (MaTaiKhoan) REFERENCES TaiKhoan(MaTaiKhoan) ON DELETE CASCADE
+		FOREIGN KEY (MaTaiKhoan) REFERENCES TaiKhoan(MaTaiKhoan)
 	);
 
 	CREATE TABLE CuonSach (
@@ -156,8 +156,8 @@ BEGIN
 		MaPhieuMuon INT,
 		TinhTrang NVARCHAR(255) NOT NULL,
 		PRIMARY KEY (MaSach, MaPhieuMuon),
-		FOREIGN KEY (MaSach) REFERENCES Sach(MaSach) ON DELETE CASCADE,
-		FOREIGN KEY (MaPhieuMuon) REFERENCES PhieuMuonSach(MaPhieuMuon) ON DELETE CASCADE
+		FOREIGN KEY (MaSach) REFERENCES Sach(MaSach),
+		FOREIGN KEY (MaPhieuMuon) REFERENCES PhieuMuonSach(MaPhieuMuon)
 	);
 END;
 
@@ -170,92 +170,44 @@ BEGIN
 	DECLARE @today DATE
 	SET @today = GETDATE()
 
-	-- Thêm tác giả
 	INSERT INTO TacGia (TenTacGia)
-	VALUES (N'Kim Dung'),
-		   (N'Tran Van Tuan'),
-		   (N'Haruki Murakami'),
-		   (N'J.K. Rowling'),
-		   (N'Dan Brown'),
-		   (N'Paulo Coelho');
+	VALUES (N'Nguyễn Nhật Ánh'),
+		   (N'Nguyễn Du'),
+		   (N'Trích Đoàn');
 
-	-- Thêm thể loại
 	INSERT INTO TheLoai (TenTheLoai)
-	VALUES (N'Trinh thám'),
-		   (N'Kỹ năng sống'),
-		   (N'Chính trị'),
-		   (N'Văn học nước ngoài'),
-		   (N'Kinh doanh'),
-		   (N'Thơ ca');
+	VALUES (N'Tiểu thuyết'),
+		   (N'Kinh điển'),
+		   (N'Phiêu lưu'),
+		   (N'Khoa học viễn tưởng');
 
-	-- Thêm nhà xuất bản
 	INSERT INTO NhaXuatBan (TenNhaXuatBan)
-	VALUES (N'NXB Phụ Nữ'),
-		   (N'NXB Giáo Dục'),
-		   (N'NXB Thế Giới'),
-		   (N'NXB Hội Nhà Văn'),
-		   (N'NXB Tổng Hợp'),
-		   (N'NXB Đại Học Quốc Gia');
+	VALUES (N'Nhà Xuất Bản Trẻ'),
+		   (N'NXB Kim Đồng'),
+		   (N'NXB Văn Học'),
+		   (N'NXB Lao Động Xã Hội');
 
-	-- Thêm sách
 	INSERT INTO Sach (MaTacGia, MaTheLoai, MaNhaXuatBan, TenSach, LoaiTaiLieu, NamXuatBan, GiaSach, SoLuong)
-	VALUES 
-			-- 1
-			(4, 4, 4, N'Tiểu thuyết Thần Tượng', N'Tiểu thuyết', 2010, 75000, 4),
-			(5, 5, 5, N'Đường Mây Trên Đất Hoa', N'Kinh điển', 1930, 48000, 5),
-			(6, 6, 6, N'The Alchemist', N'Văn học nước ngoài', 1988, 92000, 3),
-			-- 2
-			(1, 1, 2, N'Vượt Sóng', N'Tiểu thuyết', 2012, 68000, 3),
-			(2, 2, 3, N'Đoản Khúc Thu Hà Nội', N'Kinh điển', 1940, 51000, 3),
-			(3, 3, 1, N'Angels & Demons', N'Văn học nước ngoài', 2000, 86000, 3),
-			-- 3
-			(4, 4, 4, N'Điều Kỳ Diệu Của Thần Chết', N'Trinh thám', 2015, 72000, 4),
-			(5, 5, 5, N'Nhà Giả Kim', N'Kỹ năng sống', 1988, 89000, 4),
-			(6, 6, 6, N'1Q84', N'Văn học nước ngoài', 2009, 95000, 5),
-			-- 4
-			(1, 1, 2, N'Bên Rặng Tuyết Sơn', N'Tiểu thuyết', 2010, 69000, 5),
-			(2, 2, 3, N'Bài Thơ Cuối Cùng', N'Kinh điển', 1950, 53000, 70),
-			(3, 3, 1, N'The Lost Symbol', N'Văn học nước ngoài', 2009, 87000, 5),
-			-- 5
-			(4, 4, 4, N'Tiếng Chim Hót Trong Bão Tuyết', N'Trinh thám', 2018, 71000, 5),
-			(5, 5, 5, N'Wuthering Heights', N'Văn học nước ngoài', 1847, 48000, 5),
-			(6, 6, 6, N'Norwegian Wood', N'Văn học nước ngoài', 1987, 91000, 5),
-			-- 6
-			(1, 1, 2, N'Lời Nói Đầu Xuân', N'Tiểu thuyết', 2013, 70000, 5),
-			(2, 2, 3, N'Nhớ Một Người', N'Kinh điển', 1965, 54000, 5),
-			(3, 3, 1, N'Inferno', N'Văn học nước ngoài', 2013, 88000, 5),
-			-- 7
-			(4, 4, 4, N'Sóng', N'Trinh thám', 2014, 74000, 5),
-			(5, 5, 5, N'Anna Karenina', N'Văn học nước ngoài', 1877, 49000, 5),
-			(6, 6, 6, N'Kafka on the Shore', N'Văn học nước ngoài', 2002, 94000, 5);
-
+	VALUES (1, 1, 1, N'Tôi thấy hoa vàng trên cỏ xanh', N'Sách tham khảo', 2005, 65000, 100),
+		   (2, 2, 2, N'Thần đồng đất Việt', N'Giáo trình', 1960, 55000, 80),
+		   (3, 3, 3, N'Harry Potter và Hòn Đá Phù Thủy', N'Sách tham khảo', 1997, 89000, 120);
 
 	INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
 	VALUES (20110536,'admin@gmail.com', 'aaaaaaaa', N'Quản trị viên', N'Trần Trung Phát', '0123456789', '2000-01-01', N'Hà Nội', N'Nam'),
 		   (1,'example2@gmail.com', 'password2', N'Thủ thư', N'Trần Thị B', '0987654321', '1995-05-10', N'Hồ Chí Minh', N'Nữ'),
-		   (2,'example3@gmail.com', 'password3', N'Người dùng', N'Phạm Văn C', '0369852147', '1988-11-20', N'Đà Nẵng', N'Nam');
+		   (2,'example3@gmail.com', 'password3', N'Độc giả', N'Phạm Văn C', '0369852147', '1988-11-20', N'Đà Nẵng', N'Nam');
 
 	SET IDENTITY_INSERT PhieuMuonSach ON;
 
 	INSERT INTO PhieuMuonSach (MaPhieuMuon, MaTaiKhoan, NgayMuon, NgayTra)
-	VALUES  (1, 20110536, @today, NULL),
-			(2, 20110536, @today, DATEADD(DAY, 7, @today)),
-			(3, 20110536, @today, NULL),
-			(4, 20110536, @today, NULL),
-			(5, 20110536, @today, DATEADD(DAY, 7, @today)),
-			(6, 20110536, @today, NULL),
-			(7, 20110536, @today, DATEADD(DAY, 8, @today)),
-			(8, 20110536, @today, NULL);
+	VALUES (1, 20110536, @today, NULL),
+		   (2, 20110536, @today, DATEADD(DAY, 7, @today)),
+		   (3, 20110536, @today, NULL);
 
 	SET IDENTITY_INSERT PhieuMuonSach OFF;
 
 	INSERT INTO PhieuPhat (MaPhieuMuon, TienPhat, NgayTra)
-	VALUES  (2, 5000, DATEADD(DAY, 7, @today)),
-			(1, 3000, DATEADD(DAY, 7, @today)),
-			(3, 7000, DATEADD(DAY, 10, @today)),
-			(4, 4500, DATEADD(DAY, 5, @today)),
-			(5, 6000, DATEADD(DAY, 8, @today)),
-			(6, 3500, DATEADD(DAY, 6, @today));
+	VALUES (2, 5000, DATEADD(DAY, 7, @today));
 
 	INSERT INTO LichLamViec (NgayLam, Ca, MaTaiKhoan)
 	VALUES (DATEADD(DAY, 3, @today), N'Sáng', 20110536),
@@ -264,15 +216,9 @@ BEGIN
 		   (DATEADD(DAY, 6, @today), N'Chiều', 20110536);
 
 	INSERT INTO CuonSach (MaSach, MaPhieuMuon, TinhTrang)
-	VALUES	(1, 1, N'Đang mượn'),
-			(5, 1, N'Đang mượn'),
-			(6, 1, N'Đang mượn'),
-			(2, 2, N'Đã trả'),
-			(3, 3, N'Đang mượn'),
-			(7, 3, N'Đang mượn'),
-			(8, 3, N'Đang mượn'),
-			(6, 2, N'Hư'),
-			(5, 2, N'Mất');
+	VALUES (1, 1, N'Đang mượn'),
+		   (2, 2, N'Đang mượn'),
+		   (3, 3, N'Đang mượn');
 END;
 
 GO
