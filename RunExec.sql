@@ -32,61 +32,15 @@ EXEC SP_Drop_All_VW
 
 
 
+SELECT * FROM dbo.CuonSach
+SELECT * FROM dbo.VW_Reader_Not_Returned_Borrowed
 
-select * from VW_Shift_List
-SELECT * FROM FN_Get_Account_Profile('user1n@gmail.com')
+SELECT * FROM dbo.FN_Reader_All_Penalty(20110536)
 
-EXEC SP_Find_Account_By_Email @Email = 'admin@gmail.com'
-
-EXEC SP_Find_Account_By_Name @HoTen = N'Phạm Văn C'
-EXEC SP_Change_Account_Password     
-	@Email = 'admin@gmail.com',
-    @MatKhauMoi = 'zzzzzzzz',
-	@XacNhan = 'zzzzzzzz',
-	@MatKhauCu = 'aaaaaaaa';
-
-EXEC SP_Add_New_Account
-	@MaTaiKhoan = 20110535,
-    @HoTen = N'Trần Trung A',
-	@MatKhau = 'aaaaaaaa',
-    @DiaChi = N'Hồ Chí Minh',
-    @NgaySinh = '2001-12-29',
-	@Email = 'user1n@gmail.com',
-	@SoDienThoai = '1234567890',
-	@VaiTro = N'Độc giả',
-    @GioiTinh = 'Nam';
-
-DROP
-select * from VW_Librarian_List
-EXEC SP_Delete_Account @MaTaiKhoan = 20110535
-EXEC SP_Find_Account_By_Advanced 
-    @MaTaiKhoan = NULL,
-    @HoTen = NULL,
-    @DiaChi = NULL,
-    @Email = NULL,
-    @SoDienThoai = NULL,
-    @VaiTro = N'Thủ thư',
-    @GioiTinh = NULL;
-
-Select * from FN_Get_Account_Profile ('admin@gmail.com')
-SELECT * FROM VW_BookLoanCoupon_List
-EXEC SP_Find_BookLoanCoupon_By_Status @Status = "Đang mượn"
-EXEC SP_Add_New_BookLoanCoupon
-	@MaTaiKhoan = 1,
-	@MaSach = 1,
-	@NgayMuon = '2024-04-14',
-	@NgayTra = NULL;
-INSERT INTO PhieuMuonSach (MaTaiKhoan,MaSach, NgayMuon, NgayTra)
-				VALUES (1,1, '2024-04-14', NULL);
-Update CuonSach
-Set CuonSach.MaPhieuMuon = 4
-From PhieuMuonSach
-Where CuonSach.MaSach = 1;
-DELETE from dbo.CuonSach WHERE MaPhieuMuon = 7;
-DELETE from dbo.PhieuMuonSach WHERE MaTaiKhoan = 1 AND MaSach = @MaSach;
-EXEC SP_Update_Coupon_Returned @MaPhieuMuon = 2
-SELECT * FROM VW_NXB_List
-EXEC SP_Add_New_Genre
-	@TenTheLoai = N'Kinh dị';
-UPDATE dbo.TheLoai
-Set	TenTheLoai = @TenTheLoai
+EXEC SP_Find_Book_By_Advanced
+	@TenTacGia  = NULL,
+	@TenTheLoai= NULL,
+    @TenNhaXuatBan  = NULL,
+    @TenSach  = NULL,
+	@LoaiTaiLieu  = NULL,
+	@NamXuatBan  = NULL

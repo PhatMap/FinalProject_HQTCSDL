@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rbtnQuanLy = new System.Windows.Forms.RadioButton();
+            this.rbtnDocGia = new System.Windows.Forms.RadioButton();
             this.lbSignup = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.inpEmail = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -47,6 +47,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rbtnQuanLy);
+            this.panel1.Controls.Add(this.rbtnDocGia);
             this.panel1.Controls.Add(this.lbSignup);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.btnExit);
@@ -54,15 +56,37 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(461, 212);
+            this.panel1.Size = new System.Drawing.Size(502, 245);
             this.panel1.TabIndex = 0;
+            // 
+            // rbtnQuanLy
+            // 
+            this.rbtnQuanLy.AutoSize = true;
+            this.rbtnQuanLy.Location = new System.Drawing.Point(286, 175);
+            this.rbtnQuanLy.Name = "rbtnQuanLy";
+            this.rbtnQuanLy.Size = new System.Drawing.Size(73, 20);
+            this.rbtnQuanLy.TabIndex = 6;
+            this.rbtnQuanLy.TabStop = true;
+            this.rbtnQuanLy.Text = "Quản lý";
+            this.rbtnQuanLy.UseVisualStyleBackColor = true;
+            // 
+            // rbtnDocGia
+            // 
+            this.rbtnDocGia.AutoSize = true;
+            this.rbtnDocGia.Location = new System.Drawing.Point(151, 175);
+            this.rbtnDocGia.Name = "rbtnDocGia";
+            this.rbtnDocGia.Size = new System.Drawing.Size(74, 20);
+            this.rbtnDocGia.TabIndex = 5;
+            this.rbtnDocGia.TabStop = true;
+            this.rbtnDocGia.Text = "Độc giả";
+            this.rbtnDocGia.UseVisualStyleBackColor = true;
             // 
             // lbSignup
             // 
             this.lbSignup.AutoSize = true;
             this.lbSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSignup.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lbSignup.Location = new System.Drawing.Point(199, 179);
+            this.lbSignup.Location = new System.Drawing.Point(214, 220);
             this.lbSignup.Name = "lbSignup";
             this.lbSignup.Size = new System.Drawing.Size(76, 20);
             this.lbSignup.TabIndex = 4;
@@ -71,8 +95,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnLogin.Location = new System.Drawing.Point(0, 169);
+            this.btnLogin.Location = new System.Drawing.Point(0, 202);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(109, 43);
             this.btnLogin.TabIndex = 2;
@@ -83,8 +106,7 @@
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnExit.Location = new System.Drawing.Point(352, 169);
+            this.btnExit.Location = new System.Drawing.Point(393, 202);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(109, 43);
             this.btnExit.TabIndex = 3;
@@ -99,7 +121,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 87);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(461, 82);
+            this.panel3.Size = new System.Drawing.Size(502, 82);
             this.panel3.TabIndex = 1;
             // 
             // label2
@@ -127,7 +149,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(461, 87);
+            this.panel2.Size = new System.Drawing.Size(502, 87);
             this.panel2.TabIndex = 0;
             // 
             // label1
@@ -147,19 +169,13 @@
             this.inpEmail.Size = new System.Drawing.Size(307, 22);
             this.inpEmail.TabIndex = 0;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // fLogin
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(485, 242);
+            this.ClientSize = new System.Drawing.Size(526, 261);
             this.Controls.Add(this.panel1);
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -185,8 +201,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox inpEmail;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lbSignup;
+        private System.Windows.Forms.RadioButton rbtnQuanLy;
+        private System.Windows.Forms.RadioButton rbtnDocGia;
     }
 }

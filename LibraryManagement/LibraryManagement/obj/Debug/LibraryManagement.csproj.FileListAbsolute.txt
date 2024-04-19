@@ -26,26 +26,6 @@ D:\HQTCSDL\BtChuong\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj
 D:\HQTCSDL\BtChuong\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
 D:\HQTCSDL\BtChuong\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fCoupon.resources
 D:\HQTCSDL\BtChuong\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fStatistic.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe.config
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAccount.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fBook.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fCoupon.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fHome.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fLogin.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fReader.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fSignup.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fStatistic.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fPassword.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fProfileUpdate.resources
-D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAuthorize.resources
 D:\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe.config
 D:\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe
 D:\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
@@ -66,23 +46,42 @@ D:\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\Lib
 D:\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
 D:\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
 D:\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAccount.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAuthorize.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fBook.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fCoupon.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fHome.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fLogin.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fPassword.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fProfileUpdate.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fReader.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fSignup.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fStatistic.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe.config
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe
-C:\Users\PC ASUS\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe.config
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAccount.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAuthorize.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fBook.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fCoupon.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fHome.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fLogin.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fPassword.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fProfileUpdate.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fReader.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fSignup.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fStatistic.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
+C:\Users\Admin\OneDrive\Documents\GitHub\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe.config
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fAccount.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fBook.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fCoupon.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fHome.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fLogin.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fPassword.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fProfileUpdate.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fReader.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fSignup.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fStatistic.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb

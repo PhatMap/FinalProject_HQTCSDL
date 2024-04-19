@@ -35,9 +35,9 @@ CREATE TABLE Sach (
 	NamXuatBan INT CHECK (NamXuatBan >= 0 AND NamXuatBan <= YEAR(GETDATE())),
 	GiaSach DECIMAL(18,0) CHECK (GiaSach >= 0),
 	SoLuong INT CHECK (SoLuong >= 0),
-	FOREIGN KEY (MaTacGia) REFERENCES TacGia(MaTacGia),
-	FOREIGN KEY (MaTheLoai) REFERENCES TheLoai(MaTheLoai),
-	FOREIGN KEY (MaNhaXuatBan) REFERENCES NhaXuatBan(MaNhaXuatBan)
+	FOREIGN KEY (MaTacGia) REFERENCES TacGia(MaTacGia) ON DELETE SET NULL,
+	FOREIGN KEY (MaTheLoai) REFERENCES TheLoai(MaTheLoai) ON DELETE SET NULL,
+	FOREIGN KEY (MaNhaXuatBan) REFERENCES NhaXuatBan(MaNhaXuatBan) ON DELETE SET NULL
 );
 
 CREATE TABLE PhieuMuonSach (
@@ -46,7 +46,7 @@ CREATE TABLE PhieuMuonSach (
 	NgayMuon DATE DEFAULT GETDATE(),
 	CHECK (CONVERT(DATE, NgayMuon) = CONVERT(DATE, GETDATE())),
 	NgayTra DATE NULL,
-	FOREIGN KEY (MaTaiKhoan) REFERENCES TaiKhoan(MaTaiKhoan)
+	FOREIGN KEY (MaTaiKhoan) REFERENCES TaiKhoan(MaTaiKhoan) ON DELETE CASCADE
 );
 
 CREATE TABLE PhieuPhat (
@@ -54,7 +54,7 @@ CREATE TABLE PhieuPhat (
 	MaPhieuMuon INT,
 	TienPhat DECIMAL(18,0) CHECK (TienPhat >= 0),
 	NgayTra DATE NULL, 
-	FOREIGN KEY (MaPhieuMuon) REFERENCES PhieuMuonSach(MaPhieuMuon),
+	FOREIGN KEY (MaPhieuMuon) REFERENCES PhieuMuonSach(MaPhieuMuon) ON DELETE CASCADE
 );
 
 CREATE TABLE LichLamViec (
@@ -62,7 +62,7 @@ CREATE TABLE LichLamViec (
 	NgayLam DATE CHECK (NgayLam >= CAST(GETDATE() AS DATE)),
 	Ca NVARCHAR(255) NOT NULL,
 	MaTaiKhoan INT,
-	FOREIGN KEY (MaTaiKhoan) REFERENCES TaiKhoan(MaTaiKhoan)
+	FOREIGN KEY (MaTaiKhoan) REFERENCES TaiKhoan(MaTaiKhoan) ON DELETE CASCADE
 );
 
 CREATE TABLE CuonSach (
@@ -70,6 +70,6 @@ CREATE TABLE CuonSach (
 	MaPhieuMuon INT,
 	TinhTrang NVARCHAR(255) NOT NULL,
 	PRIMARY KEY (MaSach, MaPhieuMuon),
-	FOREIGN KEY (MaSach) REFERENCES Sach(MaSach),
-	FOREIGN KEY (MaPhieuMuon) REFERENCES PhieuMuonSach(MaPhieuMuon)
+	FOREIGN KEY (MaSach) REFERENCES Sach(MaSach) ON DELETE CASCADE,
+	FOREIGN KEY (MaPhieuMuon) REFERENCES PhieuMuonSach(MaPhieuMuon) ON DELETE CASCADE
 );

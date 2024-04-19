@@ -126,5 +126,47 @@ namespace LibraryManagement.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             return data;
         }
+        public int TotalAccounts()
+        {
+            string query = "SELECT * FROM FN_Total_Accounts()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
+        public int TotalHighQualityStudentAccounts()
+        {
+            string query = "SELECT * FROM FN_Total_High_Quality_Student_Accounts()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
+        public int TotalMassStudentAccounts()
+        {
+            string query = "SELECT * FROM FN_Total_Mass_Student_Accounts()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
+        public int TotalGraduateStudentAccounts()
+        {
+            string query = "SELECT * FROM FN_Total_Graduate_Student_Accounts()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
+        public int TotalLecturerAccounts()
+        {
+            string query = "SELECT * FROM FN_Total_Lecturer_Accounts()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
+        public int TotalLibrarianAccounts()
+        {
+            string query = "SELECT * FROM FN_Total_Librarian_Accounts()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
+        public int TotalAdministratorAccounts()
+        {
+            string query = "SELECT * FROM FN_Total_Administrator_Accounts()";
+            object total = DataProvider.Instance.ExecuteScalar(query);
+            return (int)total;
+        }
     }
 }
