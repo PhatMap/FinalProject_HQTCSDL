@@ -615,39 +615,61 @@ AS
 BEGIN
     -- Declare a table variable to hold the new ID
     DECLARE @NewIDTable TABLE (NewID INT);
+    DECLARE @VaiTro NVARCHAR(50), @LoaiTaiLieu NVARCHAR(50), @Count INT;
 
-    BEGIN TRANSACTION;
+    SELECT @VaiTro = VaiTro FROM TaiKhoan WHERE MaTaiKhoan = @MaTaiKhoan;
 
-    BEGIN TRY
-        -- Insert into the PhieuMuonSach table
-        INSERT INTO PhieuMuonSach (MaTaiKhoan, NgayMuon, NgayTra)
-        OUTPUT Inserted.MaPhieuMuon INTO @NewIDTable
-        VALUES (@MaTaiKhoan, @NgayMuon, @NgayTra);
+    IF @VaiTro IN (N'Sinh viên CLC', N'Sinh viên đại trà', N'Học viên cao học', N'Giảng viên')
+    BEGIN
+        SELECT @LoaiTaiLieu=LoaiTaiLieu FROM Sach 
+        WHERE MaSach = @MaSach;
 
-        -- Get the new ID
-        DECLARE @NewID INT = (SELECT NewID FROM @NewIDTable);
+        SELECT @Count = COUNT(*) FROM PhieuMuonSach 
+        INNER JOIN CuonSach ON PhieuMuonSach.MaPhieuMuon = CuonSach.MaPhieuMuon
+        INNER JOIN Sach ON CuonSach.MaSach = Sach.MaSach
+        WHERE PhieuMuonSach.MaTaiKhoan = @MaTaiKhoan AND Sach.LoaiTaiLieu = @LoaiTaiLieu;
 
-        -- Check if MaSach exists in CuonSach
-        IF NOT EXISTS (SELECT 1 FROM CuonSach WHERE MaSach = @MaSach)
+        IF ((@VaiTro = N'Sinh viên CLC' AND ((@LoaiTaiLieu = N'Sách tham khảo' AND @Count < 10) OR (@LoaiTaiLieu = N'Giáo trình' AND @Count < 20)))
+            OR (@VaiTro = N'Sinh viên đại trà' AND ((@LoaiTaiLieu = N'Sách tham khảo' AND @Count < 10) OR (@LoaiTaiLieu = N'Giáo trình' AND @Count < 15)))
+            OR (@VaiTro = N'Học viên cao học' AND ((@LoaiTaiLieu = N'Sách tham khảo' AND @Count < 5) OR (@LoaiTaiLieu = N'Giáo trình' AND @Count < 5)))
+            OR (@VaiTro = N'Giảng viên' AND ((@LoaiTaiLieu = N'Sách tham khảo' AND @Count < 10) OR (@LoaiTaiLieu = N'Giáo trình' AND @Count < 5))))
         BEGIN
-            -- Insert new record into CuonSach
-            INSERT INTO CuonSach (MaSach, MaPhieuMuon, TinhTrang)
-            VALUES (@MaSach, @NewID, N'Đang mượn');
+            BEGIN TRANSACTION;
+            BEGIN TRY
+                -- Check if MaSach exists in CuonSach
+                IF NOT EXISTS (SELECT 1 FROM CuonSach WHERE MaSach = @MaSach)
+                BEGIN
+                    -- Insert into the PhieuMuonSach table
+                    INSERT INTO PhieuMuonSach (MaTaiKhoan, NgayMuon, NgayTra)
+                    OUTPUT Inserted.MaPhieuMuon INTO @NewIDTable
+                    VALUES (@MaTaiKhoan, @NgayMuon, @NgayTra);
+
+                    -- Get the new ID
+                    DECLARE @NewID INT = (SELECT NewID FROM @NewIDTable);
+
+                    -- Insert new record into CuonSach
+                    INSERT INTO CuonSach (MaSach, MaPhieuMuon, TinhTrang)
+                    VALUES (@MaSach, @NewID, N'Đang mượn');
+                END
+
+                COMMIT;
+            END TRY
+            BEGIN CATCH
+                ROLLBACK;
+            END CATCH;
         END
         ELSE
         BEGIN
-            -- Update the CuonSach table
-            UPDATE CuonSach
-            SET MaPhieuMuon = @NewID
-            WHERE MaSach = @MaSach;
+            RAISERROR (N'Vượt quá số lượng sách được mượn.', 16, 1);
         END
-
-        COMMIT;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK;
-    END CATCH;
+    END
+    ELSE
+    BEGIN
+        RAISERROR (N'Không phải độc giả', 16, 1);
+    END
 END;
+
+
 
 GO
 /***	Delete coupon(Trung)		***/

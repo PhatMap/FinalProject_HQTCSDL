@@ -44,3 +44,9 @@ EXEC SP_Find_Book_By_Advanced
     @TenSach  = NULL,
 	@LoaiTaiLieu  = NULL,
 	@NamXuatBan  = NULL
+EXEC SP_Add_New_BookLoanCoupon
+	@MaTaiKhoan = 3,
+	@MaSach =10,
+	@NgayMuon ='2024-04-20',
+	@NgayTra = NULL
+
