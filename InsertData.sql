@@ -104,11 +104,11 @@ INSERT INTO CuonSach (MaSach, MaPhieuMuon, TinhTrang)
 VALUES	(1, 1, N'Đang mượn'),
 		(5, 1, N'Đang mượn'),
 		(6, 1, N'Đang mượn'),
-		(2, 2, N'Đã trả'),
+		(2, 2, N'Đang mượn'),
 		(3, 3, N'Đang mượn'),
 		(7, 3, N'Đang mượn'),
 		(8, 3, N'Đang mượn'),
-		(6, 2, N'Hư'),
-		(5, 2, N'Mất');
+		(6, 2, N'Đã hư'),
+		(5, 2, N'Đã mất');
 		
 		

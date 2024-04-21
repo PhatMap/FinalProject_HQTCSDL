@@ -32,15 +32,66 @@ EXEC SP_Drop_All_VW
 
 
 
-SELECT * FROM dbo.CuonSach
-SELECT * FROM dbo.VW_Reader_Not_Returned_Borrowed
 
-SELECT * FROM dbo.FN_Reader_All_Penalty(20110536)
 
-EXEC SP_Find_Book_By_Advanced
-	@TenTacGia  = NULL,
-	@TenTheLoai= NULL,
-    @TenNhaXuatBan  = NULL,
-    @TenSach  = NULL,
-	@LoaiTaiLieu  = NULL,
-	@NamXuatBan  = NULL
+
+
+
+
+
+
+
+PRINT dbo.FN_Total_Working_Hours(20110536, '2024-04-26')
+
+select * from dbo.TaiKhoan
+select * from dbo.PhieuMuonSach
+select * from dbo.Sach where MaSach = 5
+
+select * from dbo.PhieuPhat
+Update dbo.Sach 
+SET SoLuong = 5
+where MaSach = 6
+
+UPDATE dbo.CuonSach
+SET TinhTrang = N'Đã mất'
+WHERE MaPhieuMuon = 36 AND MaSach = 8
+
+
+UPDATE dbo.PhieuMuonSach
+SET NgayTra = '2024-04-25'
+WHERE MaPhieuMuon = 100
+
+DECLARE @a DECIMAL(18, 2)
+SET @a = dbo.FN_Calculate_Penalty_Value(100)
+PRINT @a
+
+DECLARE @today DATE
+SET @today = GETDATE()
+
+SET IDENTITY_INSERT PhieuMuonSach ON;
+INSERT INTO PhieuMuonSach (MaPhieuMuon, MaTaiKhoan, NgayMuon, NgayTra)
+VALUES  (100, 20110536, @today, NULL)
+SET IDENTITY_INSERT PhieuMuonSach OFF;
+
+select * from dbo.NhaXuatBan
+INSERT INTO dbo.NhaXuatBan(TenNhaXuatBan)
+VALUES	( N'Test')
+
+UPDATE dbo.NhaXuatBan
+SET TenNhaXuatBan = N'Test'
+WHERE MaNhaXuatBan = 1
+
+EXEC SP_Add_New_PhieuPhat
+@MaPhieuMuon = 100
+
+DELete from dbo.PhieuPhat where MaPhieuMuon = 100
+EXEC SP_Delete_Coupon @MaPhieuMuon = 100
+EXEC SP_Update_Coupon_Returned @MaPhieuMuon = 100
+
+SELECT * FROM PhieuMuonSach WHERE MaPhieuMuon = 100;
+SELECT * FROM CuonSach WHERE MaPhieuMuon = 100;
+
+DECLARE @a DECIMAL(18, 0);
+SET @a = dbo.FN_Calculate_Penalty_Value(100);
+PRINT @a;
+

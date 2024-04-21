@@ -8,7 +8,7 @@ RETURN (
 );
 
 GO
-/*** Hàm lấy số lượng sách đang mượn (Phat)***/
+/*** Hàm lấy số lượng sách Borrowing (Phat)***/
 CREATE FUNCTION FN_Total_Borrowed_Books()
 RETURNS TABLE
 AS
@@ -26,7 +26,7 @@ AS
 RETURN (
 	SELECT COUNT(*) AS Total_Damaged_Or_Lost 
 	FROM dbo.CuonSach
-	WHERE TinhTrang = N'Hư' OR TinhTrang = N'Mất'
+	WHERE TinhTrang = N'Đã hư' OR TinhTrang = N'Đã mất'
 );
 
 GO
@@ -188,7 +188,7 @@ RETURN (
 
 GO
 /***	Get reader borrowed coupon list detail (Phat)		***/
-CREATE FUNCTION FN_Reader_Borrowed_Detail
+CREATE OR ALTER FUNCTION FN_Reader_Borrowed_Detail
 (
     @MaPhieuMuon int = NULL,
     @MaPhieuPhat int = NULL
@@ -197,12 +197,14 @@ RETURNS TABLE
 AS
 RETURN (
     SELECT 
+		CS.MaSach AS N'ID',
 		TenSach AS N'Tên sách',
 		TenTacGia AS N'Tác giả',
 		TenTheLoai AS N'Thể loại',
 		TenNhaXuatBan AS N'Nhà xuất bản',
 		LoaiTaiLieu AS N'Loại tài liệu',
 		NamXuatBan AS N'Năm xuất bản',
+		S.GiaSach AS N'Giá',
 		CS.TinhTrang AS N'Tình trạng'
     FROM dbo.CuonSach CS
     JOIN dbo.VW_Book_List S ON S.MaSach = CS.MaSach
@@ -213,7 +215,7 @@ RETURN (
 );
 
 GO
-/*** Get reader penalty coupon list ***/
+/*** Get reader penalty coupon list (Phat)***/
 CREATE FUNCTION FN_Reader_Penalty_List
 (
     @MaTaiKhoan int,
@@ -237,7 +239,7 @@ RETURN
 );
 
 GO
-/*** Get reader borrowed coupon list ***/
+/*** Get reader borrowed coupon list (Phat)***/
 CREATE FUNCTION FN_Reader_Borrowed_List
 (
     @MaTaiKhoan int,
@@ -258,4 +260,74 @@ RETURN
          (@Type = 1 AND NgayTra IS NULL) OR
          (@Type = 2 AND NgayTra IS NOT NULL))
 );
+
 GO
+/*** Get Librarian Total Working hours in week (Phat)***/
+CREATE FUNCTION FN_Total_Working_Hours
+(
+	@MaTaiKhoan INT,
+    @NgayLam DATE
+)
+RETURNS INT
+AS
+BEGIN
+	DECLARE @WeekStart DATE;
+    DECLARE @WeekEnd DATE;
+    DECLARE @TotalShifts INT;
+
+    SET @WeekStart = DATEADD(DAY, 2 - DATEPART(WEEKDAY, @NgayLam), @NgayLam);
+    SET @WeekEnd = DATEADD(DAY, 8 - DATEPART(WEEKDAY, @NgayLam), @NgayLam);
+
+	SELECT @TotalShifts = COUNT(*)
+    FROM dbo.LichLamViec
+    WHERE NgayLam BETWEEN @WeekStart AND @WeekEnd
+      AND MaTaiKhoan = @MaTaiKhoan;
+
+	RETURN @TotalShifts*4
+END;
+
+GO
+/*** Calculate Penalty Value (Phat)***/
+CREATE OR ALTER FUNCTION FN_Calculate_Penalty_Value
+(
+	@MaPhieuMuon INT
+)
+RETURNS DECIMAL(18, 0)
+AS
+BEGIN
+    DECLARE @Penalty DECIMAL(18, 0) = 0;
+	DECLARE @LateBooks INT = 0;
+	DECLARE @TotalDays INT = 0;
+	DECLARE @TotalDamagedOrLost DECIMAL(18, 0) = 0;
+
+	SELECT @TotalDamagedOrLost = ISNULL(SUM(S.GiaSach), 0)
+	FROM dbo.PhieuMuonSach PMS
+	JOIN dbo.CuonSach CS ON CS.MaPhieuMuon = PMS.MaPhieuMuon
+	JOIN dbo.Sach S ON S.MaSach = CS.MaSach
+	WHERE CS.MaPhieuMuon = @MaPhieuMuon AND (CS.TinhTrang = N'Đã hư' OR CS.TinhTrang = N'Đã mất');
+
+	SET @TotalDamagedOrLost = @TotalDamagedOrLost * 2;
+
+	SELECT @LateBooks = COUNT(*)
+	FROM dbo.PhieuMuonSach PMS
+	JOIN dbo.CuonSach CS ON CS.MaPhieuMuon = PMS.MaPhieuMuon
+	WHERE CS.MaPhieuMuon = @MaPhieuMuon AND CS.TinhTrang = N'Trả trễ';
+
+	SELECT @TotalDays = DATEDIFF(DAY, PMS.NgayTra, GETDATE())
+	FROM dbo.PhieuMuonSach PMS
+	WHERE PMS.MaPhieuMuon = @MaPhieuMuon;
+
+	SET @Penalty = CAST(ISNULL(@TotalDays, 0) AS DECIMAL(18, 0)) * ISNULL(@LateBooks, 0) * 1000 + ISNULL(@TotalDamagedOrLost, 0);
+
+	RETURN @Penalty;
+END;
+
+	
+	
+	
+
+	
+
+		
+
+

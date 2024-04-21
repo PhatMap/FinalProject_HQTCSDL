@@ -17,6 +17,8 @@ namespace LibraryManagement.GUI
     {
         BindingSource accountList = new BindingSource();
         BindingSource ScheduleList = new BindingSource();
+        private DataGridViewCell previousCell;
+
         public fAccount()
         {
             InitializeComponent();
@@ -310,7 +312,7 @@ namespace LibraryManagement.GUI
             cbLibName.DataSource = TaiKhoanDAO.Instance.LoadLibrarian();
             cbLibName.DisplayMember = "HoTen";
             cbLibName.ValueMember = "MaTaiKhoan";
-            cbLibName.SelectedIndex = -1;
+            cbLibName.SelectedItem = null;
 
             changeWeek = false;
             PersonalSchedule();
@@ -374,8 +376,6 @@ namespace LibraryManagement.GUI
             }
 
         }
-
-        private DataGridViewCell previousCell;
 
         private void dgvSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {

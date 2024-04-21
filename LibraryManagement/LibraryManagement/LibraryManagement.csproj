@@ -69,6 +69,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CuonSachDAO.cs" />
     <Compile Include="DAO\NhaXuatBanDAO.cs" />
     <Compile Include="DAO\PhieuMuonSachDAO.cs" />
     <Compile Include="DAO\PhieuPhatDAO.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="DAO\TacGiaDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\TheLoaiDao.cs" />
+    <Compile Include="DTO\CuonSach.cs" />
     <Compile Include="DTO\LichLamViec.cs" />
     <Compile Include="DTO\NhaXuatBan.cs" />
     <Compile Include="DTO\PhieuMuonSach.cs" />
@@ -99,11 +101,23 @@
     <Compile Include="GUI\fBook.Designer.cs">
       <DependentUpon>fBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fChooseBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fChooseBooks.Designer.cs">
+      <DependentUpon>fChooseBooks.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fCoupon.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\fCoupon.Designer.cs">
       <DependentUpon>fCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fCouponDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fCouponDetail.Designer.cs">
+      <DependentUpon>fCouponDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fHome.cs">
       <SubType>Form</SubType>
@@ -123,6 +137,12 @@
     <Compile Include="GUI\fPassword.Designer.cs">
       <DependentUpon>fPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fPay.Designer.cs">
+      <DependentUpon>fPay.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fProfileUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +154,18 @@
     </Compile>
     <Compile Include="GUI\fReader.Designer.cs">
       <DependentUpon>fReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fReaderSearchUttil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fReaderSearchUttil.Designer.cs">
+      <DependentUpon>fReaderSearchUttil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fSearchAccountUtil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fSearchAccountUtil.Designer.cs">
+      <DependentUpon>fSearchAccountUtil.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fSignup.cs">
       <SubType>Form</SubType>
@@ -155,8 +187,14 @@
     <EmbeddedResource Include="GUI\fBook.resx">
       <DependentUpon>fBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fChooseBooks.resx">
+      <DependentUpon>fChooseBooks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fCoupon.resx">
       <DependentUpon>fCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fCouponDetail.resx">
+      <DependentUpon>fCouponDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fHome.resx">
       <DependentUpon>fHome.cs</DependentUpon>
@@ -167,11 +205,20 @@
     <EmbeddedResource Include="GUI\fPassword.resx">
       <DependentUpon>fPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fPay.resx">
+      <DependentUpon>fPay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fProfileUpdate.resx">
       <DependentUpon>fProfileUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fReader.resx">
       <DependentUpon>fReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fReaderSearchUttil.resx">
+      <DependentUpon>fReaderSearchUttil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fSearchAccountUtil.resx">
+      <DependentUpon>fSearchAccountUtil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fSignup.resx">
       <DependentUpon>fSignup.cs</DependentUpon>
@@ -216,6 +263,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hcmute.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
