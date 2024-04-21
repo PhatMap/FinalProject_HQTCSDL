@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -57,6 +57,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnGerneSearch = new System.Windows.Forms.Button();
+            this.btnAuthorSearch = new System.Windows.Forms.Button();
+            this.btnNXBSearch = new System.Windows.Forms.Button();
             this.btnResert = new System.Windows.Forms.Button();
             this.cbLoaiTaiLieu = new System.Windows.Forms.ComboBox();
             this.nudNamXuatBan = new System.Windows.Forms.NumericUpDown();
@@ -84,6 +87,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnResetPhieu = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.rbtnTatCa = new System.Windows.Forms.RadioButton();
             this.rbtnDangMuon = new System.Windows.Forms.RadioButton();
@@ -131,8 +136,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.btnResetPhieu = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -425,6 +428,9 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.btnGerneSearch);
+            this.panel8.Controls.Add(this.btnAuthorSearch);
+            this.panel8.Controls.Add(this.btnNXBSearch);
             this.panel8.Controls.Add(this.btnResert);
             this.panel8.Controls.Add(this.cbLoaiTaiLieu);
             this.panel8.Controls.Add(this.nudNamXuatBan);
@@ -446,6 +452,45 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1151, 534);
             this.panel8.TabIndex = 2;
+            // 
+            // btnGerneSearch
+            // 
+            this.btnGerneSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGerneSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
+            this.btnGerneSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnGerneSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerneSearch.Location = new System.Drawing.Point(797, 10);
+            this.btnGerneSearch.Name = "btnGerneSearch";
+            this.btnGerneSearch.Size = new System.Drawing.Size(31, 27);
+            this.btnGerneSearch.TabIndex = 49;
+            this.btnGerneSearch.UseVisualStyleBackColor = false;
+            this.btnGerneSearch.Click += new System.EventHandler(this.btnGerneSearch_Click);
+            // 
+            // btnAuthorSearch
+            // 
+            this.btnAuthorSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAuthorSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
+            this.btnAuthorSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAuthorSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuthorSearch.Location = new System.Drawing.Point(298, 40);
+            this.btnAuthorSearch.Name = "btnAuthorSearch";
+            this.btnAuthorSearch.Size = new System.Drawing.Size(31, 27);
+            this.btnAuthorSearch.TabIndex = 48;
+            this.btnAuthorSearch.UseVisualStyleBackColor = false;
+            this.btnAuthorSearch.Click += new System.EventHandler(this.btnAuthorSearch_Click);
+            // 
+            // btnNXBSearch
+            // 
+            this.btnNXBSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNXBSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
+            this.btnNXBSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnNXBSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNXBSearch.Location = new System.Drawing.Point(298, 74);
+            this.btnNXBSearch.Name = "btnNXBSearch";
+            this.btnNXBSearch.Size = new System.Drawing.Size(31, 27);
+            this.btnNXBSearch.TabIndex = 47;
+            this.btnNXBSearch.UseVisualStyleBackColor = false;
+            this.btnNXBSearch.Click += new System.EventHandler(this.btnNXBSearch_Click);
             // 
             // btnResert
             // 
@@ -591,14 +636,14 @@
             this.dgvSach.AllowUserToResizeRows = false;
             this.dgvSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSach.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSach,
@@ -747,6 +792,26 @@
             this.panel4.Size = new System.Drawing.Size(1151, 534);
             this.panel4.TabIndex = 2;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 8F);
+            this.label3.Location = new System.Drawing.Point(5, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(232, 16);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Đúp chuột vào phiếu để xem chi tiết";
+            // 
+            // btnResetPhieu
+            // 
+            this.btnResetPhieu.Location = new System.Drawing.Point(506, 44);
+            this.btnResetPhieu.Name = "btnResetPhieu";
+            this.btnResetPhieu.Size = new System.Drawing.Size(75, 29);
+            this.btnResetPhieu.TabIndex = 47;
+            this.btnResetPhieu.Text = "Resert";
+            this.btnResetPhieu.UseVisualStyleBackColor = true;
+            this.btnResetPhieu.Click += new System.EventHandler(this.btnResetPhieu_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.SkyBlue;
@@ -848,30 +913,30 @@
             this.dgvPhieu.AllowUserToResizeRows = false;
             this.dgvPhieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPhieu.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPhieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhieu.Location = new System.Drawing.Point(3, 83);
             this.dgvPhieu.MultiSelect = false;
             this.dgvPhieu.Name = "dgvPhieu";
             this.dgvPhieu.ReadOnly = true;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhieu.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhieu.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPhieu.RowHeadersVisible = false;
             this.dgvPhieu.RowHeadersWidth = 51;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPhieu.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPhieu.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPhieu.RowTemplate.Height = 24;
             this.dgvPhieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPhieu.Size = new System.Drawing.Size(1173, 446);
@@ -1306,26 +1371,6 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Tiền phạt trả sách trễ là 1000 VNĐ trên một ngày";
             // 
-            // btnResetPhieu
-            // 
-            this.btnResetPhieu.Location = new System.Drawing.Point(506, 44);
-            this.btnResetPhieu.Name = "btnResetPhieu";
-            this.btnResetPhieu.Size = new System.Drawing.Size(75, 29);
-            this.btnResetPhieu.TabIndex = 47;
-            this.btnResetPhieu.Text = "Resert";
-            this.btnResetPhieu.UseVisualStyleBackColor = true;
-            this.btnResetPhieu.Click += new System.EventHandler(this.btnResetPhieu_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8F);
-            this.label3.Location = new System.Drawing.Point(5, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(232, 16);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "Đúp chuột vào phiếu để xem chi tiết";
-            // 
             // fReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1464,5 +1509,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.Button btnResetPhieu;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnNXBSearch;
+        private System.Windows.Forms.Button btnGerneSearch;
+        private System.Windows.Forms.Button btnAuthorSearch;
     }
 }

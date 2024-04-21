@@ -203,6 +203,52 @@ BEGIN
 END;
 
 GO
+/***	Add Books To Coupon (Phat)		***/
+CREATE PROC SP_Add_Books_To_Coupon
+(
+	@MaSach int,
+	@MaPhieuMuon int
+)
+AS
+BEGIN
+	BEGIN TRANSACTION;
+
+    BEGIN TRY
+        INSERT INTO dbo.CuonSach(MaSach, MaPhieuMuon, TinhTrang)
+		VALUES (@MaSach, @MaPhieuMuon, N'Đang mượn')
+
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
+/***	Update Book In Coupon (Phat)		***/
+CREATE PROC SP_Update_Book_In_Coupon
+(
+	@MaPhieuMuon int,
+	@MaSach int,
+	@TinhTrang nvarchar(255)
+)
+AS
+BEGIN
+	BEGIN TRANSACTION;
+
+    BEGIN TRY
+        UPDATE dbo.CuonSach
+		SET TinhTrang = @TinhTrang
+		WHERE MaSach = @MaSach AND MaPhieuMuon = @MaPhieuMuon
+
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
+
+GO
 /***	Find account by advanced (Phat)		***/
 CREATE PROC SP_Find_Account_By_Advanced
 (
@@ -247,17 +293,6 @@ BEGIN
 END;
 
 GO
-/***	Load danh sách Sách (Văn)		***/
-CREATE PROC SP_Load_List_Sach
-AS
-BEGIN
-	SELECT 
-		*
-	FROM VW_Book_List 
-	WHERE 
-END;
-
-GO
 /***	Add New Book(Van)		***/
 CREATE PROC SP_Add_New_Book
     @MaTacGia INT,
@@ -283,8 +318,6 @@ BEGIN
         ROLLBACK;
     END CATCH;
 END;
-
-DROP PROCEDURE IF EXISTS SP_Add_New_Book;
 
 GO
 /***	Update Book(Van)		***/
@@ -436,19 +469,18 @@ BEGIN
 END;
 
 GO
-/* Thêm phiếu phạt (Hoàn) */
-CREATE PROC SP_Add_New_PhieuPhat
-    @MaPhieuMuon int,
-	@TienPhat decimal,
-    @NgayTra date
+/* Trả nợ phiếu phạt (Phát) */
+CREATE OR ALTER PROC SP_Pay_Penalty_Coupon_Debt
+    @MaPhieuPhat int
 AS
 BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-        INSERT INTO dbo.PhieuPhat (MaPhieuMuon, TienPhat, NgayTra)
-        VALUES (@MaPhieuMuon, @TienPhat, @NgayTra);
-        
+		UPDATE dbo.PhieuPhat
+		SET NgayTra = GETDATE()
+		WHERE MaPhieuPhat = @MaPhieuPhat
+		
         COMMIT;
     END TRY
     BEGIN CATCH
@@ -456,6 +488,34 @@ BEGIN
     END CATCH;
 END;
 
+
+GO
+/* Thêm phiếu phạt (Hoàn) */
+CREATE OR ALTER PROC SP_Add_New_PhieuPhat
+    @MaPhieuMuon int
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+		UPDATE dbo.PhieuMuonSach
+		SET NgayTra = GETDATE()
+		WHERE MaPhieuMuon = @MaPhieuMuon
+
+		UPDATE dbo.CuonSach
+		SET TinhTrang = N'Đã trả'
+		WHERE MaPhieuMuon = @MaPhieuMuon AND TinhTrang = N'Đang mượn'
+
+		DECLARE @TienPhat DECIMAL(18, 0) = dbo.FN_Calculate_Penalty_Value(@MaPhieuMuon);        
+		INSERT INTO dbo.PhieuPhat (MaPhieuMuon, TienPhat)
+        VALUES (@MaPhieuMuon, @TienPhat);
+		
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+    END CATCH;
+END;
 
 GO
 /* Xoá phiếu phạt (Hoàn) */
@@ -481,7 +541,7 @@ CREATE PROC SP_Update_PhieuPhat
 	@MaPhieuPhat int,
     @MaPhieuMuon int,
 	@TienPhat decimal,
-    @NgayTra date
+    @NgayTra date = NULL
 AS
 BEGIN
     BEGIN TRANSACTION;
@@ -501,21 +561,17 @@ END;
 
 GO
 /* Tìm kiếm phiếu phạt (Hoàn)*/
-CREATE PROC SP_Find_PhieuPhat_By_Advanced
+CREATE OR ALTER PROC SP_Find_PhieuPhat
 (
-    @MaPhieuMuon int = NULL,
-    @TienPhat decimal = NULL,
-    @NgayTra date = NULL
+    @MaTaiKhoan int 
 )
 AS
 BEGIN
 	SELECT 
-		*
-	FROM VW_PhieuPhat_List 
-	WHERE 
-		(@MaPhieuMuon IS NULL OR MaPhieuMuon = @MaPhieuMuon) AND
-		(@TienPhat IS NULL OR TienPhat = @TienPhat) AND
-		(@NgayTra IS NULL OR CONVERT(DATE, NgayTra) = CONVERT(DATE, @NgayTra)) 
+		PP.MaPhieuPhat, PP.MaPhieuMuon, PP.TienPhat, PP.NgayTra
+	FROM dbo.PhieuPhat PP 
+	JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon = PP.MaPhieuMuon
+	WHERE PMS.MaTaiKhoan = @MaTaiKhoan
 END;
 
 GO
@@ -592,56 +648,39 @@ END;
 
 go
 /***	Find Book Loan Coupon by status (Trung)		***/
-CREATE PROC SP_Find_BookLoanCoupon_By_Status
+CREATE PROC SP_Find_Book_Loan_Coupon_By_Status
 (
-	@Status nvarchar(255) = NULL
+	@type int
 )
 AS
 BEGIN
 	SELECT 
 		*
-	FROM VW_BookLoanCoupon_List
+	FROM VW_Book_Loan_Coupon_List
 	WHERE 
-		(@Status IS NULL OR TinhTrang = @Status)
+		(@type = 0 AND NgayTra IS NULL) OR
+		(@type = 1 AND NgayTra IS NOT NULL)
 END;
-go
+
+GO
 /***	Add New Book Loan Coupon(Trung)		***/
-CREATE OR ALTER PROC SP_Add_New_BookLoanCoupon
-	@MaTaiKhoan int = NULL,
-	@MaSach int = null,
-	@NgayMuon date = NULL,
-	@NgayTra date = NULL
+CREATE OR ALTER PROCEDURE SP_Add_New_Book_Loan_Coupon
+    @MaTaiKhoan int = NULL,
+    @NgayMuon date = NULL,
+    @NgayTra date = NULL
 AS
 BEGIN
-    -- Declare a table variable to hold the new ID
-    DECLARE @NewIDTable TABLE (NewID INT);
-
-    BEGIN TRANSACTION;
-
     BEGIN TRY
-        -- Insert into the PhieuMuonSach table
-        INSERT INTO PhieuMuonSach (MaTaiKhoan, NgayMuon, NgayTra)
-        OUTPUT Inserted.MaPhieuMuon INTO @NewIDTable
+        BEGIN TRANSACTION;
+
+		DECLARE @InsertedID INT;
+
+        INSERT INTO dbo.PhieuMuonSach (MaTaiKhoan, NgayMuon, NgayTra)
         VALUES (@MaTaiKhoan, @NgayMuon, @NgayTra);
 
-        -- Get the new ID
-        DECLARE @NewID INT = (SELECT NewID FROM @NewIDTable);
-
-        -- Check if MaSach exists in CuonSach
-        IF NOT EXISTS (SELECT 1 FROM CuonSach WHERE MaSach = @MaSach)
-        BEGIN
-            -- Insert new record into CuonSach
-            INSERT INTO CuonSach (MaSach, MaPhieuMuon, TinhTrang)
-            VALUES (@MaSach, @NewID, N'Đang mượn');
-        END
-        ELSE
-        BEGIN
-            -- Update the CuonSach table
-            UPDATE CuonSach
-            SET MaPhieuMuon = @NewID
-            WHERE MaSach = @MaSach;
-        END
-
+        SET @InsertedID = SCOPE_IDENTITY();
+		SELECT @InsertedID AS InsertedID;
+ 
         COMMIT;
     END TRY
     BEGIN CATCH
@@ -652,26 +691,22 @@ END;
 GO
 /***	Delete coupon(Trung)		***/
 CREATE or Alter PROC SP_Delete_Coupon
-    @MaTaiKhoan int,
-	@MaSach int
+    @MaPhieuMuon int
 AS
 BEGIN
-	DECLARE @DeletedIDTable TABLE (DeletedID INT);
-
     BEGIN TRANSACTION;
 
     BEGIN TRY
-        -- Delete from CuonSach and output the deleted ID
-        DELETE FROM dbo.CuonSach
-        OUTPUT DELETED.MaPhieuMuon INTO @DeletedIDTable
-        WHERE MaSach = @MaSach;
 
-        -- Get the deleted ID
-        DECLARE @DeletedID INT = (SELECT DeletedID FROM @DeletedIDTable);
+		UPDATE S
+		SET S.SoLuong = S.SoLuong + 1
+		FROM dbo.CuonSach CS
+		JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon = CS.MaPhieuMuon
+		JOIN dbo.Sach S ON CS.MaSach = S.MaSach
+		WHERE CS.MaPhieuMuon = @MaPhieuMuon AND NgayTra IS NULL;
 
-        -- Delete from PhieuMuonSach using the deleted ID
         DELETE FROM dbo.PhieuMuonSach
-        WHERE MaPhieuMuon = @DeletedID AND MaTaiKhoan = @MaTaiKhoan;
+        WHERE MaPhieuMuon = @MaPhieuMuon
         
         COMMIT;
     END TRY
@@ -679,6 +714,7 @@ BEGIN
         ROLLBACK;
     END CATCH;
 END;
+
 GO
 /***	Update coupon(Trung)		***/
 CREATE PROC SP_Update_Coupon
@@ -708,40 +744,79 @@ BEGIN
 END;
 GO
 /***	Update coupon _ Returned(Trung)		***/
-CREATE PROC SP_Update_Coupon_Returned
-	@MaPhieuMuon int
+CREATE OR ALTER PROCEDURE SP_Update_Coupon_Returned
+    @MaPhieuMuon INT
 AS
 BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM dbo.CuonSach CS
+		JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon = CS.MaPhieuMuon
+        JOIN dbo.Sach S ON CS.MaSach = S.MaSach
+        JOIN dbo.TaiKhoan TK ON TK.MaTaiKhoan = PMS.MaTaiKhoan
+        WHERE CS.MaPhieuMuon = @MaPhieuMuon 
+            AND (CS.TinhTrang = N'Đang mượn')
+            AND (
+                (TK.VaiTro = N'Sinh viên CLC' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 21) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 105)
+                ))
+                OR 
+                (TK.VaiTro = N'Sinh viên đại trà' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 21) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 105)
+                ))
+                OR 
+                (TK.VaiTro = N'Học viên cao học' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 32) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 56)
+                ))
+                OR 
+                (TK.VaiTro = N'Giảng viên' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 365) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 365)
+                ))
+            )
+    )
+    BEGIN
+        RETURN;
+    END
+
     BEGIN TRANSACTION;
 
     BEGIN TRY
-			UPDATE dbo.CuonSach
-				Set	TinhTrang = N'Đã Trả'
-				Where MaPhieuMuon = @MaPhieuMuon;
+        UPDATE S
+        SET S.SoLuong = S.SoLuong + 1
+        FROM dbo.CuonSach CS
+        JOIN dbo.Sach S ON CS.MaSach = S.MaSach
+        WHERE CS.MaPhieuMuon = @MaPhieuMuon AND (CS.TinhTrang = N'Đã trả' OR CS.TinhTrang = N'Trả trễ');
+
+        UPDATE dbo.PhieuMuonSach
+        SET NgayTra = GETDATE()
+        WHERE MaPhieuMuon = @MaPhieuMuon;
+
         COMMIT;
     END TRY
     BEGIN CATCH
         ROLLBACK;
     END CATCH;
 END;
+
+
 GO
-/***	Find Book Loan Coupon by advanced (Trung)		***/
-CREATE PROC SP_Find_BookLoan_Coupon_By_Advanced
+/***	Find Book Loan Coupon (Trung)		***/
+CREATE PROC SP_Find_Account_Book_Loan_Coupon
 (
-	@MaSach int,
-	@MaTaiKhoan int,
-	@MaPhieuMuon int
+	@MaTaiKhoan int
 )
 AS
 BEGIN
 	SELECT 
 		*
-	FROM VW_BookLoanCoupon_List 
-	WHERE 
-		(@MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan) AND
-		(@MaSach IS NULL OR MaSach = @MaSach) AND
-		(@MaPhieuMuon IS NULL OR MaPhieuMuon = @MaPhieuMuon) 
+	FROM dbo.PhieuMuonSach 
+	WHERE @MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan
 END;
+
 GO
 /***	Add NXB (Trung)		***/
 
@@ -813,4 +888,20 @@ BEGIN
     BEGIN CATCH
         ROLLBACK;
     END CATCH;
+END;
+
+GO
+/***	Get Book Penalty Coupon by status (Phat)		***/
+CREATE PROC SP_Get_Penalty_Coupon_By_Status
+(
+	@type int
+)
+AS
+BEGIN
+	SELECT 
+		*
+	FROM dbo.PhieuPhat
+	WHERE 
+		(@type = 0 AND NgayTra IS NULL) OR
+		(@type = 1 AND NgayTra IS NOT NULL)
 END;

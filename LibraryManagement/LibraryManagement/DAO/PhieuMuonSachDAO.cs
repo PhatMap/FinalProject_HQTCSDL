@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace LibraryManagement.DAO
@@ -23,7 +24,7 @@ namespace LibraryManagement.DAO
         private PhieuMuonSachDAO() { }
         public DataTable LoadBookLoanCouponList()
         {
-            string query = "SELECT * FROM VW_BookLoanCoupon_List";
+            string query = "SELECT * FROM VW_Book_Loan_Coupon_List";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -37,71 +38,53 @@ namespace LibraryManagement.DAO
 
             return data;
         }
-        public DataTable LoadBook_Status(string status)
+        public DataTable LoadBook_Status(int type)
         {
-            string query = "SP_Find_BookLoanCoupon_By_Status @Status ";
+            string query = "SP_Find_Book_Loan_Coupon_By_Status @type ";
 
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { status });
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { type });
 
             return result;
         }
-        public void AddBookLoanCoupon(PhieuMuonSach pm)
+        public int AddBookLoanCoupon(PhieuMuonSach pm)
         {
-            object ngaytra = pm.NgayTra;
+            string query = "SP_Add_New_Book_Loan_Coupon @MaTaiKhoan , @NgayMuon , @NgayTra ";
 
-            DateTime today = DateTime.Now;
-
-            if (pm.NgayTra > today)
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { pm.MaTaiKhoan, pm.NgayMuon, DBNull.Value } );
+            if (data.Rows.Count > 0)
             {
-                ngaytra = pm.NgayTra;
+                int insertedId = (int)data.Rows[0]["InsertedID"];
+                return insertedId;
             }
-            else ngaytra = DBNull.Value;
-
-            string query = "SP_Add_New_BookLoanCoupon @MaTaiKhoan , @MaSach , @NgayMuon , @NgayTra ";
-            DataProvider.Instance.ExecuteQuery(query, new object[] { pm.MaTaiKhoan, pm.MaSach, pm.NgayMuon, ngaytra });
+            else
+            {
+                return -1;
+            }
         }
-        public void DeleteCoupon(PhieuMuonSach pm)
+
+        public void DeleteCoupon(int id)
         {
-            string query = "SP_Delete_Coupon @MaTaiKhoan , @MaSach ";
-            DataProvider.Instance.ExecuteQuery(query, new object[] { pm.MaTaiKhoan, pm.MaSach });
+            string query = "SP_Delete_Coupon @MaPhieuMuon ";
+            DataProvider.Instance.ExecuteQuery(query, new object[] { id });
         }
         public bool UpdateCoupon(PhieuMuonSach pm)
         {
             string query = "SP_Update_Coupon @MaPhieuMuon , @MaTaiKhoan , @MaSach , @NgayMuon , @NgayTra ";
 
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { pm.MaPhieuMuon, pm.MaTaiKhoan, pm.MaSach, pm.NgayMuon, pm.NgayTra });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { pm.MaPhieuMuon, pm.MaTaiKhoan, pm.NgayMuon, pm.NgayTra });
 
             return result > 0;
         }
-        public bool UpdateCoupon_Returned(PhieuMuonSach pm)
+        public void UpdateCoupon_Returned(int id)
         {
             string query = "SP_Update_Coupon_Returned @MaPhieuMuon ";
 
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { pm.MaPhieuMuon });
-
-            return result > 0;
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
         }
-        public DataTable FindBookLoanCoupon(PhieuMuonSach pm)
+        public DataTable FindBookLoanCoupon(int id)
         {
-            object maphieumuon = pm.MaPhieuMuon;
-            object mataikhoan = pm.MaTaiKhoan;
-            object masach = pm.MaSach;
-
-            if (pm.MaPhieuMuon == 0)
-            {
-                maphieumuon = DBNull.Value;
-            }
-            if (pm.MaTaiKhoan == 0)
-            {
-                mataikhoan = DBNull.Value;
-            }
-            if (pm.MaSach == 0)
-            {
-                masach = DBNull.Value;
-            }
-
-            string query = "SP_Find_BookLoan_Coupon_By_Advanced @MaSach , @MaTaiKhoan , @MaPhieuMuon ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { masach, mataikhoan, maphieumuon });
+            string query = "SP_Find_Account_Book_Loan_Coupon @MaTaiKhoan ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
             return data;
         }
         public int TotalLoanCouponsByMonth(int month, int year)
