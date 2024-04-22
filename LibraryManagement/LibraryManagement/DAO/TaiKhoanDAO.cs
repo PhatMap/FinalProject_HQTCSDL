@@ -66,6 +66,15 @@ namespace LibraryManagement.DAO
             return result > 0;
         }
 
+        public bool UpdateProfile(TaiKhoan tk)
+        {
+            string query = "SP_Update_Account @MaTaiKhoan , @HoTen , @DiaChi , @NgaySinh , @SoDienThoai , @GioiTinh ";
+
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tk.MaTaiKhoan, tk.HoTen, tk.DiaChi, tk.NgaySinh, tk.SoDienThoai, tk.GioiTinh });
+
+            return result > 0;
+        }
+
         public void AddAccount(TaiKhoan tk)
         {
             string query = "SP_Add_New_Account @MaTaiKhoan , @HoTen , @MatKhau , @DiaChi , @NgaySinh , @Email , @SoDienThoai , @VaiTro , @GioiTinh ";

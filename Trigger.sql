@@ -19,33 +19,6 @@ BEGIN
 END;
 
 GO
-/***	Not duplicate Account (Phat)		***/
-CREATE OR ALTER TRIGGER TR_Not_Duplicate_Account
-ON dbo.TaiKhoan
-AFTER INSERT, UPDATE
-AS
-BEGIN
-    IF EXISTS
-	(
-		SELECT * FROM inserted i
-		WHERE EXISTS(	SELECT * FROM dbo.TaiKhoan TK 
-						WHERE	(TK.MaTaiKhoan = i.MaTaiKhoan) 
-						AND		(TK.Email = i.Email)
-						AND		(TK.VaiTro = i.VaiTro)
-						AND		(TK.HoTen = i.HoTen)
-						AND		(TK.SoDienThoai = i.SoDienThoai)
-						AND		(TK.NgaySinh = i.NgaySinh)
-						AND		(TK.DiaChi = i.DiaChi)
-						AND		(TK.GioiTinh = i.GioiTinh)
-					)
-	) 
-    BEGIN
-		RAISERROR ('Duplicate Account is not allowed', 16, 1);
-        ROLLBACK TRANSACTION;
-	END;
-END;
-
-GO
 /***	Librarian not working over 48h/week (Phat)		***/
 CREATE TRIGGER TR_Limit_Working_Hours
 ON dbo.LichLamViec
@@ -77,12 +50,13 @@ AFTER INSERT, UPDATE
 AS
 BEGIN
     DECLARE @MaTaiKhoan INT;
+	DECLARE @MaLichLamViec INT;
 	DECLARE @NgayLam Date;
 	DECLARE @Ca NVARCHAR(255);
 
-    SELECT @MaTaiKhoan = MaTaiKhoan, @NgayLam = NgayLam, @Ca = Ca FROM inserted;
+    SELECT @MaTaiKhoan = MaTaiKhoan, @NgayLam = NgayLam, @Ca = Ca, @MaLichLamViec=MaLichLamViec FROM inserted;
     
-    IF EXISTS (SELECT * FROM dbo.LichLamViec WHERE(MaTaiKhoan = @MaTaiKhoan AND NgayLam = @NgayLam AND Ca = @Ca))
+    IF EXISTS (SELECT * FROM dbo.LichLamViec WHERE(MaTaiKhoan = @MaTaiKhoan AND NgayLam = @NgayLam AND Ca = @Ca AND @MaLichLamViec<>MaLichLamViec))
     BEGIN
         RAISERROR ('A working day can not be duplicate.', 16, 1);
         ROLLBACK TRANSACTION;
@@ -117,7 +91,7 @@ BEGIN
     IF EXISTS (
         SELECT 1
         FROM TheLoai t
-        JOIN INSERTED i ON t.TenTheLoai = i.TenTheLoai
+        JOIN INSERTED i ON t.TenTheLoai = i.TenTheLoai WHERE t.MaTheLoai<>i.MaTheLoai
     )
     BEGIN
         RAISERROR('Không thể thêm hoặc cập nhật vì đã tồn tại thể loại có cùng tên.', 16, 1);
@@ -162,7 +136,8 @@ BEGIN
 			S.MaNhaXuatBan = i.MaNhaXuatBan AND
 			S.LoaiTaiLieu = i.LoaiTaiLieu AND
 			S.NamXuatBan = i.NamXuatBan AND
-			S.GiaSach = i.GiaSach )
+			S.GiaSach = i.GiaSach AND
+			S.MaSach<>i.MaSach)
 	BEGIN
 		RAISERROR('Không tạo trùng tựa sách', 16, 1);
 		ROLLBACK TRANSACTION;
@@ -177,7 +152,7 @@ FOR INSERT, UPDATE
 AS
 BEGIN
 	IF EXISTS (SELECT 1 FROM TacGia TG JOIN inserted i ON TG.MaTacGia = i.MaTacGia 
-	WHERE TG.TenTacGia = i.TenTacGia)
+	WHERE TG.TenTacGia = i.TenTacGia AND TG.MaTacGia<>i.MaTacGia)
 	BEGIN
 		RAISERROR('Không trùng tên tác giả', 16, 1)
 		ROLLBACK TRANSACTION
@@ -192,7 +167,7 @@ AFTER INSERT, UPDATE
 AS
 BEGIN
     IF EXISTS (SELECT 1 FROM dbo.NhaXuatBan NXB JOIN inserted i ON NXB.MaNhaXuatBan = i.MaNhaXuatBan
-	WHERE NXB.TenNhaXuatBan = i.TenNhaXuatBan)
+	WHERE NXB.TenNhaXuatBan = i.TenNhaXuatBan AND NXB.MaNhaXuatBan<>i.MaNhaXuatBan)
     BEGIN
         RAISERROR('Không trùng tên nhà xuất bản', 16, 1)
 		ROLLBACK TRANSACTION
@@ -263,5 +238,164 @@ BEGIN
 	END;
 END;
 
+GO
+/***	Create SQL Server account (Phat)		***/
+CREATE TRIGGER TR_Create_SQL_Server_Account
+ON dbo.TaiKhoan
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @Email NVARCHAR(255), 
+            @MatKhau NVARCHAR(255), 
+            @VaiTro NVARCHAR(255), 
+            @MaTaiKhoan NVARCHAR(255),
+            @Query NVARCHAR(MAX);
+
+    SELECT @Email = Email, 
+           @MatKhau = MatKhau, 
+           @VaiTro = VaiTro, 
+           @MaTaiKhoan = MaTaiKhoan 
+    FROM inserted;
+
+    SET @Query = 'CREATE LOGIN [' + @Email + '] WITH PASSWORD = N''' + @MatKhau + ''', DEFAULT_DATABASE=[Library], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF;';
+    BEGIN TRY
+        EXEC sp_executesql @Query;
+    END TRY
+    BEGIN CATCH
+        PRINT 'Error creating LOGIN: ' + ERROR_MESSAGE();
+        ROLLBACK TRANSACTION;
+    END CATCH;
+
+    SET @Query = 'CREATE USER [' + @Email + '] FOR LOGIN [' + @Email + '];';
+    BEGIN TRY
+        EXEC sp_executesql @Query;
+    END TRY
+    BEGIN CATCH
+        PRINT 'Error creating USER: ' + ERROR_MESSAGE();
+        ROLLBACK TRANSACTION;
+    END CATCH;
+
+    IF (@VaiTro = N'Quản trị viên')
+    BEGIN
+        SET @Query = 'ALTER SERVER ROLE sysadmin ADD MEMBER [' + @Email + '];';
+    END
+    ELSE IF (@VaiTro = N'Thủ thư')
+    BEGIN
+        SET @Query = 'ALTER ROLE ThuThu ADD MEMBER [' + @Email + '];';
+    END
+    ELSE
+    BEGIN
+        SET @Query = 'ALTER ROLE DocGia ADD MEMBER [' + @Email + '];';
+    END
+
+    BEGIN TRY
+        EXEC sp_executesql @Query;
+    END TRY
+    BEGIN CATCH
+        PRINT 'Error assigning role: ' + ERROR_MESSAGE();
+        ROLLBACK TRANSACTION;
+    END CATCH;
+
+END;
+
+GO
+/***	Update SQL Server account (Phat)		***/
+CREATE TRIGGER TR_Update_SQL_Server_Account
+ON dbo.TaiKhoan
+AFTER UPDATE
+AS
+BEGIN
+    DECLARE @Email NVARCHAR(255), 
+            @MatKhau NVARCHAR(255), 
+            @VaiTro NVARCHAR(255), 
+            @MaTaiKhoan NVARCHAR(255),
+            @OldEmail NVARCHAR(255),
+            @OldMatKhau NVARCHAR(255),
+            @Query NVARCHAR(MAX);
+
+    SELECT @Email = Email, 
+           @MatKhau = MatKhau, 
+           @VaiTro = VaiTro, 
+           @MaTaiKhoan = MaTaiKhoan 
+    FROM inserted;
+
+    SELECT @OldEmail = Email, 
+           @OldMatKhau = MatKhau
+    FROM deleted;
+
+    IF (@Email <> @OldEmail OR @MatKhau <> @OldMatKhau)
+    BEGIN
+        SET @Query = 'ALTER LOGIN [' + @OldEmail + '] WITH PASSWORD = N''' + @MatKhau + ''', NAME = [' + @Email + '];';
+        BEGIN TRY
+            EXEC sp_executesql @Query;
+        END TRY
+        BEGIN CATCH
+            PRINT 'Error updating LOGIN: ' + ERROR_MESSAGE();
+            ROLLBACK TRANSACTION;
+        END CATCH;
+
+        SET @Query = 'ALTER USER [' + @OldEmail + '] WITH NAME = [' + @Email + '];';
+        BEGIN TRY
+            EXEC sp_executesql @Query;
+        END TRY
+        BEGIN CATCH
+            PRINT 'Error updating USER: ' + ERROR_MESSAGE();
+            ROLLBACK TRANSACTION;
+        END CATCH;
+    END
+
+    IF (@VaiTro = N'Quản trị viên')
+    BEGIN
+        SET @Query = 'ALTER SERVER ROLE sysadmin ADD MEMBER [' + @Email + '];';
+    END
+    ELSE IF (@VaiTro = N'Thủ thư')
+    BEGIN
+        SET @Query = 'ALTER ROLE ThuThu ADD MEMBER [' + @Email + '];';
+    END
+    ELSE
+    BEGIN
+        SET @Query = 'ALTER ROLE DocGia ADD MEMBER [' + @Email + '];';
+    END
+
+    BEGIN TRY
+        EXEC sp_executesql @Query;
+    END TRY
+    BEGIN CATCH
+        PRINT 'Error assigning role: ' + ERROR_MESSAGE();
+        ROLLBACK TRANSACTION;
+    END CATCH;
+
+END;
+
+GO
+/***	Delete SQL Server account (Phat)		***/
+CREATE TRIGGER TR_Delete_SQL_Server_Account
+ON dbo.TaiKhoan
+AFTER DELETE
+AS
+BEGIN
+    DECLARE @Email NVARCHAR(255),
+            @Query NVARCHAR(MAX),
+            @SessionID INT;
+
+    SELECT @Email = Email 
+    FROM deleted;
+
+    SELECT @SessionID = session_id 
+    FROM sys.dm_exec_sessions
+    WHERE login_name = @Email;
+
+    IF @SessionID IS NOT NULL
+    BEGIN
+        SET @Query = 'KILL ' + CONVERT(nvarchar(20), @SessionID);
+        EXEC (@Query);
+    END
+
+    SET @Query = 'DROP USER [' + @Email + '];';
+    EXEC (@Query);
+
+    SET @Query = 'DROP LOGIN [' + @Email + '];';
+    EXEC (@Query);
+END;
 
 

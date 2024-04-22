@@ -62,15 +62,15 @@ VALUES
 
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
-VALUES	(20110536,'admin@gmail.com', 'aaaaaaaa', N'Quản trị viên', N'Trần Trung Phát', '0123456789', '2000-01-01', N'Hà Nội', N'Nam'),
-		(1,'example2@gmail.com', 'password2', N'Thủ thư', N'Trần Thị B', '0987654321', '1995-05-10', N'Hồ Chí Minh', N'Nữ'),
-		(2,'example3@gmail.com', 'password3', N'Người dùng', N'Phạm Văn C', '0369852147', '1988-11-20', N'Đà Nẵng', N'Nam'),
-		(3, 'example4@gmail.com', 'password4', N'Sinh viên CLC', N'Nguyễn Văn A', '0123456789', '2001-02-15', N'Hà Nội', N'Nam'),
-		(4, 'example5@gmail.com', 'password5', N'Sinh viên đại trà', N'Lê Thị B', '0987654321', '2000-03-20', N'Hồ Chí Minh', N'Nữ'),
-		(5, 'example6@gmail.com', 'password6', N'Học viên cao học', N'Trần Văn C', '0369852147', '1998-04-25', N'Đà Nẵng', N'Nam'),
-		(6, 'example7@gmail.com', 'password7', N'Giảng viên', N'Lý Thị D', '0369852147', '1990-05-30', N'Hải Phòng', N'Nữ'),
-		(7, 'example8@gmail.com', 'password8', N'Thủ thư', N'Phạm Văn E', '0369852147', '1985-06-05', N'Vũng Tàu', N'Nam'),
-		(8, 'example9@gmail.com', 'password9', N'Quản trị viên', N'Nguyễn Thị F', '0369852147', '1982-07-10', N'Bình Dương', N'Nữ');
+VALUES	(20110536,'admin@gmail.com', 'aaaaaaaa', N'Quản trị viên', N'Trần Trung Phát', '0183456789', '2000-01-01', N'Hà Nội', N'Nam'),
+		(1,'example2@gmail.com', 'password2', N'Thủ thư', N'Trần Thị B', '0987854321', '1995-05-10', N'Hồ Chí Minh', N'Nữ'),
+		(2,'example3@gmail.com', 'password3', N'Người dùng', N'Phạm Văn C', '0169852147', '1988-11-20', N'Đà Nẵng', N'Nam'),
+		(3, 'example4@gmail.com', 'password4', N'Sinh viên CLC', N'Nguyễn Văn A', '0126451789', '2001-02-15', N'Hà Nội', N'Nam'),
+		(4, 'example5@gmail.com', 'password5', N'Sinh viên đại trà', N'Lê Thị B', '0987651321', '2000-03-20', N'Hồ Chí Minh', N'Nữ'),
+		(5, 'example6@gmail.com', 'password6', N'Học viên cao học', N'Trần Văn C', '0369812147', '1998-04-25', N'Đà Nẵng', N'Nam'),
+		(6, 'example7@gmail.com', 'password7', N'Giảng viên', N'Lý Thị D', '0361852147', '1990-05-30', N'Hải Phòng', N'Nữ'),
+		(7, 'example8@gmail.com', 'password8', N'Thủ thư', N'Phạm Văn E', '0319852147', '1985-06-05', N'Vũng Tàu', N'Nam'),
+		(8, 'example9@gmail.com', 'password9', N'Quản trị viên', N'Nguyễn Thị F', '0369852117', '1982-07-10', N'Bình Dương', N'Nữ');
 
 SET IDENTITY_INSERT PhieuMuonSach ON;
 

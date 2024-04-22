@@ -28,11 +28,16 @@ EXEC SP_Drop_All_TR
 /***	Gỡ hết View	***/
 EXEC SP_Drop_All_VW
 
+DROP ROLE ThuThu
+DROP ROLE DocGia
+
+INSERT INTO TacGia (TenTacGia)
+VALUES (N'Kim Dung')
 
 
-
-
-
+DELETE dbo.TaiKhoan WHERE MaTaiKhoan=20110536
+DROP USER [admin@gmail.com];
+DROP LOGIN [admin@gmail.com];
 
 
 
