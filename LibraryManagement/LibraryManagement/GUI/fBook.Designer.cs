@@ -42,6 +42,9 @@
             this.GiaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnGerneSearch = new System.Windows.Forms.Button();
+            this.btnNXBSearch = new System.Windows.Forms.Button();
+            this.btnAuthorSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.nudMaSach = new System.Windows.Forms.NumericUpDown();
             this.btnResertBook = new System.Windows.Forms.Button();
@@ -71,6 +74,7 @@
             this.MaTacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTacGiatab2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFindTacGia = new System.Windows.Forms.Button();
             this.numTacGiaID = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.btnResertTacGia = new System.Windows.Forms.Button();
@@ -82,6 +86,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnFindPushlisher = new System.Windows.Forms.Button();
             this.btnResetNXB = new System.Windows.Forms.Button();
             this.numNXBid = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
@@ -96,6 +101,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnFindTheLoai = new System.Windows.Forms.Button();
             this.numTheLoaiID = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.btnResetTheLoai = new System.Windows.Forms.Button();
@@ -107,9 +113,6 @@
             this.dgvTheLoai = new System.Windows.Forms.DataGridView();
             this.TheLoaiID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TheLoaiName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAuthorSearch = new System.Windows.Forms.Button();
-            this.btnNXBSearch = new System.Windows.Forms.Button();
-            this.btnGerneSearch = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -296,6 +299,45 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(953, 152);
             this.panel8.TabIndex = 2;
+            // 
+            // btnGerneSearch
+            // 
+            this.btnGerneSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGerneSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
+            this.btnGerneSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnGerneSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerneSearch.Location = new System.Drawing.Point(901, 3);
+            this.btnGerneSearch.Name = "btnGerneSearch";
+            this.btnGerneSearch.Size = new System.Drawing.Size(31, 27);
+            this.btnGerneSearch.TabIndex = 51;
+            this.btnGerneSearch.UseVisualStyleBackColor = false;
+            this.btnGerneSearch.Click += new System.EventHandler(this.btnGerneSearch_Click);
+            // 
+            // btnNXBSearch
+            // 
+            this.btnNXBSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNXBSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
+            this.btnNXBSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnNXBSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNXBSearch.Location = new System.Drawing.Point(410, 68);
+            this.btnNXBSearch.Name = "btnNXBSearch";
+            this.btnNXBSearch.Size = new System.Drawing.Size(31, 27);
+            this.btnNXBSearch.TabIndex = 50;
+            this.btnNXBSearch.UseVisualStyleBackColor = false;
+            this.btnNXBSearch.Click += new System.EventHandler(this.btnNXBSearch_Click);
+            // 
+            // btnAuthorSearch
+            // 
+            this.btnAuthorSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAuthorSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
+            this.btnAuthorSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAuthorSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuthorSearch.Location = new System.Drawing.Point(410, 37);
+            this.btnAuthorSearch.Name = "btnAuthorSearch";
+            this.btnAuthorSearch.Size = new System.Drawing.Size(31, 27);
+            this.btnAuthorSearch.TabIndex = 49;
+            this.btnAuthorSearch.UseVisualStyleBackColor = false;
+            this.btnAuthorSearch.Click += new System.EventHandler(this.btnAuthorSearch_Click);
             // 
             // label4
             // 
@@ -575,6 +617,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnFindTacGia);
             this.panel2.Controls.Add(this.numTacGiaID);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.btnResertTacGia);
@@ -588,6 +631,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(953, 47);
             this.panel2.TabIndex = 2;
+            // 
+            // btnFindTacGia
+            // 
+            this.btnFindTacGia.Location = new System.Drawing.Point(674, 15);
+            this.btnFindTacGia.Name = "btnFindTacGia";
+            this.btnFindTacGia.Size = new System.Drawing.Size(75, 23);
+            this.btnFindTacGia.TabIndex = 20;
+            this.btnFindTacGia.Text = "Tìm";
+            this.btnFindTacGia.UseVisualStyleBackColor = true;
+            this.btnFindTacGia.Click += new System.EventHandler(this.btnFindTacGia_Click);
             // 
             // numTacGiaID
             // 
@@ -613,7 +666,7 @@
             // 
             // btnResertTacGia
             // 
-            this.btnResertTacGia.Location = new System.Drawing.Point(674, 15);
+            this.btnResertTacGia.Location = new System.Drawing.Point(743, 15);
             this.btnResertTacGia.Name = "btnResertTacGia";
             this.btnResertTacGia.Size = new System.Drawing.Size(75, 23);
             this.btnResertTacGia.TabIndex = 11;
@@ -689,6 +742,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnFindPushlisher);
             this.panel4.Controls.Add(this.btnResetNXB);
             this.panel4.Controls.Add(this.numNXBid);
             this.panel4.Controls.Add(this.label13);
@@ -703,9 +757,19 @@
             this.panel4.Size = new System.Drawing.Size(959, 47);
             this.panel4.TabIndex = 4;
             // 
+            // btnFindPushlisher
+            // 
+            this.btnFindPushlisher.Location = new System.Drawing.Point(690, 17);
+            this.btnFindPushlisher.Name = "btnFindPushlisher";
+            this.btnFindPushlisher.Size = new System.Drawing.Size(75, 23);
+            this.btnFindPushlisher.TabIndex = 20;
+            this.btnFindPushlisher.Text = "Tìm";
+            this.btnFindPushlisher.UseVisualStyleBackColor = true;
+            this.btnFindPushlisher.Click += new System.EventHandler(this.btnFindPushlisher_Click);
+            // 
             // btnResetNXB
             // 
-            this.btnResetNXB.Location = new System.Drawing.Point(690, 17);
+            this.btnResetNXB.Location = new System.Drawing.Point(771, 17);
             this.btnResetNXB.Name = "btnResetNXB";
             this.btnResetNXB.Size = new System.Drawing.Size(75, 23);
             this.btnResetNXB.TabIndex = 18;
@@ -843,6 +907,7 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.btnFindTheLoai);
             this.panel7.Controls.Add(this.numTheLoaiID);
             this.panel7.Controls.Add(this.label6);
             this.panel7.Controls.Add(this.btnResetTheLoai);
@@ -856,6 +921,16 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(959, 47);
             this.panel7.TabIndex = 4;
+            // 
+            // btnFindTheLoai
+            // 
+            this.btnFindTheLoai.Location = new System.Drawing.Point(643, 15);
+            this.btnFindTheLoai.Name = "btnFindTheLoai";
+            this.btnFindTheLoai.Size = new System.Drawing.Size(75, 23);
+            this.btnFindTheLoai.TabIndex = 19;
+            this.btnFindTheLoai.Text = "Tìm";
+            this.btnFindTheLoai.UseVisualStyleBackColor = true;
+            this.btnFindTheLoai.Click += new System.EventHandler(this.btnFindTheLoai_Click);
             // 
             // numTheLoaiID
             // 
@@ -881,7 +956,7 @@
             // 
             // btnResetTheLoai
             // 
-            this.btnResetTheLoai.Location = new System.Drawing.Point(655, 17);
+            this.btnResetTheLoai.Location = new System.Drawing.Point(724, 15);
             this.btnResetTheLoai.Name = "btnResetTheLoai";
             this.btnResetTheLoai.Size = new System.Drawing.Size(75, 23);
             this.btnResetTheLoai.TabIndex = 11;
@@ -974,45 +1049,6 @@
             this.TheLoaiName.MinimumWidth = 6;
             this.TheLoaiName.Name = "TheLoaiName";
             this.TheLoaiName.ReadOnly = true;
-            // 
-            // btnAuthorSearch
-            // 
-            this.btnAuthorSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAuthorSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
-            this.btnAuthorSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnAuthorSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAuthorSearch.Location = new System.Drawing.Point(410, 37);
-            this.btnAuthorSearch.Name = "btnAuthorSearch";
-            this.btnAuthorSearch.Size = new System.Drawing.Size(31, 27);
-            this.btnAuthorSearch.TabIndex = 49;
-            this.btnAuthorSearch.UseVisualStyleBackColor = false;
-            this.btnAuthorSearch.Click += new System.EventHandler(this.btnAuthorSearch_Click);
-            // 
-            // btnNXBSearch
-            // 
-            this.btnNXBSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNXBSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
-            this.btnNXBSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnNXBSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNXBSearch.Location = new System.Drawing.Point(410, 68);
-            this.btnNXBSearch.Name = "btnNXBSearch";
-            this.btnNXBSearch.Size = new System.Drawing.Size(31, 27);
-            this.btnNXBSearch.TabIndex = 50;
-            this.btnNXBSearch.UseVisualStyleBackColor = false;
-            this.btnNXBSearch.Click += new System.EventHandler(this.btnNXBSearch_Click);
-            // 
-            // btnGerneSearch
-            // 
-            this.btnGerneSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGerneSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
-            this.btnGerneSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnGerneSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerneSearch.Location = new System.Drawing.Point(901, 3);
-            this.btnGerneSearch.Name = "btnGerneSearch";
-            this.btnGerneSearch.Size = new System.Drawing.Size(31, 27);
-            this.btnGerneSearch.TabIndex = 51;
-            this.btnGerneSearch.UseVisualStyleBackColor = false;
-            this.btnGerneSearch.Click += new System.EventHandler(this.btnGerneSearch_Click);
             // 
             // fBook
             // 
@@ -1139,5 +1175,8 @@
         private System.Windows.Forms.Button btnGerneSearch;
         private System.Windows.Forms.Button btnNXBSearch;
         private System.Windows.Forms.Button btnAuthorSearch;
+        private System.Windows.Forms.Button btnFindTheLoai;
+        private System.Windows.Forms.Button btnFindPushlisher;
+        private System.Windows.Forms.Button btnFindTacGia;
     }
 }

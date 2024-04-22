@@ -53,7 +53,7 @@ namespace LibraryManagement.GUI
                     f.ShowDialog();
                     this.Show();
                 }
-                else if (rbtnQuanLy.Checked && (Session.loginAccount.VaiTro == "Thủ Thư" || Session.loginAccount.VaiTro == "Quản trị viên"))
+                else if (rbtnQuanLy.Checked && (Session.loginAccount.VaiTro == "Thủ thư" || Session.loginAccount.VaiTro == "Quản trị viên"))
                 {
                     fHome f = new fHome();
                     this.Hide();

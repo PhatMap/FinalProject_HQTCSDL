@@ -254,15 +254,6 @@ namespace LibraryManagement.GUI
             LoadTacGiaList();
         }
 
-        private void btnFindTacGia_Click(object sender, EventArgs e)
-        {
-            TacGia tg = new TacGia();
-
-            tg.TenTacGia = txbTenTacGia.Text;
-
-            tacGiaList.DataSource = TacGiaDAO.Instance.FindTacGiaByAdvanced(tg);
-        }
-
         private void btnResertTacGia_Click(object sender, EventArgs e)
         {
             DetachTacGiaBinding();
@@ -469,6 +460,28 @@ namespace LibraryManagement.GUI
                 return;
             }
             previousCell = dgvSach.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        }
+
+        private void btnFindTheLoai_Click(object sender, EventArgs e)
+        {
+            string tenTheLoai = txbTenTheLoai.Text;
+            TheLoaiList.DataSource = TheLoaiDAO.Instance.FindTheLoai(tenTheLoai);
+        }
+
+        private void btnFindTacGia_Click(object sender, EventArgs e)
+        {
+            TacGia tg = new TacGia();
+
+            tg.TenTacGia = txbTenTacGia.Text;
+
+            tacGiaList.DataSource = TacGiaDAO.Instance.FindTacGia(tg);
+        }
+
+        private void btnFindPushlisher_Click(object sender, EventArgs e)
+        {
+            string tenNXB = txbNXB.Text;
+
+            nhaxuatbanlist.DataSource = NhaXuatBanDAO.Instance.FindNhaXuatBan(tenNXB);
         }
     }
 

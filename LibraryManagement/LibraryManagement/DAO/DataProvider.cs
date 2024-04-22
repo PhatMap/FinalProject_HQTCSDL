@@ -26,15 +26,25 @@ namespace LibraryManagement.DAO
         //(Van)     Data Source=MSI\MSSQLSERVER02;Initial Catalog=Library;Integrated Security=True
 
 
-        private string connectionStr = @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
+        //private string connectionStr = $"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=LibraryReader;User ID={DTO.Session.loginAccount.Email};Password={DTO.Session.loginAccount.MatKhau};TrustServerCertificate=True";
 
         SqlConnection connection;
+
+        private string GetConnectionString()
+        {
+            if (DTO.Session.loginAccount == null)
+            {
+                return @"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True";
+            }
+
+            return $"Data Source=LAPTOP-M3L0LSMS;Initial Catalog=Library;User ID={DTO.Session.loginAccount.Email};Password={DTO.Session.loginAccount.MatKhau};TrustServerCertificate=True";
+        }
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
 
-            using (connection = new SqlConnection(connectionStr)) 
+            using (connection = new SqlConnection(GetConnectionString())) 
             {
                 connection.Open();
 
@@ -66,7 +76,7 @@ namespace LibraryManagement.DAO
         {
             int data = 0;
 
-            using (connection = new SqlConnection(connectionStr))
+            using (connection = new SqlConnection(GetConnectionString()))
             {
                 connection.Open();
 
@@ -96,7 +106,7 @@ namespace LibraryManagement.DAO
         {
             object data = 0;
 
-            using (connection = new SqlConnection(connectionStr))
+            using (connection = new SqlConnection(GetConnectionString()))
             {
                 connection.Open();
 

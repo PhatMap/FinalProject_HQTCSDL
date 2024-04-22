@@ -40,14 +40,14 @@ namespace LibraryManagement.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tg.MaTacGia, tg.TenTacGia });
             return result > 0;
         }
-        public DataTable FindTacGiaByAdvanced(TacGia tg)
+        public DataTable FindTacGia(TacGia tg)
         {
             object tenTacGia = tg.TenTacGia;
             if (tg.TenTacGia == null)
             {
                 tenTacGia = DBNull.Value;
             }
-            string query = "SP_Find_TacGia_By_Advanced @TenTacGia ";
+            string query = "SP_Find_TacGia @TenTacGia ";
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tenTacGia });
             return data;
         }

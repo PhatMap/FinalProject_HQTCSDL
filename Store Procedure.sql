@@ -1,14 +1,16 @@
 ﻿/***	Login Account (Phat)		***/
-CREATE PROC SP_Login
-@Email nvarchar(255), @MatKhau nvarchar(255)
+CREATE PROCEDURE SP_Login
+    @Email NVARCHAR(255),
+    @MatKhau NVARCHAR(255)
 AS 
 BEGIN
-	SELECT * FROM dbo.TaiKhoan WHERE Email = @Email AND MatKhau = @MatKhau
-END
+    SELECT * FROM dbo.TaiKhoan WHERE Email = @Email AND MatKhau = @MatKhau
+END;
+
 
 GO
 /***	Get login account profile(Phat)		***/
-CREATE PROC SP_Get_Account_Profile
+CREATE OR ALTER PROCEDURE SP_Get_Account_Profile
 (@Email nvarchar(255))
 AS
 BEGIN
@@ -19,7 +21,7 @@ END;
 
 GO
 /***	Change password(Phat)		***/
-CREATE PROC SP_Change_Account_Password
+CREATE PROCEDURE SP_Change_Account_Password
 (
     @Email NVARCHAR(255),
     @MatKhauMoi NVARCHAR(255),
@@ -28,33 +30,33 @@ CREATE PROC SP_Change_Account_Password
 )
 AS 
 BEGIN
-    BEGIN TRANSACTION;
-
 	IF NOT EXISTS (SELECT * FROM dbo.TaiKhoan WHERE Email = @Email AND MatKhau = @MatKhauCu)
     BEGIN
-        ROLLBACK; 
+        RAISERROR('Email hoặc mật khẩu cũ không đúng', 16, 1);
+		RETURN;
     END
 
 	IF @MatKhauMoi <> @XacNhan
     BEGIN
-        ROLLBACK; 
+        RAISERROR('Mật khẩu mới và xác nhận không khớp', 16, 1);
+		RETURN;
     END
 
     BEGIN TRY
             UPDATE dbo.TaiKhoan
 			SET MatKhau = @MatKhauMoi
-			WHERE Email = @Email;
-        
-        COMMIT;
+			WHERE Email = @Email;      
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END
 
 GO
 /***	Update account(Phat)		***/
-CREATE PROC SP_Update_Account
+CREATE PROCEDURE SP_Update_Account
 	@MaTaiKhoan int,
     @HoTen nvarchar(255),
 	@MatKhau nvarchar(255),
@@ -66,8 +68,6 @@ CREATE PROC SP_Update_Account
     @GioiTinh nvarchar(10)
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
             UPDATE dbo.TaiKhoan
 				SET HoTen = @HoTen,
@@ -79,16 +79,44 @@ BEGIN
 					SoDienThoai = @SoDienThoai,
 					VaiTro = @VaiTro
 			 WHERE MaTaiKhoan = @MaTaiKhoan;
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
+    END CATCH;
+END;
+
+GO
+/***	Update profile(Phat)		***/
+CREATE PROCEDURE SP_Account_Profile
+	@MaTaiKhoan int,
+    @HoTen nvarchar(255),
+    @DiaChi nvarchar(255),
+    @NgaySinh date,
+	@SoDienThoai nvarchar(10),
+    @GioiTinh nvarchar(10)
+AS
+BEGIN
+    BEGIN TRY
+            UPDATE dbo.TaiKhoan
+				SET HoTen = @HoTen,
+					DiaChi = @DiaChi,
+					NgaySinh = @NgaySinh,
+					GioiTinh = @GioiTinh,
+					SoDienThoai = @SoDienThoai
+			 WHERE MaTaiKhoan = @MaTaiKhoan;
+    END TRY
+    BEGIN CATCH
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Add New Account(Phat)		***/
-CREATE PROC SP_Add_New_Account
+CREATE PROCEDURE SP_Add_New_Account
 	@MaTaiKhoan int,
     @HoTen nvarchar(255),
 	@MatKhau nvarchar(255),
@@ -100,40 +128,36 @@ CREATE PROC SP_Add_New_Account
     @GioiTinh nvarchar(10)
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
         INSERT INTO dbo.TaiKhoan (MaTaiKhoan, HoTen, MatKhau, DiaChi, Email, NgaySinh, SoDienThoai, VaiTro, GioiTinh)
-        VALUES (@MaTaiKhoan, @HoTen, @MatKhau, @DiaChi, @Email, @NgaySinh,@SoDienThoai, @VaiTro, @GioiTinh);
-        
-        COMMIT;
+        VALUES (@MaTaiKhoan, @HoTen, @MatKhau, @DiaChi, @Email, @NgaySinh,@SoDienThoai, @VaiTro, @GioiTinh);       
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
-/***	Delete account(Phat)		***/
-CREATE PROC SP_Delete_Account
+/***	Delete account(Phat)		  ***/
+CREATE PROCEDURE SP_Delete_Account
     @MaTaiKhoan int
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
-            DELETE dbo.TaiKhoan WHERE MaTaiKhoan = @MaTaiKhoan;
-        
-        COMMIT;
+            DELETE dbo.TaiKhoan WHERE MaTaiKhoan = @MaTaiKhoan;       
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Add new schedule (Phat)		***/
-CREATE PROC SP_Add_New_Schedule
+CREATE OR ALTER PROCEDURE SP_Add_New_Schedule
 (
 	@NgayLam date,
 	@Ca nvarchar(255),
@@ -141,22 +165,20 @@ CREATE PROC SP_Add_New_Schedule
 )
 AS
 BEGIN
-	BEGIN TRANSACTION;
-
     BEGIN TRY
         INSERT INTO dbo.LichLamViec(NgayLam, Ca, MaTaiKhoan)
-        VALUES (@NgayLam , @Ca , @MaTaiKhoan );
-        
-        COMMIT;
+        VALUES (@NgayLam , @Ca , @MaTaiKhoan );       
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Update schedule (Phat)		***/
-CREATE PROC SP_Update_Schedule
+CREATE OR ALTER PROCEDURE SP_Update_Schedule
 (
 	@MaLichLamViec int,
 	@NgayLam date,
@@ -165,68 +187,61 @@ CREATE PROC SP_Update_Schedule
 )
 AS
 BEGIN
-	BEGIN TRANSACTION;
-
     BEGIN TRY
         Update dbo.LichLamViec
         SET NgayLam = @NgayLam,
 			Ca = @Ca , 
 			MaTaiKhoan = @MaTaiKhoan 
 		WHERE MaLichLamViec = @MaLichLamViec
-        
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Delete schedule (Phat)		***/
-CREATE PROC SP_Delete_Schedule
+CREATE OR ALTER PROCEDURE SP_Delete_Schedule
 (
 	@MaLichLamViec int
 )
 AS
 BEGIN
-	BEGIN TRANSACTION;
-
     BEGIN TRY
-        DELETE dbo.LichLamViec
-			WHERE MaLichLamViec = @MaLichLamViec
-      
-        COMMIT;
+        DELETE dbo.LichLamViec WHERE MaLichLamViec = @MaLichLamViec
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Add Books To Coupon (Phat)		***/
-CREATE PROC SP_Add_Books_To_Coupon
+CREATE OR ALTER PROCEDURE SP_Add_Books_To_Coupon
 (
 	@MaSach int,
 	@MaPhieuMuon int
 )
 AS
 BEGIN
-	BEGIN TRANSACTION;
-
     BEGIN TRY
         INSERT INTO dbo.CuonSach(MaSach, MaPhieuMuon, TinhTrang)
 		VALUES (@MaSach, @MaPhieuMuon, N'Đang mượn')
-
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Update Book In Coupon (Phat)		***/
-CREATE PROC SP_Update_Book_In_Coupon
+CREATE OR ALTER PROCEDURE SP_Update_Book_In_Coupon
 (
 	@MaPhieuMuon int,
 	@MaSach int,
@@ -234,23 +249,21 @@ CREATE PROC SP_Update_Book_In_Coupon
 )
 AS
 BEGIN
-	BEGIN TRANSACTION;
-
     BEGIN TRY
         UPDATE dbo.CuonSach
 		SET TinhTrang = @TinhTrang
 		WHERE MaSach = @MaSach AND MaPhieuMuon = @MaPhieuMuon
-
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Find account by advanced (Phat)		***/
-CREATE PROC SP_Find_Account_By_Advanced
+CREATE OR ALTER PROCEDURE SP_Find_Account_By_Advanced
 (
 	@MaTaiKhoan int = NULL,
     @HoTen nvarchar(255) = NULL,
@@ -277,7 +290,7 @@ END;
 
 GO
 /***	Get schedule (Phat)		***/
-CREATE PROC SP_Get_Schedule
+CREATE OR ALTER PROCEDURE SP_Get_Schedule
 (
 	@NgayDauTuan date = NULL,
 	@NgayCuoiTuan date = NULL,
@@ -294,7 +307,7 @@ END;
 
 GO
 /***	Add New Book(Van)		***/
-CREATE PROC SP_Add_New_Book
+CREATE OR ALTER PROCEDURE SP_Add_New_Book
     @MaTacGia INT,
 	@MaTheLoai INT,
     @MaNhaXuatBan INT,
@@ -305,23 +318,20 @@ CREATE PROC SP_Add_New_Book
     @SoLuong INT
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
         INSERT INTO dbo.Sach (MaTacGia, MaTheLoai, MaNhaXuatBan, TenSach, LoaiTaiLieu, NamXuatBan, GiaSach, SoLuong)
         VALUES (@MaTacGia, @MaTheLoai, @MaNhaXuatBan, @TenSach, @LoaiTaiLieu, @NamXuatBan, @GiaSach, @SoLuong);
-        
-        COMMIT;
     END TRY
     BEGIN CATCH
-		PRINT ERROR_MESSAGE();
-        ROLLBACK;
+		DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Update Book(Van)		***/
-CREATE PROC SP_Update_Book
+CREATE OR ALTER PROCEDURE SP_Update_Book
 	@MaTacGia INT,
 	@MaTheLoai INT,
     @MaNhaXuatBan INT,
@@ -332,8 +342,6 @@ CREATE PROC SP_Update_Book
     @SoLuong INT
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
             UPDATE dbo.Sach
 				SET MaTacGia = @MaTacGia,
@@ -345,16 +353,17 @@ BEGIN
 					GiaSach = @GiaSach,
 					SoLuong = @SoLuong
 			 WHERE TenSach = @TenSach;
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Find account by advanced (Van)		***/
-CREATE PROC SP_Find_Book_By_Advanced
+CREATE OR ALTER PROCEDURE SP_Find_Book_By_Advanced
 (
 	@TenTacGia NVARCHAR(255) = NULL,
 	@TenTheLoai NVARCHAR(255) = NULL,
@@ -379,119 +388,103 @@ END;
 
 GO
 /***	Delete account(Van)		***/
-CREATE PROC SP_Delete_Book
+CREATE OR ALTER PROCEDURE SP_Delete_Book
     @MaSach int
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
             DELETE dbo.Sach WHERE MaSach = @MaSach;
-        
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Add Tác Giả(Van)		***/
-CREATE PROC SP_Add_Tac_Gia
+CREATE OR ALTER PROCEDURE SP_Add_Tac_Gia
     @TenTacGia NVARCHAR(255)
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
         INSERT INTO dbo.TacGia (TenTacGia)
         VALUES (@TenTacGia);
-        
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Update Tác Giả(Van)		***/
-CREATE PROC SP_Update_Tac_Gia
+CREATE OR ALTER PROCEDURE SP_Update_Tac_Gia
     @MaTacGia INT,
     @TenTacGia NVARCHAR(255)
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
-            UPDATE dbo.TacGia
-				SET TenTacGia = @TenTacGia
-			 WHERE MaTacGia = @MaTacGia;
-        COMMIT;
+		UPDATE dbo.TacGia SET TenTacGia = @TenTacGia WHERE MaTacGia = @MaTacGia;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Find TacGia by advanced (Van)		***/
-CREATE PROC SP_Find_TacGia_By_Advanced
+CREATE OR ALTER PROCEDURE SP_Find_TacGia
 (
 	@TenTacGia NVARCHAR(255) = NULL
 )
 AS
 BEGIN
-	SELECT 
-		*
-	FROM VW_TacGia_List 
-	WHERE 
-		(@TenTacGia IS NULL OR @TenTacGia = TenTacGia)
-		
+	SELECT * FROM VW_TacGia_List WHERE @TenTacGia LIKE '%' + TenTacGia + '%'
 END;
 
 GO
 /***	Delete account(Van)		***/
-CREATE PROC SP_Delete_TacGia
+CREATE OR ALTER PROCEDURE SP_Delete_TacGia
     @MaTacGia int
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
             DELETE dbo.TacGia WHERE MaTacGia = @MaTacGia;
-        
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /* Trả nợ phiếu phạt (Phát) */
-CREATE OR ALTER PROC SP_Pay_Penalty_Coupon_Debt
+CREATE OR ALTER PROCEDURE SP_Pay_Penalty_Coupon_Debt
     @MaPhieuPhat int
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
 		UPDATE dbo.PhieuPhat
 		SET NgayTra = GETDATE()
 		WHERE MaPhieuPhat = @MaPhieuPhat
-		
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 
 GO
 /* Thêm phiếu phạt (Hoàn) */
-CREATE OR ALTER PROC SP_Add_New_PhieuPhat
+CREATE OR ALTER PROCEDURE SP_Add_New_PhieuPhat
     @MaPhieuMuon int
 AS
 BEGIN
@@ -513,55 +506,55 @@ BEGIN
         COMMIT;
     END TRY
     BEGIN CATCH
+		DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
         ROLLBACK;
     END CATCH;
 END;
 
 GO
 /* Xoá phiếu phạt (Hoàn) */
-CREATE PROC SP_Delete_PhieuPhat
+CREATE OR ALTER PROCEDURE SP_Delete_PhieuPhat
     @MaPhieuPhat int
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
             DELETE dbo.PhieuPhat WHERE MaPhieuPhat = @MaPhieuPhat;
-
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /* Sửa phiếu phạt (Hoàn)*/
-CREATE PROC SP_Update_PhieuPhat
+CREATE OR ALTER PROCEDURE SP_Update_PhieuPhat
 	@MaPhieuPhat int,
     @MaPhieuMuon int,
 	@TienPhat decimal,
     @NgayTra date = NULL
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
-            UPDATE dbo.PhieuPhat
+            UPDATE	dbo.PhieuPhat
 				SET MaPhieuMuon = @MaPhieuMuon,
 					TienPhat = @TienPhat,
 					NgayTra = @NgayTra
-			 WHERE MaPhieuPhat = @MaPhieuPhat;
-        COMMIT;
+			 WHERE	MaPhieuPhat = @MaPhieuPhat;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /* Tìm kiếm phiếu phạt (Hoàn)*/
-CREATE OR ALTER PROC SP_Find_PhieuPhat
+CREATE OR ALTER PROCEDURE SP_Find_PhieuPhat
 (
     @MaTaiKhoan int 
 )
@@ -576,79 +569,70 @@ END;
 
 GO
 /* Thêm thể loại (Hoàn) */
-CREATE PROC SP_Add_New_TheLoai
+CREATE OR ALTER PROCEDURE SP_Add_New_TheLoai
     @TenTheLoai nvarchar(50)
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
         INSERT INTO dbo.TheLoai (TenTheLoai)
         VALUES (@TenTheLoai);
-        
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /* Xoá thể loại (Hoàn) */
-CREATE PROC SP_Delete_TheLoai
+CREATE OR ALTER PROCEDURE SP_Delete_TheLoai
     @MaTheLoai int
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
             DELETE dbo.TheLoai WHERE MaTheLoai = @MaTheLoai;
-
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /* Sửa thể loại (Hoàn)*/
-CREATE PROC SP_Update_TheLoai
+CREATE OR ALTER PROCEDURE SP_Update_TheLoai
 	@MaTheLoai int,
     @TenTheLoai nvarchar(50)
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
             UPDATE dbo.TheLoai
 				SET TenTheLoai = @TenTheLoai
 			 WHERE MaTheLoai = @MaTheLoai;
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /* Tìm kiếm thể loại (Hoàn)*/
-CREATE PROC SP_Find_TheLoai_By_Advanced
+CREATE OR ALTER PROCEDURE SP_Find_TheLoai
 (
     @TenTheLoai nvarchar(50) = NULL
 )
 AS
 BEGIN
-	SELECT 
-		*
-	FROM VW_TheLoai_List 
-	WHERE 
-		(@TenTheLoai IS NULL OR TenTheLoai = @TenTheLoai) 
+	SELECT * FROM VW_TheLoai_List WHERE TenTheLoai LIKE '%' + @TenTheLoai + '%' 
 END;
 
 go
-/***	Find Book Loan Coupon by status (Trung)		***/
-CREATE PROC SP_Find_Book_Loan_Coupon_By_Status
+/***	Find Book Loan Coupon by status (Phat)		***/
+CREATE OR ALTER PROCEDURE SP_Find_Book_Loan_Coupon_By_Status
 (
 	@type int
 )
@@ -663,7 +647,7 @@ BEGIN
 END;
 
 GO
-/***	Add New Book Loan Coupon(Trung)		***/
+/***	Add New Book Loan Coupon(Phat)		***/
 CREATE OR ALTER PROCEDURE SP_Add_New_Book_Loan_Coupon
     @MaTaiKhoan int = NULL,
     @NgayMuon date = NULL,
@@ -671,8 +655,6 @@ CREATE OR ALTER PROCEDURE SP_Add_New_Book_Loan_Coupon
 AS
 BEGIN
     BEGIN TRY
-        BEGIN TRANSACTION;
-
 		DECLARE @InsertedID INT;
 
         INSERT INTO dbo.PhieuMuonSach (MaTaiKhoan, NgayMuon, NgayTra)
@@ -681,23 +663,23 @@ BEGIN
         SET @InsertedID = SCOPE_IDENTITY();
 		SELECT @InsertedID AS InsertedID;
  
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
-/***	Delete coupon(Trung)		***/
-CREATE or Alter PROC SP_Delete_Coupon
+/***	Delete coupon(Phat)		***/
+CREATE OR ALTER PROCEDURE SP_Delete_Coupon
     @MaPhieuMuon int
 AS
 BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-
 		UPDATE S
 		SET S.SoLuong = S.SoLuong + 1
 		FROM dbo.CuonSach CS
@@ -711,13 +693,16 @@ BEGIN
         COMMIT;
     END TRY
     BEGIN CATCH
+		DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
         ROLLBACK;
     END CATCH;
 END;
 
 GO
-/***	Update coupon(Trung)		***/
-CREATE PROC SP_Update_Coupon
+/***	Update coupon(Phat)		***/
+CREATE OR ALTER PROCEDURE SP_Update_Coupon
 	@MaPhieuMuon int,
 	@MaTaiKhoan int,
     @MaSach int,
@@ -731,6 +716,7 @@ BEGIN
 			UPDATE dbo.CuonSach
 				Set	MaSach = @MaSach
 				Where MaPhieuMuon = @MaPhieuMuon;
+
             UPDATE dbo.PhieuMuonSach
 				SET MaTaiKhoan = @MaTaiKhoan,
 					NgayMuon = @NgayMuon,
@@ -739,11 +725,15 @@ BEGIN
         COMMIT;
     END TRY
     BEGIN CATCH
+		DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
         ROLLBACK;
     END CATCH;
 END;
+
 GO
-/***	Update coupon _ Returned(Trung)		***/
+/***	Update coupon _ Returned(Phat)		***/
 CREATE OR ALTER PROCEDURE SP_Update_Coupon_Returned
     @MaPhieuMuon INT
 AS
@@ -779,6 +769,7 @@ BEGIN
             )
     )
     BEGIN
+		RAISERROR(N'Người này đang giữ sách quá hạn trả.', 16, 1)
         RETURN;
     END
 
@@ -798,14 +789,17 @@ BEGIN
         COMMIT;
     END TRY
     BEGIN CATCH
+		DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
         ROLLBACK;
     END CATCH;
 END;
 
 
 GO
-/***	Find Book Loan Coupon (Trung)		***/
-CREATE PROC SP_Find_Account_Book_Loan_Coupon
+/***	Find Book Loan Coupon (Phat)		***/
+CREATE OR ALTER PROCEDURE SP_Find_Account_Book_Loan_Coupon
 (
 	@MaTaiKhoan int
 )
@@ -814,52 +808,48 @@ BEGIN
 	SELECT 
 		*
 	FROM dbo.PhieuMuonSach 
-	WHERE @MaTaiKhoan IS NULL OR MaTaiKhoan = @MaTaiKhoan
+	WHERE MaTaiKhoan = @MaTaiKhoan
 END;
 
 GO
 /***	Add NXB (Trung)		***/
 
-CREATE PROC SP_Add_New_NXB
+CREATE OR ALTER PROCEDURE SP_Add_New_NXB
 	@TenNhaXuatBan NVARCHAR(255)
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
         INSERT INTO dbo.NhaXuatBan(TenNhaXuatBan)
         VALUES (@TenNhaXuatBan);
-        
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 go
 /***	Update NXB (Trung)		***/
-CREATE or Alter PROC SP_Update_NXB
+CREATE OR ALTER PROCEDURE SP_Update_NXB
 	@MaNhaXuatBan INT,
 	@TenNhaXuatBan NVARCHAR(255)
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
-			UPDATE dbo.NhaXuatBan
-				Set	TenNhaXuatBan = @TenNhaXuatBan
-				Where MaNhaXuatBan = @MaNhaXuatBan;
-        COMMIT;
+		UPDATE dbo.NhaXuatBan
+			Set	TenNhaXuatBan = @TenNhaXuatBan
+			Where MaNhaXuatBan = @MaNhaXuatBan;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 GO
 /***	Find NXB (Trung)		***/
-CREATE PROC SP_Find_NXB
+CREATE OR ALTER PROCEDURE SP_Find_NXB
 (
-	@MaNhaXuatBan int,
 	@TenNhaXuatBan NVARCHAR(255)
 )
 AS
@@ -867,32 +857,30 @@ BEGIN
 	SELECT 
 		*
 	FROM VW_NXB_List
-	WHERE 
-		(@MaNhaXuatBan IS NULL OR MaNhaXuatBan = @MaNhaXuatBan) AND
-		(@TenNhaXuatBan IS NULL OR TenNhaXuatBan = @TenNhaXuatBan)
+	WHERE TenNhaXuatBan LIKE '%' + @TenNhaXuatBan + '%'
 END;
+
 GO
 /***	Delete NXB (Trung)		***/
-CREATE or Alter PROC SP_Delete_NXB
+CREATE OR ALTER PROCEDURE SP_Delete_NXB
 	@MaNhaXuatBan INT,
 	@TenNhaXuatBan NVARCHAR(255)
 AS
 BEGIN
-    BEGIN TRANSACTION;
-
     BEGIN TRY
 			Delete From dbo.NhaXuatBan
 			Where MaNhaXuatBan = @MaNhaXuatBan And TenNhaXuatBan = @TenNhaXuatBan;
-        COMMIT;
     END TRY
     BEGIN CATCH
-        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
     END CATCH;
 END;
 
 GO
 /***	Get Book Penalty Coupon by status (Phat)		***/
-CREATE PROC SP_Get_Penalty_Coupon_By_Status
+CREATE OR ALTER PROCEDURE SP_Get_Penalty_Coupon_By_Status
 (
 	@type int
 )
