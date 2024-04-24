@@ -44,22 +44,10 @@ namespace LibraryManagement.DAO
 
             return result > 0;
         }
-        public DataTable FindNhaXuatBan(NhaXuatBan nxb)
+        public DataTable FindNhaXuatBan(string tenNXB)
         {
-            object manhaxuatban = nxb.MaNhaXuatBan;
-            object tennhaxuatban = nxb.TenNhaXuatBan;
-
-            if (nxb.MaNhaXuatBan == 0)
-            {
-                manhaxuatban = DBNull.Value;
-            }
-            if (nxb.TenNhaXuatBan == "")
-            {
-                tennhaxuatban = DBNull.Value;
-            }
-
-            string query = "SP_Find_NXB @MaNhaXuatBan , @TenNhaXuatBan ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { manhaxuatban, tennhaxuatban });
+            string query = "SP_Find_NXB @TenNhaXuatBan ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tenNXB });
             return data;
         }
         public DataTable TotalPublishers()

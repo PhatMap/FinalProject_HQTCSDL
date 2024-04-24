@@ -85,3 +85,8 @@ D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryMan
 D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
 D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
 D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fReaderSearchUttil.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fSearchAccountUtil.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fChooseBooks.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fCouponDetail.resources
+D:\FinalProject_HQTCSDL\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.GUI.fPay.resources

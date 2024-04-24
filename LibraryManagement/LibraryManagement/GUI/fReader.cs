@@ -11,14 +11,17 @@ namespace LibraryManagement.GUI
     {
         private int maTaiKhoan = Session.loginAccount.MaTaiKhoan;
         private int firstCellValue;
-        public enum type
+        private enum type
         {
             All = 0,
             NotPaid = 1,
             Paid = 2,
             NotReturned = 1,
             Returned = 2,
-            Empty = 0
+            Empty = 0,
+            AuthorMode = 0,
+            NXBMode = 1,
+            GerneMode = 2
         }
 
         public fReader()
@@ -235,6 +238,27 @@ namespace LibraryManagement.GUI
         {
             LoadReaderBorrowed((int)type.All);
             rbtnTatCa.Checked = true;
+        }
+
+        private void btnAuthorSearch_Click(object sender, EventArgs e)
+        {
+            fReaderSearchUttil f = new fReaderSearchUttil((int)type.AuthorMode);
+            f.ShowDialog();
+            cbTacGia.SelectedValue = Session.temp;
+        }
+
+        private void btnNXBSearch_Click(object sender, EventArgs e)
+        {
+            fReaderSearchUttil f = new fReaderSearchUttil((int)type.NXBMode);
+            f.ShowDialog();
+            cbNhaXuatBan.SelectedValue = Session.temp;
+        }
+
+        private void btnGerneSearch_Click(object sender, EventArgs e)
+        {
+            fReaderSearchUttil f = new fReaderSearchUttil((int)type.GerneMode);
+            f.ShowDialog();
+            cbTheLoai.SelectedValue = Session.temp;
         }
     }
 }

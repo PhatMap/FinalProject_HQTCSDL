@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace LibraryManagement.GUI
 {
@@ -16,6 +17,7 @@ namespace LibraryManagement.GUI
     {
         BindingSource accountList = new BindingSource();
         BindingSource ScheduleList = new BindingSource();
+        private DataGridViewCell previousCell;
 
         public fAccount()
         {
@@ -24,19 +26,16 @@ namespace LibraryManagement.GUI
             dgvAccount.DataSource = accountList;
             dgvSchedule.DataSource = ScheduleList;
 
-            cbLibName.DataSource = TaiKhoanDAO.Instance.LoadLibrarian();
-            cbLibName.DisplayMember = "HoTen";
-            cbLibName.ValueMember = "MaTaiKhoan";
-
             DetachAccountBinding();
             DetachScheduleBinding();
 
             LoadAccountProfile();
             LoadAccountList();
+
             LoadScheduleList();
         }
 
-
+        //Bindings section
         private void AddAccountBinding()
         {
             inpAccName.DataBindings.Add(new Binding("Text", dgvAccount.DataSource, "HoTen"));
@@ -100,6 +99,8 @@ namespace LibraryManagement.GUI
             numLibID.DataBindings.Clear();
         }
 
+
+        //Tai Khoan tab 1 + 2
         private void LoadAccountProfile()
         {
             TaiKhoan tk = Session.loginAccount;
@@ -134,98 +135,122 @@ namespace LibraryManagement.GUI
 
         private void btnAddAcc_Click(object sender, EventArgs e)
         {
-            TaiKhoan tk = new TaiKhoan();
-
-            tk.MaTaiKhoan = (int)numAccID.Value;
-            tk.HoTen = inpAccName.Text;
-            tk.MatKhau = inpAccPass.Text;
-            tk.Email = inpAccEmail.Text;
-            tk.NgaySinh = dtpAccNgaySinh.Value;
-            tk.VaiTro = cbAccRole.SelectedItem.ToString();
-            tk.DiaChi = inpAccAddress.Text;
-            if (rbtnNam.Checked)
+            try
             {
-                tk.GioiTinh = "Nam";
+                TaiKhoan tk = new TaiKhoan();
+                tk.MaTaiKhoan = (int)numAccID.Value;
+                tk.HoTen = inpAccName.Text;
+                tk.MatKhau = inpAccPass.Text;
+                tk.Email = inpAccEmail.Text;
+                tk.NgaySinh = dtpAccNgaySinh.Value;
+                tk.VaiTro = cbAccRole.SelectedItem.ToString();
+                tk.DiaChi = inpAccAddress.Text;
+                if (rbtnNam.Checked)
+                {
+                    tk.GioiTinh = "Nam";
+                }
+                else
+                {
+                    tk.GioiTinh = "Nữ";
+                }
+
+                tk.SoDienThoai = inpAccPhone.Text;
+
+                TaiKhoanDAO.Instance.AddAccount(tk);
+
+                LoadAccountList();
             }
-            else
+            catch
             {
-                tk.GioiTinh = "Nữ";
+                MessageBox.Show("Thất bại", "Add account", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            tk.SoDienThoai = inpAccPhone.Text;
-
-            TaiKhoanDAO.Instance.AddAccount(tk);
-
-            LoadAccountList();
         }
 
         private void btnDeleteAcc_Click(object sender, EventArgs e)
         {
-            DetachAccountBinding();
-            AddAccountBinding();
+            try
+            {
+                DetachAccountBinding();
+                int accID = (int)numAccID.Value;
 
-            int accID = (int)numAccID.Value;
+                TaiKhoanDAO.Instance.DeleteAccount(accID);
 
-            TaiKhoanDAO.Instance.DeleteAccount(accID);
+                LoadAccountList();
+            }
+            catch
+            {
+                MessageBox.Show("Thất bại", "Delete  account", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            LoadAccountList();
+            }
         }
 
         private void btnUpdateAcc_Click(object sender, EventArgs e)
         {
-            DetachAccountBinding();
-            AddAccountBinding();
-
-            TaiKhoan tk = new TaiKhoan();
-
-            tk.MaTaiKhoan = (int)numAccID.Value;
-            tk.HoTen = inpAccName.Text;
-            tk.MatKhau = inpAccPass.Text;
-            tk.Email = inpAccEmail.Text;
-            tk.NgaySinh = dtpAccNgaySinh.Value;
-            tk.VaiTro = cbAccRole.SelectedItem.ToString();
-            tk.DiaChi = inpAccAddress.Text;
-            tk.SoDienThoai = inpAccPhone.Text;
-            if (rbtnNam.Checked)
+            try
             {
-                tk.GioiTinh = "Nam";
+                DetachAccountBinding();
+
+                TaiKhoan tk = new TaiKhoan();
+
+                tk.MaTaiKhoan = (int)numAccID.Value;
+                tk.HoTen = inpAccName.Text;
+                tk.MatKhau = inpAccPass.Text;
+                tk.Email = inpAccEmail.Text;
+                tk.NgaySinh = dtpAccNgaySinh.Value;
+                tk.VaiTro = cbAccRole.SelectedItem.ToString();
+                tk.DiaChi = inpAccAddress.Text;
+                tk.SoDienThoai = inpAccPhone.Text;
+                if (rbtnNam.Checked)
+                {
+                    tk.GioiTinh = "Nam";
+                }
+                else
+                {
+                    tk.GioiTinh = "Nữ";
+                }
+
+                TaiKhoanDAO.Instance.UpdateAccount(tk);
+
+                LoadAccountList();
             }
-            else
+            catch
             {
-                tk.GioiTinh = "Nữ";
+                MessageBox.Show("Thất bại", "Update account", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            TaiKhoanDAO.Instance.UpdateAccount(tk);
-
-            LoadAccountList();
         }
 
         private void btnFindAcc_Click(object sender, EventArgs e)
         {
-            TaiKhoan tk = new TaiKhoan();
-
-            tk.MaTaiKhoan = (int)numAccID.Value;
-            tk.HoTen = inpAccName.Text;
-            tk.Email = inpAccEmail.Text;
-            if (cbAccRole.SelectedItem != null)
+            try
             {
-                tk.VaiTro = cbAccRole.SelectedItem.ToString();
+                TaiKhoan tk = new TaiKhoan();
+
+                tk.MaTaiKhoan = (int)numAccID.Value;
+                tk.HoTen = inpAccName.Text;
+                tk.Email = inpAccEmail.Text;
+                if (cbAccRole.SelectedItem != null)
+                {
+                    tk.VaiTro = cbAccRole.SelectedItem.ToString();
+                }
+                tk.DiaChi = inpAccAddress.Text;
+                if (rbtnNam.Checked)
+                {
+                    tk.GioiTinh = "Nam";
+                }
+                if (rbtnNu.Checked)
+                {
+                    tk.GioiTinh = "Nữ";
+                }
+
+                tk.SoDienThoai = inpAccPhone.Text;
+
+
+                accountList.DataSource = TaiKhoanDAO.Instance.FindAccountByAdvanced(tk);
             }
-            tk.DiaChi = inpAccAddress.Text;
-            if (rbtnNam.Checked)
+            catch
             {
-                tk.GioiTinh = "Nam";
+                MessageBox.Show("Không có kết quả", "Find account", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (rbtnNu.Checked)
-            {
-                tk.GioiTinh = "Nữ";
-            }
-
-            tk.SoDienThoai = inpAccPhone.Text;
-
-
-            accountList.DataSource = TaiKhoanDAO.Instance.FindAccountByAdvanced(tk);
-
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -247,49 +272,215 @@ namespace LibraryManagement.GUI
         }
 
         //tab3 lich lam viec
+        private string maTaiKhoan = null;
+
+        private DateTime setWeekstart;
+        private DateTime setWeekend;
+        private bool changeWeek = false;
+        private DateTime today = DateTime.Now;
+
+        private void PersonalSchedule()
+        {
+            if (Session.loginAccount.VaiTro == "Thủ thư")
+            {
+                maTaiKhoan = Session.loginAccount.MaTaiKhoan.ToString();
+            }
+        }
+        private void LoadThisWeek()
+        {
+            if (!changeWeek)
+            {
+                int weekstart = 1 - (int)today.DayOfWeek;
+                int weekend = 7 - (int)today.DayOfWeek;
+
+                dtpMonday.Value = today.AddDays(weekstart);
+                dtpSunday.Value = today.AddDays(weekend);
+
+                setWeekstart = dtpMonday.Value;
+                setWeekend = dtpSunday.Value;
+            }
+            else
+            {
+                setWeekstart = dtpMonday.Value;
+                setWeekend = dtpSunday.Value;
+            }
+            ScheduleList.DataSource = LichLamViecDAO.Instance.LoadLichLamViecList(setWeekstart, setWeekend, maTaiKhoan);
+        }
 
         private void LoadScheduleList()
         {
-            ScheduleList.DataSource = LichLamViecDAO.Instance.LoadLichLamViecList();
+            cbLibName.DataSource = TaiKhoanDAO.Instance.LoadLibrarian();
+            cbLibName.DisplayMember = "HoTen";
+            cbLibName.ValueMember = "MaTaiKhoan";
+            cbLibName.SelectedItem = null;
+
+            changeWeek = false;
+            PersonalSchedule();
+            LoadThisWeek();
         }
 
         private void btnLibCreate_Click(object sender, EventArgs e)
         {
-            LichLamViec newLLV = new LichLamViec();
+            try
+            {
+                LichLamViec newLLV = new LichLamViec();
 
-            newLLV.NgayLam = dtpLibDay.Value;
-            newLLV.Ca = cbLibCa.SelectedItem.ToString();
-            newLLV.MaTaiKhoan = (int)cbLibName.SelectedValue;
+                newLLV.NgayLam = dtpLibDay.Value;
+                newLLV.Ca = cbLibCa.SelectedItem.ToString();
+                newLLV.MaTaiKhoan = (int)cbLibName.SelectedValue;
 
-            LichLamViecDAO.Instance.AddNewSchedule(newLLV);
-            LoadScheduleList();
+                LichLamViecDAO.Instance.AddNewSchedule(newLLV);
+                LoadScheduleList();
+            }
+            catch
+            {
+                MessageBox.Show("Hãy điền các ô còn trống", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnLibUpdate_Click(object sender, EventArgs e)
         {
-            DetachScheduleBinding();
-            AddScheduleBinding();
+            try
+            {
+                DetachScheduleBinding();
 
-            LichLamViec newLLV = new LichLamViec();
-            newLLV.MaLichLamViec = (int)numLibID.Value;
-            newLLV.NgayLam = dtpLibDay.Value;
-            newLLV.Ca = cbLibCa.SelectedItem.ToString();
-            newLLV.MaTaiKhoan = (int)cbLibName.SelectedValue;
+                LichLamViec newLLV = new LichLamViec();
+                newLLV.MaLichLamViec = (int)numLibID.Value;
+                newLLV.NgayLam = dtpLibDay.Value;
+                newLLV.Ca = cbLibCa.SelectedItem.ToString();
+                newLLV.MaTaiKhoan = (int)cbLibName.SelectedValue;
+                LichLamViecDAO.Instance.UpdateSchedule(newLLV);
 
-            LichLamViecDAO.Instance.UpdateSchedule(newLLV);
-
-            LoadScheduleList();
+                LoadScheduleList();
+            }
+            catch
+            {
+                MessageBox.Show("Hãy chọn đối tượng cần cập nhật", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnLibDelete_Click(object sender, EventArgs e)
         {
-            DetachScheduleBinding();
-            AddScheduleBinding();
+            try
+            {
+                DetachScheduleBinding();
 
-            int id = (int)numLibID.Value;
-            LichLamViecDAO.Instance.DeleteSchedule(id);
+                int id = (int)numLibID.Value;
+                LichLamViecDAO.Instance.DeleteSchedule(id);
 
-            LoadScheduleList();
+                LoadScheduleList();
+            }
+            catch
+            {
+                MessageBox.Show("Hãy chọn đối tượng cần xóa", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void dgvSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (previousCell != null && e.RowIndex == previousCell.RowIndex)
+            {
+                DetachScheduleBinding();
+                cbLibName.SelectedItem = null;
+                cbLibCa.SelectedItem = null;
+                dtpLibDay.Value = DateTime.Now;
+                numLibID.Value = 0;
+            }
+            else
+            {
+                DetachScheduleBinding();
+                AddScheduleBinding();
+                DetachScheduleBinding();
+            }
+            if (e.ColumnIndex < 0 || e.RowIndex < 0)
+            {
+                return;
+            }
+            previousCell = dgvSchedule.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        }
+
+        private void dtpMonday_ValueChanged(object sender, EventArgs e)
+        {
+            changeWeek = true;
+
+            LoadThisWeek();
+        }
+
+        private void dtpSunday_ValueChanged(object sender, EventArgs e)
+        {
+            changeWeek = true;
+
+            LoadThisWeek();
+        }
+
+        private void btnPreviousWeek_Click(object sender, EventArgs e)
+        {
+            changeWeek = true;
+            dtpMonday.Value = dtpMonday.Value.AddDays(-7);
+            dtpSunday.Value = dtpMonday.Value.AddDays(6);
+            LoadThisWeek();
+        }
+
+        private void btnNextWeek_Click(object sender, EventArgs e)
+        {
+            changeWeek = true;
+            dtpMonday.Value = dtpMonday.Value.AddDays(7);
+            dtpSunday.Value = dtpMonday.Value.AddDays(6);
+            LoadThisWeek();
+        }
+
+        private void btnFindSchedule_Click(object sender, EventArgs e)
+        {
+            maTaiKhoan = cbLibName.SelectedValue.ToString();
+            LoadThisWeek();
+        }
+
+        private void btnResetSchedule_Click(object sender, EventArgs e)
+        {
+            maTaiKhoan = null;
+            PersonalSchedule();
+            cbLibName.SelectedIndex = -1;
+            cbLibCa.SelectedIndex = -1;
+            numLibID.Value = 0;
+            dtpLibDay.Value = DateTime.Now;
+            changeWeek = false;
+            LoadThisWeek();
+        }
+
+        private void dgvAccount_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (previousCell != null && e.RowIndex == previousCell.RowIndex)
+            {
+                DetachScheduleBinding();
+                numAccID.Value = 0;
+                inpAccName.Clear();
+                inpAccPass.Clear();
+                inpAccEmail.Clear();
+                dtpAccNgaySinh.Value = DateTime.Now;
+                cbAccRole.SelectedItem = null;
+                inpAccAddress.Clear();
+                inpAccPhone.Clear();
+                rbtnNam.Checked = false;
+                rbtnNu.Checked = false;
+            }
+            else
+            {
+                DetachAccountBinding();
+                AddAccountBinding();
+                DetachAccountBinding();
+            }
+            if (e.ColumnIndex < 0 || e.RowIndex < 0)
+            {
+                return;
+            }
+            previousCell = dgvAccount.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        }
+
+        private void btnAllSchedule_Click(object sender, EventArgs e)
+        {
+            maTaiKhoan = null;
+            LoadThisWeek();
         }
     }
 }

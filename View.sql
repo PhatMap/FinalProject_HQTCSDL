@@ -70,16 +70,10 @@ FROM dbo.PhieuPhat
 
 GO
 /***	Get Book Loan Coupon list (Trung)		***/
-Create VIEW VW_BookLoanCoupon_List AS
+Create VIEW VW_Book_Loan_Coupon_List AS
 SELECT 
-	PM.MaPhieuMuon,
-	S.MaSach,
-	MaTaiKhoan,
-	S.TinhTrang,
-	NgayMuon,
-	NgayTra
-FROM dbo.PhieuMuonSach PM
-Join dbo.CuonSach S ON PM.MaPhieuMuon = S.MaPhieuMuon
+	*
+FROM dbo.PhieuMuonSach 
 
 GO
 /***	Get publisher list (Trung)		***/
@@ -88,6 +82,8 @@ SELECT
 	MaNhaXuatBan,
 	TenNhaXuatBan
 FROM dbo.NhaXuatBan
+
+
 
 
 

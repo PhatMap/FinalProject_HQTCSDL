@@ -28,6 +28,15 @@ namespace LibraryManagement.DAO
             return data;
         }
 
+        public DataTable LoadPhieuPhatListByStatus(int type)
+        {
+            string query = "SP_Get_Penalty_Coupon_By_Status @type ";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { type });
+
+            return data;
+        }
+
         public DataTable LoadReaderPenalty(int maTaiKhoan, int type)
         {
             string query = "SELECT * FROM FN_Reader_Penalty_List( @MaTaiKhoan , @type )";
@@ -39,9 +48,9 @@ namespace LibraryManagement.DAO
 
         public void AddPhieuPhat(PhieuPhat pp)
         {
-            string query = "SP_Add_New_PhieuPhat @MaPhieuMuon , @TienPhat , @NgayTra ";
+            string query = "SP_Add_New_PhieuPhat @MaPhieuMuon ";
 
-            DataProvider.Instance.ExecuteQuery(query, new object[] { pp.MaPhieuMuon, pp.TienPhat, pp.NgayTra });
+            DataProvider.Instance.ExecuteQuery(query, new object[] { pp.MaPhieuMuon });
         }
 
         public void DeletePhieuPhat(int maPhieuPhat)
@@ -59,27 +68,10 @@ namespace LibraryManagement.DAO
             return result > 0;
         }
 
-        public DataTable FindPhieuPhatByAdvanced(PhieuPhat pp)
+        public DataTable FindPhieuPhat(int id)
         {
-            object maPhieuMuon = pp.MaPhieuMuon;
-            object tienPhat = pp.TienPhat;
-            object ngayTra = pp.NgayTra;
-
-            if (pp.MaPhieuMuon == 0)
-            {
-                maPhieuMuon = DBNull.Value;
-            }
-            if (pp.TienPhat == 0)
-            {
-                tienPhat = DBNull.Value;
-            }
-            if (pp.NgayTra == null)
-            {
-                ngayTra = DBNull.Value;
-            }
-
-            string query = "SP_Find_PhieuPhat_By_Advanced @MaPhieuMuon , @TienPhat , @NgayTra ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maPhieuMuon, tienPhat, ngayTra });
+            string query = "SP_Find_PhieuPhat @MaTaiKhoan ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
             return data;
         }
         public int TotalPenaltyCouponsByMonth(int month, int year)
@@ -87,6 +79,12 @@ namespace LibraryManagement.DAO
             string query = "SELECT * FROM dbo.FN_Total_Penalty_Coupons_By_Month( @month , @year )";
             object total = DataProvider.Instance.ExecuteScalar(query, new object[] { month, year });
             return (int)total;
+        }
+
+        public void PayDebt(int maPhieuPhat)
+        {
+            string query = "SP_Pay_Penalty_Coupon_Debt @MaPhieuPhat ";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { maPhieuPhat });
         }
     }
 }

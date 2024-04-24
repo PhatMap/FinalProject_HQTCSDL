@@ -42,9 +42,12 @@
             this.GiaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnGerneSearch = new System.Windows.Forms.Button();
+            this.btnNXBSearch = new System.Windows.Forms.Button();
+            this.btnAuthorSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.nudMaSach = new System.Windows.Forms.NumericUpDown();
-            this.btnResert = new System.Windows.Forms.Button();
+            this.btnResertBook = new System.Windows.Forms.Button();
             this.cbLoaiTaiLieu = new System.Windows.Forms.ComboBox();
             this.nudNamXuatBan = new System.Windows.Forms.NumericUpDown();
             this.nudGiaSach = new System.Windows.Forms.NumericUpDown();
@@ -56,7 +59,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.txbTenSach = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDeleteBook = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnFindBook = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -68,41 +71,48 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvTacGia = new System.Windows.Forms.DataGridView();
+            this.MaTacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTacGiatab2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFindTacGia = new System.Windows.Forms.Button();
+            this.numTacGiaID = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.nudMaTacGia = new System.Windows.Forms.NumericUpDown();
             this.btnResertTacGia = new System.Windows.Forms.Button();
             this.txbTenTacGia = new System.Windows.Forms.TextBox();
             this.btnDeleteTacGia = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnFindTacGia = new System.Windows.Forms.Button();
             this.btnUpdateTacGia = new System.Windows.Forms.Button();
             this.btnAddTacGia = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtBoxTenNhaXuatBan = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnFindPushlisher = new System.Windows.Forms.Button();
+            this.btnResetNXB = new System.Windows.Forms.Button();
+            this.numNXBid = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txbNXB = new System.Windows.Forms.TextBox();
+            this.btnXoaNXB = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnSuaNXB = new System.Windows.Forms.Button();
+            this.btnThemNXB = new System.Windows.Forms.Button();
             this.dgvNhaXuatBan = new System.Windows.Forms.DataGridView();
+            this.NXBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NXBName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnFindTheLoai = new System.Windows.Forms.Button();
             this.numTheLoaiID = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.txtTenTheLoai = new System.Windows.Forms.TextBox();
-            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnResetTheLoai = new System.Windows.Forms.Button();
+            this.txbTenTheLoai = new System.Windows.Forms.TextBox();
+            this.btnXoaTheLoai = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnTim = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
+            this.btnSuaTheLoai = new System.Windows.Forms.Button();
+            this.btnThemTheLoai = new System.Windows.Forms.Button();
             this.dgvTheLoai = new System.Windows.Forms.DataGridView();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtBoxMaNhaXuatBan = new System.Windows.Forms.TextBox();
+            this.TheLoaiID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TheLoaiName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -116,10 +126,11 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTacGia)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaTacGia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTacGiaID)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numNXBid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaXuatBan)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -164,7 +175,12 @@
             // 
             // dgvSach
             // 
+            this.dgvSach.AllowUserToAddRows = false;
+            this.dgvSach.AllowUserToDeleteRows = false;
+            this.dgvSach.AllowUserToResizeColumns = false;
+            this.dgvSach.AllowUserToResizeRows = false;
             this.dgvSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSach.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSach,
@@ -178,11 +194,14 @@
             this.SoLuong});
             this.dgvSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSach.Location = new System.Drawing.Point(0, 152);
+            this.dgvSach.MultiSelect = false;
             this.dgvSach.Name = "dgvSach";
+            this.dgvSach.RowHeadersVisible = false;
             this.dgvSach.RowHeadersWidth = 51;
             this.dgvSach.RowTemplate.Height = 24;
             this.dgvSach.Size = new System.Drawing.Size(953, 392);
             this.dgvSach.TabIndex = 3;
+            this.dgvSach.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSach_CellMouseClick);
             // 
             // MaSach
             // 
@@ -249,9 +268,12 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.btnGerneSearch);
+            this.panel8.Controls.Add(this.btnNXBSearch);
+            this.panel8.Controls.Add(this.btnAuthorSearch);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.nudMaSach);
-            this.panel8.Controls.Add(this.btnResert);
+            this.panel8.Controls.Add(this.btnResertBook);
             this.panel8.Controls.Add(this.cbLoaiTaiLieu);
             this.panel8.Controls.Add(this.nudNamXuatBan);
             this.panel8.Controls.Add(this.nudGiaSach);
@@ -263,7 +285,7 @@
             this.panel8.Controls.Add(this.label25);
             this.panel8.Controls.Add(this.txbTenSach);
             this.panel8.Controls.Add(this.label8);
-            this.panel8.Controls.Add(this.btnDelete);
+            this.panel8.Controls.Add(this.btnDeleteBook);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Controls.Add(this.btnFindBook);
             this.panel8.Controls.Add(this.label11);
@@ -278,10 +300,49 @@
             this.panel8.Size = new System.Drawing.Size(953, 152);
             this.panel8.TabIndex = 2;
             // 
+            // btnGerneSearch
+            // 
+            this.btnGerneSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGerneSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
+            this.btnGerneSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnGerneSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerneSearch.Location = new System.Drawing.Point(901, 3);
+            this.btnGerneSearch.Name = "btnGerneSearch";
+            this.btnGerneSearch.Size = new System.Drawing.Size(31, 27);
+            this.btnGerneSearch.TabIndex = 51;
+            this.btnGerneSearch.UseVisualStyleBackColor = false;
+            this.btnGerneSearch.Click += new System.EventHandler(this.btnGerneSearch_Click);
+            // 
+            // btnNXBSearch
+            // 
+            this.btnNXBSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNXBSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
+            this.btnNXBSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnNXBSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNXBSearch.Location = new System.Drawing.Point(410, 68);
+            this.btnNXBSearch.Name = "btnNXBSearch";
+            this.btnNXBSearch.Size = new System.Drawing.Size(31, 27);
+            this.btnNXBSearch.TabIndex = 50;
+            this.btnNXBSearch.UseVisualStyleBackColor = false;
+            this.btnNXBSearch.Click += new System.EventHandler(this.btnNXBSearch_Click);
+            // 
+            // btnAuthorSearch
+            // 
+            this.btnAuthorSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAuthorSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
+            this.btnAuthorSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAuthorSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuthorSearch.Location = new System.Drawing.Point(410, 37);
+            this.btnAuthorSearch.Name = "btnAuthorSearch";
+            this.btnAuthorSearch.Size = new System.Drawing.Size(31, 27);
+            this.btnAuthorSearch.TabIndex = 49;
+            this.btnAuthorSearch.UseVisualStyleBackColor = false;
+            this.btnAuthorSearch.Click += new System.EventHandler(this.btnAuthorSearch_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(781, 66);
+            this.label4.Location = new System.Drawing.Point(793, 118);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 16);
             this.label4.TabIndex = 25;
@@ -289,25 +350,26 @@
             // 
             // nudMaSach
             // 
-            this.nudMaSach.Location = new System.Drawing.Point(845, 64);
+            this.nudMaSach.Location = new System.Drawing.Point(857, 116);
             this.nudMaSach.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudMaSach.Name = "nudMaSach";
+            this.nudMaSach.ReadOnly = true;
             this.nudMaSach.Size = new System.Drawing.Size(84, 22);
             this.nudMaSach.TabIndex = 24;
             // 
-            // btnResert
+            // btnResertBook
             // 
-            this.btnResert.Location = new System.Drawing.Point(291, 107);
-            this.btnResert.Name = "btnResert";
-            this.btnResert.Size = new System.Drawing.Size(75, 23);
-            this.btnResert.TabIndex = 23;
-            this.btnResert.Text = "Resert";
-            this.btnResert.UseVisualStyleBackColor = true;
-            this.btnResert.Click += new System.EventHandler(this.btnResert_Click);
+            this.btnResertBook.Location = new System.Drawing.Point(281, 116);
+            this.btnResertBook.Name = "btnResertBook";
+            this.btnResertBook.Size = new System.Drawing.Size(75, 30);
+            this.btnResertBook.TabIndex = 23;
+            this.btnResertBook.Text = "Resert";
+            this.btnResertBook.UseVisualStyleBackColor = true;
+            this.btnResertBook.Click += new System.EventHandler(this.btnResertBook_Click);
             // 
             // cbLoaiTaiLieu
             // 
@@ -330,7 +392,7 @@
             0,
             0});
             this.nudNamXuatBan.Name = "nudNamXuatBan";
-            this.nudNamXuatBan.Size = new System.Drawing.Size(84, 22);
+            this.nudNamXuatBan.Size = new System.Drawing.Size(174, 22);
             this.nudNamXuatBan.TabIndex = 21;
             // 
             // nudGiaSach
@@ -366,7 +428,7 @@
             this.cbTheLoai.FormattingEnabled = true;
             this.cbTheLoai.Location = new System.Drawing.Point(599, 6);
             this.cbTheLoai.Name = "cbTheLoai";
-            this.cbTheLoai.Size = new System.Drawing.Size(330, 24);
+            this.cbTheLoai.Size = new System.Drawing.Size(296, 24);
             this.cbTheLoai.TabIndex = 14;
             // 
             // cbNhaXuatBan
@@ -374,7 +436,7 @@
             this.cbNhaXuatBan.FormattingEnabled = true;
             this.cbNhaXuatBan.Location = new System.Drawing.Point(130, 71);
             this.cbNhaXuatBan.Name = "cbNhaXuatBan";
-            this.cbNhaXuatBan.Size = new System.Drawing.Size(330, 24);
+            this.cbNhaXuatBan.Size = new System.Drawing.Size(274, 24);
             this.cbNhaXuatBan.TabIndex = 13;
             // 
             // cbTacGia
@@ -382,7 +444,7 @@
             this.cbTacGia.FormattingEnabled = true;
             this.cbTacGia.Location = new System.Drawing.Point(130, 37);
             this.cbTacGia.Name = "cbTacGia";
-            this.cbTacGia.Size = new System.Drawing.Size(330, 24);
+            this.cbTacGia.Size = new System.Drawing.Size(274, 24);
             this.cbTacGia.TabIndex = 12;
             // 
             // label25
@@ -404,26 +466,26 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 37);
+            this.label8.Location = new System.Drawing.Point(3, 45);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 16);
             this.label8.TabIndex = 2;
             this.label8.Text = "Tác giả";
             // 
-            // btnDelete
+            // btnDeleteBook
             // 
-            this.btnDelete.Location = new System.Drawing.Point(385, 107);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDeleteBook.Location = new System.Drawing.Point(385, 123);
+            this.btnDeleteBook.Name = "btnDeleteBook";
+            this.btnDeleteBook.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteBook.TabIndex = 8;
+            this.btnDeleteBook.Text = "Xóa";
+            this.btnDeleteBook.UseVisualStyleBackColor = true;
+            this.btnDeleteBook.Click += new System.EventHandler(this.btnDeleteBook_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 6);
+            this.label7.Location = new System.Drawing.Point(3, 12);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 16);
             this.label7.TabIndex = 2;
@@ -431,9 +493,9 @@
             // 
             // btnFindBook
             // 
-            this.btnFindBook.Location = new System.Drawing.Point(195, 107);
+            this.btnFindBook.Location = new System.Drawing.Point(200, 116);
             this.btnFindBook.Name = "btnFindBook";
-            this.btnFindBook.Size = new System.Drawing.Size(75, 23);
+            this.btnFindBook.Size = new System.Drawing.Size(75, 30);
             this.btnFindBook.TabIndex = 10;
             this.btnFindBook.Text = "Tìm";
             this.btnFindBook.UseVisualStyleBackColor = true;
@@ -450,17 +512,18 @@
             // 
             // btnUpdateBook
             // 
-            this.btnUpdateBook.Location = new System.Drawing.Point(98, 107);
+            this.btnUpdateBook.Location = new System.Drawing.Point(84, 115);
             this.btnUpdateBook.Name = "btnUpdateBook";
-            this.btnUpdateBook.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateBook.Size = new System.Drawing.Size(110, 31);
             this.btnUpdateBook.TabIndex = 9;
             this.btnUpdateBook.Text = "Cập nhật";
             this.btnUpdateBook.UseVisualStyleBackColor = true;
+            this.btnUpdateBook.Click += new System.EventHandler(this.btnUpdateBook_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 71);
+            this.label12.Location = new System.Drawing.Point(3, 79);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 16);
             this.label12.TabIndex = 3;
@@ -477,9 +540,9 @@
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(6, 107);
+            this.btnAddBook.Location = new System.Drawing.Point(3, 116);
             this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(75, 23);
+            this.btnAddBook.Size = new System.Drawing.Size(75, 30);
             this.btnAddBook.TabIndex = 7;
             this.btnAddBook.Text = "Thêm";
             this.btnAddBook.UseVisualStyleBackColor = true;
@@ -517,24 +580,50 @@
             // 
             // dgvTacGia
             // 
+            this.dgvTacGia.AllowUserToAddRows = false;
+            this.dgvTacGia.AllowUserToDeleteRows = false;
+            this.dgvTacGia.AllowUserToResizeColumns = false;
+            this.dgvTacGia.AllowUserToResizeRows = false;
+            this.dgvTacGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTacGia.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvTacGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTacGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaTacGia,
+            this.TenTacGiatab2});
             this.dgvTacGia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTacGia.Location = new System.Drawing.Point(0, 47);
+            this.dgvTacGia.MultiSelect = false;
             this.dgvTacGia.Name = "dgvTacGia";
+            this.dgvTacGia.RowHeadersVisible = false;
             this.dgvTacGia.RowHeadersWidth = 51;
             this.dgvTacGia.RowTemplate.Height = 24;
             this.dgvTacGia.Size = new System.Drawing.Size(953, 497);
             this.dgvTacGia.TabIndex = 3;
+            this.dgvTacGia.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTacGia_CellMouseClick);
+            // 
+            // MaTacGia
+            // 
+            this.MaTacGia.DataPropertyName = "MaTacGia";
+            this.MaTacGia.HeaderText = "Mã tác giả";
+            this.MaTacGia.MinimumWidth = 6;
+            this.MaTacGia.Name = "MaTacGia";
+            // 
+            // TenTacGiatab2
+            // 
+            this.TenTacGiatab2.DataPropertyName = "TenTacGia";
+            this.TenTacGiatab2.HeaderText = "Tên tác giả";
+            this.TenTacGiatab2.MinimumWidth = 6;
+            this.TenTacGiatab2.Name = "TenTacGiatab2";
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnFindTacGia);
+            this.panel2.Controls.Add(this.numTacGiaID);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.nudMaTacGia);
             this.panel2.Controls.Add(this.btnResertTacGia);
             this.panel2.Controls.Add(this.txbTenTacGia);
             this.panel2.Controls.Add(this.btnDeleteTacGia);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btnFindTacGia);
             this.panel2.Controls.Add(this.btnUpdateTacGia);
             this.panel2.Controls.Add(this.btnAddTacGia);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -543,30 +632,41 @@
             this.panel2.Size = new System.Drawing.Size(953, 47);
             this.panel2.TabIndex = 2;
             // 
+            // btnFindTacGia
+            // 
+            this.btnFindTacGia.Location = new System.Drawing.Point(674, 15);
+            this.btnFindTacGia.Name = "btnFindTacGia";
+            this.btnFindTacGia.Size = new System.Drawing.Size(75, 23);
+            this.btnFindTacGia.TabIndex = 20;
+            this.btnFindTacGia.Text = "Tìm";
+            this.btnFindTacGia.UseVisualStyleBackColor = true;
+            this.btnFindTacGia.Click += new System.EventHandler(this.btnFindTacGia_Click);
+            // 
+            // numTacGiaID
+            // 
+            this.numTacGiaID.Location = new System.Drawing.Point(82, 16);
+            this.numTacGiaID.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numTacGiaID.Name = "numTacGiaID";
+            this.numTacGiaID.ReadOnly = true;
+            this.numTacGiaID.Size = new System.Drawing.Size(120, 22);
+            this.numTacGiaID.TabIndex = 18;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(394, 20);
+            this.label5.Location = new System.Drawing.Point(7, 19);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 16);
             this.label5.TabIndex = 13;
             this.label5.Text = "Mã tác giả";
             // 
-            // nudMaTacGia
-            // 
-            this.nudMaTacGia.Location = new System.Drawing.Point(469, 17);
-            this.nudMaTacGia.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.nudMaTacGia.Name = "nudMaTacGia";
-            this.nudMaTacGia.Size = new System.Drawing.Size(76, 22);
-            this.nudMaTacGia.TabIndex = 12;
-            // 
             // btnResertTacGia
             // 
-            this.btnResertTacGia.Location = new System.Drawing.Point(794, 16);
+            this.btnResertTacGia.Location = new System.Drawing.Point(743, 15);
             this.btnResertTacGia.Name = "btnResertTacGia";
             this.btnResertTacGia.Size = new System.Drawing.Size(75, 23);
             this.btnResertTacGia.TabIndex = 11;
@@ -576,14 +676,14 @@
             // 
             // txbTenTacGia
             // 
-            this.txbTenTacGia.Location = new System.Drawing.Point(83, 17);
+            this.txbTenTacGia.Location = new System.Drawing.Point(288, 16);
             this.txbTenTacGia.Name = "txbTenTacGia";
-            this.txbTenTacGia.Size = new System.Drawing.Size(294, 22);
+            this.txbTenTacGia.Size = new System.Drawing.Size(218, 22);
             this.txbTenTacGia.TabIndex = 1;
             // 
             // btnDeleteTacGia
             // 
-            this.btnDeleteTacGia.Location = new System.Drawing.Point(875, 16);
+            this.btnDeleteTacGia.Location = new System.Drawing.Point(873, 15);
             this.btnDeleteTacGia.Name = "btnDeleteTacGia";
             this.btnDeleteTacGia.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteTacGia.TabIndex = 8;
@@ -594,25 +694,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 20);
+            this.label2.Location = new System.Drawing.Point(208, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tên tác giả";
             // 
-            // btnFindTacGia
-            // 
-            this.btnFindTacGia.Location = new System.Drawing.Point(713, 16);
-            this.btnFindTacGia.Name = "btnFindTacGia";
-            this.btnFindTacGia.Size = new System.Drawing.Size(75, 23);
-            this.btnFindTacGia.TabIndex = 10;
-            this.btnFindTacGia.Text = "Tìm";
-            this.btnFindTacGia.UseVisualStyleBackColor = true;
-            this.btnFindTacGia.Click += new System.EventHandler(this.btnFindTacGia_Click);
-            // 
             // btnUpdateTacGia
             // 
-            this.btnUpdateTacGia.Location = new System.Drawing.Point(632, 16);
+            this.btnUpdateTacGia.Location = new System.Drawing.Point(593, 15);
             this.btnUpdateTacGia.Name = "btnUpdateTacGia";
             this.btnUpdateTacGia.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateTacGia.TabIndex = 9;
@@ -622,7 +712,7 @@
             // 
             // btnAddTacGia
             // 
-            this.btnAddTacGia.Location = new System.Drawing.Point(551, 16);
+            this.btnAddTacGia.Location = new System.Drawing.Point(512, 16);
             this.btnAddTacGia.Name = "btnAddTacGia";
             this.btnAddTacGia.Size = new System.Drawing.Size(75, 23);
             this.btnAddTacGia.TabIndex = 7;
@@ -652,82 +742,148 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.txtBoxMaNhaXuatBan);
+            this.panel4.Controls.Add(this.btnFindPushlisher);
+            this.panel4.Controls.Add(this.btnResetNXB);
+            this.panel4.Controls.Add(this.numNXBid);
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.txtBoxTenNhaXuatBan);
-            this.panel4.Controls.Add(this.button9);
+            this.panel4.Controls.Add(this.txbNXB);
+            this.panel4.Controls.Add(this.btnXoaNXB);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.button10);
-            this.panel4.Controls.Add(this.button11);
-            this.panel4.Controls.Add(this.button12);
+            this.panel4.Controls.Add(this.btnSuaNXB);
+            this.panel4.Controls.Add(this.btnThemNXB);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(959, 47);
             this.panel4.TabIndex = 4;
             // 
-            // txtBoxTenNhaXuatBan
+            // btnFindPushlisher
             // 
-            this.txtBoxTenNhaXuatBan.Location = new System.Drawing.Point(310, 16);
-            this.txtBoxTenNhaXuatBan.Name = "txtBoxTenNhaXuatBan";
-            this.txtBoxTenNhaXuatBan.Size = new System.Drawing.Size(165, 22);
-            this.txtBoxTenNhaXuatBan.TabIndex = 1;
+            this.btnFindPushlisher.Location = new System.Drawing.Point(690, 17);
+            this.btnFindPushlisher.Name = "btnFindPushlisher";
+            this.btnFindPushlisher.Size = new System.Drawing.Size(75, 23);
+            this.btnFindPushlisher.TabIndex = 20;
+            this.btnFindPushlisher.Text = "Tìm";
+            this.btnFindPushlisher.UseVisualStyleBackColor = true;
+            this.btnFindPushlisher.Click += new System.EventHandler(this.btnFindPushlisher_Click);
             // 
-            // button9
+            // btnResetNXB
             // 
-            this.button9.Location = new System.Drawing.Point(875, 16);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "Xóa";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnResetNXB.Location = new System.Drawing.Point(771, 17);
+            this.btnResetNXB.Name = "btnResetNXB";
+            this.btnResetNXB.Size = new System.Drawing.Size(75, 23);
+            this.btnResetNXB.TabIndex = 18;
+            this.btnResetNXB.Text = "Resert";
+            this.btnResetNXB.UseVisualStyleBackColor = true;
+            this.btnResetNXB.Click += new System.EventHandler(this.btnResetNXB_Click);
+            // 
+            // numNXBid
+            // 
+            this.numNXBid.Location = new System.Drawing.Point(69, 16);
+            this.numNXBid.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numNXBid.Name = "numNXBid";
+            this.numNXBid.ReadOnly = true;
+            this.numNXBid.Size = new System.Drawing.Size(120, 22);
+            this.numNXBid.TabIndex = 17;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 16);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Mã NXB";
+            // 
+            // txbNXB
+            // 
+            this.txbNXB.Location = new System.Drawing.Point(310, 17);
+            this.txbNXB.Name = "txbNXB";
+            this.txbNXB.Size = new System.Drawing.Size(212, 22);
+            this.txbNXB.TabIndex = 1;
+            // 
+            // btnXoaNXB
+            // 
+            this.btnXoaNXB.Location = new System.Drawing.Point(881, 16);
+            this.btnXoaNXB.Name = "btnXoaNXB";
+            this.btnXoaNXB.Size = new System.Drawing.Size(75, 23);
+            this.btnXoaNXB.TabIndex = 8;
+            this.btnXoaNXB.Text = "Xóa";
+            this.btnXoaNXB.UseVisualStyleBackColor = true;
+            this.btnXoaNXB.Click += new System.EventHandler(this.btnXoaNXB_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, 17);
+            this.label1.Location = new System.Drawing.Point(195, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tên nhà xuất bản";
             // 
-            // button10
+            // btnSuaNXB
             // 
-            this.button10.Location = new System.Drawing.Point(745, 17);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Tìm";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnSuaNXB.Location = new System.Drawing.Point(609, 17);
+            this.btnSuaNXB.Name = "btnSuaNXB";
+            this.btnSuaNXB.Size = new System.Drawing.Size(75, 23);
+            this.btnSuaNXB.TabIndex = 9;
+            this.btnSuaNXB.Text = "Sửa";
+            this.btnSuaNXB.UseVisualStyleBackColor = true;
+            this.btnSuaNXB.Click += new System.EventHandler(this.btnSuaNXB_Click);
             // 
-            // button11
+            // btnThemNXB
             // 
-            this.button11.Location = new System.Drawing.Point(609, 16);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 9;
-            this.button11.Text = "Sửa";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(481, 16);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "Thêm";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnThemNXB.Location = new System.Drawing.Point(528, 16);
+            this.btnThemNXB.Name = "btnThemNXB";
+            this.btnThemNXB.Size = new System.Drawing.Size(75, 23);
+            this.btnThemNXB.TabIndex = 7;
+            this.btnThemNXB.Text = "Thêm";
+            this.btnThemNXB.UseVisualStyleBackColor = true;
+            this.btnThemNXB.Click += new System.EventHandler(this.btnThemNXB_Click);
             // 
             // dgvNhaXuatBan
             // 
+            this.dgvNhaXuatBan.AllowUserToAddRows = false;
+            this.dgvNhaXuatBan.AllowUserToDeleteRows = false;
+            this.dgvNhaXuatBan.AllowUserToResizeColumns = false;
+            this.dgvNhaXuatBan.AllowUserToResizeRows = false;
+            this.dgvNhaXuatBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNhaXuatBan.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvNhaXuatBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhaXuatBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NXBID,
+            this.NXBName});
             this.dgvNhaXuatBan.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvNhaXuatBan.Location = new System.Drawing.Point(0, 53);
+            this.dgvNhaXuatBan.MultiSelect = false;
             this.dgvNhaXuatBan.Name = "dgvNhaXuatBan";
+            this.dgvNhaXuatBan.ReadOnly = true;
+            this.dgvNhaXuatBan.RowHeadersVisible = false;
             this.dgvNhaXuatBan.RowHeadersWidth = 51;
             this.dgvNhaXuatBan.RowTemplate.Height = 24;
             this.dgvNhaXuatBan.Size = new System.Drawing.Size(959, 491);
             this.dgvNhaXuatBan.TabIndex = 3;
+            this.dgvNhaXuatBan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvNhaXuatBan_CellMouseClick);
+            // 
+            // NXBID
+            // 
+            this.NXBID.DataPropertyName = "MaNhaXuatBan";
+            this.NXBID.HeaderText = "Mã nhà xuất bản";
+            this.NXBID.MinimumWidth = 6;
+            this.NXBID.Name = "NXBID";
+            this.NXBID.ReadOnly = true;
+            // 
+            // NXBName
+            // 
+            this.NXBName.DataPropertyName = "TenNhaXuatBan";
+            this.NXBName.HeaderText = "Tên nhà xuất bản";
+            this.NXBName.MinimumWidth = 6;
+            this.NXBName.Name = "NXBName";
+            this.NXBName.ReadOnly = true;
             // 
             // tabPage4
             // 
@@ -751,126 +907,148 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.btnFindTheLoai);
             this.panel7.Controls.Add(this.numTheLoaiID);
             this.panel7.Controls.Add(this.label6);
-            this.panel7.Controls.Add(this.btnReset);
-            this.panel7.Controls.Add(this.txtTenTheLoai);
-            this.panel7.Controls.Add(this.btnXoa);
+            this.panel7.Controls.Add(this.btnResetTheLoai);
+            this.panel7.Controls.Add(this.txbTenTheLoai);
+            this.panel7.Controls.Add(this.btnXoaTheLoai);
             this.panel7.Controls.Add(this.label3);
-            this.panel7.Controls.Add(this.btnTim);
-            this.panel7.Controls.Add(this.btnSua);
-            this.panel7.Controls.Add(this.btnThem);
+            this.panel7.Controls.Add(this.btnSuaTheLoai);
+            this.panel7.Controls.Add(this.btnThemTheLoai);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(959, 47);
             this.panel7.TabIndex = 4;
             // 
+            // btnFindTheLoai
+            // 
+            this.btnFindTheLoai.Location = new System.Drawing.Point(643, 15);
+            this.btnFindTheLoai.Name = "btnFindTheLoai";
+            this.btnFindTheLoai.Size = new System.Drawing.Size(75, 23);
+            this.btnFindTheLoai.TabIndex = 19;
+            this.btnFindTheLoai.Text = "Tìm";
+            this.btnFindTheLoai.UseVisualStyleBackColor = true;
+            this.btnFindTheLoai.Click += new System.EventHandler(this.btnFindTheLoai_Click);
+            // 
             // numTheLoaiID
             // 
-            this.numTheLoaiID.Location = new System.Drawing.Point(126, 15);
+            this.numTheLoaiID.Location = new System.Drawing.Point(81, 16);
+            this.numTheLoaiID.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.numTheLoaiID.Name = "numTheLoaiID";
-            this.numTheLoaiID.Size = new System.Drawing.Size(120, 22);
-            this.numTheLoaiID.TabIndex = 15;
+            this.numTheLoaiID.ReadOnly = true;
+            this.numTheLoaiID.Size = new System.Drawing.Size(72, 22);
+            this.numTheLoaiID.TabIndex = 18;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 17);
+            this.label6.Location = new System.Drawing.Point(3, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 16);
             this.label6.TabIndex = 13;
             this.label6.Text = "Mã thể loại";
             // 
-            // btnReset
+            // btnResetTheLoai
             // 
-            this.btnReset.Location = new System.Drawing.Point(655, 17);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 11;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnResetTheLoai.Location = new System.Drawing.Point(724, 15);
+            this.btnResetTheLoai.Name = "btnResetTheLoai";
+            this.btnResetTheLoai.Size = new System.Drawing.Size(75, 23);
+            this.btnResetTheLoai.TabIndex = 11;
+            this.btnResetTheLoai.Text = "Reset";
+            this.btnResetTheLoai.UseVisualStyleBackColor = true;
+            this.btnResetTheLoai.Click += new System.EventHandler(this.btnResetTheLoai_Click);
             // 
-            // txtTenTheLoai
+            // txbTenTheLoai
             // 
-            this.txtTenTheLoai.Location = new System.Drawing.Point(361, 17);
-            this.txtTenTheLoai.Name = "txtTenTheLoai";
-            this.txtTenTheLoai.Size = new System.Drawing.Size(88, 22);
-            this.txtTenTheLoai.TabIndex = 1;
+            this.txbTenTheLoai.Location = new System.Drawing.Point(254, 17);
+            this.txbTenTheLoai.Name = "txbTenTheLoai";
+            this.txbTenTheLoai.Size = new System.Drawing.Size(221, 22);
+            this.txbTenTheLoai.TabIndex = 1;
             // 
-            // btnXoa
+            // btnXoaTheLoai
             // 
-            this.btnXoa.Location = new System.Drawing.Point(875, 16);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 8;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            this.btnXoaTheLoai.Location = new System.Drawing.Point(875, 16);
+            this.btnXoaTheLoai.Name = "btnXoaTheLoai";
+            this.btnXoaTheLoai.Size = new System.Drawing.Size(75, 23);
+            this.btnXoaTheLoai.TabIndex = 8;
+            this.btnXoaTheLoai.Text = "Xóa";
+            this.btnXoaTheLoai.UseVisualStyleBackColor = true;
+            this.btnXoaTheLoai.Click += new System.EventHandler(this.btnXoaTheLoai_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(259, 20);
+            this.label3.Location = new System.Drawing.Point(171, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tên thể loại";
             // 
-            // btnTim
+            // btnSuaTheLoai
             // 
-            this.btnTim.Location = new System.Drawing.Point(745, 17);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 23);
-            this.btnTim.TabIndex = 10;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnSuaTheLoai.Location = new System.Drawing.Point(562, 17);
+            this.btnSuaTheLoai.Name = "btnSuaTheLoai";
+            this.btnSuaTheLoai.Size = new System.Drawing.Size(75, 23);
+            this.btnSuaTheLoai.TabIndex = 9;
+            this.btnSuaTheLoai.Text = "Sửa";
+            this.btnSuaTheLoai.UseVisualStyleBackColor = true;
+            this.btnSuaTheLoai.Click += new System.EventHandler(this.btnSuaTheLoai_Click);
             // 
-            // btnSua
+            // btnThemTheLoai
             // 
-            this.btnSua.Location = new System.Drawing.Point(562, 17);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnSua.TabIndex = 9;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(481, 16);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 7;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.btnThemTheLoai.Location = new System.Drawing.Point(481, 16);
+            this.btnThemTheLoai.Name = "btnThemTheLoai";
+            this.btnThemTheLoai.Size = new System.Drawing.Size(75, 23);
+            this.btnThemTheLoai.TabIndex = 7;
+            this.btnThemTheLoai.Text = "Thêm";
+            this.btnThemTheLoai.UseVisualStyleBackColor = true;
+            this.btnThemTheLoai.Click += new System.EventHandler(this.btnThemTheLoai_Click);
             // 
             // dgvTheLoai
             // 
+            this.dgvTheLoai.AllowUserToAddRows = false;
+            this.dgvTheLoai.AllowUserToDeleteRows = false;
+            this.dgvTheLoai.AllowUserToResizeColumns = false;
+            this.dgvTheLoai.AllowUserToResizeRows = false;
+            this.dgvTheLoai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTheLoai.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvTheLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTheLoai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TheLoaiID,
+            this.TheLoaiName});
             this.dgvTheLoai.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvTheLoai.Location = new System.Drawing.Point(0, 53);
+            this.dgvTheLoai.MultiSelect = false;
             this.dgvTheLoai.Name = "dgvTheLoai";
+            this.dgvTheLoai.ReadOnly = true;
+            this.dgvTheLoai.RowHeadersVisible = false;
             this.dgvTheLoai.RowHeadersWidth = 51;
             this.dgvTheLoai.RowTemplate.Height = 24;
             this.dgvTheLoai.Size = new System.Drawing.Size(959, 491);
             this.dgvTheLoai.TabIndex = 3;
+            this.dgvTheLoai.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTheLoai_CellMouseClick);
             // 
-            // label13
+            // TheLoaiID
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 17);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 16);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "Mã NXB";
+            this.TheLoaiID.DataPropertyName = "MaTheLoai";
+            this.TheLoaiID.HeaderText = "Mã thể loại";
+            this.TheLoaiID.MinimumWidth = 6;
+            this.TheLoaiID.Name = "TheLoaiID";
+            this.TheLoaiID.ReadOnly = true;
             // 
-            // txtBoxMaNhaXuatBan
+            // TheLoaiName
             // 
-            this.txtBoxMaNhaXuatBan.Location = new System.Drawing.Point(70, 11);
-            this.txtBoxMaNhaXuatBan.Name = "txtBoxMaNhaXuatBan";
-            this.txtBoxMaNhaXuatBan.Size = new System.Drawing.Size(77, 22);
-            this.txtBoxMaNhaXuatBan.TabIndex = 17;
+            this.TheLoaiName.DataPropertyName = "TenTheLoai";
+            this.TheLoaiName.HeaderText = "Tên thể loại";
+            this.TheLoaiName.MinimumWidth = 6;
+            this.TheLoaiName.Name = "TheLoaiName";
+            this.TheLoaiName.ReadOnly = true;
             // 
             // fBook
             // 
@@ -896,11 +1074,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTacGia)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaTacGia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTacGiaID)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numNXBid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaXuatBan)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -927,7 +1106,6 @@
         private System.Windows.Forms.TextBox txbTenTacGia;
         private System.Windows.Forms.Button btnDeleteTacGia;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnFindTacGia;
         private System.Windows.Forms.Button btnUpdateTacGia;
         private System.Windows.Forms.Button btnAddTacGia;
         private System.Windows.Forms.Panel panel3;
@@ -944,7 +1122,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txbTenSach;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnDeleteBook;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnFindBook;
         private System.Windows.Forms.Label label11;
@@ -954,19 +1132,17 @@
         private System.Windows.Forms.Button btnAddBook;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtBoxTenNhaXuatBan;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox txbNXB;
+        private System.Windows.Forms.Button btnXoaNXB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnSuaNXB;
+        private System.Windows.Forms.Button btnThemNXB;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtTenTheLoai;
-        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.TextBox txbTenTheLoai;
+        private System.Windows.Forms.Button btnXoaTheLoai;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnSuaTheLoai;
+        private System.Windows.Forms.Button btnThemTheLoai;
         private System.Windows.Forms.NumericUpDown nudNamXuatBan;
         private System.Windows.Forms.ComboBox cbLoaiTaiLieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSach;
@@ -978,16 +1154,29 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NamXuatBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
-        private System.Windows.Forms.Button btnResert;
+        private System.Windows.Forms.Button btnResertBook;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nudMaSach;
         private System.Windows.Forms.Button btnResertTacGia;
-        private System.Windows.Forms.NumericUpDown nudMaTacGia;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnResetTheLoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaTacGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenTacGiatab2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NXBID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NXBName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TheLoaiID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TheLoaiName;
+        private System.Windows.Forms.NumericUpDown numNXBid;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numTheLoaiID;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtBoxMaNhaXuatBan;
+        private System.Windows.Forms.NumericUpDown numTacGiaID;
+        private System.Windows.Forms.Button btnResetNXB;
+        private System.Windows.Forms.Button btnGerneSearch;
+        private System.Windows.Forms.Button btnNXBSearch;
+        private System.Windows.Forms.Button btnAuthorSearch;
+        private System.Windows.Forms.Button btnFindTheLoai;
+        private System.Windows.Forms.Button btnFindPushlisher;
+        private System.Windows.Forms.Button btnFindTacGia;
     }
 }
