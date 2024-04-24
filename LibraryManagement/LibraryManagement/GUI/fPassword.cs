@@ -40,6 +40,7 @@ namespace LibraryManagement.GUI
             }
             else
             {
+                Session.loginAccount.MatKhau = newPass;
                 MessageBox.Show("Đã đổi mật khẩu");
                 this.Close();
             }

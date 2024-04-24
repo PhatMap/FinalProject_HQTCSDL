@@ -100,3 +100,6 @@ DECLARE @a DECIMAL(18, 0);
 SET @a = dbo.FN_Calculate_Penalty_Value(100);
 PRINT @a;
 
+SELECT PP.MaPhieuPhat, PP.MaPhieuMuon,PP.NgayTra,PMS.MaTaiKhoan,PMS.NgayTra AS NgayTraSach
+FROM dbo.PhieuPhat PP
+JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon= PP.MaPhieuMuon

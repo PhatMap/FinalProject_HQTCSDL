@@ -32,6 +32,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.dateNgayTra = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnResetPM = new System.Windows.Forms.Button();
             this.dateNgayMuon = new System.Windows.Forms.DateTimePicker();
             this.numMaPhieuMuon = new System.Windows.Forms.NumericUpDown();
@@ -75,9 +77,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvPhieuPhat = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateNgayTra = new System.Windows.Forms.TextBox();
             this.IDPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayTraSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TienPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayTraPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,6 +157,23 @@
             this.panel8.Size = new System.Drawing.Size(953, 133);
             this.panel8.TabIndex = 4;
             // 
+            // dateNgayTra
+            // 
+            this.dateNgayTra.Enabled = false;
+            this.dateNgayTra.Location = new System.Drawing.Point(396, 38);
+            this.dateNgayTra.Name = "dateNgayTra";
+            this.dateNgayTra.Size = new System.Drawing.Size(85, 22);
+            this.dateNgayTra.TabIndex = 31;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(310, 38);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 16);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Ngày trả";
+            // 
             // btnResetPM
             // 
             this.btnResetPM.Location = new System.Drawing.Point(311, 68);
@@ -199,6 +218,7 @@
             this.numMaTaiKhoan.ReadOnly = true;
             this.numMaTaiKhoan.Size = new System.Drawing.Size(120, 22);
             this.numMaTaiKhoan.TabIndex = 24;
+            this.numMaTaiKhoan.ValueChanged += new System.EventHandler(this.numMaTaiKhoan_ValueChanged);
             // 
             // btnAccSearch
             // 
@@ -221,6 +241,7 @@
             // 
             // btnTraSach
             // 
+            this.btnTraSach.Enabled = false;
             this.btnTraSach.Location = new System.Drawing.Point(792, 47);
             this.btnTraSach.Margin = new System.Windows.Forms.Padding(2);
             this.btnTraSach.Name = "btnTraSach";
@@ -280,6 +301,7 @@
             // 
             // btnXoaPM
             // 
+            this.btnXoaPM.Enabled = false;
             this.btnXoaPM.Location = new System.Drawing.Point(662, 105);
             this.btnXoaPM.Name = "btnXoaPM";
             this.btnXoaPM.Size = new System.Drawing.Size(75, 23);
@@ -425,6 +447,7 @@
             // 
             // btnXoaPP
             // 
+            this.btnXoaPP.Enabled = false;
             this.btnXoaPP.Location = new System.Drawing.Point(754, 42);
             this.btnXoaPP.Name = "btnXoaPP";
             this.btnXoaPP.Size = new System.Drawing.Size(75, 23);
@@ -435,6 +458,7 @@
             // 
             // btnThanhToan
             // 
+            this.btnThanhToan.Enabled = false;
             this.btnThanhToan.Location = new System.Drawing.Point(812, 10);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(123, 23);
@@ -494,6 +518,7 @@
             this.numTKChon.ReadOnly = true;
             this.numTKChon.Size = new System.Drawing.Size(120, 22);
             this.numTKChon.TabIndex = 29;
+            this.numTKChon.ValueChanged += new System.EventHandler(this.numTKChon_ValueChanged);
             // 
             // btnChonTaiKhoan
             // 
@@ -568,6 +593,7 @@
             this.numPhieuPhatID.Name = "numPhieuPhatID";
             this.numPhieuPhatID.Size = new System.Drawing.Size(120, 22);
             this.numPhieuPhatID.TabIndex = 20;
+            this.numPhieuPhatID.ValueChanged += new System.EventHandler(this.numPhieuPhatID_ValueChanged);
             // 
             // label3
             // 
@@ -599,6 +625,7 @@
             // 
             // btnTim
             // 
+            this.btnTim.Enabled = false;
             this.btnTim.Location = new System.Drawing.Point(835, 42);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
@@ -627,6 +654,8 @@
             this.dgvPhieuPhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhieuPhat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDPhat,
+            this.MaTaiKhoan,
+            this.NgayTraSach,
             this.IDMuon,
             this.TienPhat,
             this.NgayTraPhat});
@@ -652,23 +681,6 @@
             this.button2.Text = "Tra";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(310, 38);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 16);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Ngày trả";
-            // 
-            // dateNgayTra
-            // 
-            this.dateNgayTra.Enabled = false;
-            this.dateNgayTra.Location = new System.Drawing.Point(396, 38);
-            this.dateNgayTra.Name = "dateNgayTra";
-            this.dateNgayTra.Size = new System.Drawing.Size(85, 22);
-            this.dateNgayTra.TabIndex = 31;
-            // 
             // IDPhat
             // 
             this.IDPhat.DataPropertyName = "MaPhieuPhat";
@@ -676,6 +688,22 @@
             this.IDPhat.MinimumWidth = 6;
             this.IDPhat.Name = "IDPhat";
             this.IDPhat.ReadOnly = true;
+            // 
+            // MaTaiKhoan
+            // 
+            this.MaTaiKhoan.DataPropertyName = "MaTaiKhoan";
+            this.MaTaiKhoan.HeaderText = "Mã tài khoản";
+            this.MaTaiKhoan.MinimumWidth = 6;
+            this.MaTaiKhoan.Name = "MaTaiKhoan";
+            this.MaTaiKhoan.ReadOnly = true;
+            // 
+            // NgayTraSach
+            // 
+            this.NgayTraSach.DataPropertyName = "NgayTraSach";
+            this.NgayTraSach.HeaderText = "Ngày phạt";
+            this.NgayTraSach.MinimumWidth = 6;
+            this.NgayTraSach.Name = "NgayTraSach";
+            this.NgayTraSach.ReadOnly = true;
             // 
             // IDMuon
             // 
@@ -783,6 +811,8 @@
         private System.Windows.Forms.TextBox dateNgayTra;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDPhat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaTaiKhoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayTraSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDMuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn TienPhat;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTraPhat;

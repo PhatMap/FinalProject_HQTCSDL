@@ -65,8 +65,9 @@ FROM dbo.TacGia
 GO
 /***	Get PhieuPhat list (Hoan)		***/
 CREATE VIEW VW_PhieuPhat_List AS
-SELECT *
-FROM dbo.PhieuPhat
+SELECT PP.MaPhieuPhat, PP.MaPhieuMuon,PP.NgayTra,PMS.MaTaiKhoan,PMS.NgayTra AS NgayTraSach
+FROM dbo.PhieuPhat PP
+JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon= PP.MaPhieuMuon
 
 GO
 /***	Get Book Loan Coupon list (Trung)		***/

@@ -16,8 +16,8 @@ namespace LibraryManagement.GUI
     {
         BindingSource CuonSach = new BindingSource();
         private DataGridViewCell previousCell;
-        private int maPhieuMuon;
-        private int maPhieuPhat;
+        private int maPhieuMuon = 0;
+        private int maPhieuPhat = 0;
         private bool check = false;
 
         public fCouponDetail(int muon, int phat)
@@ -36,6 +36,7 @@ namespace LibraryManagement.GUI
                 cbTinhTrang.Enabled = false;
                 btnUpdate.Enabled = false;
                 dgvCuonSach.Enabled = false;
+                btnTaoPhieuPhat.Enabled = false;
             }
         }
 
@@ -133,6 +134,7 @@ namespace LibraryManagement.GUI
         private void btnReturned_Click(object sender, EventArgs e)
         {
             PhieuMuonSachDAO.Instance.UpdateCoupon_Returned(maPhieuMuon);
+            this.Close();
         }
     }
 }

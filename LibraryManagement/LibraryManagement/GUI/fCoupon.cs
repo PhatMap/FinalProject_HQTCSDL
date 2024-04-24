@@ -1,6 +1,8 @@
 ﻿using LibraryManagement.DAO;
 using LibraryManagement.DTO;
 using System;
+using System.Text;
+using System.Windows.Automation.Peers;
 using System.Windows.Forms;
 
 namespace LibraryManagement.GUI
@@ -24,9 +26,6 @@ namespace LibraryManagement.GUI
 
             dgvPhieuPhat.DataSource = PhieuPhatList;
             dgvPhieuMuon.DataSource = phieumuonList;
-
-
-            LoadPhieuPhatList();
 
             rbDangMuon.Checked = true;
             rbtnPPChuaTra.Checked = true;
@@ -90,9 +89,10 @@ namespace LibraryManagement.GUI
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            if (numPhieuPhatID.Value != 0)
+            if (numTKChon.Value != 0)
             {
                 int id = (int)numTKChon.Value;
+                rbtnTatCaPP.Checked = true;
                 PhieuPhatList.DataSource = PhieuPhatDAO.Instance.FindPhieuPhat(id);
             }
             else
@@ -170,13 +170,16 @@ namespace LibraryManagement.GUI
             fChooseBooks f = new fChooseBooks();
             f.ShowDialog();
 
-            PhieuMuonSach pm = new PhieuMuonSach();
-            pm.MaTaiKhoan = (int)numMaTaiKhoan.Value;
-            pm.NgayMuon = DateTime.Now;
-            int maPhieuMuon = PhieuMuonSachDAO.Instance.AddBookLoanCoupon(pm);
-            if (maPhieuMuon > 0)
+            if (Session.booksID.Count != 0)
             {
-                CuonSachDAO.Instance.AddCuonSachToPhieuMuon(maPhieuMuon);
+                PhieuMuonSach pm = new PhieuMuonSach();
+                pm.MaTaiKhoan = (int)numMaTaiKhoan.Value;
+                pm.NgayMuon = DateTime.Now;
+                int maPhieuMuon = PhieuMuonSachDAO.Instance.AddBookLoanCoupon(pm);
+                if (maPhieuMuon > 0)
+                {
+                    CuonSachDAO.Instance.AddCuonSachToPhieuMuon(maPhieuMuon);
+                }
             }
 
             LoadCouponList();
@@ -205,9 +208,10 @@ namespace LibraryManagement.GUI
                 int id = (int)numMaPhieuMuon.Value;
 
                 fCouponDetail f = new fCouponDetail(id, 0);
-                f.Show();
+                f.ShowDialog();
 
-                LoadCouponList();
+                rbDangMuon.Checked = false;
+                rbDangMuon.Checked = true;
             }
         }
 
@@ -242,6 +246,7 @@ namespace LibraryManagement.GUI
             rbDangMuon.Checked = false;
             rbDangMuon.Checked = true;
             previousCell = null;
+            btnThemPM.Enabled = false;
         }
 
         private void btnAccSearch_Click(object sender, EventArgs e)
@@ -249,6 +254,7 @@ namespace LibraryManagement.GUI
             fSearchAccountUtil f = new fSearchAccountUtil();
             f.ShowDialog();
             numMaTaiKhoan.Value = Session.temp;
+            btnThemPM.Enabled = true;
         }
 
         private void btnChonTaiKhoan_Click(object sender, EventArgs e)
@@ -358,6 +364,46 @@ namespace LibraryManagement.GUI
             else
             {
                 MessageBox.Show("Chưa chọn đối tượng");
+            }
+        }
+
+        private void numTKChon_ValueChanged(object sender, EventArgs e)
+        {
+            if(numTKChon.Value != 0)
+            {
+                btnTim.Enabled = true;
+            }
+            else
+            {
+                btnTim.Enabled = false;
+            }
+        }
+
+        private void numMaTaiKhoan_ValueChanged(object sender, EventArgs e)
+        {
+            if(numMaTaiKhoan.Value != 0)
+            {
+                btnXoaPM.Enabled = true;
+                btnTraSach.Enabled = true;
+            }
+            else
+            {
+                btnXoaPM.Enabled = false;
+                btnTraSach.Enabled = false;
+            }
+        }
+
+        private void numPhieuPhatID_ValueChanged(object sender, EventArgs e)
+        {
+            if (numPhieuPhatID.Value != 0)
+            {
+                btnThanhToan.Enabled = true;
+                btnXoaPP.Enabled = true;
+            }
+            else
+            {
+                btnThanhToan.Enabled = false;
+                btnXoaPP.Enabled = false;
             }
         }
     }

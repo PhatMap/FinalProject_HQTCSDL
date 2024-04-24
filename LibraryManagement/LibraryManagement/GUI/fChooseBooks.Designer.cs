@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbMaSach = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,17 +103,29 @@
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
+            // btnHuy
+            // 
+            this.btnHuy.Location = new System.Drawing.Point(824, 12);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(89, 35);
+            this.btnHuy.TabIndex = 8;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // fChooseBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 540);
+            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.lbMaSach);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txbSearch);
             this.Controls.Add(this.dgvSearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fChooseBooks";
             this.Text = "fChooseBooks";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
@@ -129,5 +142,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbMaSach;
         private System.Windows.Forms.Button btnDone;
+        private System.Windows.Forms.Button btnHuy;
     }
 }
