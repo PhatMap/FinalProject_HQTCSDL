@@ -211,6 +211,11 @@ namespace LibraryManagement.GUI
 
                 TaiKhoanDAO.Instance.UpdateAccount(tk);
 
+                if (tk.MaTaiKhoan == Session.loginAccount.MaTaiKhoan)
+                {
+                    Session.loginAccount = tk;
+                }
+
                 LoadAccountList();
             }
             catch
@@ -432,8 +437,15 @@ namespace LibraryManagement.GUI
 
         private void btnFindSchedule_Click(object sender, EventArgs e)
         {
-            maTaiKhoan = cbLibName.SelectedValue.ToString();
-            LoadThisWeek();
+            try
+            {
+                maTaiKhoan = cbLibName.SelectedValue.ToString();
+                LoadThisWeek();
+            }
+            catch
+            {
+                MessageBox.Show("Thất bại");
+            }
         }
 
         private void btnResetSchedule_Click(object sender, EventArgs e)

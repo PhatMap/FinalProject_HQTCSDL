@@ -51,7 +51,7 @@ SELECT *
 FROM dbo.NhaXuatBan
 
 GO
-/***	Get Thể Loại list (Văn)		***/
+/***	Get Thể Loại list (Hoàn)		***/
 CREATE VIEW VW_TheLoai_List AS
 SELECT *
 FROM dbo.TheLoai
@@ -65,8 +65,9 @@ FROM dbo.TacGia
 GO
 /***	Get PhieuPhat list (Hoan)		***/
 CREATE VIEW VW_PhieuPhat_List AS
-SELECT *
-FROM dbo.PhieuPhat
+SELECT PP.MaPhieuPhat, PP.MaPhieuMuon,PP.NgayTra,PMS.MaTaiKhoan,PMS.NgayTra AS NgayTraSach
+FROM dbo.PhieuPhat PP
+JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon= PP.MaPhieuMuon
 
 GO
 /***	Get Book Loan Coupon list (Trung)		***/
@@ -75,13 +76,6 @@ SELECT
 	*
 FROM dbo.PhieuMuonSach 
 
-GO
-/***	Get publisher list (Trung)		***/
-Create VIEW VW_NXB_List AS
-SELECT 
-	MaNhaXuatBan,
-	TenNhaXuatBan
-FROM dbo.NhaXuatBan
 
 
 

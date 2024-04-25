@@ -888,7 +888,7 @@ AS
 BEGIN
 	SELECT 
 		*
-	FROM dbo.PhieuPhat
+	FROM VW_PhieuPhat_List
 	WHERE 
 		(@type = 0 AND NgayTra IS NULL) OR
 		(@type = 1 AND NgayTra IS NOT NULL)

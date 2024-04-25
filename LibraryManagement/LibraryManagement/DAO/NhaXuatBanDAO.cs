@@ -20,7 +20,7 @@ namespace LibraryManagement.DAO
 
         public DataTable LoadNXBList()
         {
-            string query = "SELECT * FROM VW_NXB_List";
+            string query = "SELECT * FROM VW_NhaXuatBan_List";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 

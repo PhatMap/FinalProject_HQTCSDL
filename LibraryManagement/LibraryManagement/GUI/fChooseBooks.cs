@@ -65,6 +65,18 @@ namespace LibraryManagement.GUI
 
         private void btnDone_Click(object sender, EventArgs e)
         {
+            if(Session.booksName.Count == 0)
+            {
+                MessageBox.Show("Hãy chọn sách cần mượn");
+                return;
+            }
+            this.Close();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            Session.booksID.Clear();
+            Session.booksName.Clear();
             this.Close();
         }
     }
