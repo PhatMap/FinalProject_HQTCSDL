@@ -51,7 +51,7 @@ SELECT *
 FROM dbo.NhaXuatBan
 
 GO
-/***	Get Thể Loại list (Văn)		***/
+/***	Get Thể Loại list (Hoàn)		***/
 CREATE VIEW VW_TheLoai_List AS
 SELECT *
 FROM dbo.TheLoai
@@ -76,13 +76,6 @@ SELECT
 	*
 FROM dbo.PhieuMuonSach 
 
-GO
-/***	Get publisher list (Trung)		***/
-Create VIEW VW_NXB_List AS
-SELECT 
-	MaNhaXuatBan,
-	TenNhaXuatBan
-FROM dbo.NhaXuatBan
 
 
 
