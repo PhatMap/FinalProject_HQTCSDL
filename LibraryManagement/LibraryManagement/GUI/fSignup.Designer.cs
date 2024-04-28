@@ -66,6 +66,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel2.Controls.Add(this.numAccID);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label1);
@@ -117,7 +118,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(746, 8);
+            this.btnExit.Location = new System.Drawing.Point(709, 8);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(109, 43);
             this.btnExit.TabIndex = 3;
@@ -127,7 +128,7 @@
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(424, 8);
+            this.btnSignUp.Location = new System.Drawing.Point(430, 8);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(109, 43);
             this.btnSignUp.TabIndex = 2;
@@ -144,11 +145,12 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(855, 361);
+            this.panel1.Size = new System.Drawing.Size(855, 347);
             this.panel1.TabIndex = 1;
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel6.Controls.Add(this.rbtnNu);
             this.panel6.Controls.Add(this.rbtnNam);
             this.panel6.Controls.Add(this.label9);
@@ -157,7 +159,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 284);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(855, 69);
+            this.panel6.Size = new System.Drawing.Size(855, 63);
             this.panel6.TabIndex = 6;
             // 
             // rbtnNu
@@ -194,6 +196,7 @@
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel5.Controls.Add(this.cbAccRole);
             this.panel5.Controls.Add(this.inpAccPhone);
             this.panel5.Controls.Add(this.label8);
@@ -246,6 +249,7 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel4.Controls.Add(this.dtpAccNgaySinh);
             this.panel4.Controls.Add(this.inpAccEmail);
             this.panel4.Controls.Add(this.label5);
@@ -294,6 +298,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel3.Controls.Add(this.inpAccAddress);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
@@ -342,7 +347,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 375);
+            this.ClientSize = new System.Drawing.Size(879, 368);
             this.Controls.Add(this.panel1);
             this.Name = "fSignup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

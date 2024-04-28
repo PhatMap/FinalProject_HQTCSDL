@@ -57,7 +57,7 @@
             // 
             // inpAccName
             // 
-            this.inpAccName.Location = new System.Drawing.Point(122, 12);
+            this.inpAccName.Location = new System.Drawing.Point(142, 11);
             this.inpAccName.Name = "inpAccName";
             this.inpAccName.Size = new System.Drawing.Size(237, 22);
             this.inpAccName.TabIndex = 26;
@@ -66,26 +66,26 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 8F);
+            this.label7.Font = new System.Drawing.Font("Arial", 10.2F);
             this.label7.Location = new System.Drawing.Point(13, 12);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 16);
+            this.label7.Size = new System.Drawing.Size(107, 19);
             this.label7.TabIndex = 30;
             this.label7.Text = "Tên tài khoản";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 8F);
+            this.label10.Font = new System.Drawing.Font("Arial", 10.2F);
             this.label10.Location = new System.Drawing.Point(433, 12);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 16);
+            this.label10.Size = new System.Drawing.Size(49, 19);
             this.label10.TabIndex = 28;
             this.label10.Text = "Email";
             // 
             // inpAccEmail
             // 
-            this.inpAccEmail.Location = new System.Drawing.Point(497, 12);
+            this.inpAccEmail.Location = new System.Drawing.Point(503, 11);
             this.inpAccEmail.Name = "inpAccEmail";
             this.inpAccEmail.Size = new System.Drawing.Size(257, 22);
             this.inpAccEmail.TabIndex = 25;
@@ -95,6 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(891, 420);
             this.Controls.Add(this.inpAccName);
             this.Controls.Add(this.label7);

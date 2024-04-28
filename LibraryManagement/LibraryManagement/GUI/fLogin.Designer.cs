@@ -47,6 +47,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.rbtnQuanLy);
             this.panel1.Controls.Add(this.rbtnDocGia);
             this.panel1.Controls.Add(this.lbSignup);
@@ -116,6 +117,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.inpPassWord);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -144,6 +146,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.inpEmail);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -174,6 +177,7 @@
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(526, 261);
             this.Controls.Add(this.panel1);

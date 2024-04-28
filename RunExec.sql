@@ -42,7 +42,8 @@ DROP LOGIN [admin@gmail.com];
 
 
 
-
+SELECT * FROM VW_NhaXuatBan_List
+SELECT * FROM VW_NXB_List
 
 
 

@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -459,7 +460,7 @@
             this.btnGerneSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
             this.btnGerneSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnGerneSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerneSearch.Location = new System.Drawing.Point(797, 10);
+            this.btnGerneSearch.Location = new System.Drawing.Point(806, 13);
             this.btnGerneSearch.Name = "btnGerneSearch";
             this.btnGerneSearch.Size = new System.Drawing.Size(31, 27);
             this.btnGerneSearch.TabIndex = 49;
@@ -472,7 +473,7 @@
             this.btnAuthorSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
             this.btnAuthorSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAuthorSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAuthorSearch.Location = new System.Drawing.Point(298, 40);
+            this.btnAuthorSearch.Location = new System.Drawing.Point(418, 46);
             this.btnAuthorSearch.Name = "btnAuthorSearch";
             this.btnAuthorSearch.Size = new System.Drawing.Size(31, 27);
             this.btnAuthorSearch.TabIndex = 48;
@@ -485,7 +486,7 @@
             this.btnNXBSearch.BackgroundImage = global::LibraryManagement.Properties.Resources.search;
             this.btnNXBSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnNXBSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNXBSearch.Location = new System.Drawing.Point(298, 74);
+            this.btnNXBSearch.Location = new System.Drawing.Point(418, 81);
             this.btnNXBSearch.Name = "btnNXBSearch";
             this.btnNXBSearch.Size = new System.Drawing.Size(31, 27);
             this.btnNXBSearch.TabIndex = 47;
@@ -494,9 +495,10 @@
             // 
             // btnResert
             // 
-            this.btnResert.Location = new System.Drawing.Point(960, 73);
+            this.btnResert.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResert.Location = new System.Drawing.Point(1030, 31);
             this.btnResert.Name = "btnResert";
-            this.btnResert.Size = new System.Drawing.Size(75, 29);
+            this.btnResert.Size = new System.Drawing.Size(105, 57);
             this.btnResert.TabIndex = 46;
             this.btnResert.Text = "Resert";
             this.btnResert.UseVisualStyleBackColor = true;
@@ -509,7 +511,7 @@
             this.cbLoaiTaiLieu.Items.AddRange(new object[] {
             "Giáo trình",
             "Sách tham khảo"});
-            this.cbLoaiTaiLieu.Location = new System.Drawing.Point(617, 77);
+            this.cbLoaiTaiLieu.Location = new System.Drawing.Point(626, 80);
             this.cbLoaiTaiLieu.Name = "cbLoaiTaiLieu";
             this.cbLoaiTaiLieu.Size = new System.Drawing.Size(174, 24);
             this.cbLoaiTaiLieu.TabIndex = 45;
@@ -517,20 +519,20 @@
             // 
             // nudNamXuatBan
             // 
-            this.nudNamXuatBan.Location = new System.Drawing.Point(617, 43);
+            this.nudNamXuatBan.Location = new System.Drawing.Point(626, 46);
             this.nudNamXuatBan.Maximum = new decimal(new int[] {
             3000,
             0,
             0,
             0});
             this.nudNamXuatBan.Name = "nudNamXuatBan";
-            this.nudNamXuatBan.Size = new System.Drawing.Size(84, 25);
+            this.nudNamXuatBan.Size = new System.Drawing.Size(174, 25);
             this.nudNamXuatBan.TabIndex = 44;
             // 
             // cbTheLoai
             // 
             this.cbTheLoai.FormattingEnabled = true;
-            this.cbTheLoai.Location = new System.Drawing.Point(617, 10);
+            this.cbTheLoai.Location = new System.Drawing.Point(626, 13);
             this.cbTheLoai.Name = "cbTheLoai";
             this.cbTheLoai.Size = new System.Drawing.Size(174, 27);
             this.cbTheLoai.TabIndex = 40;
@@ -538,32 +540,32 @@
             // cbNhaXuatBan
             // 
             this.cbNhaXuatBan.FormattingEnabled = true;
-            this.cbNhaXuatBan.Location = new System.Drawing.Point(133, 74);
+            this.cbNhaXuatBan.Location = new System.Drawing.Point(133, 78);
             this.cbNhaXuatBan.Name = "cbNhaXuatBan";
-            this.cbNhaXuatBan.Size = new System.Drawing.Size(159, 27);
+            this.cbNhaXuatBan.Size = new System.Drawing.Size(279, 27);
             this.cbNhaXuatBan.TabIndex = 39;
             // 
             // cbTacGia
             // 
             this.cbTacGia.FormattingEnabled = true;
-            this.cbTacGia.Location = new System.Drawing.Point(133, 41);
+            this.cbTacGia.Location = new System.Drawing.Point(133, 45);
             this.cbTacGia.Name = "cbTacGia";
-            this.cbTacGia.Size = new System.Drawing.Size(159, 27);
+            this.cbTacGia.Size = new System.Drawing.Size(279, 27);
             this.cbTacGia.TabIndex = 38;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 8F);
-            this.label8.Location = new System.Drawing.Point(508, 85);
+            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(496, 85);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 16);
+            this.label8.Size = new System.Drawing.Size(92, 19);
             this.label8.TabIndex = 37;
             this.label8.Text = "Loại tài liệu";
             // 
             // txbTenSach
             // 
-            this.txbTenSach.Location = new System.Drawing.Point(133, 10);
+            this.txbTenSach.Location = new System.Drawing.Point(133, 14);
             this.txbTenSach.Name = "txbTenSach";
             this.txbTenSach.Size = new System.Drawing.Size(316, 25);
             this.txbTenSach.TabIndex = 26;
@@ -571,28 +573,29 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 8F);
+            this.label9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(6, 52);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 16);
+            this.label9.Size = new System.Drawing.Size(63, 19);
             this.label9.TabIndex = 31;
             this.label9.Text = "Tác giả";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 8F);
+            this.label10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(3, 19);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 16);
+            this.label10.Size = new System.Drawing.Size(76, 19);
             this.label10.TabIndex = 30;
             this.label10.Text = "Tên sách";
             // 
             // btnFindBook
             // 
-            this.btnFindBook.Location = new System.Drawing.Point(841, 74);
+            this.btnFindBook.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindBook.Location = new System.Drawing.Point(882, 31);
             this.btnFindBook.Name = "btnFindBook";
-            this.btnFindBook.Size = new System.Drawing.Size(75, 29);
+            this.btnFindBook.Size = new System.Drawing.Size(105, 57);
             this.btnFindBook.TabIndex = 36;
             this.btnFindBook.Text = "Tra";
             this.btnFindBook.UseVisualStyleBackColor = true;
@@ -601,30 +604,30 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 8F);
+            this.label12.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(6, 85);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 16);
+            this.label12.Size = new System.Drawing.Size(104, 19);
             this.label12.TabIndex = 32;
             this.label12.Text = "Nhà xuất bản";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 8F);
-            this.label16.Location = new System.Drawing.Point(508, 19);
+            this.label16.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(496, 19);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(58, 16);
+            this.label16.Size = new System.Drawing.Size(66, 19);
             this.label16.TabIndex = 28;
             this.label16.Text = "Thể loại";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 8F);
-            this.label17.Location = new System.Drawing.Point(508, 52);
+            this.label17.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(496, 52);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(93, 16);
+            this.label17.Size = new System.Drawing.Size(108, 19);
             this.label17.TabIndex = 27;
             this.label17.Text = "Năm xuất bản";
             // 
@@ -636,14 +639,14 @@
             this.dgvSach.AllowUserToResizeRows = false;
             this.dgvSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSach.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSach,
@@ -674,7 +677,7 @@
             this.MaSach.MinimumWidth = 6;
             this.MaSach.Name = "MaSach";
             this.MaSach.ReadOnly = true;
-            this.MaSach.Width = 53;
+            this.MaSach.Width = 55;
             // 
             // TenTacGia
             // 
@@ -684,7 +687,7 @@
             this.TenTacGia.MinimumWidth = 6;
             this.TenTacGia.Name = "TenTacGia";
             this.TenTacGia.ReadOnly = true;
-            this.TenTacGia.Width = 87;
+            this.TenTacGia.Width = 65;
             // 
             // TenTheLoai
             // 
@@ -694,7 +697,7 @@
             this.TenTheLoai.MinimumWidth = 6;
             this.TenTheLoai.Name = "TenTheLoai";
             this.TenTheLoai.ReadOnly = true;
-            this.TenTheLoai.Width = 95;
+            this.TenTheLoai.Width = 93;
             // 
             // TenNhaXuatBan
             // 
@@ -704,7 +707,7 @@
             this.TenNhaXuatBan.MinimumWidth = 6;
             this.TenNhaXuatBan.Name = "TenNhaXuatBan";
             this.TenNhaXuatBan.ReadOnly = true;
-            this.TenNhaXuatBan.Width = 131;
+            this.TenNhaXuatBan.Width = 128;
             // 
             // TenSach
             // 
@@ -714,7 +717,6 @@
             this.TenSach.MinimumWidth = 6;
             this.TenSach.Name = "TenSach";
             this.TenSach.ReadOnly = true;
-            this.TenSach.Width = 99;
             // 
             // LoaiTaiLieu
             // 
@@ -724,7 +726,7 @@
             this.LoaiTaiLieu.MinimumWidth = 6;
             this.LoaiTaiLieu.Name = "LoaiTaiLieu";
             this.LoaiTaiLieu.ReadOnly = true;
-            this.LoaiTaiLieu.Width = 122;
+            this.LoaiTaiLieu.Width = 121;
             // 
             // NamXuatBan
             // 
@@ -734,7 +736,7 @@
             this.NamXuatBan.MinimumWidth = 6;
             this.NamXuatBan.Name = "NamXuatBan";
             this.NamXuatBan.ReadOnly = true;
-            this.NamXuatBan.Width = 135;
+            this.NamXuatBan.Width = 105;
             // 
             // GiaSach
             // 
@@ -744,7 +746,7 @@
             this.GiaSach.MinimumWidth = 6;
             this.GiaSach.Name = "GiaSach";
             this.GiaSach.ReadOnly = true;
-            this.GiaSach.Width = 96;
+            this.GiaSach.Width = 98;
             // 
             // SoLuong
             // 
@@ -754,7 +756,7 @@
             this.SoLuong.MinimumWidth = 6;
             this.SoLuong.Name = "SoLuong";
             this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 99;
+            this.SoLuong.Width = 103;
             // 
             // tabPage3
             // 
@@ -795,18 +797,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8F);
+            this.label3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(5, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(232, 16);
+            this.label3.Size = new System.Drawing.Size(270, 19);
             this.label3.TabIndex = 48;
             this.label3.Text = "Đúp chuột vào phiếu để xem chi tiết";
             // 
             // btnResetPhieu
             // 
-            this.btnResetPhieu.Location = new System.Drawing.Point(506, 44);
+            this.btnResetPhieu.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetPhieu.Location = new System.Drawing.Point(484, 22);
             this.btnResetPhieu.Name = "btnResetPhieu";
-            this.btnResetPhieu.Size = new System.Drawing.Size(75, 29);
+            this.btnResetPhieu.Size = new System.Drawing.Size(112, 50);
             this.btnResetPhieu.TabIndex = 47;
             this.btnResetPhieu.Text = "Resert";
             this.btnResetPhieu.UseVisualStyleBackColor = true;
@@ -819,19 +822,19 @@
             this.flowLayoutPanel1.Controls.Add(this.rbtnTatCa);
             this.flowLayoutPanel1.Controls.Add(this.rbtnDangMuon);
             this.flowLayoutPanel1.Controls.Add(this.rbtnDaTra);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(823, 50);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(753, 50);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(353, 27);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(393, 27);
             this.flowLayoutPanel1.TabIndex = 24;
             // 
             // rbtnTatCa
             // 
             this.rbtnTatCa.AutoSize = true;
-            this.rbtnTatCa.Font = new System.Drawing.Font("Arial", 8F);
+            this.rbtnTatCa.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtnTatCa.Location = new System.Drawing.Point(2, 2);
             this.rbtnTatCa.Margin = new System.Windows.Forms.Padding(2, 2, 20, 2);
             this.rbtnTatCa.Name = "rbtnTatCa";
-            this.rbtnTatCa.Size = new System.Drawing.Size(71, 20);
+            this.rbtnTatCa.Size = new System.Drawing.Size(78, 23);
             this.rbtnTatCa.TabIndex = 21;
             this.rbtnTatCa.TabStop = true;
             this.rbtnTatCa.Text = "Tất Cả";
@@ -841,11 +844,11 @@
             // rbtnDangMuon
             // 
             this.rbtnDangMuon.AutoSize = true;
-            this.rbtnDangMuon.Font = new System.Drawing.Font("Arial", 8F);
-            this.rbtnDangMuon.Location = new System.Drawing.Point(95, 2);
+            this.rbtnDangMuon.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnDangMuon.Location = new System.Drawing.Point(102, 2);
             this.rbtnDangMuon.Margin = new System.Windows.Forms.Padding(2, 2, 20, 2);
             this.rbtnDangMuon.Name = "rbtnDangMuon";
-            this.rbtnDangMuon.Size = new System.Drawing.Size(84, 20);
+            this.rbtnDangMuon.Size = new System.Drawing.Size(95, 23);
             this.rbtnDangMuon.TabIndex = 19;
             this.rbtnDangMuon.TabStop = true;
             this.rbtnDangMuon.Text = "Chưa trả";
@@ -855,11 +858,11 @@
             // rbtnDaTra
             // 
             this.rbtnDaTra.AutoSize = true;
-            this.rbtnDaTra.Font = new System.Drawing.Font("Arial", 8F);
-            this.rbtnDaTra.Location = new System.Drawing.Point(201, 2);
+            this.rbtnDaTra.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnDaTra.Location = new System.Drawing.Point(219, 2);
             this.rbtnDaTra.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnDaTra.Name = "rbtnDaTra";
-            this.rbtnDaTra.Size = new System.Drawing.Size(71, 20);
+            this.rbtnDaTra.Size = new System.Drawing.Size(79, 23);
             this.rbtnDaTra.TabIndex = 20;
             this.rbtnDaTra.TabStop = true;
             this.rbtnDaTra.Text = "Đã Trả";
@@ -874,17 +877,17 @@
             this.flowLayoutPanel2.Controls.Add(this.rbtnPhat);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 46);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(250, 27);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(307, 27);
             this.flowLayoutPanel2.TabIndex = 25;
             // 
             // rbtnMuon
             // 
             this.rbtnMuon.AutoSize = true;
-            this.rbtnMuon.Font = new System.Drawing.Font("Arial", 8F);
+            this.rbtnMuon.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtnMuon.Location = new System.Drawing.Point(2, 2);
             this.rbtnMuon.Margin = new System.Windows.Forms.Padding(2, 2, 20, 2);
             this.rbtnMuon.Name = "rbtnMuon";
-            this.rbtnMuon.Size = new System.Drawing.Size(105, 20);
+            this.rbtnMuon.Size = new System.Drawing.Size(121, 23);
             this.rbtnMuon.TabIndex = 22;
             this.rbtnMuon.TabStop = true;
             this.rbtnMuon.Text = "Phiếu mượn";
@@ -894,11 +897,11 @@
             // rbtnPhat
             // 
             this.rbtnPhat.AutoSize = true;
-            this.rbtnPhat.Font = new System.Drawing.Font("Arial", 8F);
-            this.rbtnPhat.Location = new System.Drawing.Point(129, 2);
+            this.rbtnPhat.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnPhat.Location = new System.Drawing.Point(145, 2);
             this.rbtnPhat.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnPhat.Name = "rbtnPhat";
-            this.rbtnPhat.Size = new System.Drawing.Size(96, 20);
+            this.rbtnPhat.Size = new System.Drawing.Size(108, 23);
             this.rbtnPhat.TabIndex = 23;
             this.rbtnPhat.TabStop = true;
             this.rbtnPhat.Text = "Phiếu phạt";
@@ -913,30 +916,38 @@
             this.dgvPhieu.AllowUserToResizeRows = false;
             this.dgvPhieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPhieu.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvPhieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 10.2F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPhieu.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvPhieu.Location = new System.Drawing.Point(3, 83);
             this.dgvPhieu.MultiSelect = false;
             this.dgvPhieu.Name = "dgvPhieu";
             this.dgvPhieu.ReadOnly = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhieu.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial", 10.2F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhieu.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvPhieu.RowHeadersVisible = false;
             this.dgvPhieu.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPhieu.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvPhieu.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvPhieu.RowTemplate.Height = 24;
             this.dgvPhieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPhieu.Size = new System.Drawing.Size(1173, 446);
@@ -994,40 +1005,40 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Arial", 18F);
+            this.label33.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.Location = new System.Drawing.Point(305, 239);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(150, 35);
+            this.label33.Size = new System.Drawing.Size(160, 35);
             this.label33.TabIndex = 68;
             this.label33.Text = "Đối tượng";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Arial", 18F);
+            this.label23.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(305, 16);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(150, 35);
+            this.label23.Size = new System.Drawing.Size(160, 35);
             this.label23.TabIndex = 67;
             this.label23.Text = "Đối tượng";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Arial", 18F);
+            this.label37.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.Location = new System.Drawing.Point(931, 51);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(112, 35);
+            this.label37.Size = new System.Drawing.Size(119, 35);
             this.label37.TabIndex = 66;
             this.label37.Text = "Đơn vị:";
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Arial", 18F);
+            this.label36.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.Location = new System.Drawing.Point(935, 272);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(112, 35);
+            this.label36.Size = new System.Drawing.Size(119, 35);
             this.label36.TabIndex = 64;
             this.label36.Text = "Đơn vị:";
             // 
@@ -1194,40 +1205,40 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Arial", 18F);
+            this.label46.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.Location = new System.Drawing.Point(769, 239);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(164, 35);
+            this.label46.Size = new System.Drawing.Size(172, 35);
             this.label46.TabIndex = 46;
             this.label46.Text = "Tham khảo";
             // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Arial", 18F);
+            this.label47.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.Location = new System.Drawing.Point(578, 239);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(155, 35);
+            this.label47.Size = new System.Drawing.Size(161, 35);
             this.label47.TabIndex = 45;
             this.label47.Text = "Giáo Trình";
             // 
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Arial", 18F);
+            this.label45.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label45.Location = new System.Drawing.Point(769, 16);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(164, 35);
+            this.label45.Size = new System.Drawing.Size(172, 35);
             this.label45.TabIndex = 44;
             this.label45.Text = "Tham khảo";
             // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Arial", 18F);
+            this.label44.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.Location = new System.Drawing.Point(578, 16);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(155, 35);
+            this.label44.Size = new System.Drawing.Size(161, 35);
             this.label44.TabIndex = 43;
             this.label44.Text = "Giáo Trình";
             // 
@@ -1334,40 +1345,40 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Arial", 18F);
+            this.label26.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(33, 272);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(226, 35);
+            this.label26.Size = new System.Drawing.Size(236, 35);
             this.label26.TabIndex = 3;
             this.label26.Text = "Thời hạn mượn";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Arial", 18F);
+            this.label25.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(33, 51);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(230, 35);
+            this.label25.Size = new System.Drawing.Size(243, 35);
             this.label25.TabIndex = 2;
             this.label25.Text = "Số lượng mượn";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Arial", 18F);
+            this.label22.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(33, 485);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(724, 35);
+            this.label22.Size = new System.Drawing.Size(766, 35);
             this.label22.TabIndex = 1;
             this.label22.Text = "Tiền phạt làm hư/mất sách bằng tiền sách nhân với 2";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial", 18F);
+            this.label21.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(33, 442);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(665, 35);
+            this.label21.Size = new System.Drawing.Size(702, 35);
             this.label21.TabIndex = 0;
             this.label21.Text = "Tiền phạt trả sách trễ là 1000 VNĐ trên một ngày";
             // 

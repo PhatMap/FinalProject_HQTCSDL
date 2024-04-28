@@ -61,15 +61,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(679, 69);
+            this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(691, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.Size = new System.Drawing.Size(69, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Từ khóa";
             // 
             // txbSearch
             // 
-            this.txbSearch.Location = new System.Drawing.Point(753, 66);
+            this.txbSearch.Location = new System.Drawing.Point(765, 6);
             this.txbSearch.Name = "txbSearch";
             this.txbSearch.Size = new System.Drawing.Size(296, 22);
             this.txbSearch.TabIndex = 3;
@@ -78,24 +79,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 16);
+            this.label2.Size = new System.Drawing.Size(141, 19);
             this.label2.TabIndex = 5;
             this.label2.Text = "Mã sách đã chọn:";
             // 
             // lbMaSach
             // 
             this.lbMaSach.AutoSize = true;
-            this.lbMaSach.Location = new System.Drawing.Point(144, 9);
+            this.lbMaSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaSach.Location = new System.Drawing.Point(159, 9);
             this.lbMaSach.Name = "lbMaSach";
-            this.lbMaSach.Size = new System.Drawing.Size(40, 16);
+            this.lbMaSach.Size = new System.Drawing.Size(47, 19);
             this.lbMaSach.TabIndex = 6;
             this.lbMaSach.Text = "None";
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(682, 12);
+            this.btnDone.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDone.Location = new System.Drawing.Point(830, 43);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(89, 35);
             this.btnDone.TabIndex = 7;
@@ -105,7 +109,8 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(824, 12);
+            this.btnHuy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Location = new System.Drawing.Point(972, 43);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(89, 35);
             this.btnHuy.TabIndex = 8;
@@ -117,6 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1109, 540);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnDone);

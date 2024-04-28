@@ -54,7 +54,7 @@
             this.dgvCuonSach.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -67,7 +67,7 @@
             this.dgvCuonSach.Name = "dgvCuonSach";
             this.dgvCuonSach.ReadOnly = true;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -93,7 +93,7 @@
             "Đã hư",
             "Đã mất",
             "Đã trả"});
-            this.cbTinhTrang.Location = new System.Drawing.Point(84, 6);
+            this.cbTinhTrang.Location = new System.Drawing.Point(111, 12);
             this.cbTinhTrang.Name = "cbTinhTrang";
             this.cbTinhTrang.Size = new System.Drawing.Size(176, 24);
             this.cbTinhTrang.TabIndex = 16;
@@ -101,17 +101,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.Size = new System.Drawing.Size(83, 19);
             this.label1.TabIndex = 17;
             this.label1.Text = "Tình trạng";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(499, 12);
+            this.btnUpdate.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(626, 10);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(80, 33);
+            this.btnUpdate.Size = new System.Drawing.Size(109, 33);
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -120,28 +122,31 @@
             // numMaSach
             // 
             this.numMaSach.Enabled = false;
-            this.numMaSach.Location = new System.Drawing.Point(347, 6);
+            this.numMaSach.Location = new System.Drawing.Point(379, 14);
             this.numMaSach.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
             this.numMaSach.Name = "numMaSach";
+            this.numMaSach.ReadOnly = true;
             this.numMaSach.Size = new System.Drawing.Size(120, 22);
             this.numMaSach.TabIndex = 19;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(283, 9);
+            this.label2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(302, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 16);
+            this.label2.Size = new System.Drawing.Size(71, 19);
             this.label2.TabIndex = 20;
             this.label2.Text = "Mã sách";
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(926, 6);
+            this.btnDone.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDone.Location = new System.Drawing.Point(926, 11);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(80, 33);
             this.btnDone.TabIndex = 21;
@@ -151,7 +156,8 @@
             // 
             // btnTaoPhieuPhat
             // 
-            this.btnTaoPhieuPhat.Location = new System.Drawing.Point(741, 14);
+            this.btnTaoPhieuPhat.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoPhieuPhat.Location = new System.Drawing.Point(764, 12);
             this.btnTaoPhieuPhat.Name = "btnTaoPhieuPhat";
             this.btnTaoPhieuPhat.Size = new System.Drawing.Size(128, 31);
             this.btnTaoPhieuPhat.TabIndex = 22;
@@ -161,7 +167,8 @@
             // 
             // btnReturned
             // 
-            this.btnReturned.Location = new System.Drawing.Point(624, 12);
+            this.btnReturned.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturned.Location = new System.Drawing.Point(517, 10);
             this.btnReturned.Name = "btnReturned";
             this.btnReturned.Size = new System.Drawing.Size(80, 33);
             this.btnReturned.TabIndex = 23;
@@ -173,6 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1018, 550);
             this.Controls.Add(this.btnReturned);
             this.Controls.Add(this.btnTaoPhieuPhat);
