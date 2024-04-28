@@ -36,6 +36,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.inpSoDienThoai = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.rbtnNu = new System.Windows.Forms.RadioButton();
+            this.rbtnNam = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
@@ -48,8 +50,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.inpHoTen = new System.Windows.Forms.TextBox();
-            this.rbtnNu = new System.Windows.Forms.RadioButton();
-            this.rbtnNam = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -61,6 +61,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel5);
@@ -76,6 +77,7 @@
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.inpEmail);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -104,6 +106,7 @@
             // 
             // panel7
             // 
+            this.panel7.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel7.Controls.Add(this.label6);
             this.panel7.Controls.Add(this.inpSoDienThoai);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
@@ -131,6 +134,7 @@
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel5.Controls.Add(this.rbtnNu);
             this.panel5.Controls.Add(this.rbtnNam);
             this.panel5.Controls.Add(this.label4);
@@ -139,6 +143,28 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(776, 53);
             this.panel5.TabIndex = 5;
+            // 
+            // rbtnNu
+            // 
+            this.rbtnNu.AutoSize = true;
+            this.rbtnNu.Location = new System.Drawing.Point(359, 18);
+            this.rbtnNu.Name = "rbtnNu";
+            this.rbtnNu.Size = new System.Drawing.Size(45, 20);
+            this.rbtnNu.TabIndex = 24;
+            this.rbtnNu.TabStop = true;
+            this.rbtnNu.Text = "Nữ";
+            this.rbtnNu.UseVisualStyleBackColor = true;
+            // 
+            // rbtnNam
+            // 
+            this.rbtnNam.AutoSize = true;
+            this.rbtnNam.Location = new System.Drawing.Point(246, 18);
+            this.rbtnNam.Name = "rbtnNam";
+            this.rbtnNam.Size = new System.Drawing.Size(57, 20);
+            this.rbtnNam.TabIndex = 23;
+            this.rbtnNam.TabStop = true;
+            this.rbtnNam.Text = "Nam";
+            this.rbtnNam.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -152,6 +178,7 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel4.Controls.Add(this.dtpNgaySinh);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -204,6 +231,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.inpDiaChi);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -231,6 +259,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.inpHoTen);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -256,32 +285,11 @@
             this.inpHoTen.Size = new System.Drawing.Size(278, 22);
             this.inpHoTen.TabIndex = 1;
             // 
-            // rbtnNu
-            // 
-            this.rbtnNu.AutoSize = true;
-            this.rbtnNu.Location = new System.Drawing.Point(359, 18);
-            this.rbtnNu.Name = "rbtnNu";
-            this.rbtnNu.Size = new System.Drawing.Size(45, 20);
-            this.rbtnNu.TabIndex = 24;
-            this.rbtnNu.TabStop = true;
-            this.rbtnNu.Text = "Nữ";
-            this.rbtnNu.UseVisualStyleBackColor = true;
-            // 
-            // rbtnNam
-            // 
-            this.rbtnNam.AutoSize = true;
-            this.rbtnNam.Location = new System.Drawing.Point(246, 18);
-            this.rbtnNam.Name = "rbtnNam";
-            this.rbtnNam.Size = new System.Drawing.Size(57, 20);
-            this.rbtnNam.TabIndex = 23;
-            this.rbtnNam.TabStop = true;
-            this.rbtnNam.Text = "Nam";
-            this.rbtnNam.UseVisualStyleBackColor = true;
-            // 
             // fProfileUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 441);
             this.Controls.Add(this.panel1);
             this.Name = "fProfileUpdate";

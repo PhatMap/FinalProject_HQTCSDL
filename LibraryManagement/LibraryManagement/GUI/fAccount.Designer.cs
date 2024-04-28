@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnChangePassword = new System.Windows.Forms.Button();
@@ -58,15 +60,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvAccount = new System.Windows.Forms.DataGridView();
-            this.TaiKhoanID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MatKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VaiTro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.rbtnNu = new System.Windows.Forms.RadioButton();
             this.rbtnNam = new System.Windows.Forms.RadioButton();
@@ -160,6 +153,15 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.TaiKhoanID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VaiTro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -182,10 +184,10 @@
             this.tabPage1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 35);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(959, 540);
+            this.tabPage1.Size = new System.Drawing.Size(959, 547);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin tài khoản";
             // 
@@ -401,7 +403,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Arial", 10.2F);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(20, 3);
@@ -414,10 +416,10 @@
             this.tabPage2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.tabPage2.Controls.Add(this.panel5);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 35);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(959, 540);
+            this.tabPage2.Size = new System.Drawing.Size(959, 547);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Quản lý nhóm tài khoản";
             // 
@@ -429,7 +431,7 @@
             this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(953, 534);
+            this.panel5.Size = new System.Drawing.Size(953, 541);
             this.panel5.TabIndex = 3;
             // 
             // dgvAccount
@@ -440,9 +442,9 @@
             this.dgvAccount.AllowUserToResizeRows = false;
             this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAccount.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10.2F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -459,108 +461,28 @@
             this.NgaySinh,
             this.DiaChi,
             this.GioiTinh});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10.2F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAccount.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAccount.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvAccount.Location = new System.Drawing.Point(0, 137);
+            this.dgvAccount.Location = new System.Drawing.Point(0, 144);
             this.dgvAccount.MultiSelect = false;
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.ReadOnly = true;
             this.dgvAccount.RowHeadersVisible = false;
             this.dgvAccount.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvAccount.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvAccount.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAccount.RowTemplate.Height = 24;
             this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAccount.Size = new System.Drawing.Size(953, 397);
             this.dgvAccount.TabIndex = 3;
             this.dgvAccount.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAccount_CellMouseClick);
-            // 
-            // TaiKhoanID
-            // 
-            this.TaiKhoanID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TaiKhoanID.DataPropertyName = "MaTaiKhoan";
-            this.TaiKhoanID.HeaderText = "ID";
-            this.TaiKhoanID.MinimumWidth = 6;
-            this.TaiKhoanID.Name = "TaiKhoanID";
-            this.TaiKhoanID.ReadOnly = true;
-            this.TaiKhoanID.Width = 50;
-            // 
-            // HoTen
-            // 
-            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.HeaderText = "Họ tên";
-            this.HoTen.MinimumWidth = 6;
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // MatKhau
-            // 
-            this.MatKhau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MatKhau.DataPropertyName = "MatKhau";
-            this.MatKhau.HeaderText = "Mật Khẩu";
-            this.MatKhau.MinimumWidth = 6;
-            this.MatKhau.Name = "MatKhau";
-            this.MatKhau.ReadOnly = true;
-            this.MatKhau.Width = 90;
-            // 
-            // SDT
-            // 
-            this.SDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SDT.DataPropertyName = "SoDienThoai";
-            this.SDT.HeaderText = "SĐT";
-            this.SDT.MinimumWidth = 6;
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            this.SDT.Width = 65;
-            // 
-            // VaiTro
-            // 
-            this.VaiTro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.VaiTro.DataPropertyName = "VaiTro";
-            this.VaiTro.HeaderText = "Vai trò";
-            this.VaiTro.MinimumWidth = 6;
-            this.VaiTro.Name = "VaiTro";
-            this.VaiTro.ReadOnly = true;
-            this.VaiTro.Width = 57;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.NgaySinh.DataPropertyName = "NgaySinh";
-            this.NgaySinh.HeaderText = "Ngày sinh";
-            this.NgaySinh.MinimumWidth = 6;
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            this.NgaySinh.Width = 92;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            this.DiaChi.Width = 58;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.GioiTinh.DataPropertyName = "GioiTinh";
-            this.GioiTinh.HeaderText = "Giới tính";
-            this.GioiTinh.MinimumWidth = 6;
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            this.GioiTinh.Width = 62;
             // 
             // panel8
             // 
@@ -592,16 +514,16 @@
             this.panel8.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(953, 534);
+            this.panel8.Size = new System.Drawing.Size(953, 541);
             this.panel8.TabIndex = 2;
             // 
             // rbtnNu
             // 
             this.rbtnNu.AutoSize = true;
-            this.rbtnNu.Font = new System.Drawing.Font("Arial", 8F);
+            this.rbtnNu.Font = new System.Drawing.Font("Arial", 9F);
             this.rbtnNu.Location = new System.Drawing.Point(819, 4);
             this.rbtnNu.Name = "rbtnNu";
-            this.rbtnNu.Size = new System.Drawing.Size(46, 20);
+            this.rbtnNu.Size = new System.Drawing.Size(49, 21);
             this.rbtnNu.TabIndex = 22;
             this.rbtnNu.TabStop = true;
             this.rbtnNu.Text = "Nữ";
@@ -610,10 +532,10 @@
             // rbtnNam
             // 
             this.rbtnNam.AutoSize = true;
-            this.rbtnNam.Font = new System.Drawing.Font("Arial", 8F);
+            this.rbtnNam.Font = new System.Drawing.Font("Arial", 9F);
             this.rbtnNam.Location = new System.Drawing.Point(706, 4);
             this.rbtnNam.Name = "rbtnNam";
-            this.rbtnNam.Size = new System.Drawing.Size(56, 20);
+            this.rbtnNam.Size = new System.Drawing.Size(60, 21);
             this.rbtnNam.TabIndex = 21;
             this.rbtnNam.TabStop = true;
             this.rbtnNam.Text = "Nam";
@@ -622,10 +544,10 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 8F);
-            this.label16.Location = new System.Drawing.Point(598, 34);
+            this.label16.Font = new System.Drawing.Font("Arial", 9F);
+            this.label16.Location = new System.Drawing.Point(598, 39);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 16);
+            this.label16.Size = new System.Drawing.Size(92, 17);
             this.label16.TabIndex = 20;
             this.label16.Text = "Số điện thoại";
             // 
@@ -638,8 +560,8 @@
             // 
             // btnReset
             // 
-            this.btnReset.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnReset.Location = new System.Drawing.Point(817, 93);
+            this.btnReset.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnReset.Location = new System.Drawing.Point(819, 98);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(139, 38);
             this.btnReset.TabIndex = 17;
@@ -650,10 +572,10 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 8F);
-            this.label17.Location = new System.Drawing.Point(598, 3);
+            this.label17.Font = new System.Drawing.Font("Arial", 9F);
+            this.label17.Location = new System.Drawing.Point(598, 8);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(61, 16);
+            this.label17.Size = new System.Drawing.Size(62, 17);
             this.label17.TabIndex = 14;
             this.label17.Text = "Giới tính";
             // 
@@ -681,10 +603,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8F);
-            this.label3.Location = new System.Drawing.Point(8, 103);
+            this.label3.Font = new System.Drawing.Font("Arial", 9F);
+            this.label3.Location = new System.Drawing.Point(8, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 16);
+            this.label3.Size = new System.Drawing.Size(72, 17);
             this.label3.TabIndex = 11;
             this.label3.Text = "Ngày sinh";
             // 
@@ -698,10 +620,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 8F);
-            this.label8.Location = new System.Drawing.Point(322, 0);
+            this.label8.Font = new System.Drawing.Font("Arial", 9F);
+            this.label8.Location = new System.Drawing.Point(322, 8);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 16);
+            this.label8.Size = new System.Drawing.Size(66, 17);
             this.label8.TabIndex = 2;
             this.label8.Text = "Mật khẩu";
             // 
@@ -715,8 +637,8 @@
             // 
             // btnDeleteAcc
             // 
-            this.btnDeleteAcc.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnDeleteAcc.Location = new System.Drawing.Point(740, 93);
+            this.btnDeleteAcc.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnDeleteAcc.Location = new System.Drawing.Point(742, 98);
             this.btnDeleteAcc.Name = "btnDeleteAcc";
             this.btnDeleteAcc.Size = new System.Drawing.Size(75, 38);
             this.btnDeleteAcc.TabIndex = 8;
@@ -727,17 +649,17 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 8F);
-            this.label7.Location = new System.Drawing.Point(5, 3);
+            this.label7.Font = new System.Drawing.Font("Arial", 9F);
+            this.label7.Location = new System.Drawing.Point(5, 11);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 16);
+            this.label7.Size = new System.Drawing.Size(95, 17);
             this.label7.TabIndex = 2;
             this.label7.Text = "Tên tài khoản";
             // 
             // btnFindAcc
             // 
-            this.btnFindAcc.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnFindAcc.Location = new System.Drawing.Point(659, 93);
+            this.btnFindAcc.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnFindAcc.Location = new System.Drawing.Point(661, 98);
             this.btnFindAcc.Name = "btnFindAcc";
             this.btnFindAcc.Size = new System.Drawing.Size(75, 38);
             this.btnFindAcc.TabIndex = 10;
@@ -748,17 +670,17 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 8F);
-            this.label11.Location = new System.Drawing.Point(322, 32);
+            this.label11.Font = new System.Drawing.Font("Arial", 9F);
+            this.label11.Location = new System.Drawing.Point(327, 40);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 16);
+            this.label11.Size = new System.Drawing.Size(48, 17);
             this.label11.TabIndex = 2;
             this.label11.Text = "Vai trò";
             // 
             // btnUpdateAcc
             // 
-            this.btnUpdateAcc.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnUpdateAcc.Location = new System.Drawing.Point(515, 93);
+            this.btnUpdateAcc.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnUpdateAcc.Location = new System.Drawing.Point(517, 98);
             this.btnUpdateAcc.Name = "btnUpdateAcc";
             this.btnUpdateAcc.Size = new System.Drawing.Size(138, 38);
             this.btnUpdateAcc.TabIndex = 9;
@@ -769,27 +691,27 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 8F);
-            this.label12.Location = new System.Drawing.Point(5, 68);
+            this.label12.Font = new System.Drawing.Font("Arial", 9F);
+            this.label12.Location = new System.Drawing.Point(8, 71);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(88, 16);
+            this.label12.Size = new System.Drawing.Size(89, 17);
             this.label12.TabIndex = 3;
             this.label12.Text = "Mã tài khoản";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 8F);
-            this.label10.Location = new System.Drawing.Point(8, 36);
+            this.label10.Font = new System.Drawing.Font("Arial", 9F);
+            this.label10.Location = new System.Drawing.Point(8, 40);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 16);
+            this.label10.Size = new System.Drawing.Size(45, 17);
             this.label10.TabIndex = 2;
             this.label10.Text = "Email";
             // 
             // btnAddAcc
             // 
-            this.btnAddAcc.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnAddAcc.Location = new System.Drawing.Point(320, 93);
+            this.btnAddAcc.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnAddAcc.Location = new System.Drawing.Point(322, 98);
             this.btnAddAcc.Name = "btnAddAcc";
             this.btnAddAcc.Size = new System.Drawing.Size(189, 38);
             this.btnAddAcc.TabIndex = 7;
@@ -815,10 +737,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 8F);
-            this.label9.Location = new System.Drawing.Point(322, 62);
+            this.label9.Font = new System.Drawing.Font("Arial", 9F);
+            this.label9.Location = new System.Drawing.Point(322, 70);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 16);
+            this.label9.Size = new System.Drawing.Size(53, 17);
             this.label9.TabIndex = 2;
             this.label9.Text = "Địa chỉ";
             // 
@@ -841,10 +763,10 @@
             this.tabPage3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage3.Location = new System.Drawing.Point(4, 35);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(959, 540);
+            this.tabPage3.Size = new System.Drawing.Size(959, 547);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Lịch làm việc";
             // 
@@ -855,7 +777,7 @@
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(953, 534);
+            this.panel3.Size = new System.Drawing.Size(953, 541);
             this.panel3.TabIndex = 3;
             // 
             // panel4
@@ -883,13 +805,13 @@
             this.panel4.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(953, 534);
+            this.panel4.Size = new System.Drawing.Size(953, 541);
             this.panel4.TabIndex = 2;
             // 
             // btnAllSchedule
             // 
-            this.btnAllSchedule.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnAllSchedule.Location = new System.Drawing.Point(662, 50);
+            this.btnAllSchedule.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnAllSchedule.Location = new System.Drawing.Point(681, 10);
             this.btnAllSchedule.Name = "btnAllSchedule";
             this.btnAllSchedule.Size = new System.Drawing.Size(43, 27);
             this.btnAllSchedule.TabIndex = 34;
@@ -899,10 +821,10 @@
             // 
             // btnResetSchedule
             // 
-            this.btnResetSchedule.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnResetSchedule.Location = new System.Drawing.Point(792, 6);
+            this.btnResetSchedule.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnResetSchedule.Location = new System.Drawing.Point(832, 288);
             this.btnResetSchedule.Name = "btnResetSchedule";
-            this.btnResetSchedule.Size = new System.Drawing.Size(75, 38);
+            this.btnResetSchedule.Size = new System.Drawing.Size(118, 38);
             this.btnResetSchedule.TabIndex = 33;
             this.btnResetSchedule.Text = "Reset";
             this.btnResetSchedule.UseVisualStyleBackColor = true;
@@ -910,10 +832,10 @@
             // 
             // btnFindSchedule
             // 
-            this.btnFindSchedule.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnFindSchedule.Location = new System.Drawing.Point(711, 6);
+            this.btnFindSchedule.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnFindSchedule.Location = new System.Drawing.Point(832, 218);
             this.btnFindSchedule.Name = "btnFindSchedule";
-            this.btnFindSchedule.Size = new System.Drawing.Size(75, 38);
+            this.btnFindSchedule.Size = new System.Drawing.Size(118, 38);
             this.btnFindSchedule.TabIndex = 32;
             this.btnFindSchedule.Text = "Tìm";
             this.btnFindSchedule.UseVisualStyleBackColor = true;
@@ -922,7 +844,7 @@
             // btnNextWeek
             // 
             this.btnNextWeek.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnNextWeek.Location = new System.Drawing.Point(711, 50);
+            this.btnNextWeek.Location = new System.Drawing.Point(730, 10);
             this.btnNextWeek.Name = "btnNextWeek";
             this.btnNextWeek.Size = new System.Drawing.Size(31, 27);
             this.btnNextWeek.TabIndex = 31;
@@ -933,7 +855,7 @@
             // btnPreviousWeek
             // 
             this.btnPreviousWeek.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnPreviousWeek.Location = new System.Drawing.Point(625, 49);
+            this.btnPreviousWeek.Location = new System.Drawing.Point(644, 11);
             this.btnPreviousWeek.Name = "btnPreviousWeek";
             this.btnPreviousWeek.Size = new System.Drawing.Size(31, 27);
             this.btnPreviousWeek.TabIndex = 30;
@@ -945,7 +867,7 @@
             // 
             this.dtpSunday.CustomFormat = "dd/MM/yyyy";
             this.dtpSunday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSunday.Location = new System.Drawing.Point(774, 52);
+            this.dtpSunday.Location = new System.Drawing.Point(767, 12);
             this.dtpSunday.Name = "dtpSunday";
             this.dtpSunday.Size = new System.Drawing.Size(174, 25);
             this.dtpSunday.TabIndex = 29;
@@ -955,7 +877,7 @@
             // 
             this.dtpMonday.CustomFormat = "dd/MM/yyyy";
             this.dtpMonday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpMonday.Location = new System.Drawing.Point(422, 52);
+            this.dtpMonday.Location = new System.Drawing.Point(464, 12);
             this.dtpMonday.Name = "dtpMonday";
             this.dtpMonday.Size = new System.Drawing.Size(174, 25);
             this.dtpMonday.TabIndex = 28;
@@ -964,17 +886,17 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 8F);
-            this.label19.Location = new System.Drawing.Point(303, 49);
+            this.label19.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.label19.Location = new System.Drawing.Point(317, 19);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(20, 16);
+            this.label19.Size = new System.Drawing.Size(26, 19);
             this.label19.TabIndex = 27;
             this.label19.Text = "ID";
             // 
             // numLibID
             // 
             this.numLibID.Enabled = false;
-            this.numLibID.Location = new System.Drawing.Point(333, 47);
+            this.numLibID.Location = new System.Drawing.Point(349, 14);
             this.numLibID.Name = "numLibID";
             this.numLibID.ReadOnly = true;
             this.numLibID.Size = new System.Drawing.Size(83, 25);
@@ -982,8 +904,8 @@
             // 
             // btnLibUpdate
             // 
-            this.btnLibUpdate.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnLibUpdate.Location = new System.Drawing.Point(587, 6);
+            this.btnLibUpdate.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnLibUpdate.Location = new System.Drawing.Point(832, 150);
             this.btnLibUpdate.Name = "btnLibUpdate";
             this.btnLibUpdate.Size = new System.Drawing.Size(118, 38);
             this.btnLibUpdate.TabIndex = 25;
@@ -993,10 +915,10 @@
             // 
             // btnLibDelete
             // 
-            this.btnLibDelete.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnLibDelete.Location = new System.Drawing.Point(873, 6);
+            this.btnLibDelete.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnLibDelete.Location = new System.Drawing.Point(832, 469);
             this.btnLibDelete.Name = "btnLibDelete";
-            this.btnLibDelete.Size = new System.Drawing.Size(75, 38);
+            this.btnLibDelete.Size = new System.Drawing.Size(118, 38);
             this.btnLibDelete.TabIndex = 24;
             this.btnLibDelete.Text = "Xóa";
             this.btnLibDelete.UseVisualStyleBackColor = true;
@@ -1005,20 +927,20 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 8F);
-            this.label20.Location = new System.Drawing.Point(303, 16);
+            this.label20.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.label20.Location = new System.Drawing.Point(313, 50);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(25, 16);
+            this.label20.Size = new System.Drawing.Size(30, 19);
             this.label20.TabIndex = 23;
             this.label20.Text = "Ca";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 8F);
-            this.label18.Location = new System.Drawing.Point(15, 16);
+            this.label18.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.label18.Location = new System.Drawing.Point(5, 16);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(81, 16);
+            this.label18.Size = new System.Drawing.Size(92, 19);
             this.label18.TabIndex = 21;
             this.label18.Text = "Tên thủ thư";
             // 
@@ -1029,7 +951,7 @@
             this.cbLibCa.Items.AddRange(new object[] {
             "Sáng",
             "Chiều"});
-            this.cbLibCa.Location = new System.Drawing.Point(333, 14);
+            this.cbLibCa.Location = new System.Drawing.Point(349, 46);
             this.cbLibCa.Name = "cbLibCa";
             this.cbLibCa.Size = new System.Drawing.Size(148, 27);
             this.cbLibCa.TabIndex = 20;
@@ -1042,14 +964,14 @@
             this.dgvSchedule.AllowUserToResizeRows = false;
             this.dgvSchedule.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSchedule.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 10.2F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaLichLamViec,
@@ -1059,24 +981,32 @@
             this.Ca,
             this.LibSoDienThoai,
             this.LibGioiTinh});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 10.2F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSchedule.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSchedule.Location = new System.Drawing.Point(3, 83);
             this.dgvSchedule.MultiSelect = false;
             this.dgvSchedule.Name = "dgvSchedule";
             this.dgvSchedule.ReadOnly = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSchedule.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSchedule.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSchedule.RowHeadersVisible = false;
             this.dgvSchedule.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvSchedule.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvSchedule.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvSchedule.RowTemplate.Height = 24;
             this.dgvSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSchedule.Size = new System.Drawing.Size(947, 446);
+            this.dgvSchedule.Size = new System.Drawing.Size(823, 455);
             this.dgvSchedule.TabIndex = 14;
             this.dgvSchedule.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSchedule_CellMouseClick);
             // 
@@ -1088,7 +1018,7 @@
             this.MaLichLamViec.MinimumWidth = 6;
             this.MaLichLamViec.Name = "MaLichLamViec";
             this.MaLichLamViec.ReadOnly = true;
-            this.MaLichLamViec.Width = 53;
+            this.MaLichLamViec.Width = 55;
             // 
             // AccID
             // 
@@ -1098,7 +1028,7 @@
             this.AccID.MinimumWidth = 6;
             this.AccID.Name = "AccID";
             this.AccID.ReadOnly = true;
-            this.AccID.Width = 77;
+            this.AccID.Width = 84;
             // 
             // ThuThu
             // 
@@ -1126,7 +1056,7 @@
             this.Ca.MinimumWidth = 6;
             this.Ca.Name = "Ca";
             this.Ca.ReadOnly = true;
-            this.Ca.Width = 55;
+            this.Ca.Width = 59;
             // 
             // LibSoDienThoai
             // 
@@ -1145,23 +1075,23 @@
             this.LibGioiTinh.MinimumWidth = 6;
             this.LibGioiTinh.Name = "LibGioiTinh";
             this.LibGioiTinh.ReadOnly = true;
-            this.LibGioiTinh.Width = 95;
+            this.LibGioiTinh.Width = 101;
             // 
             // dtpLibDay
             // 
             this.dtpLibDay.CustomFormat = "dd/MM/yyyy";
             this.dtpLibDay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLibDay.Location = new System.Drawing.Point(107, 44);
+            this.dtpLibDay.Location = new System.Drawing.Point(126, 44);
             this.dtpLibDay.Name = "dtpLibDay";
             this.dtpLibDay.Size = new System.Drawing.Size(174, 25);
             this.dtpLibDay.TabIndex = 12;
             // 
             // btnLibCreate
             // 
-            this.btnLibCreate.Font = new System.Drawing.Font("Arial", 8F);
-            this.btnLibCreate.Location = new System.Drawing.Point(515, 6);
+            this.btnLibCreate.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.btnLibCreate.Location = new System.Drawing.Point(832, 82);
             this.btnLibCreate.Name = "btnLibCreate";
-            this.btnLibCreate.Size = new System.Drawing.Size(66, 38);
+            this.btnLibCreate.Size = new System.Drawing.Size(118, 38);
             this.btnLibCreate.TabIndex = 10;
             this.btnLibCreate.Text = "Tạo ";
             this.btnLibCreate.UseVisualStyleBackColor = true;
@@ -1170,10 +1100,10 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Arial", 8F);
-            this.label24.Location = new System.Drawing.Point(15, 49);
+            this.label24.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.label24.Location = new System.Drawing.Point(5, 49);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(65, 16);
+            this.label24.Size = new System.Drawing.Size(77, 19);
             this.label24.TabIndex = 2;
             this.label24.Text = "Ngày làm";
             // 
@@ -1181,7 +1111,7 @@
             // 
             this.cbLibName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLibName.FormattingEnabled = true;
-            this.cbLibName.Location = new System.Drawing.Point(107, 9);
+            this.cbLibName.Location = new System.Drawing.Point(126, 11);
             this.cbLibName.Name = "cbLibName";
             this.cbLibName.Size = new System.Drawing.Size(174, 27);
             this.cbLibName.TabIndex = 6;
@@ -1228,9 +1158,9 @@
             this.tabPage4.Controls.Add(this.label22);
             this.tabPage4.Controls.Add(this.label21);
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage4.Location = new System.Drawing.Point(4, 35);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(959, 540);
+            this.tabPage4.Size = new System.Drawing.Size(959, 547);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Quy định";
             // 
@@ -1587,6 +1517,96 @@
             this.label21.Size = new System.Drawing.Size(532, 26);
             this.label21.TabIndex = 0;
             this.label21.Text = "Tiền phạt trả sách trễ là 1000 VNĐ trên một ngày";
+            // 
+            // TaiKhoanID
+            // 
+            this.TaiKhoanID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TaiKhoanID.DataPropertyName = "MaTaiKhoan";
+            this.TaiKhoanID.HeaderText = "ID";
+            this.TaiKhoanID.MinimumWidth = 6;
+            this.TaiKhoanID.Name = "TaiKhoanID";
+            this.TaiKhoanID.ReadOnly = true;
+            this.TaiKhoanID.Width = 55;
+            // 
+            // HoTen
+            // 
+            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.HoTen.DataPropertyName = "HoTen";
+            this.HoTen.HeaderText = "Họ tên";
+            this.HoTen.MinimumWidth = 6;
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
+            this.HoTen.Width = 85;
+            // 
+            // Email
+            // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 78;
+            // 
+            // MatKhau
+            // 
+            this.MatKhau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MatKhau.DataPropertyName = "MatKhau";
+            this.MatKhau.HeaderText = "Mật Khẩu";
+            this.MatKhau.MinimumWidth = 6;
+            this.MatKhau.Name = "MatKhau";
+            this.MatKhau.ReadOnly = true;
+            this.MatKhau.Width = 107;
+            // 
+            // SDT
+            // 
+            this.SDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SDT.DataPropertyName = "SoDienThoai";
+            this.SDT.HeaderText = "SĐT";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            this.SDT.Width = 70;
+            // 
+            // VaiTro
+            // 
+            this.VaiTro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.VaiTro.DataPropertyName = "VaiTro";
+            this.VaiTro.HeaderText = "Vai trò";
+            this.VaiTro.MinimumWidth = 6;
+            this.VaiTro.Name = "VaiTro";
+            this.VaiTro.ReadOnly = true;
+            this.VaiTro.Width = 85;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.MinimumWidth = 6;
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            this.NgaySinh.Width = 111;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DiaChi.DataPropertyName = "DiaChi";
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            this.DiaChi.Width = 90;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GioiTinh.DataPropertyName = "GioiTinh";
+            this.GioiTinh.HeaderText = "Giới tính";
+            this.GioiTinh.MinimumWidth = 6;
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            this.GioiTinh.Width = 101;
             // 
             // fAccount
             // 
