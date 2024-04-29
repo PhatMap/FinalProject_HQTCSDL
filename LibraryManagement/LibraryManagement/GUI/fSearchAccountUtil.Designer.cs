@@ -103,6 +103,7 @@
             this.Controls.Add(this.inpAccEmail);
             this.Controls.Add(this.dgvSearch);
             this.Name = "fSearchAccountUtil";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fSearchAccountUtil";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
             this.ResumeLayout(false);

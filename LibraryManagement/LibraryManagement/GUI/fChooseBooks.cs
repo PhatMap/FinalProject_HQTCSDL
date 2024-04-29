@@ -49,8 +49,14 @@ namespace LibraryManagement.GUI
 
         private void dgvSearch_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+
             DataGridViewRow selectedRow = dgvSearch.Rows[e.RowIndex];
 
+            if ((int)selectedRow.Cells[8].Value == 0)
+            {
+                MessageBox.Show("Số lượng hiện có của sách đã chọn là 0");
+                return;
+            }
             Session.booksID.Add((int)selectedRow.Cells[0].Value);
 
             Session.booksName.Add(selectedRow.Cells[4].Value.ToString());

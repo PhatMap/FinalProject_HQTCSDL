@@ -35,6 +35,15 @@
             this.lbMaSach = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
+            this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNhaXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoaiTaiLieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +56,16 @@
             this.dgvSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSearch.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSach,
+            this.TenSach,
+            this.TenTacGia,
+            this.TenTheLoai,
+            this.TenNhaXuatBan,
+            this.LoaiTaiLieu,
+            this.NamXuatBan,
+            this.GiaSach,
+            this.SoLuong});
             this.dgvSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvSearch.Location = new System.Drawing.Point(0, 97);
             this.dgvSearch.Name = "dgvSearch";
@@ -118,6 +137,96 @@
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // MaSach
+            // 
+            this.MaSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaSach.DataPropertyName = "MaSach";
+            this.MaSach.HeaderText = "Mã Sách";
+            this.MaSach.MinimumWidth = 6;
+            this.MaSach.Name = "MaSach";
+            this.MaSach.ReadOnly = true;
+            this.MaSach.Width = 89;
+            // 
+            // TenSach
+            // 
+            this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenSach.DataPropertyName = "TenSach";
+            this.TenSach.HeaderText = "Tên sách";
+            this.TenSach.MinimumWidth = 6;
+            this.TenSach.Name = "TenSach";
+            this.TenSach.ReadOnly = true;
+            this.TenSach.Width = 92;
+            // 
+            // TenTacGia
+            // 
+            this.TenTacGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenTacGia.DataPropertyName = "TenTacGia";
+            this.TenTacGia.HeaderText = "Tên tác giả";
+            this.TenTacGia.MinimumWidth = 6;
+            this.TenTacGia.Name = "TenTacGia";
+            this.TenTacGia.ReadOnly = true;
+            this.TenTacGia.Width = 103;
+            // 
+            // TenTheLoai
+            // 
+            this.TenTheLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenTheLoai.DataPropertyName = "TenTheLoai";
+            this.TenTheLoai.HeaderText = "Thể loại";
+            this.TenTheLoai.MinimumWidth = 6;
+            this.TenTheLoai.Name = "TenTheLoai";
+            this.TenTheLoai.ReadOnly = true;
+            this.TenTheLoai.Width = 85;
+            // 
+            // TenNhaXuatBan
+            // 
+            this.TenNhaXuatBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenNhaXuatBan.DataPropertyName = "TenNhaXuatBan";
+            this.TenNhaXuatBan.HeaderText = "Nhà xuất bản";
+            this.TenNhaXuatBan.MinimumWidth = 6;
+            this.TenNhaXuatBan.Name = "TenNhaXuatBan";
+            this.TenNhaXuatBan.ReadOnly = true;
+            this.TenNhaXuatBan.Width = 114;
+            // 
+            // LoaiTaiLieu
+            // 
+            this.LoaiTaiLieu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.LoaiTaiLieu.DataPropertyName = "LoaiTaiLieu";
+            this.LoaiTaiLieu.HeaderText = "Loại tài liệu";
+            this.LoaiTaiLieu.MinimumWidth = 6;
+            this.LoaiTaiLieu.Name = "LoaiTaiLieu";
+            this.LoaiTaiLieu.ReadOnly = true;
+            this.LoaiTaiLieu.Width = 103;
+            // 
+            // NamXuatBan
+            // 
+            this.NamXuatBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.NamXuatBan.DataPropertyName = "NamXuatBan";
+            this.NamXuatBan.HeaderText = "Năm xuât bản";
+            this.NamXuatBan.MinimumWidth = 6;
+            this.NamXuatBan.Name = "NamXuatBan";
+            this.NamXuatBan.ReadOnly = true;
+            this.NamXuatBan.Width = 118;
+            // 
+            // GiaSach
+            // 
+            this.GiaSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GiaSach.DataPropertyName = "GiaSach";
+            this.GiaSach.HeaderText = "Giá";
+            this.GiaSach.MinimumWidth = 6;
+            this.GiaSach.Name = "GiaSach";
+            this.GiaSach.ReadOnly = true;
+            this.GiaSach.Width = 57;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.MinimumWidth = 6;
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 89;
+            // 
             // fChooseBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -133,6 +242,7 @@
             this.Controls.Add(this.dgvSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fChooseBooks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fChooseBooks";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
             this.ResumeLayout(false);
@@ -149,5 +259,14 @@
         private System.Windows.Forms.Label lbMaSach;
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenTacGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenTheLoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNhaXuatBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiTaiLieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NamXuatBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaSach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
     }
 }
