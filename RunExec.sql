@@ -52,3 +52,34 @@ DROP LOGIN [20113536@hcmute.edu.vn.com];
 DROP USER [20110556@hcmute.edu.vn.com];
 DROP LOGIN [20110556@hcmute.edu.vn.com];
 
+
+SELECT * FROM PhieuMuonSach
+
+SELECT 1
+        FROM dbo.CuonSach CS
+		JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon = CS.MaPhieuMuon
+        JOIN dbo.Sach S ON CS.MaSach = S.MaSach
+        JOIN dbo.TaiKhoan TK ON TK.MaTaiKhoan = PMS.MaTaiKhoan
+        WHERE CS.MaPhieuMuon = 2 
+            AND (CS.TinhTrang = N'Đang mượn')
+            AND (
+                (TK.VaiTro = N'Sinh viên CLC' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 21) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 105)
+                ))
+                OR 
+                (TK.VaiTro = N'Sinh viên đại trà' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 21) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 105)
+                ))
+                OR 
+                (TK.VaiTro = N'Học viên cao học' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 32) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 56)
+                ))
+                OR 
+                (TK.VaiTro = N'Giảng viên' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 365) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 365)
+                ))
+            )

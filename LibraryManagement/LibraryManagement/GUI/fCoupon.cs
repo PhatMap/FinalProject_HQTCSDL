@@ -52,41 +52,6 @@ namespace LibraryManagement.GUI
             dtpNgayTra.DataBindings.Clear();
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            PhieuPhat pp = new PhieuPhat();
-
-            pp.MaPhieuMuon = (int)numPhieuPhatID.Value;
-            pp.TienPhat = (decimal)numTienPhat.Value;
-
-            PhieuPhatDAO.Instance.AddPhieuPhat(pp);
-
-            LoadPhieuPhatList();
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            PhieuPhatDAO.Instance.DeletePhieuPhat((int)numPhieuPhatID.Value);
-            LoadPhieuPhatList();
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            int maPhieuPhat = (int)numPhieuPhatID.Value;
-            int maPhieuMuon = (int)numPhieuPhatID.Value;
-            decimal tienPhat = (decimal)numTienPhat.Value;
-            DateTime ngayTra = dtpNgayTra.Value;
-
-            PhieuPhat pp = new PhieuPhat();
-            pp.MaPhieuPhat = maPhieuPhat;
-            pp.MaPhieuMuon = maPhieuMuon;
-            pp.TienPhat = tienPhat;
-            pp.NgayTra = ngayTra;
-
-            bool result = PhieuPhatDAO.Instance.UpdatePhieuPhat(pp);
-            LoadPhieuPhatList();
-        }
-
         private void btnTim_Click(object sender, EventArgs e)
         {
             if (numTKChon.Value != 0)

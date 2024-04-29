@@ -530,29 +530,6 @@ BEGIN
 END;
 
 GO
-/* Sửa phiếu phạt (Hoàn)*/
-CREATE OR ALTER PROCEDURE SP_Update_PhieuPhat
-	@MaPhieuPhat int,
-    @MaPhieuMuon int,
-	@TienPhat decimal,
-    @NgayTra date = NULL
-AS
-BEGIN
-    BEGIN TRY
-            UPDATE	dbo.PhieuPhat
-				SET MaPhieuMuon = @MaPhieuMuon,
-					TienPhat = @TienPhat,
-					NgayTra = @NgayTra
-			 WHERE	MaPhieuPhat = @MaPhieuPhat;
-    END TRY
-    BEGIN CATCH
-        DECLARE @err NVARCHAR(MAX)
-		SELECT @err = N'Lỗi' + ERROR_MESSAGE()
-		RAISERROR(@err, 16, 1)
-    END CATCH;
-END;
-
-GO
 /* Tìm kiếm phiếu phạt (Hoàn)*/
 CREATE OR ALTER PROCEDURE SP_Find_PhieuPhat
 (
@@ -769,6 +746,35 @@ BEGIN
             )
     )
     BEGIN
+		UPDATE CS
+        SET TinhTrang = N'Trả trễ'
+        FROM dbo.CuonSach CS
+        JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon = CS.MaPhieuMuon
+        JOIN dbo.Sach S ON CS.MaSach = S.MaSach
+        JOIN dbo.TaiKhoan TK ON TK.MaTaiKhoan = PMS.MaTaiKhoan
+        WHERE CS.MaPhieuMuon = @MaPhieuMuon 
+            AND CS.TinhTrang = N'Đang mượn'
+            AND (
+                (TK.VaiTro = N'Sinh viên CLC' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 21) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 105)
+                ))
+                OR 
+                (TK.VaiTro = N'Sinh viên đại trà' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 21) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 105)
+                ))
+                OR 
+                (TK.VaiTro = N'Học viên cao học' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 32) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 56)
+                ))
+                OR 
+                (TK.VaiTro = N'Giảng viên' AND (
+                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 365) 
+                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 365)
+                ))
+            )
 		RAISERROR(N'Người này đang giữ sách quá hạn trả.', 16, 1)
         RETURN;
     END

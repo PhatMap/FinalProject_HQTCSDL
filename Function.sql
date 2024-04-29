@@ -308,10 +308,15 @@ BEGIN
 
 	SET @TotalDamagedOrLost = @TotalDamagedOrLost * 2;
 
+	IF EXISTS (SELECT 1 FROM dbo.PhieuMuonSach PMS
+				JOIN dbo.CuonSach CS ON CS.MaPhieuMuon = PMS.MaPhieuMuon
+				WHERE CS.MaPhieuMuon = @MaPhieuMuon AND CS.TinhTrang = N'Trả trễ')
+	BEGIN 
 	SELECT @LateBooks = COUNT(*)
 	FROM dbo.PhieuMuonSach PMS
 	JOIN dbo.CuonSach CS ON CS.MaPhieuMuon = PMS.MaPhieuMuon
-	WHERE CS.MaPhieuMuon = @MaPhieuMuon AND CS.TinhTrang = N'Trả trễ';
+	WHERE CS.MaPhieuMuon = @MaPhieuMuon;
+	END;
 
 	SELECT @TotalDays = DATEDIFF(DAY, PMS.NgayTra, GETDATE())
 	FROM dbo.PhieuMuonSach PMS
