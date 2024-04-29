@@ -55,7 +55,6 @@ namespace LibraryManagement.GUI
             {
                 newTK.GioiTinh = "Nữ";
             }
-
             bool result = TaiKhoanDAO.Instance.UpdateProfile(newTK);
 
             if (!result) 

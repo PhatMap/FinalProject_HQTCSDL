@@ -43,7 +43,7 @@ namespace LibraryManagement.DAO
         public DataTable FindTacGia(TacGia tg)
         {
             object tenTacGia = tg.TenTacGia;
-            if (tg.TenTacGia == null)
+            if (tg.TenTacGia == "")
             {
                 tenTacGia = DBNull.Value;
             }

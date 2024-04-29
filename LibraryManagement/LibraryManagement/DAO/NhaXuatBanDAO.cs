@@ -46,8 +46,13 @@ namespace LibraryManagement.DAO
         }
         public DataTable FindNhaXuatBan(string tenNXB)
         {
+            object nxb = tenNXB;
+            if (tenNXB == "")
+            {
+                nxb = DBNull.Value;
+            }
             string query = "SP_Find_NXB @TenNhaXuatBan ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tenNXB });
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { nxb });
             return data;
         }
         public DataTable TotalPublishers()

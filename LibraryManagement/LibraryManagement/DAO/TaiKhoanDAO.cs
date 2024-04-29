@@ -68,7 +68,7 @@ namespace LibraryManagement.DAO
 
         public bool UpdateProfile(TaiKhoan tk)
         {
-            string query = "SP_Update_Account @MaTaiKhoan , @HoTen , @DiaChi , @NgaySinh , @SoDienThoai , @GioiTinh ";
+            string query = "SP_Account_Profile @MaTaiKhoan , @HoTen , @DiaChi , @NgaySinh , @SoDienThoai , @GioiTinh ";
 
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tk.MaTaiKhoan, tk.HoTen, tk.DiaChi, tk.NgaySinh, tk.SoDienThoai, tk.GioiTinh });
 

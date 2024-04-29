@@ -52,7 +52,3 @@ DROP LOGIN [20113536@hcmute.edu.vn.com];
 DROP USER [20110556@hcmute.edu.vn.com];
 DROP LOGIN [20110556@hcmute.edu.vn.com];
 
-Select * from TaiKhoan
-
-
-
