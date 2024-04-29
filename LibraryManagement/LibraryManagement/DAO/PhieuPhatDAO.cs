@@ -59,15 +59,6 @@ namespace LibraryManagement.DAO
             DataProvider.Instance.ExecuteQuery(query, new object[] { maPhieuPhat });
         }
 
-        public bool UpdatePhieuPhat(PhieuPhat pp)
-        {
-            string query = "SP_Update_PhieuPhat @MaPhieuPhat , @MaPhieuMuon , @TienPhat , @NgayTra ";
-
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { pp.MaPhieuPhat, pp.MaPhieuMuon, pp.TienPhat, pp.NgayTra });
-
-            return result > 0;
-        }
-
         public DataTable FindPhieuPhat(int id)
         {
             string query = "SP_Find_PhieuPhat @MaTaiKhoan ";

@@ -133,8 +133,15 @@ namespace LibraryManagement.GUI
 
         private void btnReturned_Click(object sender, EventArgs e)
         {
-            PhieuMuonSachDAO.Instance.UpdateCoupon_Returned(maPhieuMuon);
-            this.Close();
+            try
+            {
+                PhieuMuonSachDAO.Instance.UpdateCoupon_Returned(maPhieuMuon);
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Đối tượng vi phạm nội quy thư viện");
+            }
         }
     }
 }
