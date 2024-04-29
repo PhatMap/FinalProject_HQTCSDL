@@ -40,7 +40,7 @@ namespace LibraryManagement.GUI
             string email = inpEmail.Text;
             string passWord = inpPassWord.Text;
 
-            if (Login(email = "admin@gmail.com", passWord = "aaaaaaaa"))
+            if (Login(email = "20110536@hcmute.edu.vn.com", passWord = "zzzzzzzz"))
             {
                 TaiKhoan loginAccount = TaiKhoanDAO.Instance.GetAccountProfile(email);
 

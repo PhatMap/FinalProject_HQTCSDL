@@ -31,76 +31,28 @@ EXEC SP_Drop_All_VW
 DROP ROLE ThuThu
 DROP ROLE DocGia
 
-INSERT INTO TacGia (TenTacGia)
-VALUES (N'Kim Dung')
+DROP USER [20110536@hcmute.edu.vn.com];
+DROP LOGIN [20110536@hcmute.edu.vn.com];
+
+DROP USER [21110862@hcmute.edu.vn.com];
+DROP LOGIN [21110862@hcmute.edu.vn.com];
+
+DROP USER [21110827@hcmute.edu.vn.com];
+DROP LOGIN [21110827@hcmute.edu.vn.com];
+
+DROP USER [21110333@hcmute.edu.vn.com];
+DROP LOGIN [21110333@hcmute.edu.vn.com];
+
+DROP USER [20110535@hcmute.edu.vn.com];
+DROP LOGIN [20110535@hcmute.edu.vn.com];
+
+DROP USER [20113536@hcmute.edu.vn.com];
+DROP LOGIN [20113536@hcmute.edu.vn.com];
+
+DROP USER [20110556@hcmute.edu.vn.com];
+DROP LOGIN [20110556@hcmute.edu.vn.com];
+
+Select * from TaiKhoan
 
 
-DELETE dbo.TaiKhoan WHERE MaTaiKhoan=20110536
-DROP USER [admin@gmail.com];
-DROP LOGIN [admin@gmail.com];
 
-
-
-
-SELECT * FROM VW_NhaXuatBan_List
-SELECT * FROM VW_NXB_List
-
-
-
-PRINT dbo.FN_Total_Working_Hours(20110536, '2024-04-26')
-
-select * from dbo.TaiKhoan
-select * from dbo.PhieuMuonSach
-select * from dbo.Sach where MaSach = 5
-
-select * from dbo.PhieuPhat
-Update dbo.Sach 
-SET SoLuong = 5
-where MaSach = 6
-
-UPDATE dbo.CuonSach
-SET TinhTrang = N'Đã mất'
-WHERE MaPhieuMuon = 36 AND MaSach = 8
-
-
-UPDATE dbo.PhieuMuonSach
-SET NgayTra = '2024-04-25'
-WHERE MaPhieuMuon = 100
-
-DECLARE @a DECIMAL(18, 2)
-SET @a = dbo.FN_Calculate_Penalty_Value(100)
-PRINT @a
-
-DECLARE @today DATE
-SET @today = GETDATE()
-
-SET IDENTITY_INSERT PhieuMuonSach ON;
-INSERT INTO PhieuMuonSach (MaPhieuMuon, MaTaiKhoan, NgayMuon, NgayTra)
-VALUES  (100, 20110536, @today, NULL)
-SET IDENTITY_INSERT PhieuMuonSach OFF;
-
-select * from dbo.NhaXuatBan
-INSERT INTO dbo.NhaXuatBan(TenNhaXuatBan)
-VALUES	( N'Test')
-
-UPDATE dbo.NhaXuatBan
-SET TenNhaXuatBan = N'Test'
-WHERE MaNhaXuatBan = 1
-
-EXEC SP_Add_New_PhieuPhat
-@MaPhieuMuon = 100
-
-DELete from dbo.PhieuPhat where MaPhieuMuon = 100
-EXEC SP_Delete_Coupon @MaPhieuMuon = 100
-EXEC SP_Update_Coupon_Returned @MaPhieuMuon = 100
-
-SELECT * FROM PhieuMuonSach WHERE MaPhieuMuon = 100;
-SELECT * FROM CuonSach WHERE MaPhieuMuon = 100;
-
-DECLARE @a DECIMAL(18, 0);
-SET @a = dbo.FN_Calculate_Penalty_Value(100);
-PRINT @a;
-
-SELECT PP.MaPhieuPhat, PP.MaPhieuMuon,PP.NgayTra,PMS.MaTaiKhoan,PMS.NgayTra AS NgayTraSach
-FROM dbo.PhieuPhat PP
-JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon= PP.MaPhieuMuon

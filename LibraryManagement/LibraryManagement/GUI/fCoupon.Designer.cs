@@ -182,7 +182,7 @@
             this.btnResetPM.Name = "btnResetPM";
             this.btnResetPM.Size = new System.Drawing.Size(103, 44);
             this.btnResetPM.TabIndex = 28;
-            this.btnResetPM.Text = "Reset";
+            this.btnResetPM.Text = "Làm mới";
             this.btnResetPM.UseVisualStyleBackColor = true;
             this.btnResetPM.Click += new System.EventHandler(this.btnResetPM_Click);
             // 
@@ -270,7 +270,7 @@
             // rbDaTra
             // 
             this.rbDaTra.AutoSize = true;
-            this.rbDaTra.Location = new System.Drawing.Point(574, 105);
+            this.rbDaTra.Location = new System.Drawing.Point(589, 104);
             this.rbDaTra.Margin = new System.Windows.Forms.Padding(2);
             this.rbDaTra.Name = "rbDaTra";
             this.rbDaTra.Size = new System.Drawing.Size(79, 23);
@@ -617,7 +617,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(84, 32);
             this.btnReset.TabIndex = 15;
-            this.btnReset.Text = "Reset";
+            this.btnReset.Text = "Làm mới";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
