@@ -444,7 +444,7 @@ CREATE OR ALTER PROCEDURE SP_Find_TacGia
 )
 AS
 BEGIN
-	SELECT * FROM VW_TacGia_List WHERE @TenTacGia LIKE '%' + TenTacGia + '%'
+	SELECT * FROM VW_TacGia_List WHERE TenTacGia LIKE '%' + @TenTacGia + '%'
 END;
 
 GO
@@ -623,7 +623,7 @@ GO
 /* Tìm kiếm thể loại (Hoàn)*/
 CREATE OR ALTER PROCEDURE SP_Find_TheLoai
 (
-    @TenTheLoai nvarchar(50) = NULL
+    @TenTheLoai nvarchar(255) = NULL
 )
 AS
 BEGIN
@@ -850,13 +850,13 @@ GO
 /***	Find NXB (Trung)		***/
 CREATE OR ALTER PROCEDURE SP_Find_NXB
 (
-	@TenNhaXuatBan NVARCHAR(255)
+	@TenNhaXuatBan NVARCHAR(255) = NULL
 )
 AS
 BEGIN
 	SELECT 
 		*
-	FROM VW_NXB_List
+	FROM VW_NhaXuatBan_List
 	WHERE TenNhaXuatBan LIKE '%' + @TenNhaXuatBan + '%'
 END;
 

@@ -464,24 +464,44 @@ namespace LibraryManagement.GUI
 
         private void btnFindTheLoai_Click(object sender, EventArgs e)
         {
-            string tenTheLoai = txbTenTheLoai.Text;
-            TheLoaiList.DataSource = TheLoaiDAO.Instance.FindTheLoai(tenTheLoai);
+            try
+            {
+                string tenTheLoai = txbTenTheLoai.Text;
+                TheLoaiList.DataSource = TheLoaiDAO.Instance.FindTheLoai(tenTheLoai);
+            }
+            catch
+            {
+                MessageBox.Show("Không thể tìm");
+            }
         }
 
         private void btnFindTacGia_Click(object sender, EventArgs e)
         {
-            TacGia tg = new TacGia();
+            try
+            {
+                TacGia tg = new TacGia();
 
-            tg.TenTacGia = txbTenTacGia.Text;
+                tg.TenTacGia = txbTenTacGia.Text;
 
-            tacGiaList.DataSource = TacGiaDAO.Instance.FindTacGia(tg);
+                tacGiaList.DataSource = TacGiaDAO.Instance.FindTacGia(tg);
+            }
+            catch {
+                MessageBox.Show("Không thể tìm");
+            }
         }
 
         private void btnFindPushlisher_Click(object sender, EventArgs e)
         {
-            string tenNXB = txbNXB.Text;
+            try
+            {
+                string tenNXB = txbNXB.Text;
 
-            nhaxuatbanlist.DataSource = NhaXuatBanDAO.Instance.FindNhaXuatBan(tenNXB);
+                nhaxuatbanlist.DataSource = NhaXuatBanDAO.Instance.FindNhaXuatBan(tenNXB);
+            }
+            catch
+            {
+                MessageBox.Show("Không thể tìm");
+            }
         }
     }
 

@@ -53,12 +53,10 @@ namespace LibraryManagement.DAO
         public DataTable FindTheLoai(string tenTheLoai)
         {
             object TenTheLoai = tenTheLoai;
-
             if (tenTheLoai == "")
             {
                 TenTheLoai = DBNull.Value;
             }
-
             string query = "SP_Find_TheLoai @TenTheLoai ";
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { TenTheLoai });
             return data;
