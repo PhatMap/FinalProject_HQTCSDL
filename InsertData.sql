@@ -5,6 +5,26 @@ VALUES (N'Lê Chí Cương'),
        (N'Nguyễn Công Khanh'),
        (N'Nguyễn Viết Trung');
 
+INSERT INTO TacGia (TenTacGia)
+VALUES (N'Viktor Mayer'),
+	   (N'Jeff Atwood'),
+	   (N'Nam cao'),
+	   (N'Nguyễn Du'),
+	   (N'Ngô Tất Tố'),
+	   (N'Vũ Trọng Phụng'),
+	   (N'Nguyễn Hồng'),
+	   (N'Kim Lân'),
+	   (N'Thạch Lam'),
+	   (N'Nguyễn Tuân'),
+	   (N'Tô Hoài'),
+	   (N'Lưu Trọng Lư'),
+	   (N'Nguyễn Bính'),
+	   (N'Nguyễn Đình Lập'),
+	   (N'Thế Lữ'),
+	   (N'Vũ Bằng'),
+	   (N'Bích Khê'),
+	   (N'Hồ Chí Minh');
+
 -- Thêm thể loại
 INSERT INTO TheLoai (TenTheLoai)
 VALUES (N'Khoa học'),
@@ -12,11 +32,19 @@ VALUES (N'Khoa học'),
        (N'Sức khỏe'),
        (N'Công nghệ thông tin');
 
+INSERT INTO TheLoai (TenTheLoai)
+VALUES (N'Văn học');
 -- Thêm nhà xuất bản
 INSERT INTO NhaXuatBan (TenNhaXuatBan)
 VALUES (N'Đại học quốc gia TP.Hồ Chí Minh'),
        (N'Đại học quốc gia Hà Nội'),
        (N'Xây Dựng');
+INSERT INTO NhaXuatBan (TenNhaXuatBan)
+VALUES
+	   (N'Giáo dục'),
+	   (N'Kim Đồng'),
+	   (N'Trẻ'),
+	   (N'Hội Nhà Văn');
 
 -- Thêm sách
 INSERT INTO Sach (MaTacGia, MaTheLoai, MaNhaXuatBan, TenSach, LoaiTaiLieu, NamXuatBan, GiaSach, SoLuong)
@@ -25,6 +53,28 @@ VALUES
 		(2, 2, 1, N'Luật chứng khoán', N'Giáo Trình', 2023, 48000, 8),
 		(3, 3, 2, N'Trị liệu tâm lý', N'Sách tham khảo', 2023, 92000, 9),
 		(4, 4, 3, N'Tính toán cầu đúc hẫng trên phần mềm Midas', N'Sách tham khảo', 2018, 68000, 8);
+
+INSERT INTO Sach (MaTacGia, MaTheLoai, MaNhaXuatBan, TenSach, LoaiTaiLieu, NamXuatBan, GiaSach, SoLuong)
+VALUES 
+		(6, 4, 1, N'Lập Trình và Cuộc Sống', N'Sách tham khảo', 2023, 100000, 10),
+		(5, 4, 1, N'Trí Tuệ Nhân Tạo', N'Sách tham khảo', 2023, 90000, 10),
+		(5, 4, 1, N'LIFE', N'Sách tham khảo', 2023, 70000, 10),
+		(7, 4, 4, N'Chí Phèo', N'Sách tham khảo', 2015, 50000, 12),
+		(8, 4, 5, N'Truyện Kiều', N'Sách tham khảo', 2003, 20000, 9),
+		(9, 4, 5, N'Tắt Đèn', N'Sách tham khảo', 2000, 10000, 7),
+		(10, 4, 7, N'Số Đỏ', N'Sách tham khảo', 2001, 15000, 4),
+		(11, 4, 7, N'Bỉ Vỏ', N'Sách tham khảo', 2000, 12000, 8),
+		(12, 4, 7, N'Vợ Nhặt', N'Sách tham khảo', 1999, 11000, 6),
+		(13, 4, 4, N'Hà Nội 36 Phố Phường', N'Sách tham khảo', 2002, 20000, 9),
+		(14, 4, 5, N'Chùa Đàn', N'Sách tham khảo', 2001, 22000, 10),
+		(15, 4, 7, N'Trúng Số Độc Đắc', N'Sách tham khảo', 1989, 9000, 4),
+		(16, 4, 7, N'Những Ngày Thơ Ấu', N'Sách tham khảo', 2005, 20000, 5),
+		(17, 4, 4, N'Thiêng Thu', N'Sách tham khảo', 1988, 10000, 3),
+		(18, 4, 5, N'Mười Hai Bến Nước', N'Sách tham khảo', 1880, 9000, 3),
+		(19, 4, 5, N'Ngoại Ô', N'Sách tham khảo', 1989, 10000, 9),
+		(20, 4, 7, N'Lê Phong', N'Sách tham khảo', 2000, 10000, 5),
+		(21, 4, 4, N'Phù Dung Ơi, Vĩnh Biệt!', N'Sách tham khảo', 2003, 20000, 10),
+		(22, 4, 4, N'Nhật Ký Trong Tù', N'Sách tham khảo', 2005, 20000, 10);
 
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
