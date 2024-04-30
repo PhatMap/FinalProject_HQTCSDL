@@ -318,7 +318,7 @@ BEGIN
 	WHERE CS.MaPhieuMuon = @MaPhieuMuon;
 	END;
 
-	SELECT @TotalDays = DATEDIFF(DAY, PMS.NgayTra, GETDATE())
+	SELECT @TotalDays = DATEDIFF(DAY, PMS.NgayMuon, GETDATE())
 	FROM dbo.PhieuMuonSach PMS
 	WHERE PMS.MaPhieuMuon = @MaPhieuMuon;
 

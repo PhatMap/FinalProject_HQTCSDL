@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcCoupon = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -50,6 +50,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btnThemPM = new System.Windows.Forms.Button();
             this.dgvPhieuMuon = new System.Windows.Forms.DataGridView();
+            this.IDPhieuMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -79,11 +83,7 @@
             this.TienPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayTraPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
-            this.IDPhieuMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1.SuspendLayout();
+            this.tcCoupon.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -100,17 +100,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuPhat)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tcCoupon
             // 
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(967, 579);
-            this.tabControl1.TabIndex = 1;
+            this.tcCoupon.Controls.Add(this.tabPage2);
+            this.tcCoupon.Controls.Add(this.tabPage3);
+            this.tcCoupon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcCoupon.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.tcCoupon.Location = new System.Drawing.Point(0, 0);
+            this.tcCoupon.Name = "tcCoupon";
+            this.tcCoupon.SelectedIndex = 0;
+            this.tcCoupon.Size = new System.Drawing.Size(967, 579);
+            this.tcCoupon.TabIndex = 1;
+            this.tcCoupon.Click += new System.EventHandler(this.tcCoupon_Click);
             // 
             // tabPage2
             // 
@@ -368,6 +369,38 @@
             this.dgvPhieuMuon.TabIndex = 3;
             this.dgvPhieuMuon.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPhieuMuon_CellMouseClick);
             this.dgvPhieuMuon.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPhieuMuon_CellMouseDoubleClick);
+            // 
+            // IDPhieuMuon
+            // 
+            this.IDPhieuMuon.DataPropertyName = "MaPhieuMuon";
+            this.IDPhieuMuon.HeaderText = "Mã phiếu mượn";
+            this.IDPhieuMuon.MinimumWidth = 6;
+            this.IDPhieuMuon.Name = "IDPhieuMuon";
+            this.IDPhieuMuon.ReadOnly = true;
+            // 
+            // IDTaiKhoan
+            // 
+            this.IDTaiKhoan.DataPropertyName = "MaTaiKhoan";
+            this.IDTaiKhoan.HeaderText = "Mã tài khoản";
+            this.IDTaiKhoan.MinimumWidth = 6;
+            this.IDTaiKhoan.Name = "IDTaiKhoan";
+            this.IDTaiKhoan.ReadOnly = true;
+            // 
+            // NgayMuon
+            // 
+            this.NgayMuon.DataPropertyName = "NgayMuon";
+            this.NgayMuon.HeaderText = "Ngày mượn";
+            this.NgayMuon.MinimumWidth = 6;
+            this.NgayMuon.Name = "NgayMuon";
+            this.NgayMuon.ReadOnly = true;
+            // 
+            // NgayTra
+            // 
+            this.NgayTra.DataPropertyName = "NgayTra";
+            this.NgayTra.HeaderText = "Ngày trả";
+            this.NgayTra.MinimumWidth = 6;
+            this.NgayTra.Name = "NgayTra";
+            this.NgayTra.ReadOnly = true;
             // 
             // tabPage3
             // 
@@ -689,7 +722,7 @@
             // 
             // NgayTraPhat
             // 
-            this.NgayTraPhat.DataPropertyName = "NgayTra";
+            this.NgayTraPhat.DataPropertyName = "NgayTraSach";
             this.NgayTraPhat.HeaderText = "Ngày trả";
             this.NgayTraPhat.MinimumWidth = 6;
             this.NgayTraPhat.Name = "NgayTraPhat";
@@ -704,48 +737,16 @@
             this.button2.Text = "Tra";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // IDPhieuMuon
-            // 
-            this.IDPhieuMuon.DataPropertyName = "MaPhieuMuon";
-            this.IDPhieuMuon.HeaderText = "Mã phiếu mượn";
-            this.IDPhieuMuon.MinimumWidth = 6;
-            this.IDPhieuMuon.Name = "IDPhieuMuon";
-            this.IDPhieuMuon.ReadOnly = true;
-            // 
-            // IDTaiKhoan
-            // 
-            this.IDTaiKhoan.DataPropertyName = "MaTaiKhoan";
-            this.IDTaiKhoan.HeaderText = "Mã tài khoản";
-            this.IDTaiKhoan.MinimumWidth = 6;
-            this.IDTaiKhoan.Name = "IDTaiKhoan";
-            this.IDTaiKhoan.ReadOnly = true;
-            // 
-            // NgayMuon
-            // 
-            this.NgayMuon.DataPropertyName = "NgayMuon";
-            this.NgayMuon.HeaderText = "Ngày mượn";
-            this.NgayMuon.MinimumWidth = 6;
-            this.NgayMuon.Name = "NgayMuon";
-            this.NgayMuon.ReadOnly = true;
-            // 
-            // NgayTra
-            // 
-            this.NgayTra.DataPropertyName = "NgayTra";
-            this.NgayTra.HeaderText = "Ngày trả";
-            this.NgayTra.MinimumWidth = 6;
-            this.NgayTra.Name = "NgayTra";
-            this.NgayTra.ReadOnly = true;
-            // 
             // fCoupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 579);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcCoupon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fCoupon";
             this.Text = "fCoupon";
-            this.tabControl1.ResumeLayout(false);
+            this.tcCoupon.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -768,7 +769,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcCoupon;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dgvPhieuMuon;
@@ -813,15 +814,15 @@
         private System.Windows.Forms.Button btnXoaPP;
         private System.Windows.Forms.TextBox dateNgayTra;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDPhieuMuon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDTaiKhoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayMuon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayTra;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDPhat;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaTaiKhoan;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTraSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDMuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn TienPhat;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTraPhat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDPhieuMuon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDTaiKhoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayMuon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayTra;
     }
 }

@@ -108,6 +108,10 @@ namespace LibraryManagement.GUI
             string tinhTrang = cbTinhTrang.Text;
             int maSach = (int)numMaSach.Value;
             CuonSachDAO.Instance.UpdateStatus(maPhieuMuon, maSach, tinhTrang);
+            if(tinhTrang == "Đã hư" || tinhTrang == "Đã mất")
+            {
+                btnTaoPhieuPhat.Enabled = true;
+            }
             LoadCuonSach(maPhieuMuon, maPhieuPhat);
         }
 
@@ -141,6 +145,8 @@ namespace LibraryManagement.GUI
             catch
             {
                 MessageBox.Show("Đối tượng vi phạm nội quy thư viện");
+                LoadCuonSach(maPhieuMuon, maPhieuMuon);
+                btnTaoPhieuPhat.Enabled = true;
             }
         }
     }

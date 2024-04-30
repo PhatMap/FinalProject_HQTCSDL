@@ -78,25 +78,25 @@ VALUES
 
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
-VALUES	(20110536,'20110536@hcmute.edu.vn.com', 'zzzzzzzz', N'Quản trị viên', N'Trần Trung Phát', '0183476789', '2002-01-01', N'Hồ Chí Minh', N'Nam');
+VALUES	(20110536,'20110536@hcmute.edu.vn', 'zzzzzzzz', N'Quản trị viên', N'Trần Trung Phát', '0183476789', '2002-01-01', N'Hồ Chí Minh', N'Nam');
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
-VALUES	(21110862,'21110862@hcmute.edu.vn.com', 'xxxxxxxx', N'Thủ thư', N'Lê Quốc Văn', '0183456799', '2003-05-01', N'Quy Nhơn', N'Nam');
+VALUES	(21110862,'21110862@hcmute.edu.vn', 'xxxxxxxx', N'Thủ thư', N'Lê Quốc Văn', '0183456799', '2003-05-01', N'Quy Nhơn', N'Nam');
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
-VALUES	(21110827,'21110827@hcmute.edu.vn.com', 'cccccccc', N'Thủ thư', N'Trần Khải Hoàn', '0188456789', '2003-01-06', N'Đắc Lắc', N'Nam');
+VALUES	(21110827,'21110827@hcmute.edu.vn', 'cccccccc', N'Thủ thư', N'Trần Khải Hoàn', '0188456789', '2003-01-06', N'Đắc Lắc', N'Nam');
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
-VALUES	(21110333,'21110333@hcmute.edu.vn.com', 'vvvvvvvv', N'Sinh viên CLC', N'Đoàn Nguyễn Nam Trung', '0183356789', '2003-04-03', N'vũng Tàu', N'Nam');
+VALUES	(21110333,'21110333@hcmute.edu.vn', 'vvvvvvvv', N'Sinh viên CLC', N'Đoàn Nguyễn Nam Trung', '0183356789', '2003-04-03', N'vũng Tàu', N'Nam');
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
-VALUES	(20110535,'20110535@hcmute.edu.vn.com', 'bbbbbbbb', N'Sinh viên đại trà', N'Trần Trung Kiên', '0183455789', '2002-01-12', N'Hà Nội', N'Nữ');
+VALUES	(20110535,'20110535@hcmute.edu.vn', 'bbbbbbbb', N'Sinh viên đại trà', N'Trần Trung Kiên', '0183455789', '2002-01-12', N'Hà Nội', N'Nữ');
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
-VALUES	(20113536,'20113536@hcmute.edu.vn.com', 'nnnnnnnn', N'Học viên cao học', N'Nguyễn Quốc Quân', '0183456289', '2002-11-01', N'Nha Trang', N'Nam');
+VALUES	(20113536,'20113536@hcmute.edu.vn', 'nnnnnnnn', N'Học viên cao học', N'Nguyễn Quốc Quân', '0183456289', '2002-11-01', N'Nha Trang', N'Nam');
 
 INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, VaiTro, HoTen, SoDienThoai, NgaySinh, DiaChi, GioiTinh)
-VALUES	(20110556,'20110556@hcmute.edu.vn.com', 'mmmmmmmm', N'Giảng viên', N'Lê Thị Bùi', '0113456789', '2002-10-01', N'Hồ Chí Minh', N'Nữ');
+VALUES	(20110556,'20110556@hcmute.edu.vn', 'mmmmmmmm', N'Giảng viên', N'Lê Thị Bùi', '0113456789', '2002-10-01', N'Hồ Chí Minh', N'Nữ');
 
 
 DISABLE TRIGGER ALL ON PhieuMuonSach;

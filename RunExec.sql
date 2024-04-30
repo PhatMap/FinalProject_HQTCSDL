@@ -52,34 +52,75 @@ DROP LOGIN [20113536@hcmute.edu.vn.com];
 DROP USER [20110556@hcmute.edu.vn.com];
 DROP LOGIN [20110556@hcmute.edu.vn.com];
 
+SELECT * FROM VW_Book_Loan_Coupon_List
+SELECT * FROM CuonSach
 
-SELECT * FROM PhieuMuonSach
+SELECT * FROM VW_PhieuPhat_List
+SELECT * FROM PhieuPhat
 
-SELECT 1
-        FROM dbo.CuonSach CS
-		JOIN dbo.PhieuMuonSach PMS ON PMS.MaPhieuMuon = CS.MaPhieuMuon
-        JOIN dbo.Sach S ON CS.MaSach = S.MaSach
-        JOIN dbo.TaiKhoan TK ON TK.MaTaiKhoan = PMS.MaTaiKhoan
-        WHERE CS.MaPhieuMuon = 2 
-            AND (CS.TinhTrang = N'Đang mượn')
-            AND (
-                (TK.VaiTro = N'Sinh viên CLC' AND (
-                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 21) 
-                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 105)
-                ))
-                OR 
-                (TK.VaiTro = N'Sinh viên đại trà' AND (
-                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 21) 
-                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 105)
-                ))
-                OR 
-                (TK.VaiTro = N'Học viên cao học' AND (
-                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 32) 
-                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 56)
-                ))
-                OR 
-                (TK.VaiTro = N'Giảng viên' AND (
-                    (S.LoaiTaiLieu = N'Sách tham khảo' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 365) 
-                    OR (S.LoaiTaiLieu = N'Giáo trình' AND DATEDIFF(DAY, PMS.NgayMuon, GETDATE()) > 365)
-                ))
-            )
+DECLARE @LateBooks int = 0;
+DECLARE @Penalty DECIMAL(18, 0) = 0;
+	DECLARE @TotalDays INT = 0;
+	DECLARE @TotalDamagedOrLost DECIMAL(18, 0) = 0;
+
+	SELECT @TotalDamagedOrLost = ISNULL(SUM(S.GiaSach), 0)
+	FROM dbo.PhieuMuonSach PMS
+	JOIN dbo.CuonSach CS ON CS.MaPhieuMuon = PMS.MaPhieuMuon
+	JOIN dbo.Sach S ON S.MaSach = CS.MaSach
+	WHERE CS.MaPhieuMuon = 12 AND (CS.TinhTrang = N'Đã hư' OR CS.TinhTrang = N'Đã mất');
+
+
+
+	SET @TotalDamagedOrLost = @TotalDamagedOrLost * 2;
+
+	IF EXISTS (SELECT 1 FROM dbo.PhieuMuonSach PMS
+				JOIN dbo.CuonSach CS ON CS.MaPhieuMuon = PMS.MaPhieuMuon
+				WHERE CS.MaPhieuMuon = 12 AND CS.TinhTrang = N'Trả trễ')
+	BEGIN 
+	SELECT @LateBooks = COUNT(*)
+	FROM dbo.PhieuMuonSach PMS
+	JOIN dbo.CuonSach CS ON CS.MaPhieuMuon = PMS.MaPhieuMuon
+	WHERE CS.MaPhieuMuon = 12;
+	END;
+
+	SELECT @TotalDays = DATEDIFF(DAY, PMS.NgayMuon, GETDATE())
+	FROM dbo.PhieuMuonSach PMS
+	WHERE PMS.MaPhieuMuon = 12;
+
+	SET @Penalty = CAST(ISNULL(@TotalDays, 0) AS DECIMAL(18, 0)) * ISNULL(@LateBooks, 0) * 1000 + ISNULL(@TotalDamagedOrLost, 0);
+PRINT @LateBooks
+PRINT @Penalty
+PRINT @TotalDays
+
+
+
+
+DISABLE TRIGGER ALL ON PhieuMuonSach;
+SET IDENTITY_INSERT PhieuMuonSach ON;
+ALTER TABLE PhieuMuonSach NOCHECK CONSTRAINT ALL;
+
+INSERT INTO PhieuMuonSach (MaPhieuMuon, MaTaiKhoan, NgayMuon, NgayTra)
+VALUES  (1, 20113536 , '2024-04-03', NULL),
+		(2, 20110535, '2023-08-04', NULL),
+		(3, 21110333, '2023-08-05', NULL),
+		(4, 20110556, '2024-04-02', NULL);
+
+INSERT INTO CuonSach (MaSach, MaPhieuMuon, TinhTrang)
+VALUES	(1, 1, N'Đang mượn'),
+		(2, 1, N'Đang mượn'),
+		(2, 2, N'Đang mượn'),
+		(1, 2, N'Đang mượn'),
+		(3, 3, N'Đang mượn'),
+		(4, 3, N'Đang mượn'),
+		(4, 4, N'Đang mượn'),
+		(1, 4, N'Đang mượn');
+
+ENABLE TRIGGER ALL ON PhieuMuonSach;
+SET IDENTITY_INSERT PhieuMuonSach OFF;
+ALTER TABLE PhieuMuonSach CHECK CONSTRAINT ALL;
+
+exec SP_Update_Coupon_Returned @MaPhieuMuon = 12
+
+exec SP_Add_New_PhieuPhat @MaPhieuMuon = 12
+
+DELETE dbo.PhieuMuonSach where MaPhieuMuon = 4

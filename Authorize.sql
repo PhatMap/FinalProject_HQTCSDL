@@ -41,7 +41,7 @@ GRANT SELECT ON [VW_Book_List] TO DocGia
 GRANT SELECT ON [VW_NhaXuatBan_List] TO DocGia
 GRANT SELECT ON [VW_TheLoai_List] TO DocGia
 GRANT SELECT ON [VW_TacGia_List] TO DocGia
-GRANT SELECT ON [VW_NXB_List] TO DocGia
+GRANT SELECT ON [VW_NhaXuatBan_List] TO DocGia
 --Procedures + Functions
 GRANT EXECUTE ON [SP_Login] TO DocGia
 GRANT EXECUTE ON [SP_Change_Account_Password] TO DocGia

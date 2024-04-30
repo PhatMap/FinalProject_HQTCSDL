@@ -119,6 +119,7 @@ namespace LibraryManagement.GUI
         private void btnTimPM_Click(object sender, EventArgs e)
         {
             int id = (int)numMaTaiKhoan.Value;
+            rbTatCa.Enabled = true;
             phieumuonList.DataSource = PhieuMuonSachDAO.Instance.FindBookLoanCoupon(id);
         }
 
@@ -147,7 +148,7 @@ namespace LibraryManagement.GUI
                 }
             }
 
-            LoadCouponList();
+            phieumuonList.DataSource = PhieuMuonSachDAO.Instance.LoadBook_Status((int)type.ChuaTra);
         }
 
         private void btnXoaPM_Click(object sender, EventArgs e)
@@ -175,8 +176,7 @@ namespace LibraryManagement.GUI
                 fCouponDetail f = new fCouponDetail(id, 0);
                 f.ShowDialog();
 
-                rbDangMuon.Checked = false;
-                rbDangMuon.Checked = true;
+                rbDaTra.Checked = true;
             }
         }
 
@@ -293,8 +293,7 @@ namespace LibraryManagement.GUI
                 decimal debt = (decimal)numTienPhat.Value;
                 fPay f = new fPay(id, debt);
                 f.Show();
-                LoadCouponList();
-                rbtnPPChuaTra.Checked = true;
+                rbtnPPDaTra.Checked = true;
             }
             else
             {
@@ -369,6 +368,14 @@ namespace LibraryManagement.GUI
             {
                 btnThanhToan.Enabled = false;
                 btnXoaPP.Enabled = false;
+            }
+        }
+
+        private void tcCoupon_Click(object sender, EventArgs e)
+        {
+            if(tcCoupon.SelectedIndex == 1)
+            {
+                PhieuPhatList.DataSource = PhieuPhatDAO.Instance.LoadPhieuPhatListByStatus((int)type.ChuaTra);
             }
         }
     }
